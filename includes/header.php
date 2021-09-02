@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <title>Abdull teste23</title>
   </head>
-  <body class = "text-danger"style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
+  <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
 
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
@@ -55,7 +55,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastrar.php">
+                        <a class="nav-link" href="#">
                             <div id="passar_mouse">
                                 <img src="./includes/img/dentadura.png" width="30" height="30" alt="dentadura" />
                                 <div id="mostrar">Dentadura</div>

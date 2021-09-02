@@ -19,7 +19,7 @@ class db
      * Nome do banco de dados
      * @var string
      */
-    const NAME = 'test';
+    const NAME = 'dbprotetico';
 
     /**
      * Usuario de acesso ao banco de dados
@@ -151,5 +151,23 @@ class db
 
         //Retorno é o mesmo da função executeSQL. (PDOStatement)
         return $this->executeSQL($query);
+    }
+    
+    /**
+     * Método de edição 
+     * @param string $where 
+     * @param array $values
+     * @return boolean;
+     */
+    public function updateSQL($where, $values)
+    {
+        //DADOS DA QUERY
+        $fields = array_keys($values);
+        
+        $query = 'UPDATE ' . $this->table . ' SET '.implode('=?,', $fields).'=? WHERE '.$where;
+        
+        $this->execute($query,array_values($values));
+
+       return true;
     }
 }
