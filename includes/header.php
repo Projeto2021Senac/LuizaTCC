@@ -12,7 +12,7 @@
 
     <title>Abdull Proteses</title>
   </head>
-  <body class = "text-danger"style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
+  <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
 
   <nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #2D9898;">
         <div class="container-fluid">
@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./listaPaciente.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/carteira-de-identidade.png" width="30" height="30" alt="carteira id" />
                                 <div id="mostrar">Paciente</div>
