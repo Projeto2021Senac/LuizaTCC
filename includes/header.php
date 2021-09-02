@@ -11,10 +11,9 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="./css/sweetalert2.min.css">
 
-    <title>Abdull teste23</title>
+    <title>Abdull teste</title>
   </head>
-  <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
-
+  <body class = "text-danger" >
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -97,5 +96,5 @@
         </div>
 
     </nav>
-
+<div class = "container-fluid" style="background-image: url(./includes/img/bg.jpg); background-repeat: no-repeat; background-size: 100%">
     

@@ -2,7 +2,9 @@
 div container
 */ -->
 </div>
-
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;height:
+29px">
+        
 <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
