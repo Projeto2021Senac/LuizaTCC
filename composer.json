@@ -1,0 +1,19 @@
+{
+    "name": "guilhermetorquato/protetico",
+    "description": "Teste de crude com PDO ",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Guilherme Torquato",
+        "email": "guilhermetor10@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "classes/"
+
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}

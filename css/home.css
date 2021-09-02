@@ -1,0 +1,121 @@
+
+/* cor base pesquisada no site paletton 00CCCC */
+
+/*header{
+    background-color: #007979;
+    opacity: 70%;
+    height: 10%;
+    
+}
+ /* Para mobile phones: 
+  [class*="col-"] {
+    width: 100%;
+    
+  }
+
+
+utilizar meida query para deixar responsivo
+@media only screen and (min-width: 600px) {
+   Para desktop: 
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+}
+
+div.example {
+  
+  padding: 20px;
+  
+}
+
+@media screen and (min-width: 700px) {
+  div.example {
+    font-size: 15px;
+    
+  }
+}
+
+@media screen and (max-width: 700px) {
+  div.example {
+    font-size: 8px;
+  }
+}
+ body{
+    background-image: url(../img/Clínica-Odontológica.jpg); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    max-width: 100%;
+    
+    }
+
+
+h1{
+  color: white;
+  text-align: center;
+  
+}
+
+a{
+    border-radius: 5%;
+    padding: 1%;
+    background-color: #007979;
+    border-color:#53D8D8;
+    color: white;
+    border-style: outset;
+    text-decoration: none;
+    position: relative; 
+    margin-left: 85%;
+    opacity: 100%;
+    
+    
+}
+
+#section1{
+    margin-top: 5%;
+    margin-left: 35%;
+    
+}
+
+section input{
+    margin-left: 5%;
+    padding: 2%;
+    background-color: #007979;
+    border-color:#53D8D8;
+    color: white;
+    border-style: outset;
+    opacity: 70%;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+#section-notificacao{
+    height: 200px;
+    width: 100%;
+    border-radius: 5%;
+    background: black;
+    color: #007979;
+    text-align: center;
+    opacity: 60%;
+    
+}*/
+
+/*Navbar da cdepen.io - by Michael Ward*/
+
+#mostrar{
+  display: none;
+}
+
+#passar_mouse:hover #mostrar{
+  display:block;
+  }
+
+
