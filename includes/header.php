@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="./css/sweetalert2.min.css">
 
     <title>Abdull Proteses</title>
   </head>
   <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
 
-  <nav class="navbar navbar-expand-lg navbar-light p-0" style="background-color: #2D9898;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./includes/img/DL_Strapline_Black.png" alt="" width="200" height="100">
+                <img src="./includes/img/DL_Logo_wStrap_Black-01.png" alt="" width="200" height="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +27,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
 
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active" aria-current="page" href="index.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/home.png" width="30" height="30" alt="home" />
                                 <div id="mostrar">Home</div>
@@ -36,7 +37,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="./listaPaciente.php">
+                        <a class="nav-link" href="#">
                             <div id="passar_mouse">
                                 <img src="./includes/img/carteira-de-identidade.png" width="30" height="30" alt="carteira id" />
                                 <div id="mostrar">Paciente</div>
@@ -54,7 +55,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastrar.php">
+                        <a class="nav-link" href="#">
                             <div id="passar_mouse">
                                 <img src="./includes/img/dentadura.png" width="30" height="30" alt="dentadura" />
                                 <div id="mostrar">Dentadura</div>
@@ -91,10 +92,10 @@
                 <!--<form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>-->
+                    </forma>-->
             </div>
         </div>
 
     </nav>
-<div class = 'container-fluid'>
+
     
