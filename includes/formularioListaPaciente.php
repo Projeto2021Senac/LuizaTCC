@@ -22,14 +22,14 @@ foreach ($pacientes as $p) {
 
         <div class="row">
 
-            <div class="col-2 offset-5 bg-gradient rounded-3 "  style=" background-color: black;opacity: 90%">
+            <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
                 <h5 style="color: white; text-align: center ">Pacientes</h5>
             </div>
         </div>
 
 
         <div class="row">
-            <div class="col-2 offset-5 bg-gradient rounded-3" style=" background-color: black; opacity: 80%;">
+            <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
 
 
                 <form method="post" action="" style="color: white" >
@@ -44,10 +44,10 @@ foreach ($pacientes as $p) {
 
         <div class="row">
 
-            <div class="col-2 offset-5 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
+            <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
 
                 <input type="submit"  name="pesquisarPaciente"
-                       class="btn btn-success btInput p-1 offset-3" value="Pesquisar">
+                       class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
 
             </div>
 
@@ -75,7 +75,7 @@ foreach ($pacientes as $p) {
 
         <div class="col-8 offset-2">
 
-            <table class="table table-striped table-responsive">
+            <table class="table table-responsive text-white bg-dark bg-gradient">
                 <thead class="table-dark">
                     <tr><th>Prontuário</th>
                         <th>Nome</th>
@@ -86,7 +86,7 @@ foreach ($pacientes as $p) {
                 </thead>
 
 
-                <tbody class="bg-dark bg-white" >
+                <tbody >
                     <?=$resultados?>
                     
                   
