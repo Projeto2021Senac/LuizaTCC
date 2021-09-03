@@ -7,22 +7,22 @@
     </section>
     <?php
     $resultados = '';
-    foreach ($proteses as $protese) {
+    foreach ($funcionario as $funcionario) {
         $resultados .= '<tr>
-                            <td>' . $protese->id . '</td>
-                            <td>' . $protese->tipo . '</td>
-                            <td>' . $protese->material . '</td>
-                            <td>' . $protese->extensao . '</td>
-                            <td>' . $protese->dente . '</td>
-                            <td>' . $protese->qtdDente . '</td>
-                            <td>' . ($protese->ouro == 's' ? 'Sim' : 'Não') . '</td>
-                            <td>' . $protese->qtdOuro . '</td>
-                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
+                            <td>' . $funcionario->idFuncionario . '</td>
+                            <td>' . $funcionario->nome . '</td>
+                            <td>' . $funcionario->telefone . '</td>
+                            <td>' . $funcionario->email . '</td>
+                            <td>' . $funcionario->perfil . '</td>
+                            <td>' . $funcionario->login . '</td>
+                            <td>' . $funcionario->ouro . '</td>
+                            <td>' . $funcionario->senha . '</td>
+                            <td>' . $funcionario->statusfuncionario . '</td>
                             <td>
-                            <a href = editar.php?id=' . $protese->id . '>
+                            <a href = editar.php?id=' . $funcionario ->idFuncionario . '>
                             <button class = "btn btn-primary">Editar</button>
                             </a>
-                            <a href = ?id=' . $protese->id . '>
+                            <a href = ?id=' . $funcionario->idFuncionario . '>
                             <button class = "btn btn-primary">Excluir</button>
                             </a>
                             </td>
@@ -36,15 +36,16 @@
         <table class="table bg-light mt-3">
             <thead class = "bg-dark text-light">
                 <tr>
-                    <th>ID</th>
-                    <th>Tipo</th>
-                    <th>Material</th>
-                    <th>Extensão</th>
-                    <th>Dente</th>
-                    <th>qtdDentes</th>
-                    <th>Ouro</th>
-                    <th>qtdOuro</th>
-                    <th>Data Registro</th>
+                    <th>ID Funcionario:</th>
+                    <th>Nome:</th>
+                    <th>Sexo:</th>
+                    <th>Sexo:</th>
+                    <th>Telefone:</th>
+                    <th>Email:</th>
+                    <th>Perfil:</th>
+                    <th>Login:</th>
+                    <th>Senha:</th>
+                    <th>Status Funcionário:</th>
                     <th></th>
 
 
