@@ -14,9 +14,10 @@ class Funcionario{
      */
     public $idFuncionario;
     public $nome;
+    public $dtNasc;
     public $sexo;
     public $telefone;
-    public $emal;
+    public $email;
     public $perfil;
     public $login;
     public $senha;
@@ -43,6 +44,7 @@ class Funcionario{
                             //na classe funcionario, para que sejam contabilizados e devidamente adicionados à query (comando que vai pro SQL) 
                             //que está sendo montada em db.php->insertSQL.
                             'nome' => $this->nome,
+                            '$dtNasc'=>$this->dtNasc,
                             'sexo' =>$this->sexo,
                             'telefone'=> $this->telefone,
                             'email'=> $this->email,

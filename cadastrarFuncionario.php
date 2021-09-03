@@ -11,7 +11,7 @@ define('TITLE','Cadastrar Funcionário');
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
  */
 $objFuncionario = new Funcionario;
-if (isset($_POST['nome'],$_POST['cpf'],$_POST['email'])){
+
      /**
       * Aqui a classe Protese é instanciada e tem todos as sua variáveis preenchidas pelos valores recebidos do POST, exceto a dataRegistro
       * e a variável ID que são preenchidas automaticamente posteriormente.
@@ -20,12 +20,14 @@ if (isset($_POST['nome'],$_POST['cpf'],$_POST['email'])){
    
     $objFuncionario->nome = $_POST['nome'];
     $objFuncionario->sexo = $_POST['sexo'];
+    $objFuncionario->sexo = $_POST['sexo'];
     $objFuncionario->telefone = $_POST['telefone'];
     $objFuncionario->email = $_POST['email'];
     $objFuncionario->perfil = $_POST['perfil'];
     $objFuncionario->login = $_POST['login'];
     $objFuncionario->senha = $_POST['senha'];
     $objFuncionario->statusFuncionario = $_POST['statusfuncionario'];
+    echo '<pre>';print_r($objFuncionario);echo '<pre>';exit;
     //Executa a função cadastrar que está localizada na classe "Funcionario".
     $objFuncionario->cadastrar();
     //Caso a função cadastrar rode sem problemas, obrigatóriamente o valor do $objFuncionario->idFuncionario será preenchido
@@ -35,9 +37,9 @@ if (isset($_POST['nome'],$_POST['cpf'],$_POST['email'])){
     }else{
         header ('Location: index.php?status=error');
     }
-}
+
 //Monta a página, utilizando o header.php, arquivo que contém a navbar e o início da div container; o arquivo que vai ser de fato
 //o conteúdo que a página vai ter, por exemplo o home.php que está agora; e por fim o arquivo que contém o fechamento da div container, os scripts e o fechamento do html.
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formulario.php';
-include __DIR__.'/includes/listagem.php';
+include __DIR__.'/includes/formularioFuncionario.php';
+

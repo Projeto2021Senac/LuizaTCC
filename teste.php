@@ -17,7 +17,7 @@ Swal.fire(
   'That thing is still around?',
   'question'
 )
-aaaaaaa
+
 </script>
     
 </body>
