@@ -43,7 +43,7 @@
 
                             <div class="col text-center ">
                                 <figure>
-                                    <a style="text-decoration:none" href="cadastrar.php">
+                                    <a style="text-decoration:none" href="pesquisarProtese.php">
                                         <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
                                     </a>
                                 </figure>
@@ -52,7 +52,7 @@
 
                             <div class="col-sm-3 text-center ms-5">
                                 <fieldset>
-                                    <a href="cadastrar.php">
+                                    <a href="pes.php">
                                         <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
                                        
                                     </a>

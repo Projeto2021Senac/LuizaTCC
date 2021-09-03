@@ -26,6 +26,9 @@ class Protese{
     public $status;
     public $paciente;
     public $observacao;
+    public $fkConsultaT;
+    public $fkServicoT;
+
 
 
     /**
@@ -58,7 +61,10 @@ class Protese{
                             'dataRegistro'=> $this->dataRegistro,
                             'status'=> $this->status,
                             'paciente'=> $this->paciente,
-                            'observacao'=> $this->observacao
+                            'observacao'=> $this->observacao,
+                            'fkConsultaT'=>'1',
+                            'fkServicoT'=>'1'
+
 
         ]);
 
