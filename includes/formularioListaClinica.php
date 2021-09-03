@@ -13,26 +13,22 @@ if (isset($_GET['status'])) {
     }
 }
 $resultados = '';
-foreach ($pacientes as $p) {
+foreach ($clinica as $c) {
     $resultados .= '<tr> '
-            . '<td> ' . $p->prontuario . '</td>'
-            . '<td> ' . $p->nome . '</td>'
-            . '<td> ' . $p->sexo . '</td>'
-            . '<td> ' . $p->tel . '</td>'
-            . '<td> ' . $p->email . '</td>'
+            . '<td> ' . $c->idClinica . '</td>'
+            . '<td> ' . $c->nomeClinica . '</td>'
+            . '<td> ' . $c->statusClinica . '</td>'
             . '<td> 
-          <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 
+          <a href="editaClinica.php?idClinica=' . $c->idClinica . '" 
               class="btn btn-primary" >Editar</a>
-              
-            <a href="index.php?prontuario=' . $p->prontuario . '"
-                class="btn btn-primary" >Abrir prontuário</a>
+           
          </td>
          </tr>';
 }
 
 $resultados = strlen($resultados)? $resultados : 
           '<tr>'
-        . '<td colspan = "6" class = "text-center"> Nenhum paciente encontrado</td>'
+        . '<td colspan = "6" class = "text-center"> Nenhuma clínica encontrada</td>'
         . '</tr>'; 
 ?>
 
@@ -41,7 +37,7 @@ $resultados = strlen($resultados)? $resultados :
     <?php if($msg != ""){
         echo $msg; 
         echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaPaciente.php'\">";
+        URL='listaClinica.php'\">";
     }
         ?>
     <br>
@@ -51,7 +47,7 @@ $resultados = strlen($resultados)? $resultados :
         <div class="row">
 
             <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
-                <h5 style="color: white; text-align: center ">Pacientes</h5>
+                <h5 style="color: white; text-align: center ">Clínica</h5>
             </div>
         </div>
 
@@ -74,7 +70,7 @@ $resultados = strlen($resultados)? $resultados :
 
             <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
 
-                <input type="submit"  name="pesquisarPaciente"
+                <input type="submit"  name="pesquisarClinica"
                        class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
 
             </div>
@@ -92,12 +88,12 @@ $resultados = strlen($resultados)? $resultados :
 
         <div class="row">
             <div class=" col-2 offset-4">
-                <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+                <a href="listaClinica.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
 
             </div>
 
             <div class=" col-2 ">
-                <a href="cadastroPaciente.php"> <button  class="btn btn-success w-100"> Novo Paciente</button> </a>
+                <a href="cadastroClinica.php"> <button  class="btn btn-success w-100"> Nova Clínica</button> </a>
             </div>
         </div>
 
@@ -105,19 +101,17 @@ $resultados = strlen($resultados)? $resultados :
 
             <table class="table table-responsive text-white bg-dark bg-gradient">
                 <thead class="table-dark">
-                    <tr><th>Prontuário</th>
+                    <tr><th>Código</th>
                         <th>Nome</th>
-                        <th>Sexo</th>
-                        <th>Telefone</th>
-                        <th>E-mail</th>
-                        <th>Ações</th></tr>
+                        <th>Status</th>
+                        <th>Ação</th></tr>
+                        
                 </thead>
 
 
                 <tbody >
                     <?=$resultados?>
                     
-                  
                 </tbody>
 
             </table>

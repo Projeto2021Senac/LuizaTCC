@@ -9,7 +9,10 @@ use \Classes\Entity\paciente;
 
 
 //consulta vaga
-$paciente = paciente::getPaciente($_GET['prontuario']);
+if (isset($_GET['prontuario'])) {
+   $paciente = paciente::getPaciente($_GET['prontuario']); 
+}
+
 
 //validação da vaga
 if(!$paciente instanceof paciente){
