@@ -96,5 +96,5 @@
         </div>
 
     </nav>
-<div class = "container-fluid" style="background-image: url(./includes/img/bg.jpg); background-repeat: no-repeat; background-size: 100%">
+
     

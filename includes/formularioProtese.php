@@ -1,3 +1,4 @@
+<div class = "container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
 <main>
 
     <section>
@@ -13,7 +14,7 @@
 
 <form method="post" style="color: white">
     <div class="row">
-        <div class="col-8 offset-2 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+        <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 80%">
             <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
         </div>
 
@@ -24,8 +25,8 @@
                 <label>Tipo da prótese</label>
                 <select class="form-control" name="tipo" value="">
                     <option hidden="">[SELECIONE]</option>
-                    <option <?= ($objProtese->tipo == "Fixa" ? print ('selected = "selected"') : '') ?>>Fixa</option>
-                    <option <?= ($objProtese->tipo == "Removível" ? print ('selected = "selected"') : '') ?>>Removível</option>
+                    <option <?= ($objProtese->tipo == "Fixa" ? print('selected = "selected"') : '') ?>>Fixa</option>
+                    <option <?= ($objProtese->tipo == "Removível" ? print('selected = "selected"') : '') ?>>Removível</option>
                 </select>
             </div>
 
@@ -33,8 +34,8 @@
                 <label>Posição</label>
                 <select class="form-control" name="posicao">
                     <option hidden="">[SELECIONE]</option>
-                    <option <?= ($objProtese->material == "Metal" ? print ('selected = "selected"') : '') ?>>Superior</option>
-                    <option <?= ($objProtese->posicao == "Inferior" ? print ('selected = "selected"') : '') ?>>Inferior</option>
+                    <option <?= ($objProtese->material == "Metal" ? print('selected = "selected"') : '') ?>>Superior</option>
+                    <option <?= ($objProtese->posicao == "Inferior" ? print('selected = "selected"') : '') ?>>Inferior</option>
 
                 </select>
             </div>
@@ -45,8 +46,8 @@
                         <label>Material do dente</label>
                         <select class="form-control" onchange="dureza(this.value)" name="material">
                             <option hidden="">[SELECIONE]</option>
-                            <option <?= ($objProtese->material == "Metal" ? print ('selected = "selected"') : '') ?>>Metal</option>
-                            <option <?= ($objProtese->material == "Acrilico" ? print ('selected = "selected"') : '') ?>>Acrilico</option>
+                            <option <?= ($objProtese->material == "Metal" ? print('selected = "selected"') : '') ?>>Metal</option>
+                            <option <?= ($objProtese->material == "Acrilico" ? print('selected = "selected"') : '') ?>>Acrilico</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -73,15 +74,11 @@
                 <select class="form-control" name="extensao">
                     <option hidden="">[SELECIONE]</option>
                     <option>Total</option>
-                    <option>Valor</option>
+                    <option>Parcial</option>
 
                 </select>
             </div>
 
-            <div class="form-group">
-                <label>Quantidade de dentes</label>
-                <input type="number" class="form-control" name="qtdDentes">
-            </div>
             <br>
         </div>
 
@@ -113,17 +110,11 @@
                         <input name="qtdOuro" id="qtdOuro" type="number" disabled>
                     </div>
                 </div>
-
-                <div class="form-group" style="margin-top:9px">
-                    <label>Valor</label>
-                    <input type="text" class="form-control" name="valor">
+                <div class="form-group mt-2">
+                    <label>Quantidade de dentes</label>
+                    <input type="number" class="form-control" name="qtdDentes">
                 </div>
 
-
-                <div class="form-group">
-                    <label>Data</label>
-                    <input type="date" class="form-control" name="dataRegistro">
-                </div>
 
                 <div class="form-group">
                     <label>Prontuário</label>
@@ -139,7 +130,7 @@
             <label>Observações</label>
             <textarea name="observacao" class="form-control" rows="3"></textarea>
         </div>
-        <div class="col-8 offset-2 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
+        <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 100%">
             <input type="submit" name="cadastrarProtese" class=" offset-5 btn btn-lg btn-success btInput" style="width:20%" value="Cadastrar" <?php //if ($btEnviar == TRUE) echo "disabled"; 
                                                                                                                                                 ?>>
         </div>

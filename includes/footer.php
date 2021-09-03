@@ -1,9 +1,10 @@
 <!-- /**
 div container
 */ -->
-</div>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;height:
-29px">
+28px">
+</div>
+
         
 <!-- Optional JavaScript; choose one of the two! -->
 
