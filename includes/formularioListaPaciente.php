@@ -97,7 +97,7 @@ $resultados = strlen($resultados)? $resultados :
             </div>
 
             <div class=" col-2 ">
-                <a href="cadastroPaciente.php"> <button  class="btn btn-success w-100"> Novo paciente</button> </a>
+                <a href="cadastroPaciente.php"> <button  class="btn btn-success w-100"> Novo Paciente</button> </a>
             </div>
         </div>
 

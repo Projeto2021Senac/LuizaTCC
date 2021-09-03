@@ -14,6 +14,7 @@ class clinica {
     
     public $idClinica;
     public $nomeClinica;
+    public $statusClinica;
    
 
 //Método de cadastramento da clinica
@@ -23,6 +24,7 @@ class clinica {
         $db = new db('clinica');
         $this->idClinica = $db->insertSQL([
             'nomeClinica' => $this->nomeClinica,
+            'statusClinica' => $this->statusClinica,
            
         ]);
     }
@@ -35,6 +37,7 @@ class clinica {
         return (new db('clinica'))->
                         updateSQL('idClinica= ' .$this->idClinica,[
                                                             'nomeClinica' => $this->nomeClinica,
+                                                            'statusClinica' => $this->statusClinica,
                                                            
                                                         ]);
     }

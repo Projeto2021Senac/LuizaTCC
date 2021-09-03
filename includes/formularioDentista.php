@@ -51,7 +51,7 @@ if (isset($_GET['status'])) {
                         </div>
 
                         <div class="form-group">
-                            <label>Sexo: </label>
+                            <label>Status: </label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="ativo" checked="">
                                 <label class="form-check-label" for="exampleRadios1">

@@ -21,7 +21,7 @@ if (isset($_POST['cadastrarDentista'])) {
         
         $dentista->cadastrarDentista();
         
-        header ('Location: cadastroDentista.php?status=success');
+        header ('Location: listaDentista.php?status=success');
 
         //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
         //URL='cadastroDentista.php'\">";

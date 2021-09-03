@@ -13,6 +13,19 @@
     <script src="../js/sweetalert2.min.js"></script>
 
     <title>Abdull Proteses</title>
+    
+    <script>
+            function mascara(t, mask) {
+                var i = t.value.length;
+                var saida = mask.substring(1, 0);
+                var texto = mask.substring(i);
+                if (texto.substring(0, 1) != saida) {
+                    t.value += texto.substring(0, 1);
+
+                }
+            }
+
+        </script>
   </head>
   <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
 
@@ -69,8 +82,8 @@
                             <img src="./includes/img/settings.png" width="30" height="30" alt="sentings" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Parceiros</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
+                            <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

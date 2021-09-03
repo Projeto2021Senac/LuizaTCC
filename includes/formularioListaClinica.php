@@ -13,13 +13,13 @@ if (isset($_GET['status'])) {
     }
 }
 $resultados = '';
-foreach ($dentista as $d) {
+foreach ($clinica as $c) {
     $resultados .= '<tr> '
-            . '<td> ' . $d->idDentista . '</td>'
-            . '<td> ' . $d->nomeDentista . '</td>'
-            . '<td> ' . $d->statusDentista . '</td>'
+            . '<td> ' . $c->idClinica . '</td>'
+            . '<td> ' . $c->nomeClinica . '</td>'
+            . '<td> ' . $c->statusClinica . '</td>'
             . '<td> 
-          <a href="editaDentista.php?idDentista=' . $d->idDentista . '" 
+          <a href="editaClinica.php?idClinica=' . $c->idClinica . '" 
               class="btn btn-primary" >Editar</a>
            
          </td>
@@ -28,7 +28,7 @@ foreach ($dentista as $d) {
 
 $resultados = strlen($resultados)? $resultados : 
           '<tr>'
-        . '<td colspan = "6" class = "text-center"> Nenhum dentista encontrado</td>'
+        . '<td colspan = "6" class = "text-center"> Nenhuma clínica encontrada</td>'
         . '</tr>'; 
 ?>
 
@@ -37,7 +37,7 @@ $resultados = strlen($resultados)? $resultados :
     <?php if($msg != ""){
         echo $msg; 
         echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaDentista.php'\">";
+        URL='listaClinica.php'\">";
     }
         ?>
     <br>
@@ -47,7 +47,7 @@ $resultados = strlen($resultados)? $resultados :
         <div class="row">
 
             <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
-                <h5 style="color: white; text-align: center ">Dentista</h5>
+                <h5 style="color: white; text-align: center ">Clínica</h5>
             </div>
         </div>
 
@@ -70,7 +70,7 @@ $resultados = strlen($resultados)? $resultados :
 
             <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
 
-                <input type="submit"  name="pesquisarDentista"
+                <input type="submit"  name="pesquisarClinica"
                        class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
 
             </div>
@@ -88,12 +88,12 @@ $resultados = strlen($resultados)? $resultados :
 
         <div class="row">
             <div class=" col-2 offset-4">
-                <a href="listaDentista.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+                <a href="listaClinica.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
 
             </div>
 
             <div class=" col-2 ">
-                <a href="cadastroDentista.php"> <button  class="btn btn-success w-100"> Novo Dentista</button> </a>
+                <a href="cadastroClinica.php"> <button  class="btn btn-success w-100"> Nova Clínica</button> </a>
             </div>
         </div>
 
@@ -112,7 +112,6 @@ $resultados = strlen($resultados)? $resultados :
                 <tbody >
                     <?=$resultados?>
                     
-                  
                 </tbody>
 
             </table>
