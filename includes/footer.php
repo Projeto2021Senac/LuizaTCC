@@ -1,8 +1,11 @@
 <!-- /**
 div container
 */ -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;height:
+28px">
 </div>
 
+        
 <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
