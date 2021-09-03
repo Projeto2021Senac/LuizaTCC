@@ -12,7 +12,7 @@ class Protese{
      * pois mais à frente usaremos de uma funcionalidade do PDO para
      * atribuir os valores do banco diretamente à classe por meio do FETCH::CLASS.
      */
-    public $id;
+    public $idProtese;
     public $tipo;
     public $posicao;
     public $material;

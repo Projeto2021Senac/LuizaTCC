@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" style="background-image: url(./includes/img/2.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
     <div class=col-12>
         <div class="container-fluid">
             <main>
@@ -6,10 +6,10 @@
                     <div class="col-6">
                         <div class="row mt-5">
 
-                            <div class="col-md-3 text-center ">
+                            <div class="col text-center ">
                                 <figure>
                                     <a style="text-decoration:none" href="cadastrarProtese.php">
-                                        <img name="Dentadura" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
+                                        <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
                                         <!-- <legend class = "bg-dark text-white" style = "border-radius:10%;width:auto;">Cadastrar Protese</legend> -->
                                         <!-- <figcaption style = "width:auto"><h2>Teste</h2></figcaption> -->
                                     </a>
@@ -17,120 +17,91 @@
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
                                     <a href="cadastroPaciente.php">
-                                        <img name="Paciente" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
+                                        <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
                                         <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
                                     </a>
                                 </fieldset>
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="cadastrar.php">
-                                        <img name="Funcionario" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
+                                    <a href="cadastrarConsulta.php">
+                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
                                         <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
                                     </a>
                                 </fieldset>
                             </div>
 
 
-                            <!--                         <div class="col-md-3 text-center">
-                            <fieldset>
-                                <a href="cadastrar.php">
-                                    <img name="Dentadura" style="border-radius:25%;" src="./includes/img/novaProtese.png" width="200px" height="200px">
-                                    
-                                </a>
-                            </fieldset>
-                        </div> -->
 
                         </div>
                         <div class="row mt-5">
 
-                            <div class="col-md-3 text-center ">
+                            <div class="col text-center ">
                                 <figure>
                                     <a style="text-decoration:none" href="cadastrar.php">
-                                        <img name="Dentadura" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
-                                        <!-- <legend class = "bg-dark text-white" style = "border-radius:10%;width:auto;">Cadastrar Protese</legend> -->
-                                        <!-- <figcaption style = "width:auto"><h2>Teste</h2></figcaption> -->
+                                        <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
                                     </a>
                                 </figure>
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col-sm-3 text-center ms-5">
                                 <fieldset>
                                     <a href="cadastrar.php">
-                                        <img name="Paciente" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
+                                        <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
+                                       
                                     </a>
                                 </fieldset>
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
                                     <a href="cadastrar.php">
-                                        <img name="Funcionario" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
+                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
+                                      
                                     </a>
                                 </fieldset>
                             </div>
 
 
-                            <!--                         <div class="col-md-3 text-center">
-                            <fieldset>
-                                <a href="cadastrar.php">
-                                    <img name="Dentadura" style="border-radius:25%;" src="./includes/img/novaProtese.png" width="200px" height="200px">
-                                    
-                                </a>
-                            </fieldset>
-                        </div> -->
+
 
                         </div>
                         <div class="row mt-5">
 
-                            <div class="col-md-3 text-center ">
+                            <div class="col text-center ">
                                 <figure>
                                     <a style="text-decoration:none" href="cadastrar.php">
-                                        <img name="Dentadura" style="border-radius:25%;" src="./includes/img/teste.png" width="200px" height="200px">
-                                        <!-- <legend class = "bg-dark text-white" style = "border-radius:10%;width:auto;">Cadastrar Protese</legend> -->
-                                        <!-- <figcaption style = "width:auto"><h2>Teste</h2></figcaption> -->
+                                        <img name="Dentadura" class="img-fluid " style="border-radius:25%;" src="./includes/img/teste.png" width="200px" height="200px">
                                     </a>
                                 </figure>
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
                                     <a href="cadastrar.php">
-                                        <img name="Paciente" style="border-radius:25%;" src="./includes/img/pessoa2.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
+                                        <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/pessoa2.png" width="200px" height="200px">
+                                       
                                     </a>
                                 </fieldset>
                             </div>
 
 
-                            <div class="col-md-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
                                     <a href="cadastrar.php">
-                                        <img name="Funcionario" style="border-radius:25%;" src="./includes/img/abc.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
+                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/abc.png" width="200px" height="200px">
+                                        
                                     </a>
                                 </fieldset>
                             </div>
-
-
-                            <!--                         <div class="col-md-3 text-center">
-                            <fieldset>
-                                <a href="cadastrar.php">
-                                    <img name="Dentadura" style="border-radius:25%;" src="./includes/img/novaProtese.png" width="200px" height="200px">
-                                    
-                                </a>
-                            </fieldset>
-                        </div> -->
 
                         </div>
                     </div>
@@ -173,21 +144,7 @@
                                     <tr>
                                         <th class="text-center">Today</th>
                                     </tr>
-                                    <tr>
-                                        <th class="text-center">Today</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">Today</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">Today</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">Today</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">Today</th>
-                                    </tr>
+
 
                                 </tbody>
                             </table>

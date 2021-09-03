@@ -6,7 +6,7 @@ require __DIR__.'/vendor/autoload.php';
 
 use \Classes\Entity\Protese;
 
-define('TITLE','Cadastrar Protese');
+define('TITLE','Cadastrar Prótese');
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
  */
@@ -30,11 +30,12 @@ if (isset($_POST['tipo'],$_POST['qtdDentes'],$_POST['paciente'])){
     $objProtese->paciente = $_POST['paciente'];
     $objProtese->status = 'Cadastrada';
     $objProtese->observacao = $_POST['observacao'];
+    /* echo '<pre>';print_r($objProtese);echo'<pre>';exit; */
     //Executa a função cadastrar que está localizada na classe "Protese".
     $objProtese->cadastrar();
     //Caso a função cadastrar rode sem problemas, obrigatóriamente o valor do $objProtese->id será preenchido
     //Assim fazendo uma validação por meio dessa variável, e passando isso pro url da página.
-    if ($objProtese->id > 0){
+    if ($objProtese->idProtese > 0){
         header ('Location: index.php?status=success');
     }else{
         header ('Location: index.php?status=error');
