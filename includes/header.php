@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="./css/sweetalert2.min.css">
+    <script src="../js/sweetalert2.min.js"></script>
 
     <title>Abdull Proteses</title>
   </head>
@@ -37,7 +38,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./listaPaciente.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/carteira-de-identidade.png" width="30" height="30" alt="carteira id" />
                                 <div id="mostrar">Paciente</div>

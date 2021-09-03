@@ -166,7 +166,7 @@ class db
         
         $query = 'UPDATE ' . $this->table . ' SET '.implode('=?,', $fields).'=? WHERE '.$where;
         
-        $this->execute($query,array_values($values));
+        $this->executeSQL($query,array_values($values));
 
        return true;
     }

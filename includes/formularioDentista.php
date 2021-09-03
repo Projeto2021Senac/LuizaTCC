@@ -19,7 +19,7 @@ if (isset($_GET['status'])) {
      <?php if($msg != ""){
          echo $msg; 
          echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='cadastroPaciente.php'\">" ;
+        URL='cadastroDentista.php'\">" ;
      }
          
       ?>
@@ -40,49 +40,33 @@ if (isset($_GET['status'])) {
                     <form method="post" action="" style="color: white" >
                         <!-- <h3>Cadastro Paciente</h3>-->
                         <div class="form-group">
-                            <label>Número Prontuário</label>
-                            <input type="text" class="form-control" name="prontuario" readonly placeholder="Número"
-                                   value=" <?=$paciente->prontuario ?>">
+                            <label>Código</label>
+                            <input type="text" class="form-control" name="idDentista" readonly placeholder="Número"
+                                   value=" <?=$dentista->idDentista ?>">
                         </div>
 
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nome" required="" value="<?=$paciente->nome?>">
+                            <input type="text" class="form-control" name="nomeDentista" required="" value="<?=$dentista->nomeDentista?>">
                         </div>
 
                         <div class="form-group">
                             <label>Sexo: </label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios1" value="masculino" checked="">
+                                <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="ativo" checked="">
                                 <label class="form-check-label" for="exampleRadios1">
-                                    Masculino
+                                    Ativo
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios2" value="feminino"<?=$paciente->sexo == 'feminino' ? 'checked': ''?> >
+                                <input class="form-check-input" type="radio" name="status" id="exampleRadios2" value="inativo"<?=$dentista->statusDentista == 'inativo' ? 'checked': ''?> >
                                 <label class="form-check-label" for="exampleRadios2">
-                                    Feminino
+                                    Inativo
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label >Telefone</label>
-                            <input type="tel" class="form-control" name="tel"
-                                   value="<?=$paciente->tel?>">
-                        </div>
-
-                        <div class="form-group">
-                            <label >E-mail</label>
-                            <input type="email" class="form-control" name="email"
-                                   value="<?=$paciente->email?>"
-                                   >
-                        </div>
                         <br>
-
-                    
-
-                        
 
                 </div>
                 <div>

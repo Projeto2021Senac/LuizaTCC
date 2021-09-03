@@ -29,6 +29,8 @@ if (isset($_POST['cadastrarPaciente'])) {
     }
 }
 
+
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formularioPaciente.php';
 include __DIR__.'/includes/footer.php';
+ 
