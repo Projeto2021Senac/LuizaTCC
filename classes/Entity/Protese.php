@@ -60,14 +60,13 @@ class Protese{
                             'qtdOuro'=> $this->qtdOuro,
                             'dataRegistro'=> $this->dataRegistro,
                             'status'=> $this->status,
-                            'paciente'=> $this->paciente,
                             'observacao'=> $this->observacao,
                             'fkConsultaT'=>'1',
                             'fkServicoT'=>'1'
 
 
         ]);
-
+        
     }
 
     /**

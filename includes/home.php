@@ -42,19 +42,19 @@
                         <div class="row mt-5">
 
                             <div class="col text-center ">
-                                <figure>
+                                <fieldset>
                                     <a style="text-decoration:none" href="pesquisarProtese.php">
                                         <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
                                     </a>
-                                </figure>
+                                </fieldset>
                             </div>
 
 
-                            <div class="col-sm-3 text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="pes.php">
+                                    <a href="pesquisarConsulta.php">
                                         <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
-                                       
+
                                     </a>
                                 </fieldset>
                             </div>
@@ -64,7 +64,7 @@
                                 <fieldset>
                                     <a href="cadastrar.php">
                                         <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
-                                      
+
                                     </a>
                                 </fieldset>
                             </div>
@@ -88,7 +88,7 @@
                                 <fieldset>
                                     <a href="cadastrar.php">
                                         <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/pessoa2.png" width="200px" height="200px">
-                                       
+
                                     </a>
                                 </fieldset>
                             </div>
@@ -98,7 +98,7 @@
                                 <fieldset>
                                     <a href="cadastrar.php">
                                         <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/abc.png" width="200px" height="200px">
-                                        
+
                                     </a>
                                 </fieldset>
                             </div>
@@ -114,7 +114,7 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="text-center">teste2
+                                        <th class="text-center">today
                                         </th>
                                     </tr>
 

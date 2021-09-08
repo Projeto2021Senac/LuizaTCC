@@ -25,7 +25,7 @@ if (isset($_POST['tipo'],$_POST['qtdDentes'],$_POST['paciente'])){
     $objProtese->extensao = $_POST['extensao'];
     $objProtese->qtdDente = $_POST['qtdDentes'];
     $objProtese->dente = $_POST['tipoDente'];
-    $objProtese->ouro = ($_POST['tipo'] == "on" ? "s" : "n");
+    $objProtese->ouro = ($_POST['denteOuro'] == "on" ? "sim" : "nao");
     $objProtese->qtdOuro = (isset($_POST['qtdOuro']) ? $_POST['qtdOuro'] : 0);
     $objProtese->paciente = $_POST['paciente'];
     $objProtese->status = 'Cadastrada';

@@ -54,8 +54,8 @@ class paciente {
  * @param string $limit
  * return array
  */  
-    public static function getPacientes($where = null, $like = null, $order = null, $limit= null) {
-        return (new db('paciente'))->selectSQL($where, $like, $order, $limit)
+    public static function getPacientes($where = null, $like = null, $order = null, $limit= null,$fields = null) {
+        return (new db('paciente'))->selectSQL($where, $like, $order, $limit,$fields)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
 
       

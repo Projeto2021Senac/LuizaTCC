@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada
@@ -87,6 +87,7 @@ class db
         try {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
+            //echo "<pre>"; print_r($params); echo "<pre>";exit;
             return $statement;
         } catch (PDOException $e) {
             die('ERROR' . $e->getMessage());
@@ -113,9 +114,10 @@ class db
         //Comando que vai pro SQL. 
         //Query dinâmica que varia dependendo da tabela escolhida e de quantos campos a classe que rodou este método passou pelo array no parâmetro da função
         $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') values (' . implode(',', $binds) . ')';
-        
+        /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         //Roda o método executeSQL, que tem por função de fato executar o comando que criamos logo acima, substituindo as interrogações pelos valores que passamos como parâmetro
         //($query e $array_values($values)).
+        //echo "<pre>"; print_r(array_values($values)); echo "<pre>";exit;
         $this->executeSQL($query,array_values($values));
 
         //Se tiver sucesso na execução, retorna o último id inserido no banco. Em caso de falha é vazio e não retorna nada.
