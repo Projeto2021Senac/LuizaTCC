@@ -6,8 +6,12 @@
 
     </section>
     <?php
-    $resultados = '';
+
+use Classes\Dao\db;
+
+$resultados = '';
     foreach ($consultas as $consulta) {
+
         $resultados .= '<tr>
                             <td>' . $consulta->idConsulta . '</td>
                             <td>' . $consulta->dataConsulta . '</td>
@@ -37,9 +41,9 @@
             <thead class = "bg-dark text-light">
                 <tr>
                     <th>ID</th>
-                    <th>Tipo</th>
-                    <th>Material</th>
-                    <th>Extensão</th>
+                    <th>data</th>
+                    <th>hora</th>
+                    <th>status</th>
                     <th>Dente</th>
                     <th>qtdDentes</th>
                     <th>Ouro</th>

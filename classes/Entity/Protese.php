@@ -82,8 +82,8 @@ class Protese{
      * @param string $fields
      * @return array
      */
-    public static function getProteses($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('protese'))->selectSQL($where,$like,$order,$limit,$fields)
+    public static function getProteses($where = null, $like = null, $order = null, $limit = null, $fields = '*',$innerjoin = null){
+        return (new db('protese'))->selectSQL($where,$like,$order,$limit,$fields,$innerjoin)
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     /**

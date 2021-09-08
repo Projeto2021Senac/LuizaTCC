@@ -6,7 +6,6 @@ use Classes\Dao\db;
 use PDO;
 
 class Consulta {
-
     public $idConsulta;
     public $dataConsulta;
     public $horaConsulta;
@@ -16,6 +15,7 @@ class Consulta {
     public $fkFuncionario;
     public $CFKDentista;
     public $CFKClinica;
+    public $paciente;
 
     public function cadastrarConsulta(){
 
@@ -44,17 +44,44 @@ class Consulta {
      */
     public static function getConsultas($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
 
-        $db = (new db('consulta'))->selectSQL($where,$like,$order, $limit, $fields)
+       return $db = (new db('consulta'))->selectSQL($where,$like,$order, $limit, $fields)
                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
-                                 //echo "<pre>"; print_r($db); echo "<pre>";exit;
+                                // echo "<pre>"; print_r($db); echo "<pre>";exit;
     
     }
 
 
     public static function getConsulta($id){
-        $db = (new db('consulta'))->selectSQL('where idConsulta ='.$id)
+      return  $db = (new db('consulta'))->selectSQL('where idConsulta ='.$id)
                                   ->fetchObject(self::class);
-    }                           
+                                  /* echo '<pre>';print_r($db);echo'<pre>';exit; */
+                                  
+    }   
+
+    public static function getConsultaPaciente(){
+        return $db = (new db('paciente'))->selectSQL(null,null,null,null,null)
+                                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
+    }                        
+
+    /**
+     * Get the value of paciente
+     */ 
+    public function getPaciente()
+    {
+        return $this->paciente;
+    }
+
+    /**
+     * Set the value of paciente
+     *
+     * @return  self
+     */ 
+    public function setPaciente($paciente)
+    {
+        $this->paciente = $paciente;
+
+        return $this;
+    }
 }
 
 
