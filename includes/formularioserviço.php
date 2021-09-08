@@ -1,13 +1,13 @@
+<div class = "container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<main>
 
- <div class="container-fluid">
- <main>
+    <section>
+        <a href="index.php">
+            <button class="btn btn-success mt-4">Retornar</button>
+        </a>
 
-<section>
-    <a href="index.php">
-        <button class="btn btn-success mt-4">Retornar</button>
-    </a>
+    </section>
 
-</section>
 
 </main>
 
@@ -24,9 +24,9 @@
 
      
         <form method="post" action="" style="color: white" >
-            <!-- <h3>Cadastar Serviços</h3>-->
+            <!-- <h3>Cadastrar Serviços </h3>-->
             <div class="form-group">
-                <label>Número do ID Serviços:</label>
+                <label>Número do ID Funcionário:</label>
                 <input type="text" placeholder="000" class="form-control" name="idFuncionario"  
                        value=" <?=$objFuncionario->idFuncionario ?>">
             </div>
@@ -37,7 +37,7 @@
                 <input type="text"  class="form-control" name="nome"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nome?>">
             </div>
             <div class="form-group">
-                    <label>Data de Comtrato:</label>
+                    <label>Data de Nascimento:</label>
                     <input type="date" class="form-control" name="dtNasc" >
                 </div>
 

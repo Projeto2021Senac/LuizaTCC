@@ -46,8 +46,6 @@
                     <th>Perfil</th>
                     <th>Status Funcionário</th>
                     <th></th>
-
-
                 </tr>
 
             </thead>

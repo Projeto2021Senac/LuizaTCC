@@ -4,15 +4,9 @@ namespace Classes\Entity;
 
 use \Classes\Dao\db;
 use \PDO;
-class funcionario{
+class Funcionario{
 
-    /**
-     * Declaração das variáveis presentes no banco de dados.
-     * obs: não precisa ser na mesma ordem do banco porém tem que ter o mesmo nome que está no banco,
-     * pois mais à frente usaremos de uma funcionalidade do PDO para
-     * atribuir os valores do banco diretamente à classe por meio do FETCH::CLASS.
-     */
-    public $idFuncionario;
+    public $idSer;
     public $nome;
     public $dtNasc;
     public $sexo;
