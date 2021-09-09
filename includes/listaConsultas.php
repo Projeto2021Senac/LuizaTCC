@@ -1,68 +1,63 @@
-<main>
-    <section>
-        <a href="index.php">
-            <button class="btn btn-success mt-4">Retornar</button>
-        </a>
+<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+    <main>
+        <section>
+            <a href="index.php">
+                <button class="btn btn-success mt-4">Retornar</button>
+            </a>
 
-    </section>
-    <?php
+        </section>
+        <?php
 
-use Classes\Dao\db;
+        use Classes\Dao\db;
 
-$resultados = '';
-    foreach ($consultas as $consulta) {
+        $resultados = '';
+        foreach ($consultas as $consulta) {
 
-        $resultados .= '<tr>
+            $resultados .= '<tr>
                             <td>' . $consulta->idConsulta . '</td>
-                            <td>' . $consulta->dataConsulta . '</td>
-                            <td>' . $consulta->horaConsulta . '</td>
+                            <td>' . date('d/m/Y',strtotime($consulta->dataConsulta)) . '</td>
+                            <td>' . date(' H:i',strtotime($consulta->horaConsulta)) . '</td>
                             <td>' . $consulta->statusConsulta . '</td>
-                            <td>' . $consulta. '</td>
-                            <td>' . $consulta->qtdDente . '</td>
-                            <td>' . $consulta . '</td>
-                            <td>' . $consulta->qtdOuro . '</td>
-                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
+                            <td>' . $consulta->nome . '</td>
                             <td>
-                            <a href = editar.php?id=' . $protese->id . '>
+                            <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
                             <button class = "btn btn-primary">Editar</button>
                             </a>
-                            <a href = ?id=' . $protese->id . '>
-                            <button class = "btn btn-primary">Excluir</button>
+                            <a href = ?id=' . $consulta->idConsulta . '>
+                            <button class = "btn btn-danger">Excluir</button>
                             </a>
                             </td>
                             </tr>';
-    }
+        }
 
 
-    ?>
-    <section>
+        ?>
+        <section>
 
-        <table class="table bg-light mt-3">
-            <thead class = "bg-dark text-light">
-                <tr>
-                    <th>ID</th>
-                    <th>data</th>
-                    <th>hora</th>
-                    <th>status</th>
-                    <th>Dente</th>
-                    <th>qtdDentes</th>
-                    <th>Ouro</th>
-                    <th>qtdOuro</th>
-                    <th>Data Registro</th>
-                    <th></th>
+            <table class="table bg-light mt-3">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>data</th>
+                        <th>hora</th>
+                        <th>status</th>
+                        <th>Paciente atendido</th>
+
+                        <th></th>
 
 
-                </tr>
+                    </tr>
 
-            </thead>
-            <tbody>
-                <?=$resultados?>
+                </thead>
+                <tbody>
+                    <?= $resultados ?>
 
-            </tbody>
+                </tbody>
 
-        </table>
+            </table>
 
 
 
-    </section>
-</main>
+        </section>
+    </main>
+</div>

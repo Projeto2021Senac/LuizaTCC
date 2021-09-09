@@ -19,7 +19,7 @@
                             <td>' . $protese->qtdOuro . '</td>
                             <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
                             <td>
-                            <a href = editar.php?id=' . $protese->id . '>
+                            <a href = editaProtese.php?id=' . $protese->id . '>
                             <button class = "btn btn-primary">Editar</button>
                             </a>
                             <a href = ?id=' . $protese->id . '>

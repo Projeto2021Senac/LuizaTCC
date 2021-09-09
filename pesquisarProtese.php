@@ -19,5 +19,5 @@ use \Classes\Entity\Protese;
 //Monta a página, utilizando o header.php, arquivo que contém a navbar e o início da div container; o arquivo que vai ser de fato
 //o conteúdo que a página vai ter, por exemplo o home.php que está agora; e por fim o arquivo que contém o fechamento da div container, os scripts e o fechamento do html.
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/listagemProteses.php';
+include __DIR__.'/includes/listaProteses.php';
 include __DIR__.'/includes/footer.php';
