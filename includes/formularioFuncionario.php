@@ -37,7 +37,7 @@
                 <input type="text"  class="form-control" name="nome"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nome?>">
             </div>
             <div class="form-group">
-                    <label>Data de Comtrato:</label>
+                    <label>Data de Contrato:</label>
                     <input type="date" class="form-control" name="dtNasc" >
                 </div>
 
@@ -56,7 +56,6 @@
                     </label>
                 </div>
          
-            
             </div>
             <div class="form-group">
                 <label >Celular:</label>
@@ -82,10 +81,18 @@
                        Adminstrador
                     </label>
                 </div>
-                <div class="form-group">
-                </div>
-              
-                <label>Status Funcionário: </label>
+            </div>
+            <div class="form-group">
+                <label >Login:</label>
+                <input type="tel" class="form-control" name="login" value="<?=$objFuncionario->login?>"placeholder="Fulano"required="">
+            </div>
+            <div class="form-group">
+                <label >Senha:</label>
+                <input type="password"class="form-control" name="senha" style="padding-center: 45px;"value="<?=$objFuncionario->senha?>"  placeholder="oooooo"required="">
+                       
+            </div>
+            <div class="form-group">
+            <label>Status Funcionário: </label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="perfil" id="exampleRadios1" value="Ativo" checked="">
                     <label class="form-check-label" for="exampleRadios1">
@@ -98,20 +105,8 @@
                       Inativo
                     </label>
                 </div>
-            <div class="form-group">
-                <label >Login:</label>
-                <input type="tel" class="form-control" name="login" value="<?=$objFuncionario->login?>"placeholder="Fulano"required="">
             </div>
-            <div class="form-group">
-                <label >Senha:</label>
-                <input type="password"class="form-control" name="senha" style="padding-
-center: 45px;"value="<?=$objFuncionario->senha?>"  placeholder="oooooo"required="">
                        
-            </div>
-            
-            </div>
-            <br>
-         
          </div>
              <div>
             <div class="row">
