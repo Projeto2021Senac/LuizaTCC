@@ -17,16 +17,17 @@ $resultados = '';
                             <td>' . $consulta->dataConsulta . '</td>
                             <td>' . $consulta->horaConsulta . '</td>
                             <td>' . $consulta->statusConsulta . '</td>
-                            <td>' . $consulta. '</td>
-                            <td>' . $consulta->qtdDente . '</td>
-                            <td>' . $consulta . '</td>
-                            <td>' . $consulta->qtdOuro . '</td>
-                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
                             <td>
-                            <a href = editar.php?id=' . $protese->id . '>
+                            <a href = editar.php?id=' . $consulta->idConsulta . '>
                             <button class = "btn btn-primary">Editar</button>
                             </a>
-                            <a href = ?id=' . $protese->id . '>
+                            <a href = acessar.php?id=' . $consulta->idConsulta . '>
+                            <button class = "btn btn-primary">Acessar</button>
+                            </a>
+                            <a href = status.php?id=' . $consulta->idConsulta . '>
+                            <button class = "btn btn-primary">Status</button>
+                            </a>
+                            <a href = ?id=' . $consulta->idConsulta . '>
                             <button class = "btn btn-primary">Excluir</button>
                             </a>
                             </td>
@@ -44,11 +45,8 @@ $resultados = '';
                     <th>data</th>
                     <th>hora</th>
                     <th>status</th>
-                    <th>Dente</th>
-                    <th>qtdDentes</th>
-                    <th>Ouro</th>
-                    <th>qtdOuro</th>
-                    <th>Data Registro</th>
+                    <th>ações</th>
+
                     <th></th>
 
 
