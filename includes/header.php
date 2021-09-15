@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="pt-br">
   <head>
     <!-- Required meta tags -->
@@ -27,7 +27,7 @@
 
         </script>
   </head>
-  <body class = "text-danger" >
+  <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -59,7 +59,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarConsulta.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/consulta.png" width="30" height="30" alt="consulta" />
                                 <div id="mostrar">Consulta</div>
@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarProtese.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/dentadura.png" width="30" height="30" alt="dentadura" />
                                 <div id="mostrar">Dentadura</div>
@@ -95,7 +95,7 @@
                 </ul>
 
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="login.php">
                     <div id="passar_mouse">
                         <img src="./includes/img/sair.png" width="40" height="40" alt="sair" />
                         <div id="mostrar" style="color: black">Sair</div>
