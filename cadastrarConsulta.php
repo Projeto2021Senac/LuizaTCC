@@ -6,7 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use \Classes\Entity\consulta;
 
-define('TITLE', 'Cadastrar Nova Consulta');
+define('TITLE', 'Cadastrar Nova Consultaa');
 
 //if (isset($_POST['cadastrar'])){
 if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {

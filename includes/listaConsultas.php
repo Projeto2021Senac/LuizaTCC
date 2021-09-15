@@ -21,10 +21,13 @@
                             <td>' . $consulta->nome . '</td>
                             <td>
                             <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
-                            <button class = "btn btn-primary">Editar</button>
+                            <button class = "btn btn-primary">Abrir Consulta</button>
                             </a>
                             <a href = ?id=' . $consulta->idConsulta . '>
                             <button class = "btn btn-danger">Excluir</button>
+                            </a>
+                            <a href = ?id=' . $consulta->idConsulta . '>
+                            Teste
                             </a>
                             </td>
                             </tr>';

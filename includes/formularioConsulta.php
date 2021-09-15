@@ -80,7 +80,14 @@
                     <br>
 
                 </div>
+                <div class="form-group">
+                            <label>Clínica</label>
+                            <select class="form-control" name="clinica">
+                                <option hidden="">[SELECIONE]</option>
 
+                                <option value="1">Clinica Exemplo</option>
+                            </select>
+                        </div>
                 <div class="col-md-8 form-group offset-2" style=" background-color: black;opacity: 80%">
                     <label>Observações</label>
                     <textarea name="relatorio" class="form-control" rows="3"></textarea>

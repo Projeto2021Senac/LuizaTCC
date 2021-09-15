@@ -59,7 +59,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarConsulta.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/consulta.png" width="30" height="30" alt="consulta" />
                                 <div id="mostrar">Consulta</div>
@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarProtese.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/dentadura.png" width="30" height="30" alt="dentadura" />
                                 <div id="mostrar">Dentadura</div>
