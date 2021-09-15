@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada

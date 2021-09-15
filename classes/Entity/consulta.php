@@ -1,7 +1,6 @@
 <?php
 
 namespace Classes\Entity;
-
 use Classes\Dao\db;
 use PDO;
 
@@ -52,14 +51,14 @@ class Consulta {
 
 
     public static function getConsulta($id){
-      return  $db = (new db('consulta'))->selectSQL('where idConsulta ='.$id)
+      return  $db = (new db('consulta'))->selectSQL('idConsulta ='.$id)
                                   ->fetchObject(self::class);
                                   /* echo '<pre>';print_r($db);echo'<pre>';exit; */
                                   
     }   
 
     public static function getConsultaPaciente(){
-        return $db = (new db('paciente'))->selectSQL(null,null,null,null,null)
+        return $db = (new db('consulta,paciente'))->selectSQL(null,null,null,null,null,'fkProntuario,prontuario')
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
 
