@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-use Classes\Entity\Funcionario;
+use Classes\Entity\Procedimento;
 
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
@@ -13,16 +13,10 @@ $condicoes = [
     
 ];
 
-
 $where = implode(' AND ', $condicoes);
 
-
-
-$objFuncionario= Funcionario::getFuncionarios();
-
-
-
+$objProcedimento = Procedimento::getProcedimento($where);
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formularioListaFuncionario.php';
+include __DIR__.'/includes/formularioListaProcedimento.php';
 include __DIR__.'/includes/footer.php';

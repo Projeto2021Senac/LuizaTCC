@@ -4,9 +4,9 @@ namespace Classes\Entity;
 
 use \Classes\Dao\db;
 use \PDO;
-class ServicoConsulta{
+class Procedimento{
 
-    public $idServicoConsulta;
+    public $idProcedimento;
     public $nome;
     
    
@@ -14,8 +14,8 @@ class ServicoConsulta{
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('ServicoConsulta');
-        $this->idServicoConsulta= $obdb->insertSQL([ 'nome' => $this->nome]);
+        $obdb = new db('Procedimento');
+        $this->idProcedimento= $obdb->insertSQL([ 'nome' => $this->nome]);
     }
 
     /**
@@ -31,8 +31,8 @@ class ServicoConsulta{
      * @param string $fields
      * @return array
      */
-    public static function getServiConsulta($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('Servicoconsulta'))->selectSQL($where,$like,$order,$limit,$fields)
+    public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        return (new db('Procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     /**
@@ -41,8 +41,8 @@ class ServicoConsulta{
      * @param int $id
      * @return object
      */
-    public static function getServicoConsulta($idServicoConsulta){
-        return (new db('Servicoconsulta'))->selectSQL('id = '.$idServicoConsulta)
+    public static function getProcedimento($idProcedimento){
+        return (new db('Procedimento'))->selectSQL('id = '.$idProcedimento)
                                    ->fetchObject(self::class); 
 
     }

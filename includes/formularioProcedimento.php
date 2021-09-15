@@ -21,16 +21,16 @@
     <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
   
         <form method="post" action="" style="color: white" >
-            <!-- <h3>Cadastrar Serviços de Consultas </h3>-->
+            <!-- <h3>Cadastrar Procedimentos </h3>-->
                  <div class="form-group">
-                    <label>Número do ID de Serviços:</label>
-                        <input type="text" placeholder="000" class="form-control" name="idServico"  
-                         value=" <?=$objServico->idServico ?>">
+                    <label>Número do ID:</label>
+                        <input type="text" class="form-control" name="idProcedimento" placeholder="00000"
+                         value=" <?=$objProcedimento->idProcedimento?>">
                  </div>
             
             <div class="form-group">
-                <label>Nome: </label>
-                <input type="text"  class="form-control" name="nome"   placeholder="Nome do serviço realizado"required="" value="<?=$objServicoConsulta->nome?>">
+                <label>Nome do Procedimento: </label>
+                <input type="text"  class="form-control" name="nome" placeholder="Procedimento" value="<?=$objProcedimento->nome?>">
             </div>
         
         

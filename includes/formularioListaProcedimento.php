@@ -17,10 +17,17 @@
                             <td>' . $objFuncionario->email . '</td>
                             <td>' . $objFuncionario->perfil . '</td>
                             <td>' . $objFuncionario->login . '</td>
+                          
                             <td>' . $objFuncionario->statusFuncionario . '</td>
                             <td>
                             <a href = editaFuncionario.php?id=' . $objFuncionario->idFuncionario . '>
                             <button type="button" class="btn btn-info">Editar</button>
+                            </a>
+                            <a href = ?id=' . $objFuncionario->idFuncionario . '>
+                            <button type="button" class="btn btn-primary">Excluir</button>
+                            </a>
+                            <a href = ?id=' . $objFuncionario->idFuncionario . '>
+                            <button type="button" class="btn btn-danger">Cancelar</button>
                             </a>
                             </td>
                             </tr>';

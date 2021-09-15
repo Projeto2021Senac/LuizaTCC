@@ -1,5 +1,5 @@
 
- <div class="container-fluid">
+ <div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
  <main>
 
 <section>
@@ -44,13 +44,13 @@
             <div class="form-group">
                 <label>Sexo: </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" id="exampleRadios1" value="masculino" checked="">
+                    <input class="form-check-input" type="radio" name="sexo" value="masculino" checked="">
                     <label class="form-check-label" for="exampleRadios1">
                         Masculino
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" id="exampleRadios2" value="feminino"<?=$objFuncionario->sexo == 'feminino' ? 'checked': ''?> >
+                    <input class="form-check-input" type="radio" name="sexo" value="feminino"<?=$objFuncionario->sexo == 'feminino' ? 'checked': ''?> >
                     <label class="form-check-label" for="exampleRadios2">
                         Feminino
                     </label>
@@ -64,20 +64,20 @@
             </div>
             <div class="form-group">
                 <label >E-mail:</label>
-                <input type="tel" class="form-control" name="nome" placeholder="email@gmail.com"required=""
+                <input type="tel" class="form-control" name="email" placeholder="email@gmail.com"required=""
                        value="<?=$objFuncionario->email?>">
             </div>
             <div class="form-group">
                 <label>Perfil: </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil" id="exampleRadios1" value="Funcioanário" checked="">
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input class="form-check-input" type="radio" name="perfil" id="" value="Funcionário" checked="">
+                    <label class="form-check-label" for="exampleRadios3">
                        Funcionário
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil" id="exampleRadios2" value="Administrador"<?=$objFuncionario->perfil== 'Administrador' ? 'checked': ''?> >
-                    <label class="form-check-label" for="exampleRadios2">
+                    <input class="form-check-input" type="radio" name="perfil"  value="Administrador"<?=$objFuncionario->perfil== 'Administrador' ? 'checked': ''?> >
+                    <label class="form-check-label" >
                        Adminstrador
                     </label>
                 </div>
@@ -94,14 +94,14 @@
             <div class="form-group">
             <label>Status Funcionário: </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil" id="exampleRadios1" value="Ativo" checked="">
-                    <label class="form-check-label" for="exampleRadios1">
+                    <input class="form-check-input" type="radio" name="status"  value="Ativo" checked="">
+                    <label class="form-check-label" >
                        Ativo
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil" id="exampleRadios2" value="Inativo"<?=$objFuncionario->statusFuncionario== 'Inativo' ? 'checked': ''?> >
-                    <label class="form-check-label" for="exampleRadios2">
+                    <input class="form-check-input" type="radio" name="status"  value="Inativo"<?=$objFuncionario->statusFuncionario== 'Inativo' ? 'checked': ''?> >
+                    <label class="form-check-label" >
                       Inativo
                     </label>
                 </div>

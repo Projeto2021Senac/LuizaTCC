@@ -18,7 +18,7 @@ if (!$objFuncionario instanceof Funcionario){
     exit;
 }
 
-if (isset($_POST['tipo'],$_POST['qtdDentes'],$_POST['percil'])){
+if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     
     $objFuncionario = new Funcionario;
     $objFuncionario->nome = $_POST['nome'];
@@ -32,7 +32,8 @@ if (isset($_POST['tipo'],$_POST['qtdDentes'],$_POST['percil'])){
     $objFuncionario->statusFuncionario =$_POST['statusFuncionario'];
          
     $objFuncionario->cadastrar();
-    
+    $objFuncionario->AtualizarFuncionario();
+
     header ('Location: index.php?status=success');
 
 /*     if ($objFuncionario->id > 0){

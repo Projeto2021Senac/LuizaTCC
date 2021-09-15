@@ -7,7 +7,7 @@ use \Classes\Entity\funcionario;
 define('TITLE','Cadastrar Funcionário');
 
 $objFuncionario = new Funcionario;
-if (isset($_POST['nome'],$_POST['login'],$_POST['statusfuncionario'])){
+if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
 
     $objFuncionario->nome = $_POST['nome'];
     $objFuncionario->dtNasc = $_POST['dtNasc'];
@@ -17,8 +17,8 @@ if (isset($_POST['nome'],$_POST['login'],$_POST['statusfuncionario'])){
     $objFuncionario->perfil = $_POST['perfil'];
     $objFuncionario->login = $_POST['login'];
     $objFuncionario->senha = $_POST['senha'];
-    $objFuncionario->statusFuncionario = $_POST['statusfuncionario'];
-    echo '<pre>';print_r($objFuncionario);echo '<pre>';exit;
+    $objFuncionario->statusFuncionario = $_POST['status'];
+    //echo '<pre>';print_r($objFuncionario);echo '<pre>';exit;
     
     $objFuncionario->cadastrar();
    

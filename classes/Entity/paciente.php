@@ -38,7 +38,7 @@ class paciente {
      */
     public function editarPaciente() {
         return (new db('paciente'))->
-                update('prontuario= ' .$this->prontuario,[
+                updateSQL('prontuario= ' .$this->prontuario,[
                                                             'nome' => $this->nome,
                                                             'sexo' => $this->sexo,
                                                             'tel' => $this->tel,

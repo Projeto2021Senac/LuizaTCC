@@ -4,7 +4,9 @@ namespace Classes\Entity;
 
 use \Classes\Dao\db;
 use \PDO;
-class Funcionario{
+
+class Funcionario
+{
 
     public $idFuncionario;
     public $nome;
@@ -16,23 +18,24 @@ class Funcionario{
     public $login;
     public $senha;
     public $statusFuncionario;
-   
-    public function cadastrar(){
+
+    public function cadastrar()
+    {
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
         $obdb = new db('funcionario');
         $this->idFuncionario = $obdb->insertSQL([
-                            'nome' => $this->nome,
-                            '$dtNasc'=>$this->dtNasc,
-                            'sexo' =>$this->sexo,
-                            'telefone'=> $this->telefone,
-                            'email'=> $this->email,
-                            'perfil'=> $this->perfil,
-                            'login'=> $this->login,
-                            'senha'=> $this->senha,
-                            'statusFuncionario'=>$this->statusFuncionario ]);
-
+            'nome' => $this->nome,
+            'dtNasc' => $this->dtNasc,
+            'sexo' => $this->sexo,
+            'telefone' => $this->telefone,
+            'email' => $this->email,
+            'perfil' => $this->perfil,
+            'login' => $this->login,
+            'senha' => $this->senha,
+            'statusFuncionario' => $this->statusFuncionario
+        ]);
     }
 
     /**
@@ -48,9 +51,10 @@ class Funcionario{
      * @param string $fields
      * @return array
      */
-    public static function getFuncionario($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('funcionario'))->selectSQL($where,$like,$order,$limit,$fields)
-                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
+    public static function getFuncionarios($where = null, $like = null, $order = null, $limit = null, $fields = '*')
+    {
+        return (new db('funcionario'))->selectSQL($where, $like, $order, $limit, $fields)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
     /**
      * Método para obter uma vaga específica por meio do uso do ID $id
@@ -58,9 +62,23 @@ class Funcionario{
      * @param int $id
      * @return object
      */
-    public static function gatFuncionario($idFuncionario){
-        return (new db('funcionario'))->selectSQL('id = '.$idFuncionario)
-                                   ->fetchObject(self::class); 
-
+    public static function getFuncionario($idFuncionario)
+    {
+        return (new db('funcionario'))->selectSQL('id = ' . $idFuncionario)
+            ->fetchObject(self::class);
+    }
+    public function AtualizarFuncionario()
+    {
+        return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
+                'nome' => $this->nome,
+                'dtNasc' => $this->dtNasc,
+                'sexo' => $this->sexo,
+                'telefone' => $this->telefone,
+                'email' => $this->email,
+                'perfil' => $this->perfil,
+                'login' => $this->login,
+                'senha' => $this->senha,
+                'statusFuncionario' => $this->statusFuncionario
+            ]);
     }
 }

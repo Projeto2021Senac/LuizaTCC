@@ -2,26 +2,24 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use \Classes\Entity\ ServicoConsulta;
-use Classes\Entity\ ServicoConsulta;
+use \Classes\Entity\procedimento;
 
-define('TITLE','Cadastrar Serviços de Consulta');
+define('TITLE','Cadastro Procedimento');
 
-$objServicoConsulta = new ServicoConsulta;
+$objProcedimento = new Procedimento;
 if (isset($_POST['nome'])){
 
-    $objServicoConsulta->nome = $_POST['nome'];
-    echo '<pre>';print_r($objServicoConsulta);echo '<pre>';exit;
+    $objProcedimento->nome = $_POST['nome'];
+    echo '<pre>';print_r($objProcedimento);echo '<pre>';exit;
     
-    $objServicoConsulta->cadastrar();
+    $objProcedimento->cadastrar();
    
-    if ($objServicoConsulta->idServicoConsulta > 0){
+    if ($objProcedimento->idProcedimento > 0){
         header ('Location: index.php?status=success');
     }else{
-        header ('Location: index.php?status=error');
-    }
+        header ('Location: index.php?status=error'); }
 }
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formularioServicoConsulta.php';
+include __DIR__.'/includes/formularioProcedimento.php';
 include __DIR__.'/includes/footer.php';

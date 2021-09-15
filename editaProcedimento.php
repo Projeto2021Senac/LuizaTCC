@@ -5,32 +5,32 @@ require 'vendor/autoload.php';
 define('TITLE', 'Editar Paciente');
 define('BTN', 'editarPaciente');
 
-use \Classes\Entity\ServicoConsulta;
+use \Classes\Entity\Procedimento;
 
 //consulta vaga
-$paciente = ServicoConsulta::getServicoConsulta($_GET['idServicoconsulta']);
+$Procedimento = Procedimento::getProcedimento($_GET['idServicoconsulta']);
 
 //validação da vaga
-if(!$ServicoConsulta instanceof ServicoConsulta){
+if(!$ServicoConsulta instanceof Procedimento){
     header('location: index.php?status=error');
 }
 
-if (isset($_POST['editarServiço'])) {
+if (isset($_POST['editarProcedimento'])) {
 
     if (!empty($_POST['nome'])) {
 
-        $ServicoConsulta->prontuario = $_POST['idServicoconsulta'];
-                unset($_POST['editarServicoConsulta']);
+        $Procedimento->prontuario = $_POST['idProcedimento'];
+                unset($_POST['editarProcedimento']);
 
-        $ServicoConsulta->editarServicoConsulta();
+        $Procedimento->editarProcedimento();
 
         header('Location: lista.php?status=success');
     }
 }
 
 //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
-//URL='cadastroServicoConsulta.php'\">";
+//URL='cadastroProcedimento.php'\">";
 
 include __DIR__ . '/includes/header.php';
-include __DIR__ . '/includes/formularioServicoConsulta.php';
+include __DIR__ . '/includes/formularioProcedimento.php';
 include __DIR__ . '/includes/footer.php';
