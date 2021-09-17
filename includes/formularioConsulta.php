@@ -57,9 +57,8 @@
                             <select class="form-control" name="dentista">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
-                                echo "<pre>"; print_r($objClinica2->idClinica); echo "<pre>";exit;
                                 foreach ($objDentista as $dentista){
-                                    echo "<option value =".$dentista->idDentista." ".($objConsulta->CFKDentista == $dentista->idDentista ? print ('selected = selected') : '').">".$dentista->nomeDentista."</option>";
+                                    echo "<option value =".$dentista->idDentista.">".$dentista->nomeDentista."</option>";
                                 }
                                 ?>
                             </select>
