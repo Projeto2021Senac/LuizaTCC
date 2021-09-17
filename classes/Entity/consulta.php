@@ -29,7 +29,7 @@ class Consulta {
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
         ]);
-
+            
     }
     /**
      * Função

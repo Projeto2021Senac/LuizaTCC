@@ -4,47 +4,78 @@
 require __DIR__.'/vendor/autoload.php';
 
 use Classes\Entity\Consulta;
-use \Classes\Entity\Protese;
+use \Classes\Entity\clinica;
+use \Classes\Entity\dentista;
+use \Classes\Entity\paciente;
+use \Classes\Entity\funcionario;
 
 define('TITLE','Editar Protese');
+$objConsulta = consulta::getConsulta($_GET['id']);
+/* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
+$objClinica = clinica::getClinicas();
+/* echo "<pre>"; print_r($objClinica); echo "<pre>";exit; */
+$objDentista = dentista::getDentistas();
+/* echo "<pre>"; print_r($objDentista); echo "<pre>";exit; */
+$objPaciente = paciente::getPacientes();
+/* echo "<pre>"; print_r($objPaciente); echo "<pre>";exit; */
+$objFuncionario = funcionario::getFuncionarios();
+/* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
 
+$objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
+/* echo "<pre>"; print_r($objClinica2); echo "<pre>";exit; */
+$objDentista2 = dentista::getDentista($objConsulta->CFKDentista);
+/* echo "<pre>"; print_r($objDentista2); echo "<pre>";exit; */
+$objPaciente2 = paciente::getPaciente($objConsulta->fkProntuario);
+/* echo "<pre>"; print_r($objPaciente2); echo "<pre>";exit; */
+$objFuncionario2 = funcionario::getFuncionario($objConsulta->fkFuncionario);
+/* echo "<pre>"; print_r($objFuncionario2); echo "<pre>";exit; */
 
 //Validação do GET
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
     header ('Location: index.php?status=error');
 }
-$objConsulta = consulta::getConsulta($_GET['id']);
 
-//echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
 
-//Validação da Prótese
-if (!$objConsulta instanceof Consulta){
+//Validação da Consulta
+/* if (!$objConsulta instanceof consulta){
+    header ('Location: index.php?status=error');
+    exit;
+} */
+/* if (!$objClinica instanceof clinica){
     header ('Location: index.php?status=error');
     exit;
 }
+if (!$objDentista instanceof dentista){
+    header ('Location: index.php?status=error');
+    exit;
+}
+if (!$objPaciente instanceof paciente){
+    header ('Location: index.php?status=error');
+    exit;
+}
+if (!$objFuncionario instanceof funcionario){
+    header ('Location: index.php?status=error');
+    exit;
+} */
 
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
  */
-if (isset($_POST['tipo'],$_POST['qtdDentes'],$_POST['paciente'])){
+if (isset($_POST['paciente'],$_POST['data'],$_POST['hora'],$_POST['dentista'],$_POST['clinica'],$_POST['status'])){
      /**
       * Aqui a classe Protese é instanciada e tem todos as sua variáveis preenchidas pelos valores recebidos do POST, exceto a dataRegistro
       * e a variável ID que são preenchidas automaticamente posteriormente.
       * Pode-se notar alguns tratamentos com operadores ternários para dureza, ouro, e quantidade
       */
-    $objProtese = new Protese;
-    $objProtese->tipo = $_POST['tipo'];
-    $objProtese->posicao = $_POST['posicao'];
-    $objProtese->material = $_POST['material'];
-    $objProtese->dureza = (isset($_POST['nivelDureza']) ? $_POST['nivelDureza'] : "Metal");
-    $objProtese->extensao = $_POST['extensao'];
-    $objProtese->qtdDente = $_POST['qtdDentes'];
-    $objProtese->dente = $_POST['tipoDente'];
-    $objProtese->ouro = ($_POST['tipo'] == "on" ? "s" : "n");
-    $objProtese->qtdOuro = (isset($_POST['qtdOuro']) ? $_POST['qtdOuro'] : 0);
-    $objProtese->paciente = $_POST['paciente'];
-    $objProtese->status = 'Cadastrada';
-    $objProtese->observacao = $_POST['observacao'];
+      echo "<pre>"; print_r($_POST['clinica']); echo "<pre>";exit;
+    $objConsulta2 = new consulta;
+    $objConsulta2->tipo = $_POST['paciente'];
+    $objConsulta2->posicao = $_POST['dentista'];
+    $objConsulta2->material = $_POST['clinica'];
+    $objConsulta2->extensao = $_POST['data'];
+    $objConsulta2->qtdDente = $_POST['hora'];
+    $objConsulta2->dente = $_POST['status'];
+    $objConsulta2->paciente = $_POST['relatorio'];
     //Executa a função cadastrar que está localizada na classe "Protese".
     $objProtese->cadastrar();
     

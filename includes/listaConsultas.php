@@ -23,11 +23,8 @@
                             <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
                             <button class = "btn btn-primary">Abrir Consulta</button>
                             </a>
-                            <a href = ?id=' . $consulta->idConsulta . '>
-                            <button class = "btn btn-danger">Excluir</button>
-                            </a>
-                            <a href = ?id=' . $consulta->idConsulta . '>
-                            Teste
+                            <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
+                            <button class = "btn btn-danger">Corrigir</button>
                             </a>
                             </td>
                             </tr>';
@@ -45,7 +42,8 @@
                         <th>hora</th>
                         <th>status</th>
                         <th>Paciente atendido</th>
-
+                        <th>Ações</th>
+                        
                         <th></th>
 
 

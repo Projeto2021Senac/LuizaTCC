@@ -5,8 +5,17 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 use \Classes\Entity\consulta;
+use \Classes\Entity\clinica;
+use \Classes\Entity\dentista;
+use \Classes\Entity\paciente;
+use \Classes\Entity\funcionario;
 
 define('TITLE', 'Cadastrar Nova Consultaa');
+$objClinica = clinica::getClinicas();
+$objDentista = dentista::getDentistas();
+$objPaciente = paciente::getPacientes();
+$objFuncionario = funcionario::getFuncionarios();
+//echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit;
 
 //if (isset($_POST['cadastrar'])){
 if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
@@ -18,7 +27,8 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
     $objConsulta->fkProntuario = $_POST['paciente'];
     $objConsulta->fkFuncionario = (isset($_SESSION['perfil']) ? $_SESSION['perfil'] : '1');
     $objConsulta->CFKClinica = $_POST['clinica'];
-    $objConsulta->CFKDentista = $_POST['dentista'];
+    $objConsulta->CFKDentista = $_POST['dentista']; 
+    //echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
 
     //echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
     $objConsulta->cadastrarConsulta();

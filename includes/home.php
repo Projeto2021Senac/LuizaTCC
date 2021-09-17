@@ -8,77 +8,8 @@
 
                             <div class="col text-center ">
                                 <figure>
-                                    <a style="text-decoration:none" href="cadastrarProtese.php">
-                                        <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
-                                        <!-- <legend class = "bg-dark text-white" style = "border-radius:10%;width:auto;">Cadastrar Protese</legend> -->
-                                        <!-- <figcaption style = "width:auto"><h2>Teste</h2></figcaption> -->
-                                    </a>
-                                </figure>
-                            </div>
-
-
-                            <div class="col text-center ms-5">
-                                <fieldset>
-                                    <a href="cadastroPaciente.php">
-                                        <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
-                                    </a>
-                                </fieldset>
-                            </div>
-
-
-                            <div class="col text-center ms-5">
-                                <fieldset>
-                                    <a href="cadastrarConsulta.php">
-                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
-                                        <!-- <legend class="bg-dark text-white" style="border-radius:10%;width:auto">Cadastrar Protese</legend> -->
-                                    </a>
-                                </fieldset>
-                            </div>
-
-
-
-                        </div>
-                        <div class="row mt-5">
-
-                            <div class="col text-center ">
-                                <fieldset>
                                     <a style="text-decoration:none" href="pesquisarProtese.php">
-                                        <img name="Dentadura" class="img-fluid" style="border-radius:25%;" src="./includes/img/novaProtese2.png" width="200px" height="200px">
-                                    </a>
-                                </fieldset>
-                            </div>
-
-
-                            <div class="col text-center ms-5">
-                                <fieldset>
-                                    <a href="pesquisarConsulta.php">
-                                        <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoPaciente.png" width="200px" height="200px">
-
-                                    </a>
-                                </fieldset>
-                            </div>
-
-
-                            <div class="col text-center ms-5">
-                                <fieldset>
-                                    <a href="cadastrar.php">
-                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/novoFuncionario.png" width="200px" height="200px">
-
-                                    </a>
-                                </fieldset>
-                            </div>
-
-
-
-
-                        </div>
-                        <div class="row mt-5">
-
-                            <div class="col text-center ">
-                                <figure>
-                                    <a style="text-decoration:none" href="cadastrar.php">
-                                        <img name="Dentadura" class="img-fluid " style="border-radius:25%;" src="./includes/img/teste.png" width="200px" height="200px">
+                                        <img name="Dentadura" class="img-fluid " style="border-radius:25%;" src="./includes/img/novaProtese3.png" width="200px" height="200px">
                                     </a>
                                 </figure>
                             </div>
@@ -86,7 +17,7 @@
 
                             <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="cadastrar.php">
+                                    <a href="listaPaciente.php">
                                         <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/pessoa2.png" width="200px" height="200px">
 
                                     </a>
@@ -96,13 +27,23 @@
 
                             <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="cadastrar.php">
+                                    <a href="listaFuncionario.php">
                                         <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/abc.png" width="200px" height="200px">
 
                                     </a>
                                 </fieldset>
                             </div>
 
+                        </div>
+                        <div class="row mt-5">
+                        <div class="col text-center ms-5">
+                                <fieldset>
+                                    <a href="pesquisarConsulta.php">
+                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/Consulta2.png" width="200px" height="200px">
+
+                                    </a>
+                                </fieldset>
+                            </div>
                         </div>
                     </div>
                     <!--                 <div class="col-1"></div> -->
