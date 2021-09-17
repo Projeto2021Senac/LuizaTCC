@@ -64,7 +64,7 @@ class Funcionario
      */
     public static function getFuncionario($idFuncionario)
     {
-        return (new db('funcionario'))->selectSQL('id = ' . $idFuncionario)
+        return (new db('funcionario'))->selectSQL('idFuncionario = ' . $idFuncionario)
             ->fetchObject(self::class);
     }
     public function AtualizarFuncionario()

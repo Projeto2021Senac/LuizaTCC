@@ -1,7 +1,7 @@
 <main>
     <section>
         <a href="index.php">
-            <button class="btn btn-success mt-4">Retornar</button>
+            <button class="btn btn-success mt-4">Menu</button>
         </a>
 
     </section>

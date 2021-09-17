@@ -7,18 +7,18 @@ use \PDO;
 class Procedimento{
 
     public $idProcedimento;
-    public $nome;
+    public $nomeProcedimento;
     
    
-    public function cadastrar(){
+    public function cadastro(){
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
         $obdb = new db('Procedimento');
-        $this->idProcedimento= $obdb->insertSQL([ 'nome' => $this->nome]);
+        $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nome]);
     }
 
-    /**
+   /**
      * Função responsável por: executar a function presente em db.php->selectSQL passando os parâmetros desejados; Receber os dados pesquisados por ela; Atribuí-los
      * à classe por meio do PDO::FETCH_CLASS em várias instancias de uma só vez
      * Para mais informações sobre isso: descomentar a linha 14 de pesquisar.php. 
@@ -31,9 +31,10 @@ class Procedimento{
      * @param string $fields
      * @return array
      */
-    public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('Procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
-                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
+    public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*')
+    {
+        return (new db('procedimento'))->selectSQL($where, $like, $order, $limit, $fields)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
     /**
      * Método para obter uma vaga específica por meio do uso do ID $id
@@ -41,9 +42,14 @@ class Procedimento{
      * @param int $id
      * @return object
      */
-    public static function getProcedimento($idProcedimento){
-        return (new db('Procedimento'))->selectSQL('id = '.$idProcedimento)
-                                   ->fetchObject(self::class); 
-
+    public static function getProcedimento($idProcedimento)
+    {
+        return (new db('procedimento'))->selectSQL('idProcedimento= ' . $idProcedimento)
+            ->fetchObject(self::class);
+    }
+    public function AtualizarProcedimento()
+    {
+        return (new db('procedimento'))->updateSQL('idProcedimento= ' . $this->idProcedimento, [
+                'nome' => $this->nomeProcedimento]);
     }
 }

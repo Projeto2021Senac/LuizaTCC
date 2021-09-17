@@ -12,7 +12,7 @@ if (isset($_POST['nome'])){
     $objProcedimento->nome = $_POST['nome'];
     echo '<pre>';print_r($objProcedimento);echo '<pre>';exit;
     
-    $objProcedimento->cadastrar();
+    $objProcedimento->cadastro();
    
     if ($objProcedimento->idProcedimento > 0){
         header ('Location: index.php?status=success');

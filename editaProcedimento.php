@@ -1,35 +1,38 @@
 <?php
 
-require 'vendor/autoload.php';
-
-define('TITLE', 'Editar Paciente');
-define('BTN', 'editarPaciente');
-
+require __DIR__.'vendor/autoload.php';
 use \Classes\Entity\Procedimento;
 
-//consulta vaga
-$Procedimento = Procedimento::getProcedimento($_GET['idServicoconsulta']);
+define('TITLE', 'Editar Procedimento');
+define('BTN', 'editarProcedimento');
 
-//validação da vaga
-if(!$ServicoConsulta instanceof Procedimento){
+if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
+    header ('Location: cadastrarProcedimento.php?status=error');
+}
+$objProcedimento = Procedimento::getProcedimento($_GET['id']);
+
+
+if(!$objProcedimento instanceof Procedimento){
     header('location: index.php?status=error');
+    exit;
 }
 
-if (isset($_POST['editarProcedimento'])) {
+if (isset($_POST['idProcedimento'],$_POST['nomeProcedimento'])){
+    
+    $objProcedimento = new Procedimento;
+    $objProcedimento->nomeProcedimento = $_POST['nomeProcedimento'];
+    
+    $objProcedimento->cadastro();
+    $objProcedimento->AtualizarProcedimento();
 
-    if (!empty($_POST['nome'])) {
+    header ('Location: index.php?status=success');
 
-        $Procedimento->prontuario = $_POST['idProcedimento'];
-                unset($_POST['editarProcedimento']);
-
-        $Procedimento->editarProcedimento();
-
-        header('Location: lista.php?status=success');
-    }
+/*     if ($objProcedimento->id > 0){
+        header ('Location: index.php?status=success');
+    }else{
+        header ('Location: index.php?status=error');
+    } */
 }
-
-//echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
-//URL='cadastroProcedimento.php'\">";
 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/formularioProcedimento.php';

@@ -15,7 +15,7 @@ $condicoes = [
 
 $where = implode(' AND ', $condicoes);
 
-$objProcedimento = Procedimento::getProcedimento($where);
+$objProcedimento = Procedimento::getProcedimentos();
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formularioListaProcedimento.php';
