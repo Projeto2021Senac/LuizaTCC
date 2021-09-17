@@ -4,7 +4,7 @@
 
 <section>
     <a href="index.php">
-        <button class="btn btn-success mt-4">Menu</button>
+        <button class="btn btn-success mt-4">Retornar</button>
     </a>
 
 </section>
@@ -84,7 +84,7 @@
             </div>
             <div class="form-group">
                 <label >Login:</label>
-                <input type="tel" class="form-control" name="login" value="<?=$objFuncionario->login?>"placeholder=""required="">
+                <input type="tel" class="form-control" name="login" value="<?=$objFuncionario->login?>"placeholder="Fulano"required="">
             </div>
             <div class="form-group">
                 <label >Senha:</label>
@@ -113,7 +113,7 @@
             <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
                 <br>
                 <input type="submit"  name="<?=BTN ?>"
-                       class="btn btn-success btInput p-1 offset-5" value="Salvar"
+                       class="btn btn-success btInput p-1 offset-5" value="Cadastrar"
                        <?php //if ($btEnviar == TRUE) echo "disabled"; ?>>
                 <br>
                 <br>

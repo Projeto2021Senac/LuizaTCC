@@ -96,6 +96,10 @@
 
                     </select>
                 </div>
+                <div class="form-group mt-2">
+                    <label>Quantidade de dentes</label>
+                    <input type="number" class="form-control" name="qtdDentes">
+                </div>
 
                 <br>
 
@@ -109,10 +113,6 @@
                     <div class="col-4">
                         <input name="qtdOuro" id="qtdOuro" type="number" disabled>
                     </div>
-                </div>
-                <div class="form-group mt-2">
-                    <label>Quantidade de dentes</label>
-                    <input type="number" class="form-control" name="qtdDentes">
                 </div>
 
 

@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="pt-br">
   <head>
     <!-- Required meta tags -->
@@ -10,10 +10,24 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="./css/sweetalert2.min.css">
+    <script src="../js/sweetalert2.min.js"></script>
 
-    <title>Abdull teste</title>
+    <title>Abdull Proteses</title>
+    
+    <script>
+            function mascara(t, mask) {
+                var i = t.value.length;
+                var saida = mask.substring(1, 0);
+                var texto = mask.substring(i);
+                if (texto.substring(0, 1) != saida) {
+                    t.value += texto.substring(0, 1);
+
+                }
+            }
+
+        </script>
   </head>
-  <body class = "text-danger" >
+  <body style="background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -36,7 +50,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./listaPaciente.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/carteira-de-identidade.png" width="30" height="30" alt="carteira id" />
                                 <div id="mostrar">Paciente</div>
@@ -45,7 +59,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarConsulta.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/consulta.png" width="30" height="30" alt="consulta" />
                                 <div id="mostrar">Consulta</div>
@@ -54,7 +68,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="pesquisarProtese.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/dentadura.png" width="30" height="30" alt="dentadura" />
                                 <div id="mostrar">Dentadura</div>
@@ -67,8 +81,8 @@
                             <img src="./includes/img/settings.png" width="30" height="30" alt="sentings" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Parceiros</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
+                            <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -81,7 +95,7 @@
                 </ul>
 
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="login.php">
                     <div id="passar_mouse">
                         <img src="./includes/img/sair.png" width="40" height="40" alt="sair" />
                         <div id="mostrar" style="color: black">Sair</div>

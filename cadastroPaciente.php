@@ -22,13 +22,15 @@ if (isset($_POST['cadastrarPaciente'])) {
         
         $paciente->cadastrarPaciente();
         
-        header ('Location: cadastroPaciente.php?status=success');
+        header ('Location: listaPaciente.php?status=success');
 
         //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
         //URL='cadastroPaciente.php'\">";
     }
 }
 
+
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formularioPaciente.php';
 include __DIR__.'/includes/footer.php';
+ 

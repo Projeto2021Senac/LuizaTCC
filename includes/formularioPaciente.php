@@ -1,8 +1,31 @@
+<?php
+$msg = '';
+if (isset($_GET['status'])) {
+    switch ($_GET['status']) {
+        case 'success':
+            $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
+            break;
+        case 'error':
+            $msg = '<div class ="alert alert-success"> Ação não executada!</div>';
+            break;
 
+    }
+}
+
+?>
 
  <div class="container-fluid">
-
+     
+     <?php if($msg != ""){
+         echo $msg; 
+         echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
+        URL='cadastroPaciente.php'\">" ;
+     }
+         
+      ?>
+     <br>
             <div class="row">
+                
                 <div>
                     <div class="row">
 
@@ -46,7 +69,7 @@
                         <div class="form-group">
                             <label >Telefone</label>
                             <input type="tel" class="form-control" name="tel"
-                                   value="<?=$paciente->tel?>">
+                                   value="<?=$paciente->tel?>" onkeypress="mascara(this, '#-#####-####')" maxlength="15">
                         </div>
 
                         <div class="form-group">

@@ -1,9 +1,10 @@
 <!-- /**
 div container
 */ -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;height:
-28px">
 </div>
+<nav class="navbar navbar-expand-lg navbar-light" style="bottom:0;background-color: #3a9fab;height:
+28px">
+</nav>
 
         
 <!-- Optional JavaScript; choose one of the two! -->
@@ -35,5 +36,8 @@ div container
             }
         }
     </script>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
   </body>
 </html>

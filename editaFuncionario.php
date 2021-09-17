@@ -3,11 +3,11 @@
 require __DIR__.'/vendor/autoload.php';
 use \Classes\Entity\Funcionario;
 
-define('TITLE','Editar Funcionário');
+define('TITLE','Editar Vaga');
 
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
-    header ('Location: cadastrarfuncionario.php?status=error');
+    header ('Location: index.php?status=error');
 }
 $objFuncionario =Funcionario::getFuncionario($_GET['id']);
 
@@ -18,7 +18,7 @@ if (!$objFuncionario instanceof Funcionario){
     exit;
 }
 
- if (isset($_POST['nome'],$_POST['login'])){
+if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     
     $objFuncionario = new Funcionario;
     $objFuncionario->nome = $_POST['nome'];

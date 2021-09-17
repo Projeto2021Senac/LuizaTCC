@@ -24,7 +24,7 @@ class paciente {
 
     public function cadastrarPaciente() {
         $db = new db('paciente');
-        $this->prontuario = $db->insert([
+        $this->prontuario = $db->insertSQL([
             'nome' => $this->nome,
             'sexo' => $this->sexo,
             'tel' => $this->tel,
@@ -38,7 +38,7 @@ class paciente {
      */
     public function editarPaciente() {
         return (new db('paciente'))->
-                updateSQL('prontuario= ' .$this->prontuario,[
+                        updateSQL('prontuario= ' .$this->prontuario,[
                                                             'nome' => $this->nome,
                                                             'sexo' => $this->sexo,
                                                             'tel' => $this->tel,
@@ -54,8 +54,8 @@ class paciente {
  * @param string $limit
  * return array
  */  
-    public static function getPacientes($where = null, $like = null, $order = null, $limit= null) {
-        return (new db('paciente'))->select($where, $like, $order, $limit)
+    public static function getPacientes($where = null, $like = null, $order = null, $limit= null,$fields = null) {
+        return (new db('paciente'))->selectSQL($where, $like, $order, $limit,$fields)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
 
       
@@ -68,7 +68,7 @@ class paciente {
          * return paciente
          */
     public static function getPaciente($prontuario) {
-        return (new db('paciente'))->select('prontuario = ' .$prontuario)
+        return (new db('paciente'))->selectSQL('prontuario = ' .$prontuario)
                    ->fetchObject(self::class) ;
     }
 
