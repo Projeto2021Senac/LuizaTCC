@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-image: url(./includes/img/2.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" >
     <div class=col-12>
         <div class="container-fluid">
             <main>

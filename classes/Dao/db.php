@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = '';
+    const PASS = 'senac';
 
     /**
      * Nome da tabela a ser manipulada
@@ -146,9 +146,9 @@ class db
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
-        if (count(explode(',',$this->table,2)) > 1) {
+        if (count(explode(',',$this->table,6)) > 1) {
 
-            $tabelas = explode(',', $this->table,2);
+            $tabelas = explode(',', $this->table,6);
             //echo '<pre>';print_r($tabelas);echo'<pre>';exit;
             
         }

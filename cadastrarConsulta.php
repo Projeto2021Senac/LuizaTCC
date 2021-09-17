@@ -10,7 +10,7 @@ use \Classes\Entity\dentista;
 use \Classes\Entity\paciente;
 use \Classes\Entity\funcionario;
 
-define('TITLE', 'Cadastrar Nova Consultaa');
+define('TITLE', 'Cadastrar Nova Consulta');
 $objClinica = clinica::getClinicas();
 $objDentista = dentista::getDentistas();
 $objPaciente = paciente::getPacientes();

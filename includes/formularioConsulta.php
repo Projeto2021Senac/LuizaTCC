@@ -1,9 +1,9 @@
 
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
     <main>
 
         <section>
-            <a href="index.php">
+            <a href="<?=(TITLE == 'Cadastrar Nova Consulta' ? 'index.php' : 'pesquisarConsulta.php')?>">
                 <button class="btn btn-success mt-4">Retornar</button>
             </a>
 
@@ -24,11 +24,13 @@
 
                     <div class="form-group">
                         <label>Paciente Atendido</label>
-                        <select class="form-control" name="paciente" value="">
+                        <select class="form-control" name="paciente" <?=(TITLE == 'Cadastrar Nova Consulta' ? '' : 'disabled = disabled')?>value="">
                             <option hidden="">[SELECIONE]</option>
                             <?php
+                            
                                 foreach ($objPaciente as $paciente){
-                                    echo "<option value =".$paciente->prontuario." ".( 'Cadastrar Nova Consulta' ? print ('selected = selected') : '').">".$paciente->nome."</option>";
+                                    $selected = ($objConsulta->fkProntuario == $paciente->prontuario ? 'selected = selected' : '');
+                                    echo "<option value =".$selected.">".$paciente->nome."</option>";
                                 }
                                 ?>
                         </select>
@@ -37,11 +39,11 @@
 
                     <div class="form-group">
                         <label>Data da Consulta</label>
-                        <input class="form-control" name="data" type="date">
+                        <input class="form-control" name="data" type="date" value = "<?=$objConsulta->dataConsulta?>">
                     </div>
                     <div class="form-group">
                         <label>Hora da Consulta</label>
-                        <input class="form-control" name="hora" type="time">
+                        <input class="form-control" name="hora" value = "<?=$objConsulta->horaConsulta?>"type="time">
                     </div>
 
                     <br>
@@ -58,7 +60,8 @@
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
                                 foreach ($objDentista as $dentista){
-                                    echo "<option value =".$dentista->idDentista.">".$dentista->nomeDentista."</option>";
+                                    $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
+                                    echo "<option value =".$dentista->idDentista." ".$selected.">".$dentista->nomeDentista."</option>";
                                 }
                                 ?>
                             </select>
@@ -71,7 +74,7 @@
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
                                 foreach ($objClinica as $clinica){
-                                    $selected = ($objConsulta->CFKClinica == $objClinica2->idClinica ? 'selected = selected' : '');
+                                    $selected = ($objConsulta->CFKClinica == $clinica->idClinica ? 'selected = selected' : '');
                                     echo "<option value =".$clinica->idClinica." ".$selected.">".$clinica->nomeClinica."</option>";
                                 }
                                 ?>
@@ -97,7 +100,7 @@
                     <textarea name="relatorio" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 100%">
-                    <input type="submit" name="cadastrarProtese" class=" offset-5 btn btn-lg btn-success btInput" style="width:20%" value="Cadastrar" <?php //if ($btEnviar == TRUE) echo "disabled"; 
+                    <input type="submit" name="<?TITLE?>" class=" offset-5 btn btn-lg btn-success btInput" style="width:20%" value="<?=(TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar')?>" <?php //if ($btEnviar == TRUE) echo "disabled"; 
                                                                                                                                                         ?>>
                 </div>
             </div>

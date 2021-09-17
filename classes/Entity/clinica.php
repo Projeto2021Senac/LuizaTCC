@@ -26,7 +26,14 @@ class clinica {
             'nomeClinica' => $this->nomeClinica,
             'statusClinica' => $this->statusClinica,
            
+            
         ]);
+        if ($this->idClinica > 0) {
+            header ('Location: listaClinica.php?status=success');;
+
+        }else{
+            header ('Location: listaClinica.php?status=error');;
+        }
     }
 
     /**
