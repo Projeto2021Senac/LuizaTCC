@@ -27,7 +27,8 @@
 
         </script>
   </head>
-  <body class = "text-danger" >
+  <body class = "text-danger" style="background-image: url(./includes/img/Clínica-Odontológica.jpg); background-repeat: no-repeat; background-size: 100%">
+
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
