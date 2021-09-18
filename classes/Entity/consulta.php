@@ -28,8 +28,8 @@ class Consulta {
             'fkFuncionario' => $this->fkFuncionario,
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
-        ]);
             
+        ]);
     }
     /**
      * Função
@@ -58,7 +58,7 @@ class Consulta {
     }   
 
     public static function getConsultaPaciente(){
-        return $db = (new db('consulta,paciente'))->selectSQL(null,null,null,null,null,'fkProntuario,prontuario')
+        return $db = (new db('consulta,paciente'))->selectSQL('statusConsulta <> "Finalizada"',null,null,null,null,'fkProntuario,prontuario')
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
 

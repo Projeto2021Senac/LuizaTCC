@@ -24,14 +24,12 @@
 
                     <div class="form-group">
                         <label>Paciente Atendido</label>
-                        <select class="form-control" name="paciente" <?=(TITLE == 'Cadastrar Nova Consulta' ? '' : 'disabled = disabled')?>value="">
-                            <option selected hidden="">[SELECIONE]</option>
+                        <select class="form-control" name="paciente" <?=(TITLE == 'Cadastrar Nova Consulta' ? '' : 'disabled = disabled')?> value="">
+                            <option hidden="">[SELECIONE]</option>
                             <?php
                             
-                                foreach ($objPaciente as $paciente){
-                                    $selected = ($objConsulta->fkProntuario == $paciente->prontuario ? 'selected = selected' : '');
-                                    echo "<option value = ".$paciente->prontuario."".$selected.">".$paciente->nome."</option>";
-                                }
+
+                                    echo "<option value =".$objPaciente2->prontuario." selected >".$objPaciente2->nome."</option>";
                                 ?>
                         </select>
                     </div>
@@ -39,11 +37,11 @@
 
                     <div class="form-group">
                         <label>Data da Consulta</label>
-                        <input class="form-control" name="data" type="date" value = "<?=$objConsulta->dataConsulta?>">
+                        <input class="form-control" disabled = "disabled" name="data" type="date" value = "<?=$objConsulta->dataConsulta?>">
                     </div>
                     <div class="form-group">
                         <label>Hora da Consulta</label>
-                        <input class="form-control" name="hora" value = "<?=$objConsulta->horaConsulta?>"type="time">
+                        <input class="form-control" disabled = "disabled" name="hora" value = "<?=$objConsulta->horaConsulta?>"type="time">
                     </div>
 
                     <br>
@@ -56,13 +54,11 @@
 
                         <div class="form-group">
                             <label>Quem indicou</label>
-                            <select class="form-control" name="dentista">
+                            <select class="form-control" disabled = "disabled" name="dentista">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
-                                foreach ($objDentista as $dentista){
-                                    $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
-                                    echo "<option value =".$dentista->idDentista." ".$selected.">".$dentista->nomeDentista."</option>";
-                                }
+                                    echo "<option value =".$objDentista2->idDentista." selected >".$objDentista2->nomeDentista."</option>";
+                                
                                 ?>
                             </select>
                         </div>
@@ -70,13 +66,11 @@
 
                         <div class="form-group">
                             <label>Clínica</label>
-                            <select class="form-control" name="clinica">
+                            <select class="form-control" disabled = "disabled" name="clinica">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
-                                foreach ($objClinica as $clinica){
-                                    $selected = ($objConsulta->CFKClinica == $clinica->idClinica ? 'selected = selected' : '');
-                                    echo "<option value =".$clinica->idClinica." ".$selected.">".$clinica->nomeClinica."</option>";
-                                }
+                                    echo "<option value =".$objClinica2->idClinica." selected >".$objClinica2->nomeClinica."</option>";
+                                
                                 ?>
                                 
                             </select>

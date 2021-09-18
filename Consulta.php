@@ -9,17 +9,8 @@ use \Classes\Entity\dentista;
 use \Classes\Entity\paciente;
 use \Classes\Entity\funcionario;
 
-define('TITLE','Editar Consulta');
+define('TITLE','Editar Protese');
 $objConsulta = consulta::getConsulta($_GET['id']);
-echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
-$objClinica = clinica::getClinicas();
-/* echo "<pre>"; print_r($objClinica); echo "<pre>";exit; */
-$objDentista = dentista::getDentistas();
-/* echo "<pre>"; print_r($objDentista); echo "<pre>";exit; */
-$objPaciente = paciente::getPacientes();
-/* echo "<pre>"; print_r($objPaciente); echo "<pre>";exit; */
-$objFuncionario = funcionario::getFuncionarios();
-/* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
 /* echo "<pre>"; print_r($objClinica2); echo "<pre>";exit; */
@@ -91,5 +82,5 @@ if (isset($_POST['paciente'],$_POST['data'],$_POST['hora'],$_POST['dentista'],$_
 //Monta a página, utilizando o header.php, arquivo que contém a navbar e o início da div container; o arquivo que vai ser de fato
 //o conteúdo que a página vai ter, por exemplo o home.php que está agora; e por fim o arquivo que contém o fechamento da div container, os scripts e o fechamento do html.
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formularioConsulta.php';
+include __DIR__.'/includes/abrirConsulta.php';
 include __DIR__.'/includes/footer.php';

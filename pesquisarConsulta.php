@@ -19,8 +19,11 @@ $objConsulta->setPaciente($objPaciente);
 //echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
 
 //Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
+/* $consultas = $objConsulta->getConsultas(); */
+/* echo "<pre>"; print_r($consultas); echo "<pre>";exit; */
 $consultas = $objConsulta->getConsultaPaciente();
- /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
+
+ echo "<pre>"; print_r($consultas); echo "<pre>";exit; 
 
 
 

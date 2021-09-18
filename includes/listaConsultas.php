@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
     <main>
         <section>
             <a href="index.php">
@@ -8,30 +8,28 @@
         </section>
         <?php
 
-        use Classes\Dao\db;
-
         $resultados = '';
         foreach ($consultas as $consulta) {
-
+            $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
             $resultados .= '<tr>
                             <td>' . $consulta->idConsulta . '</td>
-                            <td>' . date('d/m/Y',strtotime($consulta->dataConsulta)) . '</td>
-                            <td>' . date(' H:i',strtotime($consulta->horaConsulta)) . '</td>
+                            <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
+                            <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
                             <td>' . $consulta->statusConsulta . '</td>
                             <td>' . $consulta->nome . '</td>
                             <td>
-                            <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
-                            <button class = "btn btn-primary">Abrir Consulta</button>
-                            </a>
-                            <a href = editaConsulta.php?id=' . $consulta->idConsulta . '>
-                            <button class = "btn btn-danger">Corrigir</button>
-                            </a>
+                            <a class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
+                            <a '.$disabled.'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
                             </td>
                             </tr>';
         }
+        $resultados = strlen($resultados)? $resultados : 
+          '<tr>'
+        . '<td colspan = "6" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
+        . '</tr>'; 
+?>
 
-
-        ?>
+        
         <section>
 
             <table class="table bg-light mt-3">
@@ -43,7 +41,7 @@
                         <th>status</th>
                         <th>Paciente atendido</th>
                         <th>Ações</th>
-                        
+
                         <th></th>
 
 

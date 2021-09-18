@@ -28,7 +28,7 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
     $objConsulta->fkFuncionario = (isset($_SESSION['perfil']) ? $_SESSION['perfil'] : '1');
     $objConsulta->CFKClinica = $_POST['clinica'];
     $objConsulta->CFKDentista = $_POST['dentista']; 
-    //echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
+   /*  echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
 
     //echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
     $objConsulta->cadastrarConsulta();
