@@ -57,7 +57,7 @@ if (isset($_GET['status'])) {
                         
                         <div class="form-group">
                             <label>Observação</label>
-                            <input type="text" class="form-control" name="obs" required="" value="<?=$rastreio->obs?>">
+                            <input type="text"   class="form-control" name="obs" required="" value="<?=$rastreio->obs?>">
                         </div>
                         
                         <div class="form-group">
@@ -68,42 +68,31 @@ if (isset($_GET['status'])) {
                         <div class="form-group">
                             <label>Consulta</label>
                             <select type="text" class="form-control" name="TFKConsulta" required="" value="<?=$rastreio->TFKConsulta?>">
+                                
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Serviço</label>
+                            <select type="text" class="form-control" name="TFKServico" required="" value="<?=$rastreio->TFKServico?>">
+                                </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Terceirizado</label>
+                            <select type="text" class="form-control" name="RFKTerceiro" required="" value="<?=$rastreio->RFKTerceiro?>">
+                                </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Serviço Terceirizado</label>
+                            <select type="text" class="form-control" name="RFKServico" required="" value="<?=$rastreio->RFKServico?>">
+                                </select>
                         </div>
                         
 
-                        <div class="form-group">
-                            <label>Sexo: </label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios1" value="masculino" checked="">
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Masculino
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios2" value="feminino"<?=$paciente->sexo == 'feminino' ? 'checked': ''?> >
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Feminino
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label >Telefone</label>
-                            <input type="tel" class="form-control" name="tel"
-                                   value="<?=$paciente->tel?>" onkeypress="mascara(this, '#-#####-####')" maxlength="15">
-                        </div>
-
-                        <div class="form-group">
-                            <label >E-mail</label>
-                            <input type="email" class="form-control" name="email"
-                                   value="<?=$paciente->email?>"
-                                   >
-                        </div>
                         <br>
-
-                    
-
-                        
 
                 </div>
                 <div>
