@@ -1,4 +1,4 @@
-<div class="container-fluid" >
+<div class="container-fluid">
     <div>
         <div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
             <main>
@@ -36,7 +36,7 @@
 
                         </div>
                         <div class="row mt-5">
-                        <div class="col text-center ms-5">
+                            <div class="col text-center ms-5">
                                 <fieldset>
                                     <a href="pesquisarConsulta.php">
                                         <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/Consulta2.png" width="200px" height="200px">

@@ -8,8 +8,9 @@ use \Classes\Entity\clinica;
 use \Classes\Entity\dentista;
 use \Classes\Entity\paciente;
 use \Classes\Entity\funcionario;
+use \Classes\Entity\Procedimento;
 
-define('TITLE','Editar Protese');
+
 $objConsulta = consulta::getConsulta($_GET['id']);
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
@@ -20,10 +21,13 @@ $objPaciente2 = paciente::getPaciente($objConsulta->fkProntuario);
 /* echo "<pre>"; print_r($objPaciente2); echo "<pre>";exit; */
 $objFuncionario2 = funcionario::getFuncionario($objConsulta->fkFuncionario);
 /* echo "<pre>"; print_r($objFuncionario2); echo "<pre>";exit; */
+$objProcedimento = Procedimento::getProcedimentos();
+/* echo "<pre>"; print_r($objProcedimento); echo "<pre>";exit; */
+define('TITLE','Dados da consulta de '.$objPaciente2->nome);
 
 //Validação do GET
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
-    header ('Location: index.php?status=error');
+    header ('Location: pesquisarConsulta.php?status=error');
 }
 
 

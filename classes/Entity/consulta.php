@@ -57,11 +57,11 @@ class Consulta {
                                   
     }   
 
-    public static function getConsultaPaciente(){
-        return $db = (new db('consulta,paciente'))->selectSQL('statusConsulta <> "Finalizada"',null,null,null,null,'fkProntuario,prontuario')
+    public static function getConsultaPaciente($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        return $db = (new db('consulta,paciente'))->selectSQL($where,$like,$order, $limit, $fields,'fkProntuario,prontuario')
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
-
+    
     /**
      * Get the value of paciente
      */ 
@@ -81,8 +81,21 @@ class Consulta {
 
         return $this;
     }
+    public function Atualizar($id){
+        $db = new db('consulta');
+        $this->idConsulta = $db->updateSQL($id,[
+            'dataConsulta' => $this->dataConsulta,
+            'horaConsulta' => $this->horaConsulta,
+            'statusConsulta' => $this->statusConsulta,
+            'relatorio' => $this->relatorio,
+            'fkProntuario' => $this->fkProntuario,
+            'fkFuncionario' => $this->fkFuncionario,
+            'CFKDentista' => $this->CFKDentista,
+            'CFKClinica' => $this->CFKClinica
+        ]);
+    }
 }
 
-
+    
 
 ?>

@@ -14,8 +14,8 @@ class Procedimento{
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('Procedimento');
-        $this->idProcedimento= $obdb->insertSQL([ 'nome' => $this->nome]);
+        $obdb = new db('procedimento');
+        $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nome]);
     }
 
     /**
@@ -32,7 +32,7 @@ class Procedimento{
      * @return array
      */
     public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('Procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
+        return (new db('procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     /**
@@ -42,7 +42,7 @@ class Procedimento{
      * @return object
      */
     public static function getProcedimento($idProcedimento){
-        return (new db('Procedimento'))->selectSQL('id = '.$idProcedimento)
+        return (new db('procedimento'))->selectSQL('idProcedimento = '.$idProcedimento)
                                    ->fetchObject(self::class); 
 
     }

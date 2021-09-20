@@ -11,8 +11,8 @@
         $resultados = '';
         foreach ($consultas as $consulta) {
             $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
-            $resultados .= '<tr>
-                            <td>' . $consulta->idConsulta . '</td>
+            $resultados .= '<tr ">
+                            <td class "table-success>' . $consulta->idConsulta . '</td>
                             <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
                             <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
                             <td>' . $consulta->statusConsulta . '</td>
@@ -32,7 +32,7 @@
         
         <section>
 
-            <table class="table bg-light mt-3">
+            <table class="table bg-light bg-gradient mt-3">
                 <thead class="bg-dark text-light">
                     <tr>
                         <th>ID</th>

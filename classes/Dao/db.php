@@ -163,8 +163,8 @@ class db
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
         //obs: tabela obrigatória
 
-        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $where . '' . $like . '' . $order . '' . $limit.''.$innerjoin;
-        echo "<pre>"; print_r($query); echo "<pre>";exit;
+        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $innerjoin . '' . $where . '' . $like . '' . $order.''.$limit;
+        /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         //echo '<pre>';print_r($query);echo'<pre>';exit;
         //Retorno é o mesmo da função executeSQL. (PDOStatement)
         return $this->executeSQL($query);

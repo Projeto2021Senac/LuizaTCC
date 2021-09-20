@@ -1,7 +1,6 @@
 <!-- /**
 div container
 */ -->
-</div>
 <nav class="navbar navbar-expand-lg navbar-light" style="bottom:0;background-color: #3a9fab;height:
 28px">
 </nav>

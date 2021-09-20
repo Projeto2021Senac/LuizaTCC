@@ -24,7 +24,7 @@
 
                     <div class="form-group">
                         <label>Paciente Atendido</label>
-                        <select class="form-control" name="paciente" <?=(TITLE == 'Cadastrar Nova Consulta' ? '' : 'disabled = disabled')?>value="">
+                        <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="paciente" <?=(TITLE == 'Cadastrar Nova Consulta' ? '' : '')?> > 
                             <option selected hidden="">[SELECIONE]</option>
                             <?php
                             
