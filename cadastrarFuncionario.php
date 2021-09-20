@@ -18,7 +18,7 @@ if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     $objFuncionario->login = $_POST['login'];
     $objFuncionario->senha = $_POST['senha'];
     $objFuncionario->statusFuncionario = $_POST['status'];
-    //echo '<pre>';print_r($objFuncionario);echo '<pre>';exit;
+    /* echo '<pre>';print_r($objFuncionario);echo '<pre>';exit; */
     
     $objFuncionario->cadastrar();
    

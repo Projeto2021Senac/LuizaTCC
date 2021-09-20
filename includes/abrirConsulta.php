@@ -43,9 +43,9 @@
                         <div class="col-10 offset-1 form-group">
                             <select class = "form-select">
                                 <option hidden>-[SELECIONE O SERVIÇO A SER REALIZADO]-</option>
-                                <?
+                                <?php
                                 foreach($objProcedimento as $procedimento){
-                                    echo '<option value = '.$objProcedimento->idProcedimento.'>'.$objProcedimento->nome.'</option>';
+                                    echo '<option value = '.$procedimento->idProcedimento.'>'.$procedimento->nomeProcedimento.'</option>';
                                 }
                                 ?>
                             </select>

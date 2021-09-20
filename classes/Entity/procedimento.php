@@ -7,7 +7,8 @@ use \PDO;
 class Procedimento{
 
     public $idProcedimento;
-    public $nome;
+    public $nomeProcedimento;
+    public $statusProcedimento;
     
    
     public function cadastrar(){

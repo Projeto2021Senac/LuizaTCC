@@ -10,7 +10,7 @@ $objProcedimento = new Procedimento;
 if (isset($_POST['nome'])){
 
     $objProcedimento->nome = $_POST['nome'];
-    echo '<pre>';print_r($objProcedimento);echo '<pre>';exit;
+    /* echo '<pre>';print_r($objProcedimento);echo '<pre>';exit; */
     
     $objProcedimento->cadastrar();
    
