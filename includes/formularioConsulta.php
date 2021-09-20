@@ -1,5 +1,5 @@
 
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
+<div class="container-fluid" style="height:-webkit-fill-available">
     <main>
 
         <section>
@@ -97,7 +97,7 @@
                 </div>
                 <div class="col-md-8 form-group offset-2" style=" background-color: black;opacity: 80%">
                     <label>Observações pré-Consulta</label>
-                    <textarea name="relatorio" class="form-control" rows="3"><?= $objConsulta->relatorio?></textarea>
+                    <textarea name="relatorio" class="form-control" rows="3"><?= (TITLE != 'Cadastrar Nova Consulta'  ? $objConsulta->relatorio : '')?></textarea>
                 </div>
                 <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 100%">
                     <input type="submit" name="<?TITLE?>" class=" offset-5 btn btn-lg btn-success btInput" style="width:20%" value="<?=(TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar')?>" <?php //if ($btEnviar == TRUE) echo "disabled"; 
