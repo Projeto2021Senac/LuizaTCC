@@ -72,10 +72,13 @@ if (isset($_GET['status'])) {
                                 <?php
                                 foreach ($consulta as $cons){
                                     $selected = ($rastreio->TFKConsulta == $cons->idConsulta ? 'selected = selected' : '');
-                                    echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->fkProntuario."</option>";// ainda pesquisar o que mostrar.
+                                    echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->idConsulta."</option>";
                                 }
                                 ?>
                             </select>
+                            <input type="submit"  name="pConsultaRast" href ="pesquisarConsulta.php?rastreio= " 
+                                   class="btn btn-success btInput p-1 offset-5" value="Pesquisar Consulta">
+                            
                                 
                         </div>
                         

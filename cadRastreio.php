@@ -11,10 +11,10 @@ use Classes\Entity\procedimento;
 use Classes\Entity\terceiro;
 use Classes\Entity\servicoTerceiro;
 
-$consulta = consulta::getConsulta();
-$procedimento = procedimento::getProcedimento();
-$terceiro = terceiro::getTerceiro();
-$servico = servicoTerceiro::getServicoTerceiro();
+$consulta = consulta::getConsultas();
+$procedimento = procedimento::getProcedimentos();
+$terceiro = terceiro::getTerceiros();
+$servico = servicoTerceiro::getServicoTerceiros();
 
 $rastreio = new rastreio();
 
@@ -42,6 +42,11 @@ if (isset($_POST['dtEntrega'], $_POST['dtRetorno'], $_POST['TFKConsulta'],
     
 }
 
+if (isset($_POST['pConsultaRast'])){
+    
+    header ('Location: pesquisarConsulta.php?');
+}
+    
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formRastreio.php';

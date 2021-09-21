@@ -86,7 +86,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
