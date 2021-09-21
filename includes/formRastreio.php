@@ -67,27 +67,55 @@ if (isset($_GET['status'])) {
                         
                         <div class="form-group">
                             <label>Consulta</label>
-                            <select type="text" class="form-control" name="TFKConsulta" required="" value="<?=$rastreio->TFKConsulta?>">
-                                
-                                <option value=""></option>
+                            <select type="text" class="form-control" name="TFKConsulta" required="">
+                                 <option hidden="">[SELECIONE]</option>
+                                <?php
+                                foreach ($consulta as $cons){
+                                    $selected = ($rastreio->TFKConsulta == $cons->idConsulta ? 'selected = selected' : '');
+                                    echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->fkProntuario."</option>";// ainda pesquisar o que mostrar.
+                                }
+                                ?>
                             </select>
+                                
                         </div>
                         
                         <div class="form-group">
-                            <label>Serviço</label>
-                            <select type="text" class="form-control" name="TFKServico" required="" value="<?=$rastreio->TFKServico?>">
+                            <label>Procedimento</label>
+                            <select type="text" class="form-control" name="TFKProcedimento" required="" >
+                                  <option hidden="">[SELECIONE]</option>
+                                <?php
+                                foreach ($procedimento as $proc){
+                                    $selected = ($rastreio->TFKProcedimento == $proc->idProcedimento ? 'selected = selected' : '');
+                                    echo "<option value =".$proc->idProcedimento." ".$selected.">".$proc->nomeProcedimento."</option>";
+                                }
+                                ?>
                                 </select>
                         </div>
                         
                         <div class="form-group">
                             <label>Terceirizado</label>
-                            <select type="text" class="form-control" name="RFKTerceiro" required="" value="<?=$rastreio->RFKTerceiro?>">
+                            <select type="text" class="form-control" name="RFKTerceiro" required="" >
+                                  <option hidden="">[SELECIONE]</option>
+                                <?php
+                                foreach ($terceiro as $terc){
+                                    $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
+                                    echo "<option value =".$terc->idTerceiro." ".$selected.">".$terc->nomeTerceiro."</option>";
+                                }
+                                ?>
                                 </select>
+                                
                         </div>
                         
                         <div class="form-group">
                             <label>Serviço Terceirizado</label>
-                            <select type="text" class="form-control" name="RFKServico" required="" value="<?=$rastreio->RFKServico?>">
+                            <select type="text" class="form-control" name="RFKServico" required="" >
+                                       <option hidden="">[SELECIONE]</option>
+                                <?php
+                                foreach ($servico as $serv){
+                                    $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
+                                    echo "<option value =".$serv->idServico." ".$selected.">".$serv->nomeServico."</option>";
+                                }
+                                ?>
                                 </select>
                         </div>
                         
