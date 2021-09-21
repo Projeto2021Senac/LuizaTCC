@@ -30,9 +30,23 @@
             
             <div class="form-group">
                 <label>Nome do Procedimento: </label>
-                <input type="text"  class="form-control" name="nome" placeholder="Procedimento" value="<?=$objProcedimento->nome?>">
+                <input type="text"  class="form-control" name="nome" placeholder="Procedimento" value="<?=$objProcedimento->nomeProcedimento?>">
             </div>
-        
+            <div class="form-group">
+                    <label>Status Procedimento: </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" value="Ativo" checked="">
+                        <label class="form-check-label">
+                            Ativo
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="status" value="Inativo" >
+                        <label class="form-check-label">
+                            Inativo
+                        </label>
+                    </div>
+                </div>
         
             <div>
                 <div class="row">

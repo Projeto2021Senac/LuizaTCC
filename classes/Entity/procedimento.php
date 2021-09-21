@@ -16,7 +16,7 @@ class Procedimento{
         $this->dataRegistro = date('Y-m-d H-i-s');
 
         $obdb = new db('procedimento');
-        $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nome]);
+        $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nomeProcedimento]);
     }
 
     /**
