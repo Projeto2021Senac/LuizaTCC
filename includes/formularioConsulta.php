@@ -30,7 +30,7 @@
                             
                                 foreach ($objPaciente as $paciente){
                                     $selected = ($objConsulta->fkProntuario == $paciente->prontuario ? 'selected = selected' : '');
-                                    echo "<option value = ".$paciente->prontuario."".$selected.">".$paciente->nome."</option>";
+                                    echo "<option value = ".$paciente->prontuario." ".$selected.">".$paciente->nome."</option>";
                                 }
                                 ?>
                         </select>

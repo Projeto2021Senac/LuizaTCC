@@ -14,7 +14,6 @@ class Consulta {
     public $fkFuncionario;
     public $CFKDentista;
     public $CFKClinica;
-    public $paciente;
 
     public function cadastrarConsulta(){
 
@@ -83,7 +82,7 @@ class Consulta {
     }
     public function Atualizar($id){
         $db = new db('consulta');
-        $this->idConsulta = $db->updateSQL($id,[
+        $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
             'dataConsulta' => $this->dataConsulta,
             'horaConsulta' => $this->horaConsulta,
             'statusConsulta' => $this->statusConsulta,

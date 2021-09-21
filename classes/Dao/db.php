@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = '';
+    const PASS = 'senac';
 
     /**
      * Nome da tabela a ser manipulada
@@ -182,9 +182,12 @@ class db
         $fields = array_keys($values);
 
         $query = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
-
+        /* echo '<pre>';print_r($query);echo'<pre>';exit; */
         $this->executeSQL($query, array_values($values));
 
         return true;
+    }
+    public function validaLogin($login,$senha){
+        $query = 'SELECT idFuncionario FROM funcionario WHERE '
     }
 }

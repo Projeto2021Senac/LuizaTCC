@@ -9,7 +9,7 @@
     </section>
     <main>
         <div class="col-10">
-            <div class="text-white offset-2 bg-gradient border border-primary p-4 rounded-3" style="background-color:black;opacity:80%">
+            <div class="text-white offset-2 bg-gradient border border-primary p-4 rounded-3" style="background-color:black;">
                 <div>
                     <h3 style="text-align: center;"><?= TITLE ?></h3>
                 </div>
@@ -39,22 +39,33 @@
                     </div>
                     <label class="mt-3 text-info" for="relatorio"><strong>Observações pré-Consulta:</strong></label>
                     <textarea readonly name="relatorio" style=" background-color: black;opacity:80%;resize:none" class="text-white" rows="3"><?= $objConsulta->relatorio ?></textarea>
-                    <form method="post" class="mt-4">
-                        <div class="col-10 offset-1 form-group">
-                            <select class = "form-select">
-                                <option hidden>-[SELECIONE O SERVIÇO A SER REALIZADO]-</option>
-                                <?php
-                                foreach($objProcedimento as $procedimento){
-                                    echo '<option value = '.$procedimento->idProcedimento.'>'.$procedimento->nomeProcedimento.'</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </form>
                 </div>
+                <form method="post" class="mt-4">
+                    <div class="col-10 offset-1 form-group p-4">
+                        <select class="form-select">
+                            <option hidden>-[SELECIONE O SERVIÇO A SER REALIZADO]-</option>
+                            <?php
+                            foreach ($objProcedimento as $procedimento) {
+                                echo '<option value = ' . $procedimento->idProcedimento . '>' . $procedimento->nomeProcedimento . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label class="mt-3 text-info" for="relatorio"><strong>Observações pré-Consulta:</strong></label>
+                        <textarea  name="relatorio" style=" ;opacity:80%;resize:none" class="text-black" rows="5"><?= $objConsulta->relatorio ?></textarea>
+                    </div>
+                    <div class="row py-3">
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-success btn-large" style="width:25%" name="Finalizar" value="Finalizar"></input>
+                        </div>
+
+                    </div>
+                </form>
             </div>
         </div>
-    </main>
+</div>
+</main>
 
 
 

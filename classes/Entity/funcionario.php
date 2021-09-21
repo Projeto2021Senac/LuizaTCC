@@ -27,7 +27,7 @@ class Funcionario
         $obdb = new db('funcionario');
         $this->idFuncionario = $obdb->insertSQL([
             'nome' => $this->nome,
-            'dtNasc' => $this->dtNasc,
+            'dtContrato' => $this->dtNasc,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
             'email' => $this->email,
@@ -80,5 +80,11 @@ class Funcionario
                 'senha' => $this->senha,
                 'statusFuncionario' => $this->statusFuncionario
             ]);
+    }
+    public static function validaLogin($login,$senha){
+        return $validacao = (new db('funcionario'))->selectSQL('login = '.$login.' and senha = '.$senha,null,null,1)
+                                             ->fetch(PDO::FETCH_OBJ);
+        
+
     }
 }

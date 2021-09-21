@@ -12,6 +12,7 @@ use \Classes\Entity\Procedimento;
 
 
 $objConsulta = consulta::getConsulta($_GET['id']);
+echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
 /* echo "<pre>"; print_r($objClinica2); echo "<pre>";exit; */

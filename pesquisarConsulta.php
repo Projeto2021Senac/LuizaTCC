@@ -25,13 +25,16 @@ $objConsulta->setPaciente($objPaciente);
 /**
  * Método com filtro de status
  */
-//$consultas = $objConsulta->getConsultaPaciente('statusConsulta <> "Finalizada"');
+/* $consultas = $objConsulta->getConsultaPaciente('statusConsulta <> "Agendada"'); */
 
 /**
  * Método sem filtro 
  */
 $consultas = $objConsulta->getConsultaPaciente();
 
+if ($_GET['rastreio']){
+    echo '<pre>';print_r('teste');echo'<pre>';exit;
+}
  /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
 

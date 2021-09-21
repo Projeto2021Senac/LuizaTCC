@@ -69,7 +69,9 @@ if (!$objFuncionario instanceof funcionario){
       */
       if (isset($_POST['paciente'])){
     $objConsulta = new consulta;
-    $objConsulta->paciente = $_POST['paciente'];
+    $objConsulta->idConsulta = $_GET['id'];
+    $objConsulta->fkProntuario = $_POST['paciente'];
+    $objConsulta->fkFuncionario = 1;
     $objConsulta->CFKDentista = $_POST['dentista'];
     $objConsulta->CFKClinica = $_POST['clinica'];
     $objConsulta->dataConsulta = $_POST['data'];
@@ -77,8 +79,10 @@ if (!$objFuncionario instanceof funcionario){
     $objConsulta->statusConsulta = $_POST['status'];
     $objConsulta->relatorio = $_POST['relatorio'];
     //Executa a função cadastrar que está localizada na classe "Protese".
-    echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
-    $objConsulta->atualizar();
+    /* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
+    $objConsulta->atualizar($_GET['id']);
+
+    header('location:pesquisarConsulta.php');
       }
     //header ('Location: pesquisarConsulta.php?status=success');
     
