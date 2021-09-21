@@ -4,7 +4,7 @@
 
 <section>
     <a href="index.php">
-        <button class="btn btn-success mt-4">Retornar</button>
+        <button class="btn btn-success mt-4">Menu</button>
     </a>
 
 </section>
@@ -23,34 +23,28 @@
     <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
 
      
-        <form method="post" action="" style="color: white" >
+        <form method="post" style="color: white" >
             <!-- <h3>Cadastar Serviços</h3>-->
             <div class="form-group">
                 <label>Número do ID Funcionário:</label>
                 <input type="text" placeholder="000" class="form-control" name="idFuncionario"  
                        value=" <?=$objFuncionario->idFuncionario ?>">
             </div>
-            
 
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text"  class="form-control" name="nome"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nome?>">
             </div>
             <div class="form-group">
-                    <label>Data de Contrato:</label>
-                    <input type="date" class="form-control" name="dtNasc" >
-                </div>
-
-            <div class="form-group">
                 <label>Sexo: </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="masculino" checked="">
+                    <input class="form-check-input" type="radio" name="sexo" value="Masculino" checked="">
                     <label class="form-check-label" for="exampleRadios1">
                         Masculino
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="feminino"<?=$objFuncionario->sexo == 'feminino' ? 'checked': ''?> >
+                    <input class="form-check-input" type="radio" name="sexo" value="feminino"<?=$objFuncionario->sexo == 'Feminino' ? 'checked': ''?> >
                     <label class="form-check-label" for="exampleRadios2">
                         Feminino
                     </label>
@@ -92,7 +86,7 @@
                        
             </div>
             <div class="form-group">
-            <label>Status Funcionário: </label>
+            <label>Status do Funcionário: </label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="status"  value="Ativo" checked="">
                     <label class="form-check-label" >
@@ -106,14 +100,18 @@
                     </label>
                 </div>
             </div>
-                       
+            <div class="form-group">
+                    <label>Data de Contrato:</label>
+                    <input type="date" class="form-control" name="dtContrato" >
+                </div>
+       
          </div>
              <div>
             <div class="row">
             <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
                 <br>
                 <input type="submit"  name="<?=BTN ?>"
-                       class="btn btn-success btInput p-1 offset-5" value="Cadastrar"
+                       class="btn btn-success btInput p-1 offset-5" value="Salvar"
                        <?php //if ($btEnviar == TRUE) echo "disabled"; ?>>
                 <br>
                 <br>

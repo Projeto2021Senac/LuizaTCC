@@ -3,12 +3,13 @@
 require __DIR__.'/vendor/autoload.php';
 use \Classes\Entity\Funcionario;
 
-define('TITLE','Editar Vaga');
+define('TITLE','Editar Funcionário');
 
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
     header ('Location: index.php?status=error');
 }
+
 $objFuncionario =Funcionario::getFuncionario($_GET['id']);
 
 
@@ -21,17 +22,18 @@ if (!$objFuncionario instanceof Funcionario){
 if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     
     $objFuncionario = new Funcionario;
+    $objFuncionario->idFuncionario = $_GET['id'];
     $objFuncionario->nome = $_POST['nome'];
-    $objFuncionario->dtNasc = $_POST['dtNasc'];
+    $objFuncionario->dtContrato = $_POST['dtContrato'];
     $objFuncionario->sexo = $_POST['sexo'];
     $objFuncionario->telefone = ($_POST['telefone']);
     $objFuncionario->email = $_POST['email'];
     $objFuncionario->perfil = $_POST['perfil'];
     $objFuncionario->login = $_POST['login'];
     $objFuncionario->senha = $_POST['senha'];
-    $objFuncionario->statusFuncionario =$_POST['statusFuncionario'];
+    $objFuncionario->statusFuncionario =$_POST['status'];
+    //echo '<pre>';print_r($objFuncionario);echo '<pre>';exit;
          
-    $objFuncionario->cadastrar();
     $objFuncionario->AtualizarFuncionario();
 
     header ('Location: index.php?status=success');

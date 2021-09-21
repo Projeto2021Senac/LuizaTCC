@@ -7,15 +7,18 @@ use \PDO;
 class Procedimento{
 
     public $idProcedimento;
-    public $nome;
+    public $nomeProcedimento;
+    public $statusProcedimento;
     
    
-    public function cadastrar(){
+    public function cadastro(){
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('Procedimento');
-        $this->idProcedimento= $obdb->insertSQL([ 'nome' => $this->nome]);
+         $obdb = new db('Procedimento');
+            $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nomeProcedimento,
+            'statusProcedimento' => $this->statusProcedimento
+        ]);
     }
 
     /**
@@ -42,8 +45,15 @@ class Procedimento{
      * @return object
      */
     public static function getProcedimento($idProcedimento){
-        return (new db('Procedimento'))->selectSQL('id = '.$idProcedimento)
+        return (new db('procedimento'))->selectSQL('id = '.$idProcedimento)
                                    ->fetchObject(self::class); 
 
+    }
+    public function AtualizarProcedimento()
+    {
+        return (new db('procedimento'))->updateSQL('idProcedimentoo= ' . $this->idProcedimento, [
+                'nomeProcedimento' => $this->nomeProcedimento,
+                'statusProcedimento' => $this->statusProcedimento
+            ]);
     }
 }

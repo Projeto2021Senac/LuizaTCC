@@ -10,7 +10,7 @@ class Funcionario
 
     public $idFuncionario;
     public $nome;
-    public $dtNasc;
+    public $dtContrato;
     public $sexo;
     public $telefone;
     public $email;
@@ -27,7 +27,7 @@ class Funcionario
         $obdb = new db('funcionario');
         $this->idFuncionario = $obdb->insertSQL([
             'nome' => $this->nome,
-            'dtNasc' => $this->dtNasc,
+            'dtContrato' => $this->dtContrato,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
             'email' => $this->email,
@@ -69,9 +69,10 @@ class Funcionario
     }
     public function AtualizarFuncionario()
     {
-        return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
+        return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, 
+        [
                 'nome' => $this->nome,
-                'dtNasc' => $this->dtNasc,
+                'dtContrato' => $this->dtContrato,
                 'sexo' => $this->sexo,
                 'telefone' => $this->telefone,
                 'email' => $this->email,
