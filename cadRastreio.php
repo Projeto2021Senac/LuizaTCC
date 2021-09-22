@@ -18,8 +18,7 @@ $servico = servicoTerceiro::getServicoTerceiros();
 
 $rastreio = new rastreio();
 
-if (isset($_POST['dtEntrega'], $_POST['dtRetorno'], $_POST['TFKConsulta'], 
-        $_POST['TFKProcedimento'], $_POST['RFKTerceiro'], $_POST['RFKServico'])) {
+if (isset($_POST['cadastrarRastreio'])) {
 
         
         $rastreio->dtEntrega = ($_POST['dtEntrega']);
@@ -43,10 +42,8 @@ if (isset($_POST['dtEntrega'], $_POST['dtRetorno'], $_POST['TFKConsulta'],
 }
 
 if (isset($_POST['pConsultaRast'])){
-    
-    header ('Location: pesquisarConsulta.php?');
+    header ('Location: pesquisarConsulta.php?rastreio=check');
 }
-    
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formRastreio.php';

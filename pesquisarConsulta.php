@@ -6,6 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
+
+
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 

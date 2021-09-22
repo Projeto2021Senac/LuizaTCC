@@ -12,6 +12,9 @@ if (isset($_GET['status'])) {
     }
 }
 
+if (isset($_GET['rConsulta'])) {
+    $rastreio->TFKConsulta=$_GET['rConsulta'];
+}
 ?>
 
  <div class="container-fluid">
@@ -22,6 +25,7 @@ if (isset($_GET['status'])) {
         URL='cadRastreio.php'\">" ;
      }
          
+     
       ?>
      <br>
             <div class="row">
@@ -47,57 +51,62 @@ if (isset($_GET['status'])) {
 
                         <div class="form-group">
                             <label>Data de Envio</label>
-                            <input type="date" class="form-control" name="dtEntrega" required="" value="<?=$rastreio->dtEntrega?>">
+                            <input type="date" class="form-control" name="dtEntrega"  value="<?=$rastreio->dtEntrega?>">
                         </div>
                         
                         <div class="form-group">
                             <label>Data de Retorno</label>
-                            <input type="date" class="form-control" name="dtRetorno" required="" value="<?=$rastreio->dtRetorno?>">
+                            <input type="date" class="form-control" name="dtRetorno"  value="<?=$rastreio->dtRetorno?>">
                         </div>
                         
                         <div class="form-group">
                             <label>Observação</label>
-                            <input type="text"   class="form-control" name="obs" required="" value="<?=$rastreio->obs?>">
+                            <input type="text"   class="form-control" name="obs"  value="<?=$rastreio->obs?>">
                         </div>
                         
                         <div class="form-group">
                             <label>Valor</label>
-                            <input type="text" class="form-control" name="vlrCobrado" required="" value="<?=$rastreio->vlrCobrado?>">
+                            <input type="text" class="form-control" name="vlrCobrado"  value="<?=$rastreio->vlrCobrado?>">
                         </div>
                         
                         <div class="form-group">
                             <label>Consulta</label>
-                            <select type="text" class="form-control" name="TFKConsulta" required="">
-                                 <option hidden="">[SELECIONE]</option>
-                                <?php
+                            <!--<select type="text" class="form-control-sm" name="TFKConsulta" >
+                                <option hidden="" >[SELECIONE]</option>
+                                <?php/*
                                 foreach ($consulta as $cons){
                                     $selected = ($rastreio->TFKConsulta == $cons->idConsulta ? 'selected = selected' : '');
                                     echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->idConsulta."</option>";
                                 }
-                                ?>
-                            </select>
-                            <input type="submit"  name="pConsultaRast" href ="pesquisarConsulta.php?rastreio= " 
-                                   class="btn btn-success btInput p-1 offset-5" value="Pesquisar Consulta">
+                               */ ?>
+                            </select>-->
+                            <input type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
+                            <input type="submit" name="pConsultaRast"
+                                   class="btn btn-success btInput p-1 " value="Pesquisar">
                             
                                 
                         </div>
                         
                         <div class="form-group">
                             <label>Procedimento</label>
-                            <select type="text" class="form-control" name="TFKProcedimento" required="" >
+                            <!--<select type="text" class="form-control" name="TFKProcedimento"  >
                                   <option hidden="">[SELECIONE]</option>
-                                <?php
+                                <?php/*
                                 foreach ($procedimento as $proc){
                                     $selected = ($rastreio->TFKProcedimento == $proc->idProcedimento ? 'selected = selected' : '');
                                     echo "<option value =".$proc->idProcedimento." ".$selected.">".$proc->nomeProcedimento."</option>";
                                 }
-                                ?>
-                                </select>
+                                */?>
+                                </select>-->
+                            <input type="text" class="form-control-sm" name="TFKProcedimento"
+                                   value="<?=($tratamento->fkConsulta==$rastreio->TFKConsulta)? $tratamento->fkProcedimento: "" ?>">
+                            <!--<input type="submit" name="pConsultaRast"
+                                  class="btn btn-success btInput p-1 " value="Pesquisar">-->
                         </div>
                         
                         <div class="form-group">
                             <label>Terceirizado</label>
-                            <select type="text" class="form-control" name="RFKTerceiro" required="" >
+                            <select type="text" class="form-control" name="RFKTerceiro"  >
                                   <option hidden="">[SELECIONE]</option>
                                 <?php
                                 foreach ($terceiro as $terc){
@@ -111,7 +120,7 @@ if (isset($_GET['status'])) {
                         
                         <div class="form-group">
                             <label>Serviço Terceirizado</label>
-                            <select type="text" class="form-control" name="RFKServico" required="" >
+                            <select type="text" class="form-control" name="RFKServico"  >
                                        <option hidden="">[SELECIONE]</option>
                                 <?php
                                 foreach ($servico as $serv){
