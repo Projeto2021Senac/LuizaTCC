@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada
@@ -85,9 +85,9 @@ class db
     {
 
         try {
-            $statement = $this->connection->prepare($query);
-            $statement->execute($params);
-            //echo "<pre>"; print_r($params); echo "<pre>";exit;
+            $statement = $this->connection->query($query);
+            /* $statement->($params); */
+            /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
             return $statement;
         } catch (PDOException $e) {
             die('ERROR' . $e->getMessage());
@@ -143,6 +143,7 @@ class db
         //à query dinâmica.
         $tabelas[0] = $this->table;
         $where = strlen($where) ? ' WHERE ' . $where : '';
+        /* echo "<pre>"; print_r($where); echo "<pre>";exit; */
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
@@ -187,7 +188,21 @@ class db
 
         return true;
     }
+    /**
+     * Função de validação do login
+     *
+     * @param string $login
+     * @param string $senha
+     * @return object/string
+     */
     public function validaLogin($login,$senha){
-        $query = 'SELECT idFuncionario FROM funcionario WHERE '
+        $query = "SELECT idFuncionario,nome FROM funcionario WHERE login = '$login' and senha = '$senha'";
+        /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
+        $st = $this->executeSQL($query);
+        if ($st->rowcount() > 0){
+            return $st;
+        }
+        return 'usuario não cadastrado';
     }
+    
 }

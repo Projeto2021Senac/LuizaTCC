@@ -70,21 +70,28 @@ class Funcionario
     public function AtualizarFuncionario()
     {
         return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
-                'nome' => $this->nome,
-                'dtNasc' => $this->dtNasc,
-                'sexo' => $this->sexo,
-                'telefone' => $this->telefone,
-                'email' => $this->email,
-                'perfil' => $this->perfil,
-                'login' => $this->login,
-                'senha' => $this->senha,
-                'statusFuncionario' => $this->statusFuncionario
-            ]);
+            'nome' => $this->nome,
+            'dtNasc' => $this->dtNasc,
+            'sexo' => $this->sexo,
+            'telefone' => $this->telefone,
+            'email' => $this->email,
+            'perfil' => $this->perfil,
+            'login' => $this->login,
+            'senha' => $this->senha,
+            'statusFuncionario' => $this->statusFuncionario
+        ]);
     }
-    public static function validaLogin($login,$senha){
-        return $validacao = (new db('funcionario'))->selectSQL('login = '.$login.' and senha = '.$senha,null,null,1)
-                                             ->fetch(PDO::FETCH_OBJ);
-        
+    public static function getLogin($login, $senha)
+    {
+         $log = (new db('funcionario'))->validaLogin($login, $senha);
+         if (gettype($log) == 'object'){
+            return $log->fetch(PDO::FETCH_OBJ);
+         
+         }else{
+             return 'usuário não cadastrado';
+         }
+         
 
+        
     }
 }

@@ -95,7 +95,7 @@
                 </ul>
 
 
-                <a class="nav-link" href="login.php">
+                <a class="nav-link" href="sessionDestroy.php">
                     <div id="passar_mouse">
                         <img src="./includes/img/sair.png" width="40" height="40" alt="sair" />
                         <div id="mostrar" style="color: black">Sair</div>
