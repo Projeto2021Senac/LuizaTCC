@@ -32,7 +32,7 @@ $objConsulta->setPaciente($objPaciente);
  */
 $consultas = $objConsulta->getConsultaPaciente();
 
-if ($_GET['rastreio']){
+if (isset($_GET['rastreio'])){
     echo '<pre>';print_r('teste');echo'<pre>';exit;
 }
  /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */

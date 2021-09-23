@@ -12,7 +12,7 @@ use \Classes\Entity\Procedimento;
 
 
 $objConsulta = consulta::getConsulta($_GET['id']);
-echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
+/* echo '<pre>';print_r($objConsulta);echo'<pre>';exit; */
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
 /* echo "<pre>"; print_r($objClinica2); echo "<pre>";exit; */
@@ -63,7 +63,7 @@ if (isset($_POST['paciente'],$_POST['data'],$_POST['hora'],$_POST['dentista'],$_
       * e a variável ID que são preenchidas automaticamente posteriormente.
       * Pode-se notar alguns tratamentos com operadores ternários para dureza, ouro, e quantidade
       */
-      echo "<pre>"; print_r($_POST['clinica']); echo "<pre>";exit;
+      /* echo "<pre>"; print_r($_POST['clinica']); echo "<pre>";exit; */
     $objConsulta2 = new consulta;
     $objConsulta2->tipo = $_POST['paciente'];
     $objConsulta2->posicao = $_POST['dentista'];

@@ -85,8 +85,8 @@ class db
     {
 
         try {
-            $statement = $this->connection->query($query);
-            /* $statement->($params); */
+            $statement = $this->connection->prepare($query);
+            $statement->execute($params);
             /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
             return $statement;
         } catch (PDOException $e) {
@@ -196,7 +196,7 @@ class db
      * @return object/string
      */
     public function validaLogin($login,$senha){
-        $query = "SELECT idFuncionario,nome FROM funcionario WHERE login = '$login' and senha = '$senha'";
+        $query = "SELECT idFuncionario,nome,perfil FROM funcionario WHERE login = '$login' and senha = '$senha'";
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         $st = $this->executeSQL($query);
         if ($st->rowcount() > 0){
