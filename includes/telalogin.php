@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="../css/sweetalert2.min.css">
+  <script src="../js/sweetalert2.min.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="signin.css" rel="stylesheet">

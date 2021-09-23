@@ -6,6 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
+
+
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 
@@ -32,9 +34,6 @@ $objConsulta->setPaciente($objPaciente);
  */
 $consultas = $objConsulta->getConsultaPaciente();
 
-if (isset($_GET['rastreio'])){
-    echo '<pre>';print_r('teste');echo'<pre>';exit;
-}
  /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
 

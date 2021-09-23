@@ -9,11 +9,22 @@
             </a>
 
         </section>
+  
         <?php
-
+      if (isset($_GET['rastreio'])=="check") {
+    $disabledRastreio= 'class = "btn btn-secondary"';
+    $disabled2='ok';
+    $disabled1='hidden=""';
+} else {
+    $disabledRastreio= 'hidden=""';
+    $disabled2='';
+    $disabled1='';
+}
         $resultados = '';
         foreach ($consultas as $consulta) {
             $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
+            $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
+            
             $resultados .= '<tr ">
                             <td class "table-success>' . $consulta->idConsulta . '</td>
                             <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
@@ -21,8 +32,9 @@
                             <td>' . $consulta->statusConsulta . '</td>
                             <td>' . $consulta->nome . '</td>
                             <td>
-                            <a class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
+                            <a '.$disabled1.'class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
                             <a '.$disabled.'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
+                            <a '.$disabledRastreio.'href = cadRastreio.php?rConsulta=' . $consulta->idConsulta . '>Confirmar rastreio</a>
                             </td>
                             </tr>';
         }

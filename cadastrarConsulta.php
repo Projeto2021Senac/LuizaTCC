@@ -2,6 +2,7 @@
 //faz o require do autoload composer, para carregar automaticamente as principais classes do nosso projeto,  
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
+include __DIR__.'./includes/sessionStart.php';
 
 
 use \Classes\Entity\consulta;
@@ -26,7 +27,7 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
     $objConsulta->relatorio = ($_POST['relatorio'] != null ? $_POST['relatorio'] : 'Sem observações');
     $objConsulta->fkProntuario = $_POST['paciente'];
     $objConsulta->fkFuncionario = (isset($_SESSION['perfil']) ? $_SESSION['perfil'] : '1');
-    $objConsulta->CFKClinica = $_POST['clinica'];
+    $objConsulta->CFKClinica = 189;
     $objConsulta->CFKDentista = $_POST['dentista']; 
 /*     echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
 
