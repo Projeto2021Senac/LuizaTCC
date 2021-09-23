@@ -4,20 +4,23 @@ namespace Classes\Entity;
 
 use \Classes\Dao\db;
 use \PDO;
-class Procedimento{
+class Terceiro{
 
-    public $idProcedimento;
-    public $nomeProcedimento;
-    public $statusProcedimento;
+    public $idTerceiro;
+    public $nomeTerceiro;
+    public $telefone;
+    public $statusTerceiro;
     
    
     public function cadastro(){
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-         $obdb = new db('Procedimento');
-            $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nomeProcedimento,
-            'statusProcedimento' => $this->statusProcedimento
+         $obdb = new db('terceiro');
+            $this->idTerceiro= $obdb->insertSQL([
+            'nomeTerceiro' => $this->nomeTerceiro,
+            'telefone' => $this->telefone,
+            'statusTerceiro' => $this->statusTerceiro
         ]);
     }
 
@@ -34,8 +37,8 @@ class Procedimento{
      * @param string $fields
      * @return array
      */
-    public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('Procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
+    public static function getTerceiros($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        return (new db('terceiro'))->selectSQL($where,$like,$order,$limit,$fields)
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     /**
@@ -44,16 +47,17 @@ class Procedimento{
      * @param int $id
      * @return object
      */
-    public static function getProcedimento($idProcedimento){
-        return (new db('procedimento'))->selectSQL('idProcedimento = '.$idProcedimento)
+    public static function getTerceiro($idTerceiro){
+        return (new db('terceiro'))->selectSQL('idTerceiro = '.$idTerceiro)
                                    ->fetchObject(self::class); 
 
     }
-    public function AtualizarProcedimento()
+    public function AtualizarTerceiro()
     {
-        return (new db('procedimento'))->updateSQL('idProcedimento= ' . $this->idProcedimento, [
-                'nomeProcedimento' => $this->nomeProcedimento,
-                'statusProcedimento' => $this->statusProcedimento
+        return (new db('terceiro'))->updateSQL('idTerceiro= ' . $this->idTerceiro, [
+                'nomeTerceiro' => $this->nomeTerceiro,
+                'telefone' => $this->telefone,
+                'statusTerceiro' => $this->statusTerceiro
             ]);
     }
 }

@@ -13,15 +13,14 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
 $objProcedimento =Procedimento::getProcedimento($_GET['id']);
 
 
-
-//if (!$objProcedimento instanceof Procedimento){
+if (!$objProcedimento instanceof Procedimento){
     header ('Location: index.php?status=error');
     exit;
-//}
+}
 
 if (isset($_POST['nome'],$_POST['status'])){
     
-    $objProcedimento = new procedimento;
+    $objProcedimento = new Procedimento;
     $objProcedimento->idProcedimento = $_GET['id'];
     $objProcedimento->nome = $_POST['nome'];
     $objProcedimento->statusProcedimento =$_POST['status'];
