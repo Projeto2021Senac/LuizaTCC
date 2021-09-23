@@ -14,6 +14,7 @@ if (isset($_GET['status'])) {
 
 if (isset($_GET['rConsulta'])) {
     $rastreio->TFKConsulta=$_GET['rConsulta'];
+    
 }
 ?>
 
@@ -89,17 +90,18 @@ if (isset($_GET['rConsulta'])) {
                         
                         <div class="form-group">
                             <label>Procedimento</label>
-                            <!--<select type="text" class="form-control" name="TFKProcedimento"  >
+                            <select type="text" class="form-control" name="TFKProcedimento"  >
                                   <option hidden="">[SELECIONE]</option>
-                                <?php/*
-                                foreach ($procedimento as $proc){
-                                    $selected = ($rastreio->TFKProcedimento == $proc->idProcedimento ? 'selected = selected' : '');
-                                    echo "<option value =".$proc->idProcedimento." ".$selected.">".$proc->nomeProcedimento."</option>";
+                                <?php
+                                
+                                foreach ($tratamento as $trat){
+                                    $selected = ($rastreio->TFKProcedimento == $trat->fkProcedimento ? 'selected = selected' : '');
+                                    echo "<option value =".$trat->fkProcedimento." ".$selected.">".$trat->nomeProcedimento."</option>";
                                 }
-                                */?>
-                                </select>-->
-                            <input type="text" class="form-control-sm" name="TFKProcedimento"
-                                   value="<?=($tratamento->fkConsulta==$rastreio->TFKConsulta)? $tratamento->fkProcedimento: "" ?>">
+                                ?>
+                                </select>
+                            <!--<input type="text" class="form-control-sm" name="TFKProcedimento"
+                                   value="<?//=($tratamento->fkConsulta==$rastreio->TFKConsulta)? $tratamento->fkProcedimento: "" ?>">-->
                             <!--<input type="submit" name="pConsultaRast"
                                   class="btn btn-success btInput p-1 " value="Pesquisar">-->
                         </div>

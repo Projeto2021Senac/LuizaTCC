@@ -56,7 +56,7 @@
     <?php if($msg != ""){
         echo $msg; 
         echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaRastreio.php'\">";
+        URL='lRastreio.php'\">";
     }
         ?>
     <br>

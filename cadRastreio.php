@@ -10,13 +10,18 @@ use Classes\Entity\consulta;
 use Classes\Entity\procedimento;
 use Classes\Entity\terceiro;
 use Classes\Entity\servicoTerceiro;
+use Classes\Entity\tratamento;
 
 $consulta = consulta::getConsultas();
 $procedimento = procedimento::getProcedimentos();
 $terceiro = terceiro::getTerceiros();
 $servico = servicoTerceiro::getServicoTerceiros();
 
+$tratamento = tratamento::pesquisarTratamento(isset($_GET['rConsulta']));
+  //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
+
 $rastreio = new rastreio();
+
 
 if (isset($_POST['cadastrarRastreio'])) {
 
