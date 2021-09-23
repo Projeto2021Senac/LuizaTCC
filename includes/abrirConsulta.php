@@ -42,8 +42,8 @@
                 </div>
                 <form method="post" class="mt-4">
                     <div class="col-10 offset-1 form-group p-4">
-                        <select class="form-select">
-                            <option hidden>-[SELECIONE O SERVIÇO A SER REALIZADO]-</option>
+                        <select name = "procedimento" class="form-select">
+                            <option hidden>-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-</option>
                             <?php
                             foreach ($objProcedimento as $procedimento) {
                                 echo '<option value = ' . $procedimento->idProcedimento . '>' . $procedimento->nomeProcedimento . '</option>';
@@ -52,8 +52,8 @@
                         </select>
                     </div>
                     <div class="row">
-                        <label class="mt-3 text-info" for="relatorio"><strong>Observações pré-Consulta:</strong></label>
-                        <textarea  name="relatorio" style=" ;opacity:80%;resize:none" class="text-black" rows="5"><?= $objConsulta->relatorio ?></textarea>
+                        <label class="mt-3 text-info" for="relatorio"><strong>Observações pós Consulta:</strong></label>
+                        <textarea  name="observacoes" style="opacity:80%;resize:none" class="text-black" rows="5"></textarea>
                     </div>
                     <div class="row py-3">
                         <div class="text-center">
