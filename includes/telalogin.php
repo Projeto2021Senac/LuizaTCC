@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/css.css">
-  <link rel="stylesheet" href="../css/sweetalert2.min.css">
-  <script src="../js/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
+  <script src="js/sweetalert2.min.js"></script>
 
   <!-- Custom styles for this template -->
-  <link href="signin.css" rel="stylesheet">
+ 
 </head>
 
 
@@ -50,8 +50,30 @@
       <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
     </form>
   </main>
+  <?php
+    if(isset($_GET) && isset($_GET['status']) == 'error'){
+      print(
+        "<script>
+        Swal.fire({
+          title: 'Usuário ou senha não reconhecido',
+          text: \"Talvez o usuário ou a senha escrito esteja incorreto, tente novamente!!\",
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            redirecionamento()
+            
+          }
+        })
+        function redirecionamento(){
+          window.location.href = \"login.php\"
+        }
+        </script>"
+      );
+    }
 
-
+  ?>
 
 </body>
 

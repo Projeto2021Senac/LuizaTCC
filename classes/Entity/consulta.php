@@ -55,9 +55,33 @@ class Consulta {
                                   /* echo '<pre>';print_r($db);echo'<pre>';exit; */
                                   
     }   
+    /**
+     * Método de teste com innerjoin direto na classe
+     *
+     * @param string $where
+     * @param string $like
+     * @param string $order
+     * @param string $limit
+     * @param string $fields
+     * @return PDOStatement
+     */
 
+     /*
+        Glossário:
+
+        $tabelaPrimaria = tabela principal do select, a que vai no select from 'table';
+        $tabela secundaria = tabela do 1º innerjoin, a que vai no INNER JOIN 'table';
+        $tabela terciaria = tabela do 2º innerjoin, a que vai no INNER JOIN 'table';
+
+        $condicaoTabelaPrimaria = campo fk da tabela primaria que vai ser comparado com o campo ID da tabela secundária ou terciária
+        $condicaoTabelaSecundaria = campo ID que vai ser comparado à fk da tabela primaria.
+        $condicaoTabelaTerciaria = campo ID que vai ser comparado à fk da tabela primaria.
+
+        Fórmula do método: new db("$tabelaPrimaria,$tabelaSecundaria,$tabelaTeciaria(opcional)")
+                                ->selectSQL($where,$like,$order,$limit,$fields,"$condicaoTabelaPrimaria,$condicaoTabelaSecundaria,$condicaoTabelaPrimaria(opcional),$condicaoTabelaTeciaria(opcional)")     
+     */
     public static function getConsultaPaciente($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return $db = (new db('consulta,paciente'))->selectSQL($where,$like,$order, $limit, $fields,'fkProntuario,prontuario')
+        return $db = (new db('consulta,paciente,dentista'))->selectSQL($where,$like,$order, $limit, $fields,'fkProntuario,prontuario,CFKDentista,idDentista')
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
     

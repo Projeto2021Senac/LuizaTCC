@@ -10,22 +10,16 @@ if (isset($_POST) && isset($_POST['Entrar'])){
     $login = $_POST['login'];
     $senha = $_POST['senha'];
     $validacao = $objFuncionario->getLogin($login,$senha);
-    /* echo "<pre>"; print_r($validacao); echo "<pre>";exit; */
     unset($_POST['Entrar']);
     if(gettype($validacao) == 'object'){
         $_SESSION['nome'] = $validacao->nome;
         $_SESSION['idFuncionario'] = $validacao->idFuncionario;
+        $_SESSION['perfil'] = $validacao->perfil;
         $_SESSION['confereNR'] = $_SESSION['nr'];
+        /* echo "<pre>"; print_r($_SESSION); echo "<pre>";exit; */
         header('location:index.php');
     }else{
-        echo"
-    <script>
-    Swal.fire(
-      'The Internet?',
-      'That thing is still around?',
-      'question'
-    )
-  </script>";
+        header('location:login.php?status=error');
     }
 }
 

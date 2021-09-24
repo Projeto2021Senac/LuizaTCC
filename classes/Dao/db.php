@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada
@@ -139,7 +139,7 @@ class db
      * @param array $fields
      * @return PDOStatement
      */
-    public function selectSQL($where = null, $like = null, $order = null, $limit = null, $fields = '*', $inner = null)
+    public function selectSQL($where = null, $like = null, $order = null, $limit = null, $fields = '*', $inner1 = null)
     {
 
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
@@ -156,12 +156,16 @@ class db
             //echo '<pre>';print_r($tabelas);echo'<pre>';exit;
             
         }
-        $inner = explode(',',$inner,2);
+        $inner1 = explode(',',$inner1,4);
+        /* echo "<pre>"; print_r($inner1); echo "<pre>";exit; */
         $innerjoin = '';
         //echo '<pre>';print_r($inner);echo'<pre>';exit;
         if(count($tabelas)> 1){
-        $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner[0].' = '.$tabelas[1].'.'.$inner[1]: '';
+        $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]: '';
         }
+        if(count($tabelas)> 2){
+            $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]. ' INNER JOIN ' . $tabelas[2].' on '.$tabelas[0].'.'.$inner1[2].' = '.$tabelas[2].'.'.$inner1[3]: '';
+            }
         $fields = $fields == null ? '*' : $fields;
 
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro

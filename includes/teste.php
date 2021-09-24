@@ -12,7 +12,17 @@
   <link rel="stylesheet" href="./bootstrapSelectpicker/dist/css/bootstrap-select.min.css" />
   <link rel="stylesheet" href="./css/estilo.css">
 </head>
-
+Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuário e/ou senha não cadastrados ou incorretos!',
+          confirmButtonText: 'Tudo bem'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = 'login.php' 
+            )
+          }
+        })
 <!-- <body>
 
     <script>
