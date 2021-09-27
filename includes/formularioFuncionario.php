@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label>Data de Contrato:</label>
-                    <input type="date" class="form-control" name="dtNasc">
+                    <input type="date" class="form-control" name="dtContrato">
                 </div>
 
                 <div class="form-group">
@@ -90,13 +90,13 @@
                 <div class="form-group">
                     <label>Status Funcionário: </label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" value="Ativo" checked="">
+                        <input class="form-check-input" type="radio" name="statusfuncionario" checked="">
                         <label class="form-check-label">
                             Ativo
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" value="Inativo" <?= $objFuncionario->statusFuncionario == 'Inativo' ? 'checked' : '' ?>>
+                        <input class="form-check-input" type="radio" name="statusfuncionario"<?= $objFuncionario->statusFuncionario == 'Inativo' ? 'checked' : '' ?>>
                         <label class="form-check-label">
                             Inativo
                         </label>

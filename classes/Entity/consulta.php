@@ -67,7 +67,12 @@ class Consulta {
      */
 
     public static function getConsultaPaciente($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return $db = (new db($tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
+        
+        if ($tabela != null){
+            $tabela = ','.$tabela;
+        }
+        
+        return $db = (new db('consulta'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
     

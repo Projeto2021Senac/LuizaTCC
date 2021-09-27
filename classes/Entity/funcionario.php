@@ -71,7 +71,7 @@ class Funcionario
     {
         return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
             'nome' => $this->nome,
-            'dtNasc' => $this->dtNasc,
+            'dtContrato' => $this->dtNasc,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
             'email' => $this->email,

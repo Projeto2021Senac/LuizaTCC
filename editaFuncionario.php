@@ -18,20 +18,20 @@ if (!$objFuncionario instanceof Funcionario){
     exit;
 }
 
-if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
+if (isset($_POST['nome'],$_POST['login'],$_POST['statusfuncionario'])){
     
     $objFuncionario = new Funcionario;
+    $objFuncionario->idFuncionario = $_GET['id'];
     $objFuncionario->nome = $_POST['nome'];
-    $objFuncionario->dtNasc = $_POST['dtNasc'];
+    $objFuncionario->dtNasc = $_POST['dtContrato'];
     $objFuncionario->sexo = $_POST['sexo'];
     $objFuncionario->telefone = ($_POST['telefone']);
     $objFuncionario->email = $_POST['email'];
     $objFuncionario->perfil = $_POST['perfil'];
     $objFuncionario->login = $_POST['login'];
     $objFuncionario->senha = $_POST['senha'];
-    $objFuncionario->statusFuncionario =$_POST['statusFuncionario'];
-         
-    $objFuncionario->cadastrar();
+    $objFuncionario->statusFuncionario = $_POST['statusfuncionario'];
+         /* echo '<pre>';print_r($objFuncionario);echo'<pre>';exit; */
     $objFuncionario->AtualizarFuncionario();
 
     header ('Location: index.php?status=success');

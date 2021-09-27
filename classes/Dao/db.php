@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = '';
+    const PASS = 'senac';
 
     /**
      * Nome da tabela a ser manipulada
@@ -144,28 +144,39 @@ class db
 
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
         //à query dinâmica.
-        $tabelas[0] = $this->table;
+        $tabelas = explode(',',$this->table,6);
+        /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
+        /* $tabelas[0] = $this->table; */
+        
         $where = strlen($where) ? ' WHERE ' . $where : '';
         /* echo "<pre>"; print_r($where); echo "<pre>";exit; */
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
-        if (count(explode(',',$this->table,6)) > 1) {
-
-            $tabelas = explode(',', $this->table,6);
-            //echo '<pre>';print_r($tabelas);echo'<pre>';exit;
+        $i = count($tabelas)+ 1;
+        $innerjoin = '';
+        $inner1 = explode(',',$inner1,6);
+        $y = 0;
+        $z = 1;
+        /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
+        if ( $i > 1) {
+            /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
+            for ($x = 0;$x<$i;$x++){
+                
+            }
             
         }
-        $inner1 = explode(',',$inner1,4);
-        /* echo "<pre>"; print_r($inner1); echo "<pre>";exit; */
-        $innerjoin = '';
-        //echo '<pre>';print_r($inner);echo'<pre>';exit;
+        echo '<pre>';print_r($innerjoin);echo'<pre>';exit;
+         
+
+
+/*
         if(count($tabelas)> 1){
         $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]: '';
         }
         if(count($tabelas)> 2){
             $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]. ' INNER JOIN ' . $tabelas[2].' on '.$tabelas[0].'.'.$inner1[2].' = '.$tabelas[2].'.'.$inner1[3]: '';
-            }
+            } */
         $fields = $fields == null ? '*' : $fields;
 
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
