@@ -12,7 +12,7 @@ use \Classes\Entity\Procedimento;
 use \Classes\Entity\tratamento;
 
 $InnerjoinTeste = consulta::getConsultaPaciente();
-echo "<pre>"; print_r($InnerjoinTeste); echo "<pre>";exit;
+/* echo "<pre>"; print_r($InnerjoinTeste); echo "<pre>";exit; */
 $objConsulta = consulta::getConsulta($_GET['id']);
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);

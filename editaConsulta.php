@@ -11,7 +11,7 @@ use \Classes\Entity\funcionario;
 
 define('TITLE','Editar Consulta');
 $objConsulta = consulta::getConsulta($_GET['id']);
-/* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
+echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
 $objClinica = clinica::getClinicas();
 /* echo "<pre>"; print_r($objClinica); echo "<pre>";exit; */
 $objDentista = dentista::getDentistas();
