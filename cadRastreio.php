@@ -17,7 +17,15 @@ $procedimento = procedimento::getProcedimentos();
 $terceiro = terceiro::getTerceiros();
 $servico = servicoTerceiro::getServicoTerceiros();
 
-$tratamento = tratamento::pesquisarTratamento(isset($_GET['rConsulta']));
+if (isset($_GET['rConsulta'])) {
+    $result = ($_GET['rConsulta']);
+    $tratamento = tratamento::pesquisarTratamento($result);
+    
+    
+    //echo'<pre>';print_r($result);echo'</pre>';exit;
+    //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
+}
+//$tratamento = tratamento::pesquisarTratamento($_GET['rConsulta']));
   //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
 
 $rastreio = new rastreio();

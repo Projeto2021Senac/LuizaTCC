@@ -193,12 +193,9 @@ class db
      * Método para pesquisa apenas do tratamento com inner
      */
      public function pesquisarTratamento($pesquisa){
-        
-               $query="SELECT * FROM tratamento inner join consulta "
-                        . "on tratamento.fkConsulta = consulta.idConsulta "
-                        . "inner join procedimento on tratamento.fkProcedimento = "
-                        . "procedimento.idProcedimento "
-                        . " where fkConsulta = ".$pesquisa." order by procedimento.idProcedimento desc";
+        //echo'<pre>';print_r($pesquisa);echo'</pre>';exit;
+               $query="SELECT * FROM tratamento "
+                        . " where fkConsulta = ".$pesquisa;
                //echo'<pre>';print_r($query);echo'</pre>';exit;
                       return $this->executeSQL($query); 
             

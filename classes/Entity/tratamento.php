@@ -53,8 +53,8 @@ class Tratamento{
 
     }
     
-    public static function pesquisarTratamento($fkConsulta){
-        return (new db('tratamento'))->pesquisarTratamento($fkConsulta)
-                                   ->fetchObject(self::class);
+    public static function pesquisarTratamento($c){
+        return (new db('tratamento'))->pesquisarTratamento($c)
+                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
 }
 }
