@@ -39,9 +39,9 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
     $objConsulta->cadastrarConsulta();
 
     if ($objConsulta->idConsulta > 0) {
-        header('Location: index.php?status=success');
+        header('Location: pesquisarConsulta.php?status=success&id='.$objConsulta->idConsulta);
     } else {
-        header('Location: index.php?status=error');
+        header('Location: pesquisarConsulta.php?status=error');
     }
 }
 //Monta a página, utilizando o header.php, arquivo que contém a navbar e o início da div container; o arquivo que vai ser de fato

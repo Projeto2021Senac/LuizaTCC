@@ -3,7 +3,7 @@
     <main>
 
         <section>
-            <a href="<?=(TITLE == 'Cadastrar Nova Consulta' ? 'index.php' : 'pesquisarConsulta.php')?>">
+            <a href="pesquisarConsulta.php">
                 <button class="btn btn-success mt-4">Retornar</button>
             </a>
 
@@ -85,10 +85,10 @@
                         <label>Status da Consulta</label>
                         <select class="form-control" name="status" >
                             <option >Agendada</option>
-                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?> value="1" <?=($objConsulta->statusConsulta == 'Confirmada' ? print('selected = selected') : '')?> >Confirmada</option>
-                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?> value="2" <?=($objConsulta->statusConsulta == 'Cancelada' ? print('selected = selected') : '')?>>Cancelada</option>
-                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?> value="3" <?=($objConsulta->statusConsulta == 'Em andamento' ? print('selected = selected') : '')?>>Em andamento</option>
-                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?> value="4" <?=($objConsulta->statusConsulta == 'Finalizada' ? print('selected = selected') : '')?>>Finalizada</option>
+                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?>  <?=($objConsulta->statusConsulta == 'Confirmada' ? print('selected = selected') : '')?> >Confirmada</option>
+                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?>  <?=($objConsulta->statusConsulta == 'Cancelada' ? print('selected = selected') : '')?>>Cancelada</option>
+                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?>  <?=($objConsulta->statusConsulta == 'Em andamento' ? print('selected = selected') : '')?>>Em andamento</option>
+                            <option <?=(TITLE == 'Cadastrar Nova Consulta' ? print ('hidden = hidden') : '')?>  <?=($objConsulta->statusConsulta == 'Finalizada' ? print('selected = selected') : '')?>>Finalizada</option>
                         </select>
                     </div>
                     </div>

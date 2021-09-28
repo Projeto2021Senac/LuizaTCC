@@ -32,7 +32,7 @@ $objConsulta->setPaciente($objPaciente);
 /**
  * Método sem filtro 
  */
-$consultas = $objConsulta->getConsultaPaciente('paciente,clinica',null,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista');
+$consultas = $objConsulta->getConsultaPaciente('paciente,clinica,dentista',null,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista');
 
 /*  echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 

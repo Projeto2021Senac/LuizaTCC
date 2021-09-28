@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada
@@ -85,7 +85,7 @@ class db
     {
         
         try {
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+           /*  $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); */
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
 
@@ -153,20 +153,25 @@ class db
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
-        $i = count($tabelas)+ 1;
+        $i = count($tabelas) - 1;
         $innerjoin = '';
         $inner1 = explode(',',$inner1,6);
-        $y = 0;
-        $z = 1;
+        $fk = 0;
+        $id = 1;
+        $Tposition = 1;
         /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
         if ( $i > 1) {
             /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
-            for ($x = 0;$x<$i;$x++){
+            for ($x = 0;$x!=$i;$x++){
+                $innerjoin .= ' INNER JOIN '.$tabelas[$Tposition].' ON '.$tabelas[0].'.'.$inner1[$fk].' = '.$tabelas[$Tposition].'.'.$inner1[$id].' ';
+                $fk = $fk + 2;
+                $id = $id + 2;
                 
+                $Tposition++;
             }
             
         }
-        echo '<pre>';print_r($innerjoin);echo'<pre>';exit;
+        /* echo '<pre>';print_r($innerjoin);echo'<pre>';exit; */
          
 
 
