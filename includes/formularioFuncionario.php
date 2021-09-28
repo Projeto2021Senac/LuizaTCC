@@ -96,7 +96,7 @@
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="status"  value="Inativo"<?=$objFuncionario->statusFuncionario== 'Inativo' ? 'checked': ''?> >
                     <label class="form-check-label" >
-                      Inativo
+                      Inativo 
                     </label>
                 </div>
             </div>
