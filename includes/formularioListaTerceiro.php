@@ -30,10 +30,10 @@
         <table class="table bg-light mt-3">
             <thead class="bg-dark text-light">
                 <tr>
-                    <th>Número do ID</th>
+                    <th>Número do ID Terceiro</th>
                     <th>Nome</th>
                     <th>Celular</th>
-                    <th>Status Terceiro</th>
+                    <th>Status do Terceiro</th>
                     <th>Ações</th>
                     <th></th>
                 </tr>

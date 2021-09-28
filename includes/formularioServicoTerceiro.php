@@ -41,7 +41,6 @@
                 <input type="tel" class="form-control" name="descricao" placeholder="Relato sobre"required=""
                        value="<?=$objServicoTerceiro->descricao?>">
             </div>
-            <div class="form-group">
             <label>Status do Serviço Terceiro: </label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="status"  value="Ativo" checked="">
@@ -50,7 +49,7 @@
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="statusServico"  value="Inativo"<?=$objServicoTerceiro->statusServicoTerceiro== 'Inativo' ? 'checked': ''?> >
+                    <input class="form-check-input" type="radio" name="status"  value="Inativo"<?=$objServicoTerceiro->statusServicoTerceiro== 'Inativo' ? 'checked': ''?> >
                     <label class="form-check-label" >
                       Inativo
                     </label>

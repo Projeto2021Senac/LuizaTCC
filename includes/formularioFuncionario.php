@@ -102,9 +102,8 @@
             </div>
             <div class="form-group">
                     <label>Data de Contrato:</label>
-                    <input type="date" class="form-control" name="dtContrato" >
+                    <input type="date" class="form-control" name="dtContrato" value="<?=$objFuncionario->dtContrato?>">
                 </div>
-       
          </div>
              <div>
             <div class="row">

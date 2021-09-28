@@ -11,7 +11,7 @@
         $resultados .= '<tr>
                             <td>' . $objServicoTerceiro->idServico . '</td>
                             <td>' . $objServicoTerceiro->nomeServico . '</td>
-                            <td>' . $objServicoTerceiro->telefone . '</td>
+                            <td>' . $objServicoTerceiro->descricao . '</td>
                             <td>' .$objServicoTerceiro->statusServicoTerceiro. '</td>
 
                             
@@ -32,7 +32,7 @@
                 <tr>
                     <th>Número do ID</th>
                     <th>Nome Serviço Terceiro</th>
-                    <th>Celular</th>
+                    <th>Descrição</th>
                     <th>Status Serviço Terceiro</th>
                     <th>Ações</th>
                     <th></th>

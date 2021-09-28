@@ -56,7 +56,7 @@ class ServicoTerceiro{
     public function AtualizarServicoTerceiro()
     {
         return (new db('ServicoTerceiro'))->updateSQL('idServico= ' . $this->idServico, [
-                'nomeServicoTerceiro' => $this->nomeServico,
+                '  nomeServico ' => $this->nomeServico,
                 'descricao' => $this->descricao,
                 'statusServicoTerceiro' => $this->statusServicoTerceiro
             ]);

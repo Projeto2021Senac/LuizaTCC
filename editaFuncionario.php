@@ -11,7 +11,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
 }
 
 $objFuncionario =Funcionario::getFuncionario($_GET['id']);
-
+/* echo '<pre>';print_r($objFuncionario);echo '<pre>';exit; */
 
 
 if (!$objFuncionario instanceof Funcionario){
