@@ -22,6 +22,9 @@ if (isset($_GET['rConsulta'])) {
     $tratamento = tratamento::pesquisarTratamento($result);
     
     
+        
+    
+    
     //echo'<pre>';print_r($result);echo'</pre>';exit;
     //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
 }

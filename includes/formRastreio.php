@@ -94,6 +94,13 @@ if (isset($_GET['rConsulta'])) {
                         <div class="form-group">
                             <label>Procedimento</label>
                             <input type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
+                                  <?php 
+                                                                foreach ($tratamento as $tra){
+                                    foreach ($procedimento as $pro){
+                                        $tra->fkProcedimento == $pro->idProcedimento?$rastreio->TFKProcedimento=$pro->nomeProcedimento:'';
+                                        echo $rastreio->TFKProcedimento;
+                                                                }}
+                                   ?>
                            <!-- <select type="text" class="form-control" name="TFKProcedimento">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
