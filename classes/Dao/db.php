@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = '';
+    const PASS = 'senac';
 
     /**
      * Nome da tabela a ser manipulada
@@ -144,25 +144,25 @@ class db
 
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
         //à query dinâmica.
-        $tabelas = explode(',',$this->table,6);
+        $tabelas = explode(',',$this->table,12);
         /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
         /* $tabelas[0] = $this->table; */
         
-        $where = strlen($where) ? ' WHERE ' . $where : '';
+        $where = strlen($where) ? ' WHERE ' .$where : '';
         /* echo "<pre>"; print_r($where); echo "<pre>";exit; */
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
-        $i = count($tabelas) - 1;
+        $i = count($tabelas);
         $innerjoin = '';
-        $inner1 = explode(',',$inner1,6);
+        $inner1 = explode(',',$inner1,12);
         $fk = 0;
         $id = 1;
         $Tposition = 1;
         /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
         if ( $i > 1) {
             /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
-            for ($x = 0;$x!=$i;$x++){
+            for ($x = 1;$x<$i;$x++){
                 $innerjoin .= ' INNER JOIN '.$tabelas[$Tposition].' ON '.$tabelas[0].'.'.$inner1[$fk].' = '.$tabelas[$Tposition].'.'.$inner1[$id].' ';
                 $fk = $fk + 2;
                 $id = $id + 2;

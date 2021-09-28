@@ -11,8 +11,8 @@ use \Classes\Entity\funcionario;
 use \Classes\Entity\Procedimento;
 use \Classes\Entity\tratamento;
 
-$InnerjoinTeste = consulta::getConsultaPaciente();
-/* echo "<pre>"; print_r($InnerjoinTeste); echo "<pre>";exit; */
+$InnerjoinTeste = consulta::getConsultaInnerJoin('paciente,dentista,clinica,funcionario','idConsulta = '.$_GET['id'],'fkProntuario,prontuario,CFKDentista,idDentista,CFKClinica,idClinica,fkFuncionario,idFuncionario');
+echo "<pre>"; print_r($InnerjoinTeste); echo "<pre>";exit;
 $objConsulta = consulta::getConsulta($_GET['id']);
 
 $objClinica2 = clinica::getClinica($objConsulta->CFKClinica);

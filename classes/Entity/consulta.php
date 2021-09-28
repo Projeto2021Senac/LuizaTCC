@@ -66,7 +66,7 @@ class Consulta {
      * @return PDOStatement
      */
 
-    public static function getConsultaPaciente($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+    public static function getConsultaInnerJoin($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
         
         if ($tabela != null){
             $tabela = ','.$tabela;
