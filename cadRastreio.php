@@ -27,6 +27,7 @@ if (isset($_GET['rConsulta'])) {
 }
 //$tratamento = tratamento::pesquisarTratamento($_GET['rConsulta']));
   //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
+//echo'<pre>';print_r($procedimento);echo'</pre>';exit;
 
 $rastreio = new rastreio();
 

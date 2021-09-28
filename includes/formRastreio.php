@@ -15,7 +15,7 @@ if (isset($_GET['status'])) {
 if (isset($_GET['rConsulta'])) {
     
     $rastreio->TFKConsulta=$_GET['rConsulta'];
-    $rastreio->TFKProcedimento= $tratamento->fkProcedimento;
+    //$rastreio->TFKProcedimento= $procedimento->fkProcedimento;
     
 }
 
@@ -93,16 +93,20 @@ if (isset($_GET['rConsulta'])) {
                         
                         <div class="form-group">
                             <label>Procedimento</label>
-                            <select type="text" class="form-control" name="TFKProcedimento">
+                            <input type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
+                           <!-- <select type="text" class="form-control" name="TFKProcedimento">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
-                                
+                                /*
                                 foreach ($tratamento as $trat){
+                                    foreach ($procedimento as $proc){
                                     $selected = ($rastreio->TFKProcedimento == $trat->fkProcedimento ? 'selected = selected' : '');
-                                    echo "<option value =".$trat->fkProcedimento." ".$selected.">".$trat->fkProcedimento."</option>";
+                                    $nome = ($trat->fkProcedimento == $proc->idProcedimento ? $proc->nomeProcedimento :'');
+                                    echo "<option value =".$trat->fkProcedimento." ".$selected.">".$nome."</option>";
+                                    }
                                 }
-                                ?>
-                                </select>
+                                */?>
+                                </select>-->
                           
                         </div>
                         
