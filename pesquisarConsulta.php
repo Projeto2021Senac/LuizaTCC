@@ -6,6 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
+
+
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 
@@ -15,11 +17,22 @@ use \Classes\Entity\paciente;
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
-$objConsulta->setPaciente($objPaciente);
-//echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
+/* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
 
 //Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
-$consultas = $objConsulta->getConsultaPaciente();
+/* $consultas = $objConsulta->getConsultas(); */
+/* echo "<pre>"; print_r($consultas); echo "<pre>";exit; */
+
+/**
+ * Método com filtro de status
+ */
+/* $consultas = $objConsulta->getConsultaPaciente('statusConsulta <> "Agendada"'); */
+
+/**
+ * Método sem filtro 
+ */
+$consultas = $objConsulta->getConsultaInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'idConsulta asc');
+
  /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
 

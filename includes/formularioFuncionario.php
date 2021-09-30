@@ -1,26 +1,28 @@
+<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+    <main>
 
- <div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
- <main>
+        <section>
+            <a href="index.php">
+                <button class="btn btn-success mt-4">Retornar</button>
+            </a>
 
 <section>
     <a href="index.php">
         <button class="btn btn-success mt-4">Menu</button>
     </a>
 
-</section>
+    </main>
 
-</main>
+    <div class="row">
+        <div>
+            <div class="row">
 
-<div class="row">
-    <div>
-        <div class="row">
-
-            <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 90%">
-                <h3 style="color: white; text-align: center"><?=TITLE?></h3>
+                <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 90%">
+                    <h3 style="color: white; text-align: center"><?= TITLE ?></h3>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
 
      
         <form method="post" style="color: white" >
@@ -49,31 +51,24 @@
                         Feminino
                     </label>
                 </div>
-         
-            </div>
-            <div class="form-group">
-                <label >Celular:</label>
-                <input type="tel" class="form-control" name="telefone" placeholder="+55(DD)00000-0000"required=""
-                       value="<?=$objFuncionario->telefone?>">
-            </div>
-            <div class="form-group">
-                <label >E-mail:</label>
-                <input type="tel" class="form-control" name="email" placeholder="email@gmail.com"required=""
-                       value="<?=$objFuncionario->email?>">
-            </div>
-            <div class="form-group">
-                <label>Perfil: </label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil" id="" value="Funcionário" checked="">
-                    <label class="form-check-label" for="exampleRadios3">
-                       Funcionário
-                    </label>
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <input type="tel" class="form-control" name="email" placeholder="email@gmail.com" required="" value="<?= $objFuncionario->email ?>">
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="perfil"  value="Administrador"<?=$objFuncionario->perfil== 'Administrador' ? 'checked': ''?> >
-                    <label class="form-check-label" >
-                       Adminstrador
-                    </label>
+                <div class="form-group">
+                    <label>Perfil: </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="perfil" id="" value="Funcionário" checked="">
+                        <label class="form-check-label" for="exampleRadios3">
+                            Funcionário
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="perfil" value="Administrador" <?= $objFuncionario->perfil == 'Administrador' ? 'checked' : '' ?>>
+                        <label class="form-check-label">
+                            Adminstrador
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -115,8 +110,6 @@
                 <br>
                 <br>
             </div>
-            </form>
         </div>
     </div>
-</div>
 </div>

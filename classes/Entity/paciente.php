@@ -27,7 +27,7 @@ class paciente {
         $this->prontuario = $db->insertSQL([
             'nome' => $this->nome,
             'sexo' => $this->sexo,
-            'tel' => $this->tel,
+            'telefone' => $this->tel,
             'email' => $this->email,
         ]);
     }

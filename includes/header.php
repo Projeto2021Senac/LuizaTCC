@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="./css/sweetalert2.min.css">
-    <script src="../js/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <script src="js/sweetalert2.min.js"></script>
 
     <title>Abdull Proteses</title>
     
@@ -86,7 +86,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -95,7 +95,7 @@
                 </ul>
 
 
-                <a class="nav-link" href="login.php">
+                <a class="nav-link" href="sessionDestroy.php">
                     <div id="passar_mouse">
                         <img src="./includes/img/sair.png" width="40" height="40" alt="sair" />
                         <div id="mostrar" style="color: black">Sair</div>

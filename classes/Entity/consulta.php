@@ -14,7 +14,6 @@ class Consulta {
     public $fkFuncionario;
     public $CFKDentista;
     public $CFKClinica;
-    public $paciente;
 
     public function cadastrarConsulta(){
 
@@ -28,8 +27,8 @@ class Consulta {
             'fkFuncionario' => $this->fkFuncionario,
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
-        ]);
             
+        ]);
     }
     /**
      * Função
@@ -56,12 +55,27 @@ class Consulta {
                                   /* echo '<pre>';print_r($db);echo'<pre>';exit; */
                                   
     }   
+    /**
+     * Método de teste com innerjoin direto na classe
+     *
+     * @param string $where
+     * @param string $like
+     * @param string $order
+     * @param string $limit
+     * @param string $fields
+     * @return PDOStatement
+     */
 
-    public static function getConsultaPaciente(){
-        return $db = (new db('consulta,paciente'))->selectSQL(null,null,null,null,null,'fkProntuario,prontuario')
+    public static function getConsultaInnerJoin($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        
+        if ($tabela != null){
+            $tabela = ','.$tabela;
+        }
+        
+        return $db = (new db('consulta'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
                                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }                        
-
+    
     /**
      * Get the value of paciente
      */ 
@@ -81,8 +95,21 @@ class Consulta {
 
         return $this;
     }
+    public function Atualizar($id){
+        $db = new db('consulta');
+        $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
+            'dataConsulta' => $this->dataConsulta,
+            'horaConsulta' => $this->horaConsulta,
+            'statusConsulta' => $this->statusConsulta,
+            'relatorio' => $this->relatorio,
+            'fkProntuario' => $this->fkProntuario,
+            'fkFuncionario' => $this->fkFuncionario,
+            'CFKDentista' => $this->CFKDentista,
+            'CFKClinica' => $this->CFKClinica
+        ]);
+    }
 }
 
-
+    
 
 ?>

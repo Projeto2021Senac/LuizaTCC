@@ -59,7 +59,7 @@ $resultados = strlen($resultados)? $resultados :
                 <form method="post" action="" style="color: white" >
                     
                     <div class="form-group">
-
+                        
                         <input type="text" class="form-control p-1" name="busca" required=""  value="<?=$busca?>">
                     </div>
 

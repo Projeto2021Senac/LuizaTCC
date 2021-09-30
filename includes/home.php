@@ -1,6 +1,6 @@
-<div class="container-fluid" >
-    <div class=col-12>
-        <div class="container-fluid">
+<div class="container-fluid">
+    <div>
+        <div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
             <main>
                 <div class="row">
                     <div class="col-6">
@@ -36,10 +36,26 @@
 
                         </div>
                         <div class="row mt-5">
-                        <div class="col text-center ms-5">
+                            <div class="col text-center">
                                 <fieldset>
                                     <a href="pesquisarConsulta.php">
-                                        <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/Consulta2.png" width="200px" height="200px">
+                                        <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/Consulta2.png" width="200px" height="200px">
+
+                                    </a>
+                                </fieldset>
+                            </div>
+                            <div class="col text-center ms-2">
+                                <fieldset>
+                                    <a href="listaProcedimento.php">
+                                        <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/Servicos.png" width="200px" height="200px">
+
+                                    </a>
+                                </fieldset>
+                            </div>
+                            <div class="col text-center ms-3">
+                                <fieldset>
+                                    <a href="pesquisarConsulta.php">
+                                        <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/rastreio.png" width="200px" height="200px">
 
                                     </a>
                                 </fieldset>

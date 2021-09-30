@@ -35,7 +35,7 @@ class Procedimento{
      * @return array
      */
     public static function getProcedimentos($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
-        return (new db('Procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
+        return (new db('procedimento'))->selectSQL($where,$like,$order,$limit,$fields)
                                   ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
     /**
