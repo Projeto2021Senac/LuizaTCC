@@ -43,13 +43,13 @@
             </div>
             <label>Status do Serviço Terceiro: </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status"  value="Ativo" checked="">
+                    <input class="form-check-input" type="radio" name="statusServicoTerceiro"  value="Ativo" checked="">
                     <label class="form-check-label" >
                        Ativo
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="status"  value="Inativo"<?=$objServicoTerceiro->statusServicoTerceiro== 'Inativo' ? 'checked': ''?> >
+                    <input class="form-check-input" type="radio" name="statusServicoTerceiro"  value="Inativo"<?=$objServicoTerceiro->statusServicoTerceiro== 'Inativo' ? 'checked': ''?> >
                     <label class="form-check-label" >
                       Inativo
                     </label>

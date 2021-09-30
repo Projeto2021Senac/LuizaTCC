@@ -24,9 +24,9 @@ if (isset($_POST['nomeServico'], $_POST['statusServicoTerceiro'])) {
 
     $objServicoTerceiro = new ServicoTerceiro;
     $objServicoTerceiro->idServico = $_GET['id'];
-    $objServicoTerceiro->nomeServico = $_POST['nome'];
+    $objServicoTerceiro->nomeServico = $_POST['nomeServico'];
     $objServicoTerceiro->descricao = ($_POST['descricao']);
-    $objServicoTerceiro->statusServicoTerceiro = $_POST['status'];
+    $objServicoTerceiro->statusServicoTerceiro = $_POST['statusServicoTerceiro'];
     //echo '<pre>';print_r($objServicoTerceiro);echo '<pre>';exit;
 
     $objServicoTerceiro->AtualizarServicoTerceiro();

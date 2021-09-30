@@ -24,8 +24,8 @@ class Funcionario
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('funcionario');
-        $this->idFuncionario = $obdb->insertSQL([
+        $db = new db('funcionario');
+        $this->idFuncionario = $db->insertSQL([
             'nome' => $this->nome,
             'dtContrato' => $this->dtContrato,
             'sexo' => $this->sexo,
@@ -67,10 +67,8 @@ class Funcionario
         return (new db('funcionario'))->selectSQL('idFuncionario = ' . $idFuncionario)
             ->fetchObject(self::class);
     }
-    public function AtualizarFuncionario()
-    {
-        return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, 
-        [
+    public function AtualizarFuncionario(){
+        return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario,[
                 'nome' => $this->nome,
                 'dtContrato' => $this->dtContrato,
                 'sexo' => $this->sexo,

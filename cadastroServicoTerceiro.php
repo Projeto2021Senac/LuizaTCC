@@ -19,8 +19,7 @@ if (isset($_POST['Salvar'])){
     if ($objServicoTerceiro->idServico> 0){
         header ('Location: index.php?status=success');
     }else{
-        header ('Location: index.php?status=error');
-    }
+        header ('Location: index.php?status=error');}
 }
 
 include __DIR__.'/includes/header.php';
