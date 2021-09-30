@@ -194,11 +194,13 @@ class db
      */
      public function pesquisarTratamento($pesquisa){
         //echo'<pre>';print_r($pesquisa);echo'</pre>';exit;
-               $query="SELECT * FROM tratamento "
+               $query="SELECT * FROM tratamento inner join consulta on fk"
                         . " where fkConsulta = ".$pesquisa;
                //echo'<pre>';print_r($query);echo'</pre>';exit;
                       return $this->executeSQL($query); 
             
         }
+     
+       
     }
 

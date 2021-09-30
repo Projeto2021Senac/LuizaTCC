@@ -68,5 +68,7 @@ class rastreio {
         return (new db('rastreio'))->selectSQL('idRastreio = ' . $idRastreio)
                         ->fetchObject(self::class);
     }
+    
+    
 
 }

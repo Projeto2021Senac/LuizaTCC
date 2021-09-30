@@ -12,11 +12,21 @@ if (isset($_GET['status'])) {
     }
 }
 
+$resultadoConsulta = "";
 if (isset($_GET['rConsulta'])) {
     
     $rastreio->TFKConsulta=$_GET['rConsulta'];
-    //$rastreio->TFKProcedimento= $procedimento->fkProcedimento;
     
+    foreach ($procedimento as $pro){
+        
+        $rastreio->TFKProcedimento = $pro->idProcedimento;
+        $resultadoProcedimento= $pro->nomeProcedimento;
+    }
+    
+    foreach ($consulta as $c){
+        $resultadoConsulta=
+        $c->nome." ".$c->dataConsulta." ".$c->horaConsulta;
+} 
 }
 
 ?>
@@ -84,16 +94,21 @@ if (isset($_GET['rConsulta'])) {
                                 }
                                */ ?>
                             </select>-->
-                            <input type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
+                            <input hidden="" type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
                             <input type="submit" name="pConsultaRast"
                                    class="btn btn-success btInput p-1 " value="Pesquisar">
+                            
+                            <label>
+                                <?= $resultadoConsulta?>
+                                
+                            </label>
                             
                                 
                         </div>
                         
                         <div class="form-group">
                             <label>Procedimento</label>
-                            <input type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
+                            <input hidden="" type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
                            <!-- <select type="text" class="form-control" name="TFKProcedimento">
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
@@ -107,6 +122,11 @@ if (isset($_GET['rConsulta'])) {
                                 }
                                 */?>
                                 </select>-->
+                            
+                            <label>
+                                <?= $resultadoProcedimento?>
+                                
+                            </label>
                           
                         </div>
                         
