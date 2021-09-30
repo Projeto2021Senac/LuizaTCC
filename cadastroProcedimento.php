@@ -17,7 +17,7 @@ if (isset($_POST['nome'])){
     $objProcedimento->statusProcedimento = $_POST['status'];
     /* echo '<pre>';print_r($objProcedimento);echo '<pre>';exit; */
     
-    $objProcedimento->cadastrar();
+    $objProcedimento->cadastro();
    
     if ($objProcedimento->idProcedimento > 0){
         header ('Location: index.php?status=success');
