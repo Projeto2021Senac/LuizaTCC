@@ -25,7 +25,7 @@ class paciente {
     public function cadastrarPaciente() {
         $db = new db('paciente');
         $this->prontuario = $db->insertSQL([
-            'nome' => $this->nome,
+            'nomePaciente' => $this->nome,
             'sexo' => $this->sexo,
             'telefone' => $this->tel,
             'email' => $this->email,
@@ -39,7 +39,7 @@ class paciente {
     public function editarPaciente() {
         return (new db('paciente'))->
                         updateSQL('prontuario= ' .$this->prontuario,[
-                                                            'nome' => $this->nome,
+                                                            'nomePaciente' => $this->nome,
                                                             'sexo' => $this->sexo,
                                                             'tel' => $this->tel,
                                                             'email' => $this->email

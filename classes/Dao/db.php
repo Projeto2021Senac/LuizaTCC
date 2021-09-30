@@ -85,14 +85,14 @@ class db
     {
         
         try {
-           /*  $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); */
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
 
             /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
             return $statement;
         } catch (PDOException $e) {
-            die('ERROR' . $e->getMessage());
+            return "Error";
         }
     }
     /**
@@ -122,11 +122,16 @@ class db
         //Roda o método executeSQL, que tem por função de fato executar o comando que criamos logo acima, substituindo as interrogações pelos valores que passamos como parâmetro
         //($query e $array_values($values)).
         /* echo '<pre>';print_r(array_values($values));echo'<pre>';exit; */
-        $this->executeSQL($query, array_values($values));
+        
+        $check[0] = $this->executeSQL($query, array_values($values));
+        $check[1] = $this->connection->lastInsertId();
         
         //Se tiver sucesso na execução, retorna o último id inserido no banco. Em caso de falha é vazio e não retorna nada.
         //Utilizado na verificação de sucesso localizado em cadastrar.php linhas 31 à 36
-        return $this->connection->lastInsertId();
+
+
+
+        return $check;
     }
 
 

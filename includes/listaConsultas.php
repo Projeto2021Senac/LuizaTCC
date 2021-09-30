@@ -26,11 +26,11 @@
             $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
             
             $resultados .= '<tr ">
-                            <td class "table-success>' . $consulta->idConsulta . '</td>
+                            <td>' . $consulta->idConsulta . '</td>
                             <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
                             <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
                             <td>' . $consulta->statusConsulta . '</td>
-                            <td>' . $consulta->nome . '</td>
+                            <td>' . $consulta->nomePaciente . '</td>
                             <td>
                             <a '.$disabled1.'class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
                             <a '.$disabled.'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
@@ -64,7 +64,7 @@
           );
         }
 
-        if(isset($_GET['status'])&& is_string($_GET['status']) && $_GET['status'] != 'error'){
+        if(isset($_GET['status'])&& is_string($_GET['status']) && $_GET['status'] == 'error'){
            
             print(
               "<script>

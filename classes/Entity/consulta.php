@@ -28,7 +28,7 @@ class Consulta {
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
             
-        ]);
+        ])[1];
     }
     /**
      * Função
@@ -73,28 +73,20 @@ class Consulta {
         }
         
         return $db = (new db('consulta'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
-                                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
-    }                        
+                                                  ->fetchObject(self::class);
+    }    
     
-    /**
-     * Get the value of paciente
-     */ 
-    public function getPaciente()
-    {
-        return $this->paciente;
-    }
+    public static function getConsultasInnerJoin($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        
+        if ($tabela != null){
+            $tabela = ','.$tabela;
+        }
+        
+        return $db = (new db('consulta'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
+                                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
+    } 
 
-    /**
-     * Set the value of paciente
-     *
-     * @return  self
-     */ 
-    public function setPaciente($paciente)
-    {
-        $this->paciente = $paciente;
-
-        return $this;
-    }
+    
     public function Atualizar($id){
         $db = new db('consulta');
         $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
@@ -106,7 +98,7 @@ class Consulta {
             'fkFuncionario' => $this->fkFuncionario,
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
-        ]);
+        ])[1];
     }
 }
 
