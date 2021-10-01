@@ -4,13 +4,13 @@ require __DIR__.'/vendor/autoload.php';
 
 use \Classes\Entity\funcionario;
 
-define('TITLE','Cadastrar Funcionário');
+define('TITLE','Cadastro Funcionário');
 
 $objFuncionario = new Funcionario;
 if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
 
     $objFuncionario->nome = $_POST['nome'];
-    $objFuncionario->dtNasc = $_POST['dtNasc'];
+    $objFuncionario->dtContrato = $_POST['dtContrato'];
     $objFuncionario->sexo = $_POST['sexo'];
     $objFuncionario->telefone = $_POST['telefone'];
     $objFuncionario->email = $_POST['email'];

@@ -11,13 +11,14 @@ class Procedimento{
     public $statusProcedimento;
     
    
-    public function cadastrar(){
+    public function cadastro(){
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('procedimento');
-        $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nomeProcedimento,
-         'statusProcedimento' => $this->statusProcedimento]);
+         $obdb = new db('Procedimento');
+            $this->idProcedimento= $obdb->insertSQL([ 'nomeProcedimento' => $this->nomeProcedimento,
+            'statusProcedimento' => $this->statusProcedimento
+        ]);
     }
 
     /**
@@ -47,5 +48,12 @@ class Procedimento{
         return (new db('procedimento'))->selectSQL('idProcedimento = '.$idProcedimento)
                                    ->fetchObject(self::class); 
 
+    }
+    public function AtualizarProcedimento()
+    {
+        return (new db('procedimento'))->updateSQL('idProcedimento= ' . $this->idProcedimento, [
+                'nomeProcedimento' => $this->nomeProcedimento,
+                'statusProcedimento' => $this->statusProcedimento
+            ]);
     }
 }
