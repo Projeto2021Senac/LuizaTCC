@@ -5,15 +5,13 @@ namespace Classes\Dao;
 use PDO;
 use PDOException;
 
-class db
-{
+class db {
 
     /**
      * Nome do host do mysql
      * @var string
      */
     const HOST = 'localhost';
-
 
     /**
      * Nome do banco de dados
@@ -37,7 +35,6 @@ class db
      * Nome da tabela a ser manipulada
      * @var string
      */
-
     private $table;
 
     /**
@@ -51,22 +48,19 @@ class db
      * que a classe funcione devidamente.
      * @var string
      */
-    public function __construct($table = null)
-    {
+    public function __construct($table = null) {
         //Pega a string da tabela a ser trabalhada que foi escrita no momento da instancia da classe
         //e atribui a uma variável interna para que seja utilizada nas funções
         $this->table = $table;
         $this->setConnection();
     }
 
-
     /**
      * Método que faz a conexão com o banco de dados, utilizando as constantes que definimos ali encima
      * (HOST, NAME, USER, PASS). Além de setar o atributo PDO::ERRMODE_EXCEPTION para que possamos saber onde está o 
      * erro de sintaxe SQL mais facilmente.
      */
-    private function setConnection()
-    {
+    private function setConnection() {
         try {
             $this->connection = new PDO('mysql:host=' . self::HOST . ';dbname=' . self::NAME, self::USER, self::PASS);
             $this->connection->setAttribute(PDO::ERRMODE_EXCEPTION, PDO::ATTR_ERRMODE);
@@ -74,6 +68,7 @@ class db
             die('ERROR' . $e->getMessage());
         }
     }
+
     /**
      * Método que executa as queries dentro do banco de dados
      *
@@ -81,8 +76,7 @@ class db
      * @param array $params
      * @return PDOStatement
      */
-    public function executeSQL($query, $params = [])
-    {
+    public function executeSQL($query, $params = []) {
 
         try {
             $statement = $this->connection->prepare($query);
@@ -93,16 +87,15 @@ class db
             die('ERROR' . $e->getMessage());
         }
     }
+
     /**
      * Método responsável por inserir dados no banco
      *
      * @param array $values [field => value] 
      * @return integer ID inserido
      */
-    public function insertSQL($values)
-    {
+    public function insertSQL($values) {
         //Utiliza de funcionalidades do array para extrair os titulos e os valores passados como array no parâmetro da função ($values)
-
         //array_keys pega os titulos do array
         $fields = array_keys($values);
         //echo "<pre>"; print_r($fields); echo "<pre>";exit;
@@ -114,7 +107,7 @@ class db
         //Comando que vai pro SQL. 
         //Query dinâmica que varia dependendo da tabela escolhida e de quantos campos a classe que rodou este método passou pelo array no parâmetro da função
         $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') values (' . implode(',', $binds) . ')';
-        
+
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         //Roda o método executeSQL, que tem por função de fato executar o comando que criamos logo acima, substituindo as interrogações pelos valores que passamos como parâmetro
         //($query e $array_values($values)).
@@ -126,7 +119,6 @@ class db
         return $this->connection->lastInsertId();
     }
 
-
     /**
      * Função dinamica que pode ou não receber parâmetros extras para fazer pesquisas simples ou mais detalhadas no banco de dados
      * @param string $where
@@ -136,8 +128,7 @@ class db
      * @param array $fields
      * @return PDOStatement
      */
-    public function selectSQL($where = null, $like = null, $order = null, $limit = null, $fields = '*', $inner = null)
-    {
+    public function selectSQL($where = null, $like = null, $order = null, $limit = null, $fields = '*', $inner = null) {
 
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
         //à query dinâmica.
@@ -146,24 +137,23 @@ class db
         $like = strlen($like) ? ' LIKE ' . $like : '';
         $order = strlen($order) ? ' ORDER BY ' . $order : '';
         $limit = strlen($limit) ? ' LIMIT ' . $limit : '';
-        if (count(explode(',',$this->table,6)) > 1) {
+        if (count(explode(',', $this->table, 6)) > 1) {
 
-            $tabelas = explode(',', $this->table,6);
+            $tabelas = explode(',', $this->table, 6);
             //echo '<pre>';print_r($tabelas);echo'<pre>';exit;
-            
         }
-        $inner = explode(',',$inner,2);
+        $inner = explode(',', $inner, 2);
         $innerjoin = '';
         //echo '<pre>';print_r($inner);echo'<pre>';exit;
-        if(count($tabelas)> 1){
-        $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner[0].' = '.$tabelas[1].'.'.$inner[1]: '';
+        if (count($tabelas) > 1) {
+            $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1] . ' on ' . $tabelas[0] . '.' . $inner[0] . ' = ' . $tabelas[1] . '.' . $inner[1] : '';
         }
         $fields = $fields == null ? '*' : $fields;
 
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
         //obs: tabela obrigatória
 
-        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $innerjoin . '' . $where . '' . $like . '' . $order.''.$limit;
+        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $innerjoin . '' . $where . '' . $like . '' . $order . '' . $limit;
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         //echo '<pre>';print_r($query);echo'<pre>';exit;
         //Retorno é o mesmo da função executeSQL. (PDOStatement)
@@ -176,8 +166,7 @@ class db
      * @param array $values
      * @return boolean;
      */
-    public function updateSQL($where, $values)
-    {
+    public function updateSQL($where, $values) {
         //DADOS DA QUERY
         $fields = array_keys($values);
 
@@ -187,18 +176,30 @@ class db
 
         return true;
     }
-    
-    
+
     /**
      * Método para pesquisa apenas do tratamento com inner
      */
-     public function pesquisarTratamento($pesquisa){
+    public function pesquisarTratamento($pesquisa) {
         //echo'<pre>';print_r($pesquisa);echo'</pre>';exit;
-               $query="SELECT * FROM tratamento "
-                        . " where fkConsulta = ".$pesquisa;
-               //echo'<pre>';print_r($query);echo'</pre>';exit;
-                      return $this->executeSQL($query); 
-            
-        }
+        $query = "SELECT * FROM tratamento inner join consulta on fk"
+                . " where fkConsulta = " . $pesquisa;
+        //echo'<pre>';print_r($query);echo'</pre>';exit;
+        return $this->executeSQL($query);
     }
 
+    public function innerTrat($pesquisa) {
+        //echo'<pre>';print_r($pesquisa);echo'</pre>';exit;
+        $query = "SELECT * FROM consulta c " 
+            ." INNER JOIN tratamento t "
+            ." ON c.idConsulta=t.fkConsulta "
+            ." INNER JOIN paciente p "
+            ." ON c.fkProntuario=p.prontuario "
+            ." INNER JOIN procedimento pr "
+            ." ON t.fkProcedimento=pr.idProcedimento"
+                . "where p.nome = ".$pesquisa;
+        //echo'<pre>';print_r($query);echo'</pre>';exit;
+        return $this->executeSQL($query);
+    }
+
+}

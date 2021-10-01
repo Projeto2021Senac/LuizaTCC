@@ -94,6 +94,12 @@ class Consulta {
             'CFKClinica' => $this->CFKClinica
         ]);
     }
+    
+     public static function getConPaPro($where = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        return $db = (new db('consulta,paciente'))->selectSQL($where,$like,$order, $limit, $fields,'fkProntuario,prontuario')
+                                                  ->fetchAll(PDO::FETCH_CLASS,self::class);
+    }
+   
 }
 
     

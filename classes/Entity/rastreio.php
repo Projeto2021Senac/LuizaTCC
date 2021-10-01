@@ -68,5 +68,18 @@ class rastreio {
         return (new db('rastreio'))->selectSQL('idRastreio = ' . $idRastreio)
                         ->fetchObject(self::class);
     }
-
+    
+      public static function getConPaPro(){
+        return $db = (new db('procedimento'))->innerTrat()->fetchAll(PDO::FETCH_CLASS,self::class);
+    }
+    
+    
+    /*SELECT * FROM consulta c INNER JOIN tratamento t
+ON c.idConsulta=t.fkConsulta
+INNER JOIN paciente p
+ON c.fkProntuario=p.prontuario
+INNER JOIN procedimento pr
+ON t.fkProcedimento=pr.idProcedimento;
+*/
+    
 }
