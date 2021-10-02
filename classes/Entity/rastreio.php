@@ -69,9 +69,7 @@ class rastreio {
                         ->fetchObject(self::class);
     }
     
-      public static function getConPaPro(){
-        return $db = (new db('procedimento'))->innerTrat()->fetchAll(PDO::FETCH_CLASS,self::class);
-    }
+   
     
     
     /*SELECT * FROM consulta c INNER JOIN tratamento t

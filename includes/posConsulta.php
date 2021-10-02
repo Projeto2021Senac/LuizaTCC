@@ -16,7 +16,7 @@
                 <div class="row border p-3">
                     <div class="col-4 offset-1 border border-success">
                         <div class="form-group">
-                            <label><strong class="text-info">Nome do paciente:</strong> <?= $ConsultaInnerJoin->nomePaciente ?></label>
+                            <label><strong class="text-info">Nome do paciente:</strong> <?= $ConsultaInnerJoin->nome ?></label>
                         </div>
                         <div class="form-group">
                             <label><strong class="text-info">Data da Consulta</strong> : <?= date('d/m/Y', strtotime($ConsultaInnerJoin->dataConsulta)) ?></label>
@@ -40,9 +40,9 @@
                     <label class="mt-3 text-info" for="relatorio"><strong>Observações pré-Consulta:</strong></label>
                     <textarea readonly name="relatorio" style=" background-color: black;opacity:80%;resize:none" class="text-white" rows="3"><?= $ConsultaInnerJoin->relatorio ?></textarea>
                 </div>
-                <form <?= $visibilidadiv ?> method="post" class="mt-4">
+                <form method="post" class="mt-4">
                     <div class="col-10 offset-1 form-group p-4">
-                        <select name="procedimento" class="form-select">
+                        <select name = "procedimento" class="form-select">
                             <option hidden>-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-</option>
                             <?php
                             foreach ($objProcedimento as $procedimento) {
@@ -53,7 +53,7 @@
                     </div>
                     <div class="row">
                         <label class="mt-3 text-info" for="relatorio"><strong>Observações pós Consulta:</strong></label>
-                        <textarea name="observacoes" style="opacity:80%;resize:none" class="text-black" rows="5"></textarea>
+                        <textarea  name="observacoes" style="opacity:80%;resize:none" class="text-black" rows="5"></textarea>
                     </div>
                     <div class="row py-3">
                         <div class="text-center">
@@ -62,28 +62,6 @@
 
                     </div>
                 </form>
-                <table <?= ($visibilidadiv == 'style=display:none;' ? '' : 'style=display:none;') ?> class="table bg-light bg-gradient mt-3">
-                <thead class="bg-dark text-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>data</th>
-                        <th>hora</th>
-                        <th>status</th>
-                        <th>Paciente atendido</th>
-                        <th>Ações</th>
-
-                        <th></th>
-
-
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <?= $resultados ?>
-
-                </tbody>
-
-            </table>
             </div>
         </div>
 </div>

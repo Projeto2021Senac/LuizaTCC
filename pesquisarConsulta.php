@@ -17,24 +17,9 @@ use \Classes\Entity\paciente;
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
-$objConsulta->setPaciente($objPaciente);
-//echo "<pre>"; print_r($objConsulta); echo "<pre>";exit;
+$consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'idConsulta asc');
 
-//Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
-/* $consultas = $objConsulta->getConsultas(); */
-/* echo "<pre>"; print_r($consultas); echo "<pre>";exit; */
-
-/**
- * Método com filtro de status
- */
-//$consultas = $objConsulta->getConsultaPaciente('statusConsulta <> "Finalizada"');
-
-/**
- * Método sem filtro 
- */
-$consultas = $objConsulta->getConsultaPaciente();
-
- /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
+/*  echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
 
 

@@ -12,21 +12,12 @@ if (isset($_GET['status'])) {
     }
 }
 
-$resultadoConsulta = "";
+
 if (isset($_GET['rConsulta'])) {
     
     $rastreio->TFKConsulta=$_GET['rConsulta'];
-    
-    foreach ($procedimento as $pro){
-        
-        $rastreio->TFKProcedimento = $pro->idProcedimento;
-        $resultadoProcedimento= $pro->nomeProcedimento;
-    }
-    
-    foreach ($consulta as $c){
-        $resultadoConsulta=
-        $c->nome." ".$c->dataConsulta." ".$c->horaConsulta;
-} 
+    $rastreio->TFKProcedimento=$_GET['rProcedimento'];
+  
 }
 
 ?>
@@ -83,52 +74,38 @@ if (isset($_GET['rConsulta'])) {
                             <input type="text" class="form-control" name="vlrCobrado"  value="<?=$rastreio->vlrCobrado?>">
                         </div>
                         
-                        <div class="form-group">
-                            <label>Consulta</label>
-                            <!--<select type="text" class="form-control-sm" name="TFKConsulta" >
-                                <option hidden="" >[SELECIONE]</option>
-                                <?php/*
-                                foreach ($consulta as $cons){
-                                    $selected = ($rastreio->TFKConsulta == $cons->idConsulta ? 'selected = selected' : '');
-                                    echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->idConsulta."</option>";
-                                }
-                               */ ?>
-                            </select>-->
-                            <input hidden="" type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
-                            <input type="submit" name="pConsultaRast"
-                                   class="btn btn-success btInput p-1 " value="Pesquisar">
-                            
-                            <label>
-                                <?= $resultadoConsulta?>
-                                
-                            </label>
-                            
-                                
+                        <div>
+                            <br>
+                        <input type="submit" name="pConsultaRast"
+                                   class="btn btn-success btInput p-1 " value="Prontuário">
                         </div>
                         
-                        <div class="form-group">
-                            <label>Procedimento</label>
-                            <input hidden="" type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
-                           <!-- <select type="text" class="form-control" name="TFKProcedimento">
-                                <option hidden="">[SELECIONE]</option>
-                                <?php
-                                /*
-                                foreach ($tratamento as $trat){
-                                    foreach ($procedimento as $proc){
-                                    $selected = ($rastreio->TFKProcedimento == $trat->fkProcedimento ? 'selected = selected' : '');
-                                    $nome = ($trat->fkProcedimento == $proc->idProcedimento ? $proc->nomeProcedimento :'');
-                                    echo "<option value =".$trat->fkProcedimento." ".$selected.">".$nome."</option>";
-                                    }
-                                }
-                                */?>
-                                </select>-->
-                            
-                            <label>
-                                <?= $resultadoProcedimento?>
+                        <div class="form-group" hidden="">
+                            <label>Consulta</label>
+                            <input type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
+                        </div>
+                        
+                        <div class="form-group" hidden="">
+                            <label>Procedimento</label >
+                            <input  type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
+                        </div>
+                        
+                        <div>
+                            <!--<label>Prontuário:</label><br>-->
+                            <label style="color: yellow">
+                               <?php 
+                                     if ($innerTratamento!= null) {
+                                         echo 'PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nome.
+                                       '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
+                                       '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
+                                       '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
+                                     }
+                               
+                                ?>
                                 
                             </label>
-                          
                         </div>
+                        
                         
                         <div class="form-group">
                             <label>Terceirizado</label>

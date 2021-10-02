@@ -1,46 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="./js/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="./css/sweetalert2.min.css">
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./bootstrapSelectpicker/dist/css/bootstrap-select.min.css" />
-  <link rel="stylesheet" href="./css/estilo.css">
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $("#hide").click(function(){
+   $("div").hide();
+ });
+ $("#show").click(function(){
+   $("div").show();
+ });
+});
+</script>
 </head>
-
-<!-- <body>
-
-    <script>
-    Swal.fire(
-      'The Internet?',
-      'That thing is still around?',
-      'question'
-    )
-  </script>
-  <div class="form-group">
-    <label for="prontuario">Dentista:</label>
-    <select class="selectpicker" data-live-search="true" name="prontuario">
-      <option disabled selected>-</option>
-      <?php
-
-      /* foreach ($pacientes as $paciente) { */
-      ?>
-        <option value="<?php /* echo $paciente->prontuario;  */?>">
-          <?php /* echo $paciente->nome;  */?>
-        </option>
-      <?php
-      /* } */
-      ?>
-    </select>
-  </div>
-  <script src="./bootstrapSelectpicker/js/jquery.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
-  <script src="./bootstrapSelectpicker/js/bootstrap-select.min.js"></script>
-</body> -->
-
+<body>
+<div>If you click on the "Hide" button, I will disappear.</div>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+</body>
 </html>

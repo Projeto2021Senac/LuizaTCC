@@ -13,31 +13,18 @@ use Classes\Entity\servicoTerceiro;
 use Classes\Entity\tratamento;
 $consulta = "";
 $procedimento = "";
-
+$innerTratamento= "";
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 $terceiro = terceiro::getTerceiros();
 $servico = servicoTerceiro::getServicoTerceiros();
 
-if (isset($_GET['rConsulta'])) {
-    $result = ($_GET['rConsulta']);
-    $tratamento = tratamento::pesquisarTratamento($result);
-    
-    $consulta = consulta::getConsultaPaciente($tratamento->fkConsulta);
-    
-    $procedimento = procedimento::getProcedimentos();
-    
-    
-        
-    
-    
-    //echo'<pre>';print_r($result);echo'</pre>';exit;
-    //echo'<pre>';print_r($consulta);echo'</pre>';exit;
-    //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
-    //echo'<pre>';print_r($procedimento);echo'</pre>';exit;
+if (isset($_GET['rProcedimento'])) {
+    $innerTratamento = tratamento::getTratamentoInner($_GET['rProcedimento'], $_GET['rConsulta']);
 }
-//$tratamento = tratamento::pesquisarTratamento($_GET['rConsulta']));
-  //echo'<pre>';print_r($tratamento);echo'</pre>';exit;
+
+
+  //echo'<pre>';print_r($innerTratamento);echo'</pre>';exit;
 //echo'<pre>';print_r($procedimento);echo'</pre>';exit;
 
 $rastreio = new rastreio();
@@ -69,7 +56,7 @@ if (isset($_POST['cadastrarRastreio'])) {
 }
 
 if (isset($_POST['pConsultaRast'])){
-    header ('Location: pesquisarConsulta.php?rastreio=check');
+    header ('Location: listaConsultaR.php?rastreio=check');
 }
 
 include __DIR__.'/includes/header.php';

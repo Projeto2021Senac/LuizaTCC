@@ -18,7 +18,7 @@ if (isset($_POST['cadastrarClinica'])) {
         $clinica->statusClinica = $_POST['status'];
         
         unset($_POST['cadastrarClinica']);
-        
+        /* echo "<pre>"; print_r($clinica); echo "<pre>";exit; */
         $clinica->cadastrarClinica();
         
         //header ('Location: listaClinica.php?status=success');

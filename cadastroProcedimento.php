@@ -8,8 +8,9 @@ define('TITLE','Cadastro Procedimento');
 
 $objProcedimento = new Procedimento;
 if (isset($_POST['nome'])){
-
-    $objProcedimento->nome = $_POST['nome'];
+    
+    $objProcedimento->nomeProcedimento = $_POST['nome'];
+    $objProcedimento->statusProcedimento = $_POST['status'];
     /* echo '<pre>';print_r($objProcedimento);echo '<pre>';exit; */
     
     $objProcedimento->cadastrar();

@@ -26,8 +26,8 @@ class Funcionario
 
         $obdb = new db('funcionario');
         $this->idFuncionario = $obdb->insertSQL([
-            'nome' => $this->nome,
-            'dtNasc' => $this->dtNasc,
+            'nomeFuncionario' => $this->nome,
+            'dtContrato' => $this->dtNasc,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
             'email' => $this->email,
@@ -70,15 +70,28 @@ class Funcionario
     public function AtualizarFuncionario()
     {
         return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
-                'nome' => $this->nome,
-                'dtNasc' => $this->dtNasc,
-                'sexo' => $this->sexo,
-                'telefone' => $this->telefone,
-                'email' => $this->email,
-                'perfil' => $this->perfil,
-                'login' => $this->login,
-                'senha' => $this->senha,
-                'statusFuncionario' => $this->statusFuncionario
-            ]);
+            'nomeFuncionario' => $this->nome,
+            'dtContrato' => $this->dtNasc,
+            'sexo' => $this->sexo,
+            'telefone' => $this->telefone,
+            'email' => $this->email,
+            'perfil' => $this->perfil,
+            'login' => $this->login,
+            'senha' => $this->senha,
+            'statusFuncionario' => $this->statusFuncionario
+        ]);
+    }
+    public static function getLogin($login, $senha)
+    {
+         $log = (new db('funcionario'))->validaLogin($login, $senha);
+         if (gettype($log) == 'object'){
+            return $log->fetch(PDO::FETCH_OBJ);
+         
+         }else{
+             return 'usuário não cadastrado';
+         }
+         
+
+        
     }
 }

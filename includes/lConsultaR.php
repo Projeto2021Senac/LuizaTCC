@@ -4,9 +4,33 @@
             <a href="index.php">
                 <button class="btn btn-success mt-4">Retornar</button>
             </a>
-            <a href="cadastrarConsulta.php">
-                <button class="btn btn-success mt-4">Cadastrar</button>
-            </a>
+            
+            
+            <div class="row">
+            <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
+
+
+                <form method="post" action="" style="color: white" >
+                    
+                    <div class="form-group">
+
+                        <input type="text" class="form-control p-1" name="busca" required=""  value="<?=$busca?>">
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
+
+                <input type="submit"  name="pesquisarPron"
+                       class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
+
+            </div>
+
+            </form>
+        </div>
 
         </section>
   
@@ -21,20 +45,26 @@
     $disabled1='';
 }
         $resultados = '';
-        foreach ($consultas as $consulta) {
-            $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
+        
+        foreach ($innerTratamentos as $dados) {
+            
+            $disabled = ($dados->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
             $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
             
             $resultados .= '<tr ">
-                            <td class "table-success>' . $consulta->idConsulta . '</td>
-                            <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
-                            <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
-                            <td>' . $consulta->statusConsulta . '</td>
-                            <td>' . $consulta->nome . '</td>
+                            <td class "table-success >' . $dados->nome . '</td>
+                                <td>' . $dados->prontuario . '</td>
+                                <td>' . $dados->idConsulta . '</td>
+                            <td>' . date('d/m/Y', strtotime($dados->dataConsulta)) . '</td>
+                            <td>' . date(' H:i', strtotime($dados->horaConsulta)) . '</td>
+                            <td>' . $dados->statusConsulta . '</td>
+                            <td>' . $dados->nomeDentista . '</td>
+                            <td>' . $dados->nomeClinica . '</td>
+                            <td>' . $dados->nomeProcedimento . '</td>
+                            
                             <td>
-                            <a '.$disabled1.'class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
-                            <a '.$disabled.'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
-                            <a '.$disabledRastreio.'href = cadRastreio.php?rConsulta=' . $consulta->idConsulta . '>Confirmar rastreio</a>
+                            
+                            <a '.$disabledRastreio.'href = cadRastreio.php?rConsulta=' . $dados->idConsulta. '&' .'rProcedimento='.$dados->idProcedimento . '>Confirmar</a>
                             </td>
                             </tr>';
         }
@@ -50,12 +80,15 @@
             <table class="table bg-light bg-gradient mt-3">
                 <thead class="bg-dark text-light">
                     <tr>
-                        <th>ID</th>
-                        <th>data</th>
-                        <th>hora</th>
+                        <th>Paciente</th>
+                        <th>Prontuário</th>
+                        <th>Consulta</th>
+                        <th>Data</th>
+                        <th>Hora</th>
                         <th>status</th>
-                        <th>Paciente atendido</th>
-                        <th>Ações</th>
+                        <th>Dentista</th>
+                        <th>Clínica</th>
+                        <th>Procedimento</th>
 
                         <th></th>
 

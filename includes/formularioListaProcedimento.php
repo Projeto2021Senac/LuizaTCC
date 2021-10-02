@@ -3,7 +3,9 @@
         <a href="index.php">
             <button class="btn btn-success mt-4">Retornar</button>
         </a>
-
+        <a href="cadastroProcedimento.php">
+                <button class="btn btn-success mt-4">Cadastrar</button>
+            </a>
     </section>
     <?php
     $resultados = '';
