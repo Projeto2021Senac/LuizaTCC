@@ -78,6 +78,7 @@ if (isset($_GET['rConsulta'])) {
                             <br>
                         <input type="submit" name="pConsultaRast"
                                    class="btn btn-success btInput p-1 " value="Prontuário">
+                        <hr>
                         </div>
                         
                         <div class="form-group" hidden="">
@@ -91,11 +92,11 @@ if (isset($_GET['rConsulta'])) {
                         </div>
                         
                         <div>
-                            <!--<label>Prontuário:</label><br>-->
-                            <label style="color: yellow">
+                            
+                            <label style="color: green">
                                <?php 
                                      if ($innerTratamento!= null) {
-                                         echo 'PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nome.
+                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nome.
                                        '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
                                        '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
                                        '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
@@ -104,7 +105,9 @@ if (isset($_GET['rConsulta'])) {
                                 ?>
                                 
                             </label>
+                            <hr>
                         </div>
+                        
                         
                         
                         <div class="form-group">

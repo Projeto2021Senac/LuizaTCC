@@ -5,26 +5,25 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use PDO;
 
-class tratamento
+class terceirizado
 {
 
-    public $fkProcedimento;
-    public $fkConsulta;
-    public $observacoes;
+    public $fkTerceiro;
+    public $fkServicoTerceiro;
+   
 
 
-    public function cadastrarTratamento()
+    public function cadastrarTerceirizado()
     {
-        $tratamento = (new db('tratamento'))->insertSQL([
-            'fkConsulta' => $this->fkConsulta,
-            'fkProcedimento' => $this->fkProcedimento,
-            'observacao' => $this->observacoes
-
+        $terceiro = (new db('terceirizado'))->insertSQL([
+            'fkTerceiro' => $this->fkTerceiro,
+            'fkServicoTerceiro' => $this->fkServicoTerceiro
+            
         ]);
-        return $tratamento;
+        return $terceiro;
     }
 
-    public static function getTratamentos($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+    /*public static function getTratamentos($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
         
         if ($tabela != null){
             $tabela = ','.$tabela;
@@ -34,7 +33,7 @@ class tratamento
                                                   ->fetchObject(self::class);
     }  
     
-  
+   
    
     public static function getTratamentosInner($pesq){
         
@@ -58,5 +57,5 @@ class tratamento
                 . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                 . 'inner join paciente on fkProntuario=prontuario where fkProcedimento='.$proce.' and fkConsulta='.$cons)
                                                   ->fetchObject(self::class);
-    }  
+    }  */
 }
