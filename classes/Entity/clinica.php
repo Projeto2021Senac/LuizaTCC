@@ -10,7 +10,7 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class clinica {
+class Clinica {
     
     public $idClinica;
     public $nomeClinica;

@@ -12,7 +12,7 @@
     foreach ($objFuncionario as $objFuncionario) {
         $resultados .= '<tr>
                             <td>' . $objFuncionario->idFuncionario . '</td>
-                            <td>' . $objFuncionario->nome . '</td>
+                            <td>' . $objFuncionario->nomeFuncionario . '</td>
                             <td>' . $objFuncionario->sexo . '</td>
                             <td>' . $objFuncionario->telefone . '</td>
                             <td>' . $objFuncionario->email . '</td>

@@ -10,7 +10,7 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class rastreio {
+class Rastreio {
 
     public $idRastreio;
     public $dtEntrega;

@@ -87,14 +87,13 @@ class Consulta {
     } 
 
     
-    public function Atualizar($id){
+    public function AtualizarConsulta($id){
         $db = new db('consulta');
         $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
             'dataConsulta' => $this->dataConsulta,
             'horaConsulta' => $this->horaConsulta,
             'statusConsulta' => $this->statusConsulta,
             'relatorio' => $this->relatorio,
-            'fkProntuario' => $this->fkProntuario,
             'fkFuncionario' => $this->fkFuncionario,
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica

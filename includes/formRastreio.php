@@ -71,37 +71,7 @@ if (isset($_GET['rConsulta'])) {
                         
                         <div class="form-group">
                             <label>Consulta</label>
-                            <!--<select type="text" class="form-control-sm" name="TFKConsulta" >
-                                <option hidden="" >[SELECIONE]</option>
-                                <?php/*
-                                foreach ($consulta as $cons){
-                                    $selected = ($rastreio->TFKConsulta == $cons->idConsulta ? 'selected = selected' : '');
-                                    echo "<option value =".$cons->idConsulta." ".$selected.">".$cons->idConsulta."</option>";
-                                }
-                               */ ?>
-                            </select>-->
-                            <input type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
-                            <input type="submit" name="pConsultaRast"
-                                   class="btn btn-success btInput p-1 " value="Pesquisar">
-                            
-                                
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Procedimento</label>
-                            <!--<select type="text" class="form-control" name="TFKProcedimento"  >
-                                  <option hidden="">[SELECIONE]</option>
-                                <?php/*
-                                foreach ($procedimento as $proc){
-                                    $selected = ($rastreio->TFKProcedimento == $proc->idProcedimento ? 'selected = selected' : '');
-                                    echo "<option value =".$proc->idProcedimento." ".$selected.">".$proc->nomeProcedimento."</option>";
-                                }
-                                */?>
-                                </select>-->
-                            <input type="text" class="form-control-sm" name="TFKProcedimento"
-                                   value="<?=($tratamento->fkConsulta==$rastreio->TFKConsulta)? $tratamento->fkProcedimento: "" ?>">
-                            <!--<input type="submit" name="pConsultaRast"
-                                  class="btn btn-success btInput p-1 " value="Pesquisar">-->
+
                         </div>
                         
                         <div class="form-group">

@@ -11,7 +11,7 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class paciente {
+class Paciente {
 
     public $prontuario;
     public $nome;

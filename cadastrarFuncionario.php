@@ -23,9 +23,9 @@ if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     $objFuncionario->cadastrar();
    
     if ($objFuncionario->idFuncionario > 0){
-        header ('Location: index.php?status=success');
+        header ('Location: listaFuncionario.php?status=success&id='.$objFuncionario->idFuncionario);
     }else{
-        header ('Location: index.php?status=error');
+        header ('Location: listaFuncionario.php?status=error');
     }
 }
 

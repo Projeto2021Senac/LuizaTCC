@@ -9,7 +9,7 @@ class Funcionario
 {
 
     public $idFuncionario;
-    public $nome;
+    public $nomeFuncionario;
     public $dtContrato;
     public $sexo;
     public $telefone;
@@ -26,7 +26,7 @@ class Funcionario
 
         $db = new db('funcionario');
         $this->idFuncionario = $db->insertSQL([
-            'nome' => $this->nome,
+            'nomeFuncionario' => $this->nome,
             'dtContrato' => $this->dtContrato,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
@@ -35,7 +35,7 @@ class Funcionario
             'login' => $this->login,
             'senha' => $this->senha,
             'statusFuncionario' => $this->statusFuncionario
-        ]);
+        ])[1];
     }
 
     /**

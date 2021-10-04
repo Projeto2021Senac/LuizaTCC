@@ -31,7 +31,7 @@ class db
      * Senha do banco de dados
      * @var string
      */
-    const PASS = 'senac';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada
@@ -92,7 +92,7 @@ class db
             /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
             return $statement;
         } catch (PDOException $e) {
-            return "Error";
+            die ($e->getMessage());
         }
     }
     /**
@@ -150,8 +150,6 @@ class db
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
         //à query dinâmica.
         $tabelas = explode(',',$this->table,12);
-        /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
-        /* $tabelas[0] = $this->table; */
         
         $where = strlen($where) ? ' WHERE ' .$where : '';
         /* echo "<pre>"; print_r($where); echo "<pre>";exit; */
@@ -176,17 +174,7 @@ class db
             }
             
         }
-        /* echo '<pre>';print_r($innerjoin);echo'<pre>';exit; */
-         
-
-
-/*
-        if(count($tabelas)> 1){
-        $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]: '';
-        }
-        if(count($tabelas)> 2){
-            $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]. ' INNER JOIN ' . $tabelas[2].' on '.$tabelas[0].'.'.$inner1[2].' = '.$tabelas[2].'.'.$inner1[3]: '';
-            } */
+        /* echo "<pre>"; print_r($innerjoin); echo "<pre>";exit; */
         $fields = $fields == null ? '*' : $fields;
 
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
@@ -225,7 +213,7 @@ class db
      * @return object/string
      */
     public function validaLogin($login,$senha){
-        $query = "SELECT idFuncionario,nome,perfil FROM funcionario WHERE login = '$login' and senha = '$senha'";
+        $query = "SELECT idFuncionario,nomeFuncionario,perfil FROM funcionario WHERE login = '$login' and senha = '$senha'";
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         $st = $this->executeSQL($query);
         if ($st->rowcount() > 0){
