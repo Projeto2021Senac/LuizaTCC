@@ -112,7 +112,7 @@
             </div>
 
             <div class=" col-2 ">
-                <a href="cadRastreio.php"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
+                <a href="listaConsultaR.php?rastreio=check"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
             </div>
         </div>
         
