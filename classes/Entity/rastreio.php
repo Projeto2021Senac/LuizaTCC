@@ -21,6 +21,8 @@ class rastreio {
     public $TFKProcedimento;
     public $RFKTerceiro;
     public $RFKServico;
+    public $status;
+    
 
     //Método de cadastramento da rastreio
 //    @return boolean
@@ -35,6 +37,7 @@ class rastreio {
             'TFKProcedimento' => $this->TFKProcedimento,
             'RFKTerceiro' => $this->RFKTerceiro,
             'RFKServico' => $this->RFKServico,
+            'statusRastreio' => $this->status,
         ]);
         if ($this->idRastreio > 0) {
             header('Location: listaRastreio.php?status=success');
@@ -54,6 +57,7 @@ class rastreio {
                             'TFKProcedimento' => $this->TFKProcedimento,
                             'RFKTerceiro' => $this->RFKTerceiro,
                             'RFKServico' => $this->RFKServico,
+                            'statusRastreio' => $this->status,
         ]);
     }
 

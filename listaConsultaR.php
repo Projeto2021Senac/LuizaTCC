@@ -11,13 +11,13 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'WHERE nome LIKE "%'. str_replace('', '%', $busca).'%"': null
+    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
     
 ];
 
 $where = implode(' AND ', $condicoes);
 
-
+//echo "<pre>"; print_r($where); echo "<pre>";exit;
 
 $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implementar consulta 
 
@@ -34,4 +34,5 @@ $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implem
 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/lConsultaR.php';
+
 include __DIR__ . '/includes/footer.php';

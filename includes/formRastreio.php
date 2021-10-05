@@ -96,7 +96,7 @@ if (isset($_GET['rConsulta'])) {
                             <label style="color: green">
                                <?php 
                                      if ($innerTratamento!= null) {
-                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nome.
+                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nomePaciente.
                                        '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
                                        '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
                                        '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
@@ -133,6 +133,21 @@ if (isset($_GET['rConsulta'])) {
                                     $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
                                     echo "<option value =".$serv->idServico." ".$selected.">".$serv->nomeServico."</option>";
                                 }
+                                ?>
+                                </select>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label>Status</label>
+                            <select type="text" class="form-control" name="Status"  >
+                                       <option hidden="">[SELECIONE]</option>
+                                       <option value="ativo">Ativo</option>
+                                       <option value="inativo">Inativo</option>
+                                <?php/*
+                                foreach ($rastreio as $r){
+                                    $selected = ($rastreio->idRastreio == $r->idRastreio ? 'selected = selected' : '');
+                                    echo "<option value =".$r->idRastreio." ".$selected.">".$r->status."</option>";
+                                }*/
                                 ?>
                                 </select>
                         </div>

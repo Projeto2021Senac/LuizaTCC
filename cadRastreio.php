@@ -39,6 +39,7 @@ if (isset($_POST['cadastrarRastreio'])) {
         $rastreio->TFKProcedimento = $_POST['TFKProcedimento'];
         $rastreio->RFKTerceiro = $_POST['RFKTerceiro'];
         $rastreio->RFKServico = $_POST['RFKServico'];
+        $rastreio->status = $_POST['status'];
         $terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
         $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
         //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;

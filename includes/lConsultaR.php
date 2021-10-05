@@ -65,7 +65,7 @@
             $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
 
             $resultados .= '<tr ">
-                            <td class "table-success >' . $dados->nome . '</td>
+                            <td class "table-success >' . $dados->nomePaciente . '</td>
                                 <td>' . $dados->prontuario . '</td>
                                 <td>' . $dados->idConsulta . '</td>
                             <td>' . date('d/m/Y', strtotime($dados->dataConsulta)) . '</td>

@@ -87,6 +87,11 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
+                            
+                            <li><a class="dropdown-item" href="./cadastroProcedimento.php">Procedimento</a></li>
+                            
+                            <li><a class="dropdown-item" href="./listaRastreio.php">Terceirizado</a></li>
+                            <li><a class="dropdown-item" href="./listaRastreio.php">ServiçoTerceirizado</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

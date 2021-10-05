@@ -16,7 +16,7 @@ $resultados = '';
 foreach ($pacientes as $p) {
     $resultados .= '<tr> '
             . '<td> ' . $p->prontuario . '</td>'
-            . '<td> ' . $p->nome . '</td>'
+            . '<td> ' . $p->nomePaciente . '</td>'
             . '<td> ' . $p->sexo . '</td>'
             . '<td> ' . $p->tel . '</td>'
             . '<td> ' . $p->email . '</td>'

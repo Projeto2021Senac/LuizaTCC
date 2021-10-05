@@ -216,7 +216,7 @@ class db {
      * @return object/string
      */
     public function validaLogin($login,$senha){
-        $query = "SELECT idFuncionario,nome,perfil FROM funcionario WHERE login = '$login' and senha = '$senha'";
+        $query = "SELECT idFuncionario,nomeFuncionario,perfil FROM funcionario WHERE login = '$login' and senha = '$senha'";
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         $st = $this->executeSQL($query);
         if ($st->rowcount() > 0){

@@ -33,6 +33,7 @@
                             <td>' . $ras->TFKProcedimento . '</td>
                             <td>' . $ras->RFKTerceiro . '</td>
                             <td>' . $ras->RFKServico . '</td>
+                            <td>' . $ras->status . '</td>
                             
                             <td>
                             <a href = editaRastreio.php?id=' . $ras->idRastreio . '>
@@ -130,6 +131,7 @@
                     <th>Procedimento</th>
                     <th>Terceirizado</th>
                     <th>Serviço</th>
+                    <th>Status</th>
                     <th></th>
 
 

@@ -47,7 +47,7 @@ if (isset($_GET['status'])) {
 
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nome" required="" value="<?=$paciente->nome?>">
+                            <input type="text" class="form-control" name="nomePaciente" required="" value="<?=$paciente->nomePaciente?>">
                         </div>
 
                         <div class="form-group">
