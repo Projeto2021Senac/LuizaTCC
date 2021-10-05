@@ -34,5 +34,4 @@ $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implem
 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/lConsultaR.php';
-
 include __DIR__ . '/includes/footer.php';

@@ -40,7 +40,7 @@ class tratamento {
                         . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner join paciente on fkProntuario=prontuario '
                         . 'where idConsulta not in (select TFKConsulta from rastreio) '
-                        . 'AND idProcedimento not in (select TFKProcedimento from rastreio)'. $pesq)
+                        . 'AND idProcedimento not in (select TFKProcedimento from rastreio) AND '. $pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
