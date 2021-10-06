@@ -14,9 +14,9 @@ use \PDO;
 class Paciente {
 
     public $prontuario;
-    public $nome;
+    public $nomePaciente;
     public $sexo;
-    public $tel;
+    public $telefone;
     public $email;
 
 //Método de cadastramento do paciente

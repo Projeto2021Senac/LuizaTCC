@@ -27,7 +27,7 @@ class Protese{
     public $paciente;
     public $observacao;
     public $fkConsultaT;
-    public $fkServicoT;
+    public $fkProcedimentoT;
 
 
 
@@ -61,11 +61,10 @@ class Protese{
                             'dataRegistro'=> $this->dataRegistro,
                             'status'=> $this->status,
                             'observacao'=> $this->observacao,
-                            'fkConsultaT'=>'1',
-                            'fkServicoT'=>'1'
+                            'fkConsultaT'=>$this->fkConsultaT,
+                            'fkProcedimentoT'=>$this->fkProcedimentoT
 
-
-        ]);
+        ])[1];
         
     }
 
@@ -97,4 +96,14 @@ class Protese{
                                    ->fetchObject(self::class); 
 
     }
+
+    public static function getProteseInnerJoin($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        
+        if ($tabela != null){
+            $tabela = ','.$tabela;
+        }
+        
+        return $db = (new db('protese'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
+                                                  ->fetchObject(self::class);
+    }    
 }

@@ -3,13 +3,15 @@
         <a href="index.php">
             <button class="btn btn-success mt-4">Retornar</button>
         </a>
-
+        <a href="cadastrarProtese.php">
+            <button class="btn btn-success mt-4">Cadastrar</button>
+        </a>
     </section>
     <?php
     $resultados = '';
     foreach ($proteses as $protese) {
         $resultados .= '<tr>
-                            <td>' . $protese->id . '</td>
+                            <td>' . $protese->idProtese . '</td>
                             <td>' . $protese->tipo . '</td>
                             <td>' . $protese->material . '</td>
                             <td>' . $protese->extensao . '</td>
@@ -19,10 +21,10 @@
                             <td>' . $protese->qtdOuro . '</td>
                             <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
                             <td>
-                            <a href = editaProtese.php?id=' . $protese->id . '>
+                            <a href = editaProtese.php?id=' . $protese->idProtese . '>
                             <button class = "btn btn-primary">Editar</button>
                             </a>
-                            <a href = ?id=' . $protese->id . '>
+                            <a href = ?id=' . $protese->idProtese . '>
                             <button class = "btn btn-primary">Excluir</button>
                             </a>
                             </td>
