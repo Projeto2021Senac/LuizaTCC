@@ -17,7 +17,7 @@
                             <td>' . $protese->extensao . '</td>
                             <td>' . $protese->dente . '</td>
                             <td>' . $protese->qtdDente . '</td>
-                            <td>' . ($protese->ouro == 's' ? 'Sim' : 'Não') . '</td>
+                            <td>' . ($protese->ouro == 'sim' ? 'Sim' : 'Não') . '</td>
                             <td>' . $protese->qtdOuro . '</td>
                             <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
                             <td>
