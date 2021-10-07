@@ -21,12 +21,13 @@ class rastreio {
     public $TFKProcedimento;
     public $RFKTerceiro;
     public $RFKServico;
-    public $status;
+    public $statusRastreio;
     
 
     //Método de cadastramento da rastreio
 //    @return boolean
     public function CadastrarRastreio() {
+        
         $db = new db('rastreio');
         $this->idRastreio = $db->insertSQL([
             'dtEntrega' => $this->dtEntrega,
@@ -37,8 +38,8 @@ class rastreio {
             'TFKProcedimento' => $this->TFKProcedimento,
             'RFKTerceiro' => $this->RFKTerceiro,
             'RFKServico' => $this->RFKServico,
-            'statusRastreio' => $this->status,
-        ]);
+            'statusRastreio' => $this->statusRastreio,
+        ]); //echo'<pre>';print_r($this);echo'</pre>';exit;
         if ($this->idRastreio > 0) {
             header('Location: listaRastreio.php?status=success');
         } else {
@@ -57,7 +58,7 @@ class rastreio {
                             'TFKProcedimento' => $this->TFKProcedimento,
                             'RFKTerceiro' => $this->RFKTerceiro,
                             'RFKServico' => $this->RFKServico,
-                            'statusRastreio' => $this->status,
+                            'statusRastreio' => $this->statusRastreio,
         ]);
     }
 
@@ -71,6 +72,19 @@ class rastreio {
     public static function getRastreio($idRastreio) {
         return (new db('rastreio'))->selectSQL('idRastreio = ' . $idRastreio)
                         ->fetchObject(self::class);
+    }
+    
+    public static function getRastreiosInner($pesq) {
+
+
+        return $db = (new db)->executeSQL('SELECT * FROM rastreio '
+                        . 'inner JOIN consulta on TFKConsulta=idConsulta '
+                        . 'inner JOIN procedimento on TFKProcedimento=idProcedimento '
+                        . 'inner JOIN paciente on fkProntuario=prontuario '
+                        . 'inner JOIN terceiro on RFKTerceiro=idTerceiro '
+                        . 'inner JOIN servicoterceiro on RFKServico=idServico '
+                        . $pesq)
+                ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
     
    

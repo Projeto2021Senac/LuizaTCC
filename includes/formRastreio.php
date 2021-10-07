@@ -44,6 +44,23 @@ if (isset($_GET['rConsulta'])) {
                     </div>
                 </div>
                 <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+                    
+                    <div>
+                            
+                            <label style="color: green">
+                               <?php 
+                                     if ($innerTratamento!= null) {
+                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nomePaciente.
+                                       '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
+                                       '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
+                                       '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
+                                     }
+                               
+                                ?>
+                                
+                            </label>
+                            <hr>
+                        </div>
 
                  
                     <form method="post" action="" style="color: white" >
@@ -74,12 +91,6 @@ if (isset($_GET['rConsulta'])) {
                             <input type="text" class="form-control" name="vlrCobrado"  value="<?=$rastreio->vlrCobrado?>">
                         </div>
                         
-                        <div>
-                            <br>
-                        <input type="submit" name="pConsultaRast"
-                                   class="btn btn-success btInput p-1 " value="Prontuário">
-                        <hr>
-                        </div>
                         
                         <div class="form-group" hidden="">
                             <label>Consulta</label>
@@ -90,24 +101,6 @@ if (isset($_GET['rConsulta'])) {
                             <label>Procedimento</label >
                             <input  type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
                         </div>
-                        
-                        <div>
-                            
-                            <label style="color: green">
-                               <?php 
-                                     if ($innerTratamento!= null) {
-                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nomePaciente.
-                                       '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
-                                       '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
-                                       '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
-                                     }
-                               
-                                ?>
-                                
-                            </label>
-                            <hr>
-                        </div>
-                        
                         
                         
                         <div class="form-group">
@@ -139,16 +132,11 @@ if (isset($_GET['rConsulta'])) {
                         
                          <div class="form-group">
                             <label>Status</label>
-                            <select type="text" class="form-control" name="Status"  >
+                            <select type="text" class="form-control" name="status"  >
                                        <option hidden="">[SELECIONE]</option>
                                        <option value="ativo">Ativo</option>
                                        <option value="inativo">Inativo</option>
-                                <?php/*
-                                foreach ($rastreio as $r){
-                                    $selected = ($rastreio->idRastreio == $r->idRastreio ? 'selected = selected' : '');
-                                    echo "<option value =".$r->idRastreio." ".$selected.">".$r->status."</option>";
-                                }*/
-                                ?>
+                               
                                 </select>
                         </div>
                         

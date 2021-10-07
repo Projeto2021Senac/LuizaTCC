@@ -9,16 +9,14 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'idRastreio LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.trim($busca): null
+    strlen($busca) ? 'AND idRastreio LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
     
 ];
 
 
 $where = implode(' AND ', $condicoes);
 
-
-
-$rastreio = rastreio::getRastreios($where);
+$rastreio = rastreio::getRastreiosInner($where);
 
 
 

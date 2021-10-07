@@ -38,13 +38,13 @@ class tratamento {
                         . 'inner JOIN dentista on CFKDentista=idDentista '
                         . 'inner JOIN clinica on CFKClinica=idClinica '
                         . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
-                        . 'inner join paciente on fkProntuario=prontuario '
+                        . 'inner JOIN paciente on fkProntuario=prontuario '
                         . 'where idConsulta not in (select TFKConsulta from rastreio) '
                         . 'AND idProcedimento not in (select TFKProcedimento from rastreio) '. $pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
-    public static function getTratamentoInner($proce, $cons) {
+   public static function getTratamentoInner($proce, $cons) {
 
 
         return $db = (new db)->executeSQL('SELECT * FROM tratamento '

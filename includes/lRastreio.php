@@ -19,7 +19,8 @@
                 break;
         }
     }
-
+    
+ 
 
     $resultados = '';
     foreach ($rastreio as $ras) {
@@ -29,11 +30,13 @@
                             <td>' . $ras->dtRetorno . '</td>
                             <td>' . $ras->obs . '</td>
                             <td>' . $ras->vlrCobrado . '</td>
+                            <td>' . $ras->nomePaciente . '</td>
+                            <td>' . $ras->prontuario . '</td>
                             <td>' . $ras->TFKConsulta . '</td>
-                            <td>' . $ras->TFKProcedimento . '</td>
-                            <td>' . $ras->RFKTerceiro . '</td>
-                            <td>' . $ras->RFKServico . '</td>
-                            <td>' . $ras->status . '</td>
+                            <td>' . $ras->nomeProcedimento . '</td>
+                            <td>' . $ras->nomeTerceiro . '</td>
+                            <td>' . $ras->nomeServico . '</td>
+                            <td>' . $ras->statusRastreio . '</td>
                             
                             <td>
                             <a href = editaRastreio.php?id=' . $ras->idRastreio . '>
@@ -127,6 +130,8 @@
                     <th>dt Retorno</th>
                     <th>obs</th>
                     <th>valor</th>
+                    <th>Paciente</th>
+                    <th>Prontuário</th>
                     <th>Consulta</th>
                     <th>Procedimento</th>
                     <th>Terceirizado</th>
