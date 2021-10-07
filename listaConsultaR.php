@@ -11,9 +11,9 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
+    strlen($busca) ? 'AND nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
     
-];
+];//echo "<pre>"; print_r($condicoes); echo "<pre>";exit;
 
 $where = implode(' AND ', $condicoes);
 
