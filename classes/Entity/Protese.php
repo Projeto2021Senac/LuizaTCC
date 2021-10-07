@@ -39,6 +39,9 @@ class Protese{
         //Método para pegar a data e a hora em que está ocorrendo o cadastro no banco de dados
         //Atribuindo também o formato da string. Para mais informações :
         // https://www.php.net/manual/pt_BR/function.date.php
+
+        date_default_timezone_set('America/Sao_Paulo');
+
         $this->dataRegistro = date('Y-m-d H-i-s');
 
         //Método que executa a função insertSQL presente na classe db.php para de fato efetuar a inserção
