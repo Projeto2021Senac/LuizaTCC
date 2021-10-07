@@ -85,7 +85,7 @@ class db {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
 
-            echo "<pre>"; print_r($statement); echo "<pre>";exit;
+            /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
             return $statement;
         } catch (PDOException $e) {
             die ($e->getMessage());

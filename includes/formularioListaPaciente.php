@@ -18,7 +18,7 @@ foreach ($pacientes as $p) {
             . '<td> ' . $p->prontuario . '</td>'
             . '<td> ' . $p->nomePaciente . '</td>'
             . '<td> ' . $p->sexo . '</td>'
-            . '<td> ' . $p->tel . '</td>'
+            . '<td> ' . $p->telefone . '</td>'
             . '<td> ' . $p->email . '</td>'
             . '<td> 
           <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 

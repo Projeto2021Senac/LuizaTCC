@@ -16,7 +16,7 @@ if (!$ConsultaInnerJoin instanceof consulta) {
 $objProcedimento = Procedimento::getProcedimentos();
 if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
     $tratamentos = tratamento::getTratamentos('procedimento', 'fkConsulta =' . $_GET['id'], 'fkProcedimento,idProcedimento');
-    /*     echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
+       /*  echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
     $resultados = '';
     foreach ($tratamentos as $tratamento) {
         

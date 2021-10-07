@@ -69,7 +69,7 @@ if (isset($_GET['status'])) {
                         <div class="form-group">
                             <label >Telefone</label>
                             <input type="tel" class="form-control" name="tel"
-                                   value="<?=$paciente->tel?>" onkeypress="mascara(this, '#-#####-####')" maxlength="15">
+                                   value="<?=$paciente->telefone?>" onkeypress="mascara(this, '#-#####-####')" maxlength="15">
                         </div>
 
                         <div class="form-group">

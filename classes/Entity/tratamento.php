@@ -28,8 +28,8 @@ class Tratamento
             $tabela = ',' . $tabela;
         }
 
-        return $db = (new db('tratamentos' . $tabela))->selectSQL($where, $like, $order, $limit, $fields, $innerjoin)
-                ->fetchObject(self::class);
+        return $db = (new db('tratamento' . $tabela))->selectSQL($where, $like, $order, $limit, $fields, $innerjoin)
+                ->fetchAll(PDO::FETCH_CLASS ,self::class);
     }
 
     public static function getTratamentosInner($pesq) {
@@ -56,6 +56,13 @@ class Tratamento
                         . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner join paciente on fkProntuario=prontuario where fkProcedimento=' . $proce . ' and fkConsulta=' . $cons)
                 ->fetchObject(self::class);
+    }
+
+    public function atualizarStatusConsulta($id,$status){
+        $db = new db('consulta');
+        $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
+            'statusConsulta' => $status
+        ])[1];
     }
 
 }

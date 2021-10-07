@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label>Nome: </label>
-                <input type="text"  class="form-control" name="nome"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nomeFuncionario?>">
+                <input type="text"  class="form-control" name="nomeFuncionario"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nomeFuncionario?>">
             </div>
             <div class="form-group">
                 <label>Sexo: </label>
