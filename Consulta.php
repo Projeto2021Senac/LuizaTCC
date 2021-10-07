@@ -22,7 +22,7 @@ if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
         
         if ($tratamento->nomeProcedimento == 'Protese'){
             $resultados .= '<tr>
-                        <td><a href="index.php" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
+                        <td><a href="pesquisarProtese.php?idConsulta='.$_GET["id"].'&idProcedimento=1&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
                         </tr>';
         }else{
             $resultados .= '<tr>
