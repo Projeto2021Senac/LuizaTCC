@@ -12,9 +12,14 @@ if (isset($_GET['status'])) {
     }
 }
 
+
 if (isset($_GET['rConsulta'])) {
+    
     $rastreio->TFKConsulta=$_GET['rConsulta'];
+    $rastreio->TFKProcedimento=$_GET['rProcedimento'];
+  
 }
+
 ?>
 
  <div class="container-fluid">
@@ -69,10 +74,46 @@ if (isset($_GET['rConsulta'])) {
                             <input type="text" class="form-control" name="vlrCobrado"  value="<?=$rastreio->vlrCobrado?>">
                         </div>
                         
-                        <div class="form-group">
+                        <div>
+                            <br>
+                        <input type="submit" name="pConsultaRast"
+                                   class="btn btn-success btInput p-1 " value="Prontuário">
+                        <hr>
+                        </div>
+                        
+                        <div class="form-group" hidden="">
                             <label>Consulta</label>
+<<<<<<< HEAD
 
                         </div>
+=======
+                            <input type="text" class="form-control-sm" name="TFKConsulta"  value="<?=$rastreio->TFKConsulta?>">
+                        </div>
+                        
+                        <div class="form-group" hidden="">
+                            <label>Procedimento</label >
+                            <input  type="text" class="form-control-sm" name="TFKProcedimento"  value="<?=$rastreio->TFKProcedimento?>">
+                        </div>
+                        
+                        <div>
+                            
+                            <label style="color: green">
+                               <?php 
+                                     if ($innerTratamento!= null) {
+                                         echo '<b>PRONTUÁRIO: '.$innerTratamento->prontuario.'<br>PACIENTE: '.$innerTratamento->nomePaciente.
+                                       '<br>CONSULTA: '.$innerTratamento->idConsulta. '<br>DATA: '.date('d/m/Y', strtotime($innerTratamento->dataConsulta)).
+                                       '<br>DENTISTA: '.$innerTratamento->nomeDentista. '<br>CLÍNICA: '.$innerTratamento->nomeClinica.
+                                       '<br>PROCEDIMENTO: '.$innerTratamento->nomeProcedimento;
+                                     }
+                               
+                                ?>
+                                
+                            </label>
+                            <hr>
+                        </div>
+                        
+                        
+>>>>>>> 6ae8e7c1e08a5765107b6ade906c8187443423e2
                         
                         <div class="form-group">
                             <label>Terceirizado</label>
@@ -98,6 +139,16 @@ if (isset($_GET['rConsulta'])) {
                                     echo "<option value =".$serv->idServico." ".$selected.">".$serv->nomeServico."</option>";
                                 }
                                 ?>
+                                </select>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label>Status</label>
+                            <select type="text" class="form-control" name="Status"  >
+                                       <option hidden="">[SELECIONE]</option>
+                                       <option value="ativo">Ativo</option>
+                                       <option value="inativo">Inativo</option>
+
                                 </select>
                         </div>
                         

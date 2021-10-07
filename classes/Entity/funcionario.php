@@ -26,7 +26,7 @@ class Funcionario
 
         $db = new db('funcionario');
         $this->idFuncionario = $db->insertSQL([
-            'nomeFuncionario' => $this->nome,
+            'nomeFuncionario' => $this->nomeFuncionario,
             'dtContrato' => $this->dtContrato,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
@@ -70,7 +70,7 @@ class Funcionario
     public function AtualizarFuncionario()
     {
         return (new db('funcionario'))->updateSQL('idFuncionario= ' . $this->idFuncionario, [
-            'nomeFuncionario' => $this->nome,
+            'nomeFuncionario' => $this->nomeFuncionario,
             'dtContrato' => $this->dtNasc,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,

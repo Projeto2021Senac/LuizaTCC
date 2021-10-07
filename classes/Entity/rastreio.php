@@ -21,6 +21,8 @@ class Rastreio {
     public $TFKProcedimento;
     public $RFKTerceiro;
     public $RFKServico;
+    public $status;
+    
 
     //Método de cadastramento da rastreio
 //    @return boolean
@@ -35,6 +37,7 @@ class Rastreio {
             'TFKProcedimento' => $this->TFKProcedimento,
             'RFKTerceiro' => $this->RFKTerceiro,
             'RFKServico' => $this->RFKServico,
+            'statusRastreio' => $this->status,
         ]);
         if ($this->idRastreio > 0) {
             header('Location: listaRastreio.php?status=success');
@@ -54,6 +57,7 @@ class Rastreio {
                             'TFKProcedimento' => $this->TFKProcedimento,
                             'RFKTerceiro' => $this->RFKTerceiro,
                             'RFKServico' => $this->RFKServico,
+                            'statusRastreio' => $this->status,
         ]);
     }
 
@@ -68,5 +72,16 @@ class Rastreio {
         return (new db('rastreio'))->selectSQL('idRastreio = ' . $idRastreio)
                         ->fetchObject(self::class);
     }
-
+    
+   
+    
+    
+    /*SELECT * FROM consulta c INNER JOIN tratamento t
+ON c.idConsulta=t.fkConsulta
+INNER JOIN paciente p
+ON c.fkProntuario=p.prontuario
+INNER JOIN procedimento pr
+ON t.fkProcedimento=pr.idProcedimento;
+*/
+    
 }

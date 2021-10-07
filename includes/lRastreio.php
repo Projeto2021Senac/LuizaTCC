@@ -33,6 +33,7 @@
                             <td>' . $ras->TFKProcedimento . '</td>
                             <td>' . $ras->RFKTerceiro . '</td>
                             <td>' . $ras->RFKServico . '</td>
+                            <td>' . $ras->status . '</td>
                             
                             <td>
                             <a href = editaRastreio.php?id=' . $ras->idRastreio . '>
@@ -112,7 +113,7 @@
             </div>
 
             <div class=" col-2 ">
-                <a href="cadRastreio.php"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
+                <a href="listaConsultaR.php?rastreio=check"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
             </div>
         </div>
         
@@ -130,6 +131,7 @@
                     <th>Procedimento</th>
                     <th>Terceirizado</th>
                     <th>Serviço</th>
+                    <th>Status</th>
                     <th></th>
 
 

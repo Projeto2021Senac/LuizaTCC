@@ -5,15 +5,13 @@ namespace Classes\Dao;
 use PDO;
 use PDOException;
 
-class db
-{
+class db {
 
     /**
      * Nome do host do mysql
      * @var string
      */
     const HOST = 'localhost';
-
 
     /**
      * Nome do banco de dados
@@ -38,7 +36,6 @@ class db
      * Nome da tabela a ser manipulada
      * @var string
      */
-
     private $table;
 
     /**
@@ -52,22 +49,19 @@ class db
      * que a classe funcione devidamente.
      * @var string
      */
-    public function __construct($table = null)
-    {
+    public function __construct($table = null) {
         //Pega a string da tabela a ser trabalhada que foi escrita no momento da instancia da classe
         //e atribui a uma variável interna para que seja utilizada nas funções
         $this->table = $table;
         $this->setConnection();
     }
 
-
     /**
      * Método que faz a conexão com o banco de dados, utilizando as constantes que definimos ali encima
      * (HOST, NAME, USER, PASS). Além de setar o atributo PDO::ERRMODE_EXCEPTION para que possamos saber onde está o 
      * erro de sintaxe SQL mais facilmente.
      */
-    private function setConnection()
-    {
+    private function setConnection() {
         try {
             $this->connection = new PDO('mysql:host=' . self::HOST . ';dbname=' . self::NAME, self::USER, self::PASS);
             $this->connection->setAttribute(PDO::ERRMODE_EXCEPTION, PDO::ATTR_ERRMODE);
@@ -75,6 +69,7 @@ class db
             die('ERROR' . $e->getMessage());
         }
     }
+
     /**
      * Método que executa as queries dentro do banco de dados
      *
@@ -90,22 +85,21 @@ class db
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
 
-            /* echo "<pre>"; print_r($statement); echo "<pre>";exit; */
+            echo "<pre>"; print_r($statement); echo "<pre>";exit;
             return $statement;
         } catch (PDOException $e) {
             die ($e->getMessage());
         }
     }
+
     /**
      * Método responsável por inserir dados no banco
      *
      * @param array $values [field => value] 
      * @return integer ID inserido
      */
-    public function insertSQL($values)
-    {
+    public function insertSQL($values) {
         //Utiliza de funcionalidades do array para extrair os titulos e os valores passados como array no parâmetro da função ($values)
-
         //array_keys pega os titulos do array
         $fields = array_keys($values);
         //echo "<pre>"; print_r($fields); echo "<pre>";exit;
@@ -134,7 +128,6 @@ class db
 
         return $check;
     }
-
 
     /**
      * Função dinamica que pode ou não receber parâmetros extras para fazer pesquisas simples ou mais detalhadas no banco de dados
@@ -181,7 +174,7 @@ class db
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
         //obs: tabela obrigatória
 
-        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $innerjoin . '' . $where . '' . $like . '' . $order.''.$limit;
+        $query = 'SELECT ' . $fields . ' FROM ' . $tabelas[0] . '' . $innerjoin . '' . $where . '' . $like . '' . $order . '' . $limit;
         /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         //echo '<pre>';print_r($query);echo'<pre>';exit;
         //Retorno é o mesmo da função executeSQL. (PDOStatement)
@@ -194,8 +187,7 @@ class db
      * @param array $values
      * @return boolean;
      */
-    public function updateSQL($where, $values)
-    {
+    public function updateSQL($where, $values) {
         //DADOS DA QUERY
         $fields = array_keys($values);
 

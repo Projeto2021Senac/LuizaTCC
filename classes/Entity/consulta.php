@@ -99,6 +99,9 @@ class Consulta {
             'CFKClinica' => $this->CFKClinica
         ])[1];
     }
+    
+    
+   
 }
 
     

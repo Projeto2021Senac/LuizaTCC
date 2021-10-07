@@ -12,7 +12,7 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'nome LIKE "%'. str_replace('', '%', $busca).'%"': null
+    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%"': null
     
 ];
 

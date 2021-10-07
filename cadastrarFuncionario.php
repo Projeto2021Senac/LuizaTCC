@@ -7,9 +7,9 @@ use \Classes\Entity\funcionario;
 define('TITLE','Cadastro Funcionário');
 
 $objFuncionario = new Funcionario;
-if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
+if (isset($_POST['nomeFuncionario'],$_POST['login'],$_POST['status'])){
 
-    $objFuncionario->nome = $_POST['nome'];
+    $objFuncionario->nomeFuncionario = $_POST['nome'];
     $objFuncionario->dtContrato = $_POST['dtContrato'];
     $objFuncionario->sexo = $_POST['sexo'];
     $objFuncionario->telefone = $_POST['telefone'];
@@ -29,6 +29,6 @@ if (isset($_POST['nome'],$_POST['login'],$_POST['status'])){
     }
 }
 
-include __DIR__.'/includes/header.php';
+include __DIR__.'/includes/headerS.php';
 include __DIR__.'/includes/formularioFuncionario.php';
 include __DIR__.'/includes/footer.php';

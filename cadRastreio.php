@@ -6,17 +6,27 @@ define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
 
 use Classes\Entity\rastreio;
-use Classes\Entity\consulta;
-use Classes\Entity\procedimento;
 use Classes\Entity\terceiro;
 use Classes\Entity\servicoTerceiro;
+use Classes\Entity\terceirizado;
+use Classes\Entity\tratamento;
 
-$consulta = consulta::getConsultas();
-$procedimento = procedimento::getProcedimentos();
+$innerTratamento= "";
+//$consulta = consulta::getConsultas();
+//$procedimento = procedimento::getProcedimentos();
+
 $terceiro = terceiro::getTerceiros();
 $servico = servicoTerceiro::getServicoTerceiros();
 
+if (isset($_GET['rProcedimento'])) {
+    $innerTratamento = tratamento::getTratamentoInner($_GET['rProcedimento'], $_GET['rConsulta']);
+}
+
+  //echo'<pre>';print_r($innerTratamento);echo'</pre>';exit;
+//echo'<pre>';print_r($procedimento);echo'</pre>';exit;
+
 $rastreio = new rastreio();
+$terceirizado = new terceirizado();
 
 if (isset($_POST['cadastrarRastreio'])) {
 
@@ -29,10 +39,14 @@ if (isset($_POST['cadastrarRastreio'])) {
         $rastreio->TFKProcedimento = $_POST['TFKProcedimento'];
         $rastreio->RFKTerceiro = $_POST['RFKTerceiro'];
         $rastreio->RFKServico = $_POST['RFKServico'];
-        
+        $rastreio->status = $_POST['status'];
+        $terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
+        $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
+        //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
         
         $rastreio->cadastrarRastreio();
+        $terceirizado->cadastrarTerceirizado();
         
         header ('Location: listaRastreio.php?status=success');
 
@@ -42,7 +56,7 @@ if (isset($_POST['cadastrarRastreio'])) {
 }
 
 if (isset($_POST['pConsultaRast'])){
-    header ('Location: pesquisarConsulta.php?rastreio=check');
+    header ('Location: listaConsultaR.php?rastreio=check');
 }
 
 include __DIR__.'/includes/header.php';
