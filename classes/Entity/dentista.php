@@ -26,7 +26,7 @@ class Dentista {
             'nomeDentista' => $this->nomeDentista,
             'statusDentista' => $this->statusDentista,
            
-        ]);
+        ])[1];
     }
 
     /**

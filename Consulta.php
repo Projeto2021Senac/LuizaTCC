@@ -54,7 +54,7 @@ if (isset($_POST['Finalizar'])) {
         $objTratamento->fkConsulta = $ConsultaInnerJoin->idConsulta;
         /* echo "<pre>"; print_r($objTratamento); echo "<pre>";exit; */
         $teste = $objTratamento->cadastrarTratamento();
-
+        echo '<pre>';print_r($teste);echo'<pre>';exit;
         /*  echo '<pre>';print_r($teste);echo'<pre>';exit; */
         /* echo '<pre>';print_r(gettype($teste[0]));echo'<pre>';exit; */
 
