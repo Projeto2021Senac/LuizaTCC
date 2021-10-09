@@ -8,7 +8,7 @@
             <div class="row">
 
                 <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
-                    <h5 style="color: white; text-align: center ">Paciente?</h5>
+                    <h3 style="color: white; text-align: center">Busca Prontuário</h3>
                 </div>
             </div>
 
@@ -60,13 +60,13 @@
         $resultados = '';
 
         foreach ($innerTratamentos as $dados) {
-
-            $disabled = ($dados->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
-            $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
+            
+            $disabled = ($dados->idProtese==$dados->fkProtese ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-primary"');
+            //$disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
 
             $resultados .= '<tr ">
-                            <td class "table-success >' . $dados->nomePaciente . '</td>
-                                <td>' . $dados->prontuario . '</td>
+                            <td class "table-success >' . $dados->prontuario . '</td>
+                                <td>' . $dados->nomePaciente . '</td>
                                 <td>' . $dados->idConsulta . '</td>
                             <td>' . date('d/m/Y', strtotime($dados->dataConsulta)) . '</td>
                             <td>' . date(' H:i', strtotime($dados->horaConsulta)) . '</td>
@@ -77,14 +77,16 @@
                             
                             <td>
                             
-                            <a ' . $disabledRastreio . 'href = cadRastreio.php?rConsulta=' . $dados->idConsulta . '&' . 'rProcedimento=' . $dados->idProcedimento . '>Confirmar</a>
+                            <a ' . $disabled . 'href = cadRastreio.php?rProtese='.$dados->idProtese .'>Confirmar</a>
                             </td>
                             </tr>';
         }
+        
         $resultados = strlen($resultados) ? $resultados :
                 '<tr>'
-                . '<td colspan = "6" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
+                . '<td colspan = "12" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
                 . '</tr>';
+        
         ?>
 
 
@@ -94,8 +96,8 @@
             <table class="table bg-light bg-gradient mt-3">
                 <thead class="bg-dark text-light">
                     <tr>
-                        <th>Paciente</th>
                         <th>Prontuário</th>
+                        <th>Paciente</th>
                         <th>Consulta</th>
                         <th>Data</th>
                         <th>Hora</th>
