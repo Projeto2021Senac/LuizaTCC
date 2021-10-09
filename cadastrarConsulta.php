@@ -24,7 +24,7 @@ $objFuncionario = funcionario::getFuncionarios();
 //if (isset($_POST['cadastrar'])){
     $objConsulta = new consulta;
 if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
-    
+   
     $objConsulta->dataConsulta = $_POST['data'];
     $objConsulta->horaConsulta = $_POST['hora'];
     $objConsulta->statusConsulta = ($_POST['status'] != '' ? $_POST['status'] : 'Agendada');

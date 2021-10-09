@@ -7,18 +7,18 @@ use \Classes\Entity\procedimento;
 define('TITLE','Cadastro Procedimento');
 
 $objProcedimento = new Procedimento;
-if (isset($_POST['nome'])){
+if (isset($_POST['nomeProcedimento'])){
+
+    $objProcedimento->nomeProcedimento = $_POST['nomeProcedimento'];
+    $objProcedimento->statusProcedimento = $_POST['statusProcedimento'];
+    //echo '<pre>';print_r($objProcedimento);echo '<pre>';exit;
     
-    $objProcedimento->nomeProcedimento = $_POST['nome'];
-    $objProcedimento->statusProcedimento = $_POST['status'];
-    /* echo '<pre>';print_r($objProcedimento);echo '<pre>';exit; */
-    
-    $objProcedimento->cadastrar();
+    $objProcedimento->cadastro();
    
     if ($objProcedimento->idProcedimento > 0){
-        header ('Location: index.php?status=success');
+        header ('Location: listaProcedimento.php?status=success');
     }else{
-        header ('Location: index.php?status=error'); }
+        header ('Location: listaProcedimento.php?status=error'); }
 }
 
 include __DIR__.'/includes/header.php';

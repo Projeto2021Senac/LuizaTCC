@@ -11,12 +11,12 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class paciente {
+class Paciente {
 
     public $prontuario;
     public $nomePaciente;
     public $sexo;
-    public $tel;
+    public $telefone;
     public $email;
 
 //Método de cadastramento do paciente

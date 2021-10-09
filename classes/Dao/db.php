@@ -31,6 +31,7 @@ class db {
      */
     const PASS = 'senac';
 
+
     /**
      * Nome da tabela a ser manipulada
      * @var string
@@ -84,10 +85,10 @@ class db {
             $statement = $this->connection->prepare($query);
             $statement->execute($params);
 
-            //echo "<pre>"; print_r($statement); echo "<pre>";exit;
+           //echo "<pre>"; print_r($this); echo "<pre>";exit; 
             return $statement;
         } catch (PDOException $e) {
-            return $e;
+            die ($e->getMessage());
         }
     }
 
@@ -110,13 +111,15 @@ class db {
         //Comando que vai pro SQL. 
         //Query dinâmica que varia dependendo da tabela escolhida e de quantos campos a classe que rodou este método passou pelo array no parâmetro da função
         $query = 'INSERT INTO ' . $this->table . ' (' . implode(',', $fields) . ') values (' . implode(',', $binds) . ')';
-        /* echo '<pre>';print_r($query);echo'<pre>';exit; */
+        //echo '<pre>';print_r($query);echo'<pre>';exit; 
         /* echo '<pre>';print_r($query);echo'<pre>';exit; */
         
         //Roda o método executeSQL, que tem por função de fato executar o comando que criamos logo acima, substituindo as interrogações pelos valores que passamos como parâmetro
         //($query e $array_values($values)).
         // echo '<pre>';print_r(array_values($values));echo'<pre>';exit;
         
+      // echo "<pre>"; print_r($this->executeSQL($query, array_values($values))); echo "<pre>";exit; 
+
         $check[0] = $this->executeSQL($query, array_values($values));
         $check[1] = $this->connection->lastInsertId();
         //echo "<pre>"; print_r($this->executeSQL($query,array_values($values))); echo "<pre>";exit;
@@ -144,8 +147,6 @@ class db {
         //Verificação: Se tiver algo diferente de NULL nas variáveis presentes no parâmetro, ele adiciona tal especificação
         //à query dinâmica.
         $tabelas = explode(',',$this->table,12);
-        /* echo '<pre>';print_r($tabelas);echo'<pre>';exit; */
-        /* $tabelas[0] = $this->table; */
         
         $where = strlen($where) ? ' WHERE ' .$where : '';
         /* echo "<pre>"; print_r($where); echo "<pre>";exit; */
@@ -170,17 +171,7 @@ class db {
             }
             
         }
-        /* echo '<pre>';print_r($innerjoin);echo'<pre>';exit; */
-         
-
-
-/*
-        if(count($tabelas)> 1){
-        $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]: '';
-        }
-        if(count($tabelas)> 2){
-            $innerjoin = strlen($tabelas[1]) ? ' INNER JOIN ' . $tabelas[1].' on '.$tabelas[0].'.'.$inner1[0].' = '.$tabelas[1].'.'.$inner1[1]. ' INNER JOIN ' . $tabelas[2].' on '.$tabelas[0].'.'.$inner1[2].' = '.$tabelas[2].'.'.$inner1[3]: '';
-            } */
+        /* echo "<pre>"; print_r($innerjoin); echo "<pre>";exit; */
         $fields = $fields == null ? '*' : $fields;
 
         //Montagem da query dinâmica baseado em quais variáveis foram preenchidas no parâmetro
@@ -204,7 +195,8 @@ class db {
         $fields = array_keys($values);
 
         $query = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
-        /* echo '<pre>';print_r($query);echo'<pre>';exit; */
+       // echo '<pre>';print_r($query);echo'<pre>';exit;
+        //echo '<pre>';print_r(array_values($values));echo '<pre>';exit; 
         $this->executeSQL($query, array_values($values));
 
         return true;

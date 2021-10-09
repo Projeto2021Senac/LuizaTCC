@@ -3,6 +3,9 @@
 require 'vendor/autoload.php';
 
 use Classes\Entity\paciente;
+define('NAME','Paciente');
+define('LINK','listaPaciente.php');
+
 
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
@@ -25,4 +28,5 @@ $pacientes = paciente::getPacientes($where);
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formularioListaPaciente.php';
+include __DIR__.'/includes/mensagensCRUD.php';
 include __DIR__.'/includes/footer.php';

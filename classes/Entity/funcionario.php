@@ -10,7 +10,7 @@ class Funcionario
 
     public $idFuncionario;
     public $nomeFuncionario;
-    public $dtNasc;
+    public $dtContrato;
     public $sexo;
     public $telefone;
     public $email;
@@ -24,10 +24,10 @@ class Funcionario
 
         $this->dataRegistro = date('Y-m-d H-i-s');
 
-        $obdb = new db('funcionario');
-        $this->idFuncionario = $obdb->insertSQL([
+        $db = new db('funcionario');
+        $this->idFuncionario = $db->insertSQL([
             'nomeFuncionario' => $this->nomeFuncionario,
-            'dtContrato' => $this->dtNasc,
+            'dtContrato' => $this->dtContrato,
             'sexo' => $this->sexo,
             'telefone' => $this->telefone,
             'email' => $this->email,
@@ -35,7 +35,7 @@ class Funcionario
             'login' => $this->login,
             'senha' => $this->senha,
             'statusFuncionario' => $this->statusFuncionario
-        ]);
+        ])[1];
     }
 
     /**

@@ -5,17 +5,19 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use PDO;
 
-class tratamento {
+class Tratamento
+{
 
     public $fkProcedimento;
     public $fkConsulta;
-    public $observacoes;
+    public $observacao;
 
     public function cadastrarTratamento() {
         $tratamento = (new db('tratamento'))->insertSQL([
             'fkConsulta' => $this->fkConsulta,
             'fkProcedimento' => $this->fkProcedimento,
-            'observacao' => $this->observacoes
+            'observacao' => $this->observacao
+
         ]);
         return $tratamento;
     }
@@ -26,11 +28,26 @@ class tratamento {
             $tabela = ',' . $tabela;
         }
 
-        return $db = (new db('tratamentos' . $tabela))->selectSQL($where, $like, $order, $limit, $fields, $innerjoin)
-                ->fetchObject(self::class);
+        return $db = (new db('tratamento' . $tabela))->selectSQL($where, $like, $order, $limit, $fields, $innerjoin)
+                ->fetchAll(PDO::FETCH_CLASS ,self::class);
     }
 
     public static function getTratamentosInner($pesq) {
+
+
+        return $db = (new db)->executeSQL('SELECT * FROM tratamento '
+                        . 'inner JOIN consulta on fkConsulta=idConsulta '
+                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
+                        . 'inner JOIN protese on fkConsulta=fkConsultaT '
+                        . 'inner JOIN dentista on CFKDentista=idDentista '
+                        . 'inner JOIN clinica on CFKClinica=idClinica '
+                        . 'inner JOIN paciente on fkProntuario=prontuario '
+                        . 'inner JOIN rastreio '
+                        . 'where idProtese not in (select fkProtese from rastreio) '. $pesq)
+                ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+   public static function getTratamentoInner($pro) {
 
 
         return $db = (new db)->executeSQL('SELECT * FROM tratamento '
@@ -39,21 +56,16 @@ class tratamento {
                         . 'inner JOIN clinica on CFKClinica=idClinica '
                         . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner JOIN paciente on fkProntuario=prontuario '
-                        . 'where idConsulta not in (select TFKConsulta from rastreio) '
-                        . 'AND idProcedimento not in (select TFKProcedimento from rastreio) '. $pesq)
-                ->fetchAll(PDO::FETCH_CLASS, self::class);
+                        . 'inner JOIN protese on fkProcedimento=fkProcedimentoT '
+                        . 'where idProtese='.$pro)
+                ->fetchObject(self::class);
     }
 
-   public static function getTratamentoInner($proce, $cons) {
-
-
-        return $db = (new db)->executeSQL('SELECT * FROM tratamento '
-                        . 'inner JOIN consulta on fkConsulta=idConsulta '
-                        . 'inner JOIN dentista on CFKDentista=idDentista '
-                        . 'inner JOIN clinica on CFKClinica=idClinica '
-                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
-                        . 'inner join paciente on fkProntuario=prontuario where fkProcedimento=' . $proce . ' and fkConsulta=' . $cons)
-                ->fetchObject(self::class);
+    public function atualizarStatusConsulta($id,$status){
+        $db = new db('consulta');
+        $this->idConsulta = $db->updateSQL('idConsulta = '.$id,[
+            'statusConsulta' => $status
+        ])[1];
     }
 
 }

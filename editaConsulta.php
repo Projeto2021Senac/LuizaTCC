@@ -72,7 +72,7 @@ if (!$objFuncionario instanceof funcionario){
     $objConsulta->relatorio = $_POST['relatorio'];
     //Executa a função cadastrar que está localizada na classe "Protese".
     /* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
-    $objConsulta->atualizar($_GET['id']);
+    $objConsulta->AtualizarConsulta($_GET['id']);
 
     header('location:pesquisarConsulta.php');
       }

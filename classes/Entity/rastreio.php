@@ -10,18 +10,17 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class rastreio {
+class Rastreio {
 
     public $idRastreio;
     public $dtEntrega;
     public $dtRetorno;
     public $obs;
     public $vlrCobrado;
-    public $TFKConsulta;
-    public $TFKProcedimento;
+    public $statusRastreio;
     public $RFKTerceiro;
     public $RFKServico;
-    public $statusRastreio;
+    public $fkProtese;
     
 
     //Método de cadastramento da rastreio
@@ -34,11 +33,11 @@ class rastreio {
             'dtRetorno' => $this->dtRetorno,
             'obs' => $this->obs,
             'vlrCobrado' => $this->vlrCobrado,
-            'TFKConsulta' => $this->TFKConsulta,
-            'TFKProcedimento' => $this->TFKProcedimento,
+            'statusRastreio' => $this->statusRastreio,
             'RFKTerceiro' => $this->RFKTerceiro,
             'RFKServico' => $this->RFKServico,
-            'statusRastreio' => $this->statusRastreio,
+            'fkProtese' => $this->fkProtese,
+            
         ]); //echo'<pre>';print_r($this);echo'</pre>';exit;
         if ($this->idRastreio > 0) {
             header('Location: listaRastreio.php?status=success');
@@ -54,11 +53,11 @@ class rastreio {
                             'dtRetorno' => $this->dtRetorno,
                             'obs' => $this->obs,
                             'vlrCobrado' => $this->vlrCobrado,
-                            'TFKConsulta' => $this->TFKConsulta,
-                            'TFKProcedimento' => $this->TFKProcedimento,
+                            'statusRastreio' => $this->statusRastreio,
                             'RFKTerceiro' => $this->RFKTerceiro,
                             'RFKServico' => $this->RFKServico,
-                            'statusRastreio' => $this->statusRastreio,
+                            'fkProtese' => $this->fkProtese,
+                            
         ]);
     }
 
@@ -78,13 +77,30 @@ class rastreio {
 
 
         return $db = (new db)->executeSQL('SELECT * FROM rastreio '
-                        . 'inner JOIN consulta on TFKConsulta=idConsulta '
-                        . 'inner JOIN procedimento on TFKProcedimento=idProcedimento '
+                        . 'inner JOIN protese on fkProtese=idProtese '
+                        . 'inner JOIN tratamento on fkConsulta=fkConsultaT '
+                        . 'inner JOIN consulta on fkConsulta=idConsulta '
+                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner JOIN paciente on fkProntuario=prontuario '
                         . 'inner JOIN terceiro on RFKTerceiro=idTerceiro '
                         . 'inner JOIN servicoterceiro on RFKServico=idServico '
                         . $pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+    
+    public static function getRastreioInner($pesq) {
+
+
+        return $db = (new db)->executeSQL('SELECT * FROM rastreio '
+                        . 'inner JOIN protese on fkProtese=idProtese '
+                        . 'inner JOIN tratamento on fkConsulta=fkConsultaT '
+                        . 'inner JOIN consulta on fkConsulta=idConsulta '
+                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
+                        . 'inner JOIN paciente on fkProntuario=prontuario '
+                        . 'inner JOIN terceiro on RFKTerceiro=idTerceiro '
+                        . 'inner JOIN servicoterceiro on RFKServico=idServico '
+                        . 'where idRastreio='.$pesq)
+                ->fetchObject(self::class);
     }
     
    

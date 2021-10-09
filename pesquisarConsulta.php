@@ -6,7 +6,8 @@ require __DIR__ . '/vendor/autoload.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
-
+define('NAME','Consulta');
+define('LINK','pesquisarConsulta.php');
 
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
@@ -17,7 +18,7 @@ use \Classes\Entity\paciente;
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
-$consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'idConsulta asc');
+$consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'statusConsulta,dataConsulta  desc ');
 
 /*  echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
@@ -30,4 +31,5 @@ $consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,func
 //o conteúdo que a página vai ter, por exemplo o home.php que está agora; e por fim o arquivo que contém o fechamento da div container, os scripts e o fechamento do html.
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/listaConsultas.php';
+include __DIR__ . '/includes/mensagensCRUD.php';
 include __DIR__ . '/includes/footer.php';

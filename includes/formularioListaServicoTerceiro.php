@@ -3,26 +3,26 @@
         <a href="index.php">
             <button class="btn btn-success mt-4">Menu</button>
         </a>
-        <a href="cadastroProcedimento.php">
-                <button class="btn btn-success mt-4">Cadastrar</button>
-            </a>
+
     </section>
     <?php
     $resultados = '';
-    foreach ($objProcedimento as $objProcedimento) {
+    foreach ($objServicoTerceiro as $objServicoTerceiro) {
         $resultados .= '<tr>
-                            <td>' . $objProcedimento->idProcedimento. '</td>
-                            <td>' . $objProcedimento->nomeProcedimento.'</td>
-                            <td>' . $objProcedimento->statusProcedimento. '</td>
-                            <td>
+                            <td>' . $objServicoTerceiro->idServico . '</td>
+                            <td>' . $objServicoTerceiro->nomeServico . '</td>
+                            <td>' . $objServicoTerceiro->descricao . '</td>
+                            <td>' .$objServicoTerceiro->statusServicoTerceiro. '</td>
+
                             
-                          
-                            <a href = editaProcedimento.php?id=' . $objProcedimento->idProcedimento . '>
+                            <td>
+                            <a href = editaServicoTerceiro.php?id=' . $objServicoTerceiro->idServico . '>
                             <button type="button" class="btn btn-info">Editar</button>
                             </a>
                             </td>
                             </tr>';
     }
+
 
     ?>
     <section>
@@ -31,8 +31,9 @@
             <thead class="bg-dark text-light">
                 <tr>
                     <th>Número do ID</th>
-                    <th>Nome do Procedimento</th>
-                    <th>Status do Procedimento</th>
+                    <th>Nome Serviço Terceiro</th>
+                    <th>Descrição</th>
+                    <th>Status Serviço Terceiro</th>
                     <th>Ações</th>
                     <th></th>
                 </tr>

@@ -1,15 +1,17 @@
-<div class="container-fluid" style="height:-webkit-fill-available">
+<div class="container-fluid p-4">
 
 
     <section>
         <a href="<?= (TITLE == 'Cadastrar Nova Consulta' ? 'index.php' : 'pesquisarConsulta.php') ?>">
             <button class="btn btn-success mt-4">Retornar</button>
         </a>
+        
 
     </section>
+    <br>
     <main>
-        <div class="col-10">
-            <div class="text-white offset-2 bg-gradient border border-primary p-4 rounded-3" style="background-color:black;">
+        <div>
+            <div class="text-white  bg-gradient border border-primary p-5 rounded-3" style="background-color:black;border-width: 10px;">
                 <div>
                     <h3 style="text-align: center;"><?= TITLE ?></h3>
                 </div>
@@ -62,36 +64,25 @@
 
                     </div>
                 </form>
-                <table <?= ($visibilidadiv == 'style=display:none;' ? '' : 'style=display:none;') ?> class="table bg-light bg-gradient mt-3">
-                <thead class="bg-dark text-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>data</th>
-                        <th>hora</th>
-                        <th>status</th>
-                        <th>Paciente atendido</th>
-                        <th>Ações</th>
-
-                        <th></th>
-
-
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <?= $resultados ?>
-
-                </tbody>
-
-            </table>
+                <?php
+                if ($visibilidadiv != ''){
+                    echo "<table class=\"table bg-light text-center col-6 bg-gradient mt-3\">
+                    <thead class=\"bg-dark text-light\">
+                        <tr>
+                            <th>Procedimento Realizados nesta Consulta</th>
+                
+                        </tr>
+                
+                    </thead>
+                    <tbody>
+                         $resultados 
+                
+                    </tbody>
+                
+                </table>";
+                }
+                ?>
             </div>
         </div>
-</div>
-</main>
-
-
-
-
-
-
+    </main>
 </div>

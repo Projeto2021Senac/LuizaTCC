@@ -2,9 +2,7 @@
 
 require 'vendor/autoload.php';
 
-use Classes\Entity\Funcionario;
-define('NAME','Funcionário');
-define('LINK','listaFuncionario.php');
+use Classes\Entity\Terceiro;
 
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
@@ -20,12 +18,11 @@ $where = implode(' AND ', $condicoes);
 
 
 
-$objFuncionario= Funcionario::getFuncionarios();
+$objTerceiro= Terceiro::getTerceiros();
 
 
 
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formularioListaFuncionario.php';
-include __DIR__.'/includes/mensagensCRUD.php';
+include __DIR__.'/includes/formularioListaTerceiro.php';
 include __DIR__.'/includes/footer.php';
