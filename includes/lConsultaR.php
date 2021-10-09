@@ -8,7 +8,7 @@
             <div class="row">
 
                 <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
-                    <h5 style="color: white; text-align: center ">Paciente?</h5>
+                    <h3 style="color: white; text-align: center">Busca Prontuário</h3>
                 </div>
             </div>
 
