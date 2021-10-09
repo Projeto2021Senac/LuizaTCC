@@ -27,6 +27,10 @@
                             </td>
                             </tr>';
     }
+    $resultados = strlen($resultados) ? $resultados :
+    '<tr>'
+    . '<td colspan = "12" class = "text-center"> Nenhum Funcionário foi encontrada no histórico</td>'
+    . '</tr>';
 
 
     ?>

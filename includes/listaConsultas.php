@@ -43,7 +43,7 @@
     }
     $resultados = strlen($resultados) ? $resultados :
       '<tr>'
-      . '<td colspan = "6" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
+      . '<td colspan = "12" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
       . '</tr>';
 
     

@@ -2,13 +2,13 @@
 //faz o require do autoload composer, para carregar automaticamente as principais classes do nosso projeto,  
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
 define('NAME','Consulta');
 define('LINK','pesquisarConsulta.php');
-
+/* echo '<pre>';print_r($_SESSION);echo'<pre>';exit; */
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 

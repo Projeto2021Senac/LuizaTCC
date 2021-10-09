@@ -54,7 +54,7 @@
                             </div>
                             <div class="col text-center ms-3">
                                 <fieldset>
-                                    <a href="pesquisarConsulta.php">
+                                    <a href="listaRastreio.php">
                                         <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/rastreio.png" width="200px" height="200px">
 
                                     </a>
