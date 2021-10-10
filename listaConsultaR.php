@@ -17,7 +17,7 @@ $condicoes = [
 
 $where = implode(' AND ', $condicoes);
 
-//echo "<pre>"; print_r($where); echo "<pre>";exit;
+//echo "<pre>"; print_r($busca); echo "<pre>";exit;
 
 $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implementar consulta 
 
