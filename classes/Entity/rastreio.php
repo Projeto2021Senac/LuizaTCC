@@ -78,13 +78,12 @@ class Rastreio {
 
         return $db = (new db)->executeSQL('SELECT * FROM rastreio '
                         . 'inner JOIN protese on fkProtese=idProtese '
-                        . 'inner JOIN tratamento on fkConsulta=fkConsultaT '
+                        . 'inner JOIN tratamento on fkConsulta=fkConsultaT and fkProcedimento=fkProcedimentoT '
                         . 'inner JOIN consulta on fkConsulta=idConsulta '
                         . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner JOIN paciente on fkProntuario=prontuario '
                         . 'inner JOIN terceiro on RFKTerceiro=idTerceiro '
-                        . 'inner JOIN servicoterceiro on RFKServico=idServico '
-                        . $pesq)
+                        . 'inner JOIN servicoterceiro on RFKServico=idServico '.$pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
     

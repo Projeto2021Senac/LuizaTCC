@@ -67,7 +67,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Data de Retorno</label>
-                        <input type="date" class="form-control" name="dtRetorno"  value="<?= $rastreio->dtRetorno ?>">
+                        <input type="date" class="form-control" name="dtRetorno" required="" value="<?= $rastreio->dtRetorno ?>">
                     </div>
 
                     <div class="form-group">
@@ -101,6 +101,11 @@ if (isset($_GET['rProtese'])) {
                         </select>
                     </div>
                     
+                    
+                    <?php  if (TITLE=="Editar Rastreio") {
+                                
+                            
+                            ?>
                     <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
                     <div class="form-group"  hidden="">
                         <label>Terceirizado</label>
@@ -115,6 +120,10 @@ if (isset($_GET['rProtese'])) {
                         </select>
                     </div>
 
+                    <?php
+                    }
+                    ?>
+                    
                     
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
@@ -129,6 +138,11 @@ if (isset($_GET['rProtese'])) {
                         </select>
                     </div>
                     
+                    
+                    <?php  if (TITLE=="Editar Rastreio") {
+                                
+                            
+                            ?>
                     <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
                     <div class="form-group" hidden="">
                         <label>Serviço Terceirizado</label>
@@ -142,6 +156,10 @@ if (isset($_GET['rProtese'])) {
                             ?>
                         </select>
                     </div>
+                    
+                    <?php
+                    }
+                    ?>
 
                     <div class="form-group">
                         <label>Status</label>
