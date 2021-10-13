@@ -24,7 +24,7 @@ if (isset($_GET['rProtese'])) {
 }
 
   //echo'<pre>';print_r($innerTratamento);echo'</pre>';exit;
-//echo'<pre>';print_r($procedimento);echo'</pre>';exit;
+
 
 $rastreio = new rastreio();
 $terceirizado = new terceirizado();
@@ -44,9 +44,10 @@ if (isset($_POST['cadastrarRastreio'])) {
         $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
        //echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
-        
-        $rastreio->cadastrarRastreio();
+        //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
         $terceirizado->cadastrarTerceirizado();
+        $rastreio->cadastrarRastreio();
+        
         
         header ('Location: listaRastreio.php?status=success');
 

@@ -47,13 +47,13 @@ if (isset($_GET['status'])) {
 
                         <div class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" name="nomePaciente" required="" value="<?=$paciente->nomePaciente?>">
+                            <input type="text" class="form-control" name="nomePaciente"  required="" value="<?=$paciente->nomePaciente?>">
                         </div>
 
                         <div class="form-group">
                             <label>Sexo: </label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios1" value="masculino" checked="">
+                                <input class="form-check-input" type="radio" name="sexo"  id="exampleRadios1" value="masculino" checked="">
                                 <label class="form-check-label" for="exampleRadios1">
                                     Masculino
                                 </label>
@@ -68,7 +68,7 @@ if (isset($_GET['status'])) {
 
                         <div class="form-group">
                             <label >Telefone</label>
-                            <input type="tel" class="form-control" name="tel"
+                            <input type="tel" class="form-control" name="tel" 
                                    value="<?=$paciente->telefone?>" onkeypress="mascara(this, '#-#####-####')" maxlength="15">
                         </div>
 

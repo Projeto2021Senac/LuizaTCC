@@ -9,7 +9,7 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'AND nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
+    strlen($busca) ? 'where nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
     
 ];
 
@@ -17,7 +17,7 @@ $condicoes = [
 $where = implode(' AND ', $condicoes);
 
 $rastreio = rastreio::getRastreiosInner($where);
-
+//echo "<pre>"; print_r($rastreio); echo "<pre>";exit;
 
 
 

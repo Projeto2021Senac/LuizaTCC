@@ -2,7 +2,7 @@
 //faz o require do autoload composer, para carregar automaticamente as principais classes do nosso projeto,  
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
-//include __DIR__.'./includes/sessionStart.php';
+include __DIR__.'./includes/sessionStart.php';
 
 
 use \Classes\Entity\consulta;

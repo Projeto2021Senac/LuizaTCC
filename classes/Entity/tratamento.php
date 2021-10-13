@@ -35,10 +35,15 @@ class Tratamento
     public static function getTratamentosInner($pesq) {
 
 
-        return $db = (new db)->executeSQL('SELECT * FROM `consulta` INNER JOIN tratamento on tratamento.fkConsulta = idConsulta and tratamento.fkProcedimento in 
-        (SELECT idProcedimento from procedimento where nomeProcedimento in ("Protese")) 
-        INNER JOIN protese,clinica,dentista,paciente,procedimento where protese.fkConsultaT = tratamento.fkConsulta and protese.idProtese not in (SELECT fkProtese from rastreio) and CFKClinica = idClinica and CFKDentista = idDentista and 
-        fkProntuario = prontuario and fkProcedimento = idProcedimento'. $pesq)
+        return $db = (new db)->executeSQL('SELECT * FROM rastreio '
+                . 'RIGHT JOIN protese on idProtese=fkProtese '
+                . 'inner JOIN tratamento on fkConsulta=fkConsultaT and fkProcedimento=fkProcedimentoT '
+                . 'inner JOIN consulta on fkConsulta=idConsulta '
+                . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
+                . 'inner JOIN dentista on CFKDentista=idDentista '
+                . 'inner JOIN clinica on CFKClinica=idClinica '
+                . 'inner JOIN paciente on fkProntuario=prontuario '
+                . 'where idProtese not in (select fkProtese from rastreio)'. $pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
@@ -49,9 +54,10 @@ class Tratamento
                         . 'inner JOIN consulta on fkConsulta=idConsulta '
                         . 'inner JOIN dentista on CFKDentista=idDentista '
                         . 'inner JOIN clinica on CFKClinica=idClinica '
-                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
                         . 'inner JOIN paciente on fkProntuario=prontuario '
-                        . 'inner JOIN protese on fkProcedimento=fkProcedimentoT '
+                        . 'inner JOIN procedimento on fkProcedimento=idProcedimento '
+                        
+                        . 'inner JOIN protese on fkProcedimento=fkProcedimentoT and fkConsulta=fkConsultaT '
                         . 'where idProtese='.$pro)
                 ->fetchObject(self::class);
     }
@@ -64,3 +70,8 @@ class Tratamento
     }
 
 }
+//SELECT * FROM consulta INNER JOIN tratamento on tratamento.fkConsulta = idConsulta 
+//and tratamento.fkProcedimento in (SELECT idProcedimento from procedimento 
+//where nomeProcedimento in ("Protese")) INNER JOIN protese on protese.fkConsultaT = tratamento.fkConsulta 
+//and protese.idProtese not in (SELECT fkProtese from rastreio) INNER JOIN clinica,dentista,paciente 
+//where CFKClinica = idClinica and CFKDentista = idDentista and fkProntuario = prontuario
