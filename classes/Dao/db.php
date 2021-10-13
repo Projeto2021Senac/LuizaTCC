@@ -118,7 +118,7 @@ class db {
         //($query e $array_values($values)).
         // echo '<pre>';print_r(array_values($values));echo'<pre>';exit;
         
-      // echo "<pre>"; print_r($this->executeSQL($query, array_values($values))); echo "<pre>";exit; 
+      //echo "<pre>"; print_r($this->); echo "<pre>";exit; 
 
         $check[0] = $this->executeSQL($query, array_values($values));
         $check[1] = $this->connection->lastInsertId();
