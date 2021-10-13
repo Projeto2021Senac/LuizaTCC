@@ -13,7 +13,7 @@ define('LINK', 'pesquisarProtese.php');
 
     $objProtese = new Protese;
     if (isset($_GET['idConsulta'],$_GET['idProcedimento'],$_GET['prontuario']) && is_numeric($_GET['idConsulta'])&& 
-    is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] == 3 && $_GET['prontuario'] > 0){
+    is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] > 0 && $_GET['prontuario'] > 0){
         
         $proteses = $objProtese->getProteses('fkConsultaT ='.$_GET['idConsulta']);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
