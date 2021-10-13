@@ -43,6 +43,7 @@ if (isset($_POST['cadastrarProtese'])) {
     $objProtese->fkConsultaT = $_GET['idConsulta'];
     $objProtese->fkProcedimentoT = $_GET['idProcedimento'];
 
+    /* echo "<pre>"; print_r($objProtese); echo "<pre>";exit; */
     //Executa a função cadastrar que está localizada na classe "Protese".
     $objProtese->cadastrar();
     //Caso a função cadastrar rode sem problemas, obrigatóriamente o valor do $objProtese->id será preenchido

@@ -22,7 +22,7 @@ if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
         
         if ($tratamento->nomeProcedimento == 'Protese'){
             $resultados .= '<tr>
-                        <td><a href="pesquisarProtese.php?idConsulta='.$_GET["id"].'&idProcedimento=1&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
+                        <td><a href="pesquisarProtese.php?idConsulta='.$_GET["id"].'&idProcedimento=3&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
                         </tr>';
         }else{
             $resultados .= '<tr>
@@ -52,6 +52,7 @@ if (isset($_POST['Finalizar'])) {
         $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);
         $objTratamento->fkProcedimento = $_POST['procedimento'];
         $objTratamento->fkConsulta = $ConsultaInnerJoin->idConsulta;
+
         /* echo "<pre>"; print_r($objTratamento); echo "<pre>";exit; */
         $teste = $objTratamento->cadastrarTratamento();
         /* echo '<pre>';print_r($teste);echo'<pre>';exit; */
