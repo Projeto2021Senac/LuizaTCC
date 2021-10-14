@@ -38,9 +38,9 @@ class Rastreio {
             'RFKServico' => $this->RFKServico,
             'fkProtese' => $this->fkProtese,
             
-        ]); //echo'<pre>';print_r($this);echo'</pre>';exit;
+        ])[1]; //echo'<pre>';print_r($this);echo'</pre>';exit;
         if ($this->idRastreio > 0) {
-            header('Location: listaRastreio.php?status=success');
+            header('Location: listaRastreio.php?status=success&id='.$this->idRastreio);
         } else {
             header('Location: listaRastreio.php?status=error');
         }

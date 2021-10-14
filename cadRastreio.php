@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
 
+
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
 use Classes\Entity\servicoTerceiro;
@@ -40,13 +41,15 @@ if (isset($_POST['cadastrarRastreio'])) {
         $rastreio->RFKTerceiro = $_POST['RFKTerceiro'];
         $rastreio->RFKServico = $_POST['RFKServico'];
         $rastreio->fkProtese = $_POST['fkProtese'];
-        $terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
-        $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
-       //echo'<pre>';print_r($rastreio);echo'</pre>';exit;
+        //$terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
+        //$terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
+       echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
         //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
-        $terceirizado->cadastrarTerceirizado();
+        
+        //$terceirizado->cadastrarTerceirizado();
         $rastreio->cadastrarRastreio();
+        
         
         
         header ('Location: listaRastreio.php?status=success');
@@ -62,5 +65,6 @@ if (isset($_POST['cadastrarRastreio'])) {
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formRastreio.php';
+
 include __DIR__.'/includes/footer.php';
  

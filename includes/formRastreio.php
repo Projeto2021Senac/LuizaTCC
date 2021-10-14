@@ -127,12 +127,12 @@ if (isset($_GET['rProtese'])) {
                     
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKServico" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select class="selectpicker"type="text" name="RFKServico"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option hidden="" >[SELECIONE]</option>
                             <?php
                             foreach ($servico as $serv) {
                                 $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
+                                echo "<option value=" . $serv->idServico . "" . $selected . ">" . $serv->nomeServico . "</option>";
                             }
                             ?>
                         </select>
@@ -146,12 +146,12 @@ if (isset($_GET['rProtese'])) {
                     <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
                     <div class="form-group" hidden="">
                         <label>Serviço Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKServico">
+                        <select type="text" class="selectpicker" name="RFKServico">
                             <option hidden="" >[SELECIONE]</option>
                             <?php
                             foreach ($servico as $serv) {
                                 $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
+                                echo "<option value=" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
                             }
                             ?>
                         </select>
