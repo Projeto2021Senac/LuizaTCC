@@ -95,7 +95,7 @@ class Protese{
      * @return object
      */
     public static function getProtese($id){
-        return (new db('protese'))->selectSQL('id = '.$id)
+        return (new db('protese'))->selectSQL('idProtese = '.$id)
                                    ->fetchObject(self::class); 
 
     }

@@ -28,6 +28,7 @@ if (isset($_POST['cadastrarProtese'])) {
      * Pode-se notar alguns tratamentos com operadores ternários para dureza, ouro, e quantidade
      */
 
+    /*  echo '<pre>';print_r($_POST);echo'<pre>';exit; */
     $objProtese->tipo = $_POST['tipo'];
     $objProtese->posicao = $_POST['posicao'];
     $objProtese->material = $_POST['material'];
@@ -35,13 +36,13 @@ if (isset($_POST['cadastrarProtese'])) {
     $objProtese->extensao = $_POST['extensao'];
     $objProtese->qtdDente = $_POST['qtdDentes'];
     $objProtese->dente = $_POST['tipoDente'];
-    $objProtese->ouro = ($_POST['denteOuro'] == "on" ? "sim" : "nao");
+    $objProtese->ouro = (isset($_POST['ouroDente']) == "on" ? "sim" : "nao");
     $objProtese->qtdOuro = (isset($_POST['qtdOuro']) ? $_POST['qtdOuro'] : 0);
     $objProtese->paciente = $_POST['paciente'];
     $objProtese->status = 'Cadastrada';
     $objProtese->observacao = $_POST['observacao'];
-    $objProtese->fkConsultaT = $_GET['idConsulta'];
-    $objProtese->fkProcedimentoT = $_GET['idProcedimento'];
+    $objProtese->fkConsultaT = (isset($_GET['idConsulta']) ? $_GET['idConsulta'] : 'Erro');
+    $objProtese->fkProcedimentoT = (isset($_GET['idProcedimento']) ? $_GET['idProcedimento'] : 'Erro');
 
     /* echo "<pre>"; print_r($objProtese); echo "<pre>";exit; */
     //Executa a função cadastrar que está localizada na classe "Protese".
