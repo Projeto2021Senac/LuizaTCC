@@ -2,12 +2,13 @@
 //faz o require do autoload composer, para carregar automaticamente as principais classes do nosso projeto,  
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\Consulta;
 use \Classes\Entity\paciente;
 
-
-
+define('NAME','Consulta');
+define('LINK','pesquisarConsulta.php');
+/* echo '<pre>';print_r($_SESSION);echo'<pre>';exit; */
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 
@@ -17,23 +18,9 @@ use \Classes\Entity\paciente;
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
-/* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
+$consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'statusConsulta,dataConsulta  desc ');
 
-//Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
-/* $consultas = $objConsulta->getConsultas(); */
-/* echo "<pre>"; print_r($consultas); echo "<pre>";exit; */
-
-/**
- * Método com filtro de status
- */
-/* $consultas = $objConsulta->getConsultaPaciente('statusConsulta <> "Agendada"'); */
-
-/**
- * Método sem filtro 
- */
-$consultas = $objConsulta->getConsultaInnerJoin('paciente,clinica,dentista,funcionario',NULL,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'idConsulta asc');
-
- /* echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
+/*  echo "<pre>"; print_r($consultas); echo "<pre>";exit;  */
 
 
 
@@ -44,4 +31,5 @@ $consultas = $objConsulta->getConsultaInnerJoin('paciente,clinica,dentista,funci
 //o conteúdo que a página vai ter, por exemplo o home.php que está agora; e por fim o arquivo que contém o fechamento da div container, os scripts e o fechamento do html.
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/listaConsultas.php';
+include __DIR__ . '/includes/mensagensCRUD.php';
 include __DIR__ . '/includes/footer.php';

@@ -23,6 +23,10 @@
                             </td>
                             </tr>';
     }
+    $resultados = strlen($resultados) ? $resultados :
+    '<tr>'
+    . '<td colspan = "12" class = "text-center"> Nenhum Procedimento foi registrado por enquanto...</td>'
+    . '</tr>';
 
     ?>
     <section>

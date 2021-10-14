@@ -11,12 +11,12 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class paciente {
+class Paciente {
 
     public $prontuario;
-    public $nome;
+    public $nomePaciente;
     public $sexo;
-    public $tel;
+    public $telefone;
     public $email;
 
 //Método de cadastramento do paciente
@@ -25,7 +25,7 @@ class paciente {
     public function cadastrarPaciente() {
         $db = new db('paciente');
         $this->prontuario = $db->insertSQL([
-            'nome' => $this->nome,
+            'nomePaciente' => $this->nomePaciente,
             'sexo' => $this->sexo,
             'telefone' => $this->tel,
             'email' => $this->email,
@@ -39,7 +39,7 @@ class paciente {
     public function editarPaciente() {
         return (new db('paciente'))->
                         updateSQL('prontuario= ' .$this->prontuario,[
-                                                            'nome' => $this->nome,
+                                                            'nomePaciente' => $this->nomePaciente,
                                                             'sexo' => $this->sexo,
                                                             'tel' => $this->tel,
                                                             'email' => $this->email

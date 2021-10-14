@@ -19,27 +19,32 @@
                 break;
         }
     }
-
+    
+ 
 
     $resultados = '';
     foreach ($rastreio as $ras) {
         $resultados .= '<tr>
-                            <td>' . $ras->idRastreio . '</td>
-                            <td>' . $ras->dtEntrega . '</td>
-                            <td>' . $ras->dtRetorno . '</td>
-                            <td>' . $ras->obs . '</td>
-                            <td>' . $ras->vlrCobrado . '</td>
-                            <td>' . $ras->TFKConsulta . '</td>
-                            <td>' . $ras->TFKProcedimento . '</td>
-                            <td>' . $ras->RFKTerceiro . '</td>
-                            <td>' . $ras->RFKServico . '</td>
+                            <td class "table-success>' . $ras->idRastreio . '</td>
+                            <td>' . date('d/m/y', strtotime($ras->dtEntrega)) . '</td>
+                            <td>' . date('d/m/y', strtotime($ras->dtRetorno)) . '</td>
+                            <td>' . $ras->idProtese . '</td>
+                            <td>' . $ras->tipo . '</td>
+                            <td>' . $ras->posicao . '</td>
+                           <!-- <td>' . $ras->obs . '</td>
+                            <td>' . $ras->vlrCobrado . '</td>-->
+                            <td>' . $ras->nomePaciente . '</td>
+                            <td>' . $ras->prontuario . '</td>
+                            <td>' . $ras->idConsulta . '</td>
+                            <!--<td>' . $ras->nomeProcedimento . '</td>-->
+                            <td>' . $ras->nomeTerceiro . '</td>
+                            <td>' . $ras->nomeServico . '</td>
+                            <td>' . $ras->statusRastreio . '</td>
                             
+                           
                             <td>
-                            <a href = editaRastreio.php?id=' . $ras->idRastreio . '>
-                            <button class = "btn btn-primary">Editar</button>
-                            </a>
-                            <a href = ?id=' . $ras->idRastreio . '>
-                            <button class = "btn btn-primary">Excluir</button>
+                            <a href = detalhaRastreio.php?id=' . $ras->idRastreio . '>
+                            <button class = "btn btn-primary">Detalhes</button>
                             </a>
                             </td>
                             </tr>';
@@ -47,10 +52,12 @@
     
     $resultados = strlen($resultados)? $resultados : 
           '<tr>'
-        . '<td colspan = "6" class = "text-center"> Nenhum Registro encontrado</td>'
+        . '<td colspan = "12" class = "text-center"> Nenhum Registro encontrado</td>'
         . '</tr>'; 
     
     ?>
+    
+    
     
     <div class="container-fluid">
     <?php if($msg != ""){
@@ -112,7 +119,7 @@
             </div>
 
             <div class=" col-2 ">
-                <a href="cadRastreio.php"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
+                <a href="listaConsultaR.php?rastreio=check"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
             </div>
         </div>
         
@@ -122,14 +129,22 @@
             <thead class = "bg-dark text-light">
                 <tr>
                     <th>ID</th>
-                    <th>dt Entrega</th>
-                    <th>dt Retorno</th>
-                    <th>obs</th>
-                    <th>valor</th>
+                    <th>Envio</th>
+                    <th>Retorno</th>
+                    <th>Prótese</th>
+                    <th>Tipo</th>
+                    <th>Posição</th>
+                    <!--<th>obs</th> colocar no formulario de apresentação -->
+                    <!--<th>valor</th>-->
+                    <th>Paciente</th>
+                    <th>Prontuário</th>
                     <th>Consulta</th>
-                    <th>Procedimento</th>
+                    <!--<th>Procedimento</th>-->
                     <th>Terceirizado</th>
                     <th>Serviço</th>
+                    <th>Status</th>
+                    
+                    <th></th>
                     <th></th>
 
 
@@ -138,8 +153,14 @@
             </thead>
             <tbody>
 <?= $resultados ?>
+                 
+              
 
             </tbody>
+            
+ 
+
+   
 
         </table>
 

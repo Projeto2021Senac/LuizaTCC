@@ -2,8 +2,9 @@
 
 require 'vendor/autoload.php';
 
-define('TITLE', 'Cadastrar Rastreio');
-define('BTN', 'cadastrarRastreio');
+define('TITLE', 'Rastreio');
+define('BTN', 'eRastreio');
+define('BTN2', 'okRastreio');
 
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
@@ -11,20 +12,20 @@ use Classes\Entity\servicoTerceiro;
 use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
-$innerTratamento= "";
+$detalhaRastreio= "";
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 
 $terceiro = terceiro::getTerceiros();
 $servico = servicoTerceiro::getServicoTerceiros();
 
-if (isset($_GET['rProtese'])) {
-    $innerTratamento = tratamento::getTratamentoInner($_GET['rProtese']);
-    //echo'<pre>';print_r($innerTratamento);echo'</pre>';exit;
+if (isset($_GET['id'])) {
+    $detalhaRastreio = rastreio::getRastreioInner($_GET['id']);
+    //echo'<pre>';print_r($detalhaRastreio);echo'</pre>';exit;
 }
 
   //echo'<pre>';print_r($innerTratamento);echo'</pre>';exit;
-
+//echo'<pre>';print_r($procedimento);echo'</pre>';exit;
 
 $rastreio = new rastreio();
 $terceirizado = new terceirizado();
@@ -44,10 +45,9 @@ if (isset($_POST['cadastrarRastreio'])) {
         $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
        //echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
-        //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
-        $terceirizado->cadastrarTerceirizado();
-        $rastreio->cadastrarRastreio();
         
+        $rastreio->cadastrarRastreio();
+        $terceirizado->cadastrarTerceirizado();
         
         header ('Location: listaRastreio.php?status=success');
 
@@ -56,11 +56,22 @@ if (isset($_POST['cadastrarRastreio'])) {
     
 }
 
+
+if (isset($_POST['eRastreio'])) {
+    
+    header ('Location: editaRastreio.php?id='.$detalhaRastreio->idRastreio);
+}
+
+if (isset($_POST['okRastreio'])) {
+    
+    header ('Location: listaRastreio.php');
+}
+
 /*if (isset($_POST['pConsultaRast'])){
     header ('Location: listaConsultaR.php?rastreio=check');
 }*/
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formRastreio.php';
+include __DIR__.'/includes/dtlRastreio.php';
 include __DIR__.'/includes/footer.php';
  

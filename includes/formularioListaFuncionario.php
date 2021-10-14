@@ -12,7 +12,7 @@
     foreach ($objFuncionario as $objFuncionario) {
         $resultados .= '<tr>
                             <td>' . $objFuncionario->idFuncionario . '</td>
-                            <td>' . $objFuncionario->nome . '</td>
+                            <td>' . $objFuncionario->nomeFuncionario . '</td>
                             <td>' . $objFuncionario->sexo . '</td>
                             <td>' . $objFuncionario->telefone . '</td>
                             <td>' . $objFuncionario->email . '</td>
@@ -27,6 +27,10 @@
                             </td>
                             </tr>';
     }
+    $resultados = strlen($resultados) ? $resultados :
+    '<tr>'
+    . '<td colspan = "12" class = "text-center"> Nenhum Funcionário foi encontrada no histórico</td>'
+    . '</tr>';
 
 
     ?>

@@ -27,7 +27,7 @@ class Protese{
     public $paciente;
     public $observacao;
     public $fkConsultaT;
-    public $fkServicoT;
+    public $fkProcedimentoT;
 
 
 
@@ -39,6 +39,9 @@ class Protese{
         //Método para pegar a data e a hora em que está ocorrendo o cadastro no banco de dados
         //Atribuindo também o formato da string. Para mais informações :
         // https://www.php.net/manual/pt_BR/function.date.php
+
+        date_default_timezone_set('America/Sao_Paulo');
+
         $this->dataRegistro = date('Y-m-d H-i-s');
 
         //Método que executa a função insertSQL presente na classe db.php para de fato efetuar a inserção
@@ -61,11 +64,10 @@ class Protese{
                             'dataRegistro'=> $this->dataRegistro,
                             'status'=> $this->status,
                             'observacao'=> $this->observacao,
-                            'fkConsultaT'=>'1',
-                            'fkServicoT'=>'1'
+                            'fkConsultaT'=>$this->fkConsultaT,
+                            'fkProcedimentoT'=>$this->fkProcedimentoT
 
-
-        ]);
+        ])[1];
         
     }
 
@@ -97,4 +99,14 @@ class Protese{
                                    ->fetchObject(self::class); 
 
     }
+
+    public static function getProteseInnerJoin($tabela = null,$where = null,$innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*'){
+        
+        if ($tabela != null){
+            $tabela = ','.$tabela;
+        }
+        
+        return $db = (new db('protese'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
+                                                  ->fetchObject(self::class);
+    }    
 }

@@ -10,7 +10,7 @@ use \Classes\Entity\clinica;
 use \Classes\Entity\dentista;
 use \Classes\Entity\paciente;
 use \Classes\Entity\funcionario;
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Nova Consulta');
 $objClinica = clinica::getClinicas();
 /* echo '<pre>';print_r($objClinica);echo'<pre>';exit; */
@@ -24,13 +24,13 @@ $objFuncionario = funcionario::getFuncionarios();
 //if (isset($_POST['cadastrar'])){
     $objConsulta = new consulta;
 if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
-    
+   
     $objConsulta->dataConsulta = $_POST['data'];
     $objConsulta->horaConsulta = $_POST['hora'];
     $objConsulta->statusConsulta = ($_POST['status'] != '' ? $_POST['status'] : 'Agendada');
     $objConsulta->relatorio = ($_POST['relatorio'] != null ? $_POST['relatorio'] : 'Sem observações');
     $objConsulta->fkProntuario = $_POST['paciente'];
-    $objConsulta->fkFuncionario =(isset($_SESSION['idFuncionario']) ? $_SESSION['idFuncionario'] : '1');
+    $objConsulta->fkFuncionario =$_SESSION['idFuncionario'];
     $objConsulta->CFKClinica = $_POST['clinica'];
     $objConsulta->CFKDentista = $_POST['dentista']; 
 /*     echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */

@@ -9,20 +9,18 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'idRastreio LIKE "%'. str_replace('', '%', $busca).'%"': null
+    strlen($busca) ? 'where nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
     
 ];
 
 
 $where = implode(' AND ', $condicoes);
 
-
-
-$rastreio = rastreio::getRastreios($where);
-
+$rastreio = rastreio::getRastreiosInner($where);
+//echo "<pre>"; print_r($rastreio); echo "<pre>";exit;
 
 
 
 include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/listaRastreio.php';
+include __DIR__.'/includes/lRastreio.php';
 include __DIR__.'/includes/footer.php';

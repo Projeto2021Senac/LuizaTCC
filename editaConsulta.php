@@ -21,15 +21,7 @@ $objPaciente = paciente::getPacientes();
 $objFuncionario = funcionario::getFuncionarios();
 /* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
 
-$objClinica2 = clinica::getClinica($objConsulta->CFKClinica);
-/* echo "<pre>"; print_r($objClinica2); echo "<pre>";exit; */
-$objDentista2 = dentista::getDentista($objConsulta->CFKDentista);
-/* echo "<pre>"; print_r($objDentista2); echo "<pre>";exit; */
-$objPaciente2 = paciente::getPaciente($objConsulta->fkProntuario);
-/* echo "<pre>"; print_r($objPaciente2); echo "<pre>";exit; */
-$objFuncionario2 = funcionario::getFuncionario($objConsulta->fkFuncionario);
-/* echo "<pre>"; print_r($objFuncionario2); echo "<pre>";exit; */
-
+$objConsulta2 = consulta::getConsultaInnerJoin('paciente,clinica,dentista,funcionario','idConsulta = '.$_GET['id'],'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario');
 //Validação do GET
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])){
     header ('Location: index.php?status=error');
@@ -80,7 +72,7 @@ if (!$objFuncionario instanceof funcionario){
     $objConsulta->relatorio = $_POST['relatorio'];
     //Executa a função cadastrar que está localizada na classe "Protese".
     /* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
-    $objConsulta->atualizar($_GET['id']);
+    $objConsulta->AtualizarConsulta($_GET['id']);
 
     header('location:pesquisarConsulta.php');
       }

@@ -19,7 +19,7 @@ class ServicoTerceiro{
          $obdb = new db('ServicoTerceiro');
             $this->idServico= $obdb->insertSQL([ 'nomeServico' => $this->nomeServico,
             'descricao' => $this->descricao,
-            'statusServicoTerceiroTeceiro
+            'statusServicoTerceiro
             ' => $this-> statusServicoTerceiro
 
         ]);

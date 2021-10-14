@@ -11,10 +11,10 @@ $paciente = new paciente();
 
 if (isset($_POST['cadastrarPaciente'])) {
 
-    if (!empty($_POST['nome'])) {
+    if (!empty($_POST['nomePaciente'])) {
         
         
-        $paciente->nome = trim($_POST['nome']);
+        $paciente->nomePaciente = trim($_POST['nomePaciente']);
         $paciente->sexo = $_POST['sexo'];
         $paciente->tel = $_POST['tel'];
         $paciente->email = $_POST['email'];

@@ -10,7 +10,7 @@ namespace Classes\Entity;
 use Classes\Dao\db;
 use \PDO;
 
-class dentista {
+class Dentista {
     
     public $idDentista;
     public $nomeDentista;
@@ -26,7 +26,7 @@ class dentista {
             'nomeDentista' => $this->nomeDentista,
             'statusDentista' => $this->statusDentista,
            
-        ]);
+        ])[1];
     }
 
     /**

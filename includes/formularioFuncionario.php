@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label>Nome: </label>
-                <input type="text"  class="form-control" name="nome"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nome?>">
+                <input type="text"  class="form-control" name="nomeFuncionario"   placeholder="Nome Completo"required="" value="<?=$objFuncionario->nomeFuncionario?>">
             </div>
             <div class="form-group">
                 <label>Sexo: </label>
@@ -53,7 +53,11 @@
                 </div>
                 <div class="form-group">
                     <label>E-mail:</label>
-                    <input type="tel" class="form-control" name="email" placeholder="email@gmail.com" required="" value="<?= $objFuncionario->email ?>">
+                    <input type="email" class="form-control" name="email" placeholder="email@gmail.com" required="" value="<?= $objFuncionario->email ?>">
+                </div>
+                <div class="form-group">
+                    <label>Telefone:</label>
+                    <input type="tel" class="form-control" name="telefone" placeholder="61 9 91919191" required="" value="<?= $objFuncionario->telefone ?>">
                 </div>
                 <div class="form-group">
                     <label>Perfil: </label>

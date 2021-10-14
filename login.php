@@ -12,7 +12,7 @@ if (isset($_POST) && isset($_POST['Entrar'])){
     $validacao = $objFuncionario->getLogin($login,$senha);
     unset($_POST['Entrar']);
     if(gettype($validacao) == 'object'){
-        $_SESSION['nome'] = $validacao->nome;
+        $_SESSION['nome'] = $validacao->nomeFuncionario;
         $_SESSION['idFuncionario'] = $validacao->idFuncionario;
         $_SESSION['perfil'] = $validacao->perfil;
         $_SESSION['confereNR'] = $_SESSION['nr'];
