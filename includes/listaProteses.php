@@ -9,10 +9,10 @@
     foreach ($proteses as $protese) {
         $resultados .= '<tr>
                             <td>' . $protese->idProtese . '</td>
+                            <td>' . $protese->nomePaciente . '</td>
                             <td>' . $protese->tipo . '</td>
-                            <td>' . $protese->material . '</td>
                             <td>' . $protese->extensao . '</td>
-                            <td>' . $protese->dente . '</td>
+                            <td>' . $protese->marcaDente . '</td>
                             <td>' . $protese->qtdDente . '</td>
                             <td>' . ($protese->ouro == 'sim' ? 'Sim' : 'Não') . '</td>
                             <td>' . $protese->qtdOuro . '</td>
@@ -40,14 +40,15 @@
             <thead class = "bg-dark text-light">
                 <tr>
                     <th>ID</th>
+                    <th>Paciente</th>
                     <th>Tipo</th>
-                    <th>Material</th>
                     <th>Extensão</th>
-                    <th>Dente</th>
+                    <th>Marca</th>
                     <th>qtdDentes</th>
                     <th>Ouro</th>
                     <th>qtdOuro</th>
                     <th>Data Registro</th>
+                    <th>Ações</th>
                     <th></th>
 
 

@@ -3,7 +3,7 @@
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
 
-use Classes\Entity\Paciente;
+
 use \Classes\Entity\Protese;
 
 define('TITLE', 'Editar Protese');
@@ -13,23 +13,18 @@ define('TITLE', 'Editar Protese');
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('Location: index.php?status=error');
 }
-$objProtese = Protese::getProtese($_GET['id']);
-if ($objProtese->fkProntuario != null) {
-    $paciente = Paciente::getPaciente($objProtese->fkProntuario);
-}
-if ($objProtese->tipo == 'Fixa') {
-    $fixa = "selected";
-} else {
-    $removivel = "selected";
-}
+$objProtese = Protese::getProtesePaciente($_GET['id']);
+/* echo "<pre>"; print_r($objProtese); echo "<pre>";exit; */
+
+
 
 //echo "<pre>"; print_r($objProtese); echo "<pre>";exit;
 
 //Validação da Prótese
-if (!$objProtese instanceof Protese) {
+/* if (!$objProtese instanceof Protese) {
     header('Location: index.php?status=error');
     exit;
-}
+} */
 
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
@@ -43,18 +38,15 @@ if (isset($_POST['tipo'], $_POST['qtdDentes'], $_POST['paciente'])) {
     $objProtese = new Protese;
     $objProtese->tipo = $_POST['tipo'];
     $objProtese->posicao = $_POST['posicao'];
-    $objProtese->material = $_POST['material'];
-    $objProtese->dureza = (isset($_POST['nivelDureza']) ? $_POST['nivelDureza'] : "Metal");
     $objProtese->extensao = $_POST['extensao'];
     $objProtese->qtdDente = $_POST['qtdDentes'];
-    $objProtese->dente = $_POST['tipoDente'];
-    $objProtese->ouro = ($_POST['tipo'] == "on" ? "s" : "n");
+    $objProtese->ouro = ($_POST['ouroDente'] == "on" ? "sim" : "nao");
     $objProtese->qtdOuro = (isset($_POST['qtdOuro']) ? $_POST['qtdOuro'] : 0);
     $objProtese->paciente = $_POST['paciente'];
     $objProtese->status = 'Cadastrada';
     $objProtese->observacao = $_POST['observacao'];
     //Executa a função cadastrar que está localizada na classe "Protese".
-    $objProtese->cadastrar();
+    $objProtese->atualizarProtese('idProtese ='.$_GET['id']);
 
     header('Location: index.php?status=success');
     //Caso a função cadastrar rode sem problemas, obrigatóriamente o valor do $objProtese->id será preenchido

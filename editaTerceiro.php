@@ -27,7 +27,7 @@ if (isset($_POST['editarTerceiro'])) {
 
         $objTerceiro = new Terceiro;
         $objTerceiro->idTerceiro = $_GET['id'];
-        $objTerceiro->nome = $_POST['nomeTerceiro'];
+        $objTerceiro->nomeTerceiro = $_POST['nomeTerceiro'];
         $objTerceiro->telefone = ($_POST['telefone']);
         $objTerceiro->statusTerceiro = $_POST['statusTerceiro'];
         //echo '<pre>';print_r($objTerceiro);echo '<pre>';exit;

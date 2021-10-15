@@ -12,6 +12,7 @@ define('TITLE', 'Cadastrar Prótese');
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
  */
 if (isset($_GET['prontuario'])) {
+    
     $pacientes = paciente::getPaciente($_GET['prontuario']);
 } else {
     $pacientes = paciente::getPacientes();
@@ -31,11 +32,9 @@ if (isset($_POST['cadastrarProtese'])) {
     /*  echo '<pre>';print_r($_POST);echo'<pre>';exit; */
     $objProtese->tipo = $_POST['tipo'];
     $objProtese->posicao = $_POST['posicao'];
-    $objProtese->material = $_POST['material'];
-    $objProtese->dureza = (isset($_POST['nivelDureza']) ? $_POST['nivelDureza'] : "Metal");
     $objProtese->extensao = $_POST['extensao'];
+    $objProtese->marcaDente = $_POST['marca'];
     $objProtese->qtdDente = $_POST['qtdDentes'];
-    $objProtese->dente = $_POST['tipoDente'];
     $objProtese->ouro = (isset($_POST['ouroDente']) == "on" ? "sim" : "nao");
     $objProtese->qtdOuro = (isset($_POST['qtdOuro']) ? $_POST['qtdOuro'] : 0);
     $objProtese->paciente = $_POST['paciente'];

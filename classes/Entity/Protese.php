@@ -15,10 +15,8 @@ class Protese{
     public $idProtese;
     public $tipo;
     public $posicao;
-    public $material;
-    public $dureza = 0;
+    public $marcaDente;
     public $extensao;
-    public $dente;
     public $qtdDente;
     public $ouro;
     public $qtdOuro = 0 ;
@@ -54,10 +52,8 @@ class Protese{
                             //que está sendo montada em db.php->insertSQL.
                             'tipo' => $this->tipo,
                             'posicao'=> $this->posicao,
-                            'material'=> $this->material,
-                            'dureza'=> $this->dureza,
                             'extensao'=> $this->extensao,
-                            'dente'=> $this->dente,
+                            'marcaDente'=> $this->marcaDente,
                             'qtdDente'=> $this->qtdDente,
                             'ouro'=> $this->ouro,
                             'qtdOuro'=> $this->qtdOuro,
@@ -69,6 +65,34 @@ class Protese{
 
         ])[1];
         
+    }
+
+    public function atualizarProtese($idProtese){
+        
+    
+            date_default_timezone_set('America/Sao_Paulo');
+    
+            $this->dataRegistro = date('Y-m-d H-i-s');
+    
+            //Método que executa a função insertSQL presente na classe db.php para de fato efetuar a inserção
+            //dos dados no banco de dados. Possui como retorno o útimo id inserido caso a inserção tenha sido um sucesso.
+            //O parâmetro que deve ser passado no insertSQL é no formato array e deve estar de 
+            $obdb = new db('protese');
+            $this->idProtese = $obdb->updateSQL($idProtese,[
+                                //Envia como um parâmetro e por meio de um array (titulo => valor) os valores que foram trazidos do POST e agora estão
+                                //na classe Protese, para que sejam contabilizados e devidamente adicionados à query (comando que vai pro SQL) 
+                                //que está sendo montada em db.php->insertSQL.
+                                'tipo' => $this->tipo,
+                                'posicao'=> $this->posicao,
+                                'marcaDente'=> $this->marca,
+                                'qtdDente'=> $this->qtdDente,
+                                'ouro'=> $this->ouro,
+                                'qtdOuro'=> $this->qtdOuro,
+                                'dataRegistro'=> $this->dataRegistro,
+                                'status'=> $this->status,
+                                'observacao'=> $this->observacao,
+    
+            ])[1];
     }
 
     /**
@@ -95,6 +119,7 @@ class Protese{
      * @return object
      */
     public static function getProtese($id){
+
         return (new db('protese'))->selectSQL('idProtese = '.$id)
                                    ->fetchObject(self::class); 
 
@@ -109,4 +134,15 @@ class Protese{
         return $db = (new db('protese'.$tabela))->selectSQL($where,$like,$order, $limit, $fields,$innerjoin)
                                                   ->fetchObject(self::class);
     }    
+
+    public static function getProtesePaciente($idProtese){
+        $query = 'select * from paciente inner join consulta on prontuario = fkProntuario inner join protese on idConsulta = fkConsultaT  where idProtese ='.$idProtese;
+        return (new db)->executeSQL($query) ->fetchObject(self::class);
+    }
+
+    public static function getProtesesPaciente(){
+        $query = 'select * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta';
+        
+        return (new db)->executeSQL($query)->fetchAll(PDO::FETCH_CLASS,self::class);
+    }
 }
