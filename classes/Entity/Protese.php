@@ -140,9 +140,12 @@ class Protese{
         return (new db)->executeSQL($query) ->fetchObject(self::class);
     }
 
-    public static function getProtesesPaciente(){
-        $query = 'select * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta';
-        
+    public static function getProtesesPaciente($where){
+        if (strlen($where)){
+            $where = 'WHERE '.$where;
+        }
+        $query = 'select * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta '.$where;
+        /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
         return (new db)->executeSQL($query)->fetchAll(PDO::FETCH_CLASS,self::class);
     }
 }

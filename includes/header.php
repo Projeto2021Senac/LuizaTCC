@@ -89,7 +89,7 @@
                             </li>
                             <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
                             
-                            <li><a class="dropdown-item" href="./cadastroProcedimento.php">Procedimento</a></li>
+                            <li><a class="dropdown-item" href="./listaProcedimento.php">Procedimento</a></li>
                             
                             <li><a class="dropdown-item" href="./listaTerceiro.php">Terceirizado</a></li>
                             <li><a class="dropdown-item" href="./listaServicoTerceiro.php">ServiçoTerceirizado</a></li>
