@@ -59,7 +59,7 @@ $resultados = strlen($resultados) ? $resultados :
             <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
 
 
-                <form method="post" action="testeteste.php" style="color: white">
+                <form method="post" action="" style="color: white">
 
                     <div class="form-group">
 
