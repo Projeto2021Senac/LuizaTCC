@@ -9,7 +9,55 @@
       </a>
 
     </section>
+    <div class="row ">
+        
 
+        <div class="row">
+
+            <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
+                <h5 style="color: white; text-align: center ">Pacientes</h5>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
+
+
+                <form method="post" action="" style="color: white" >
+                    
+                    <div class="form-group">
+
+                        <input type="text" class="form-control p-1" name="busca" required=""  value="<?=$busca?>">
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
+
+                <input type="submit"  name="pesquisarPaciente"
+                       class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
+
+            </div>
+
+            </form>
+        </div>
+        <div class="row">
+
+<div class="row mt-2">
+    <div class=" col-2 offset-4">
+        <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+
+    </div>
+
+    <div class=" col-2 ">
+        <a href="cadastrarConsulta.php"> <button  class="btn btn-success w-100"> Nova Consulta</button> </a>
+    </div>
+</div>
+    </div>
     <?php
     if (isset($_GET['id'])) {
       $id = $_GET['id'];

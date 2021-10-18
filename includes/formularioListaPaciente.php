@@ -1,17 +1,5 @@
 <?php
 
-$msg = '';
-if (isset($_GET['status'])) {
-    switch ($_GET['status']) {
-        case 'success':
-            $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
-            break;
-        case 'error':
-            $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
-            break;
-
-    }
-}
 $resultados = '';
 foreach ($pacientes as $p) {
     $resultados .= '<tr> '
@@ -101,9 +89,8 @@ $resultados = strlen($resultados)? $resultados :
             </div>
         </div>
 
-        <div class="col-8 offset-2">
 
-            <table class="table table-responsive text-white bg-dark bg-gradient">
+            <table class="table bg-light mt-3">
                 <thead class="table-dark">
                     <tr><th>Prontuário</th>
                         <th>Nome</th>
@@ -121,7 +108,6 @@ $resultados = strlen($resultados)? $resultados :
                 </tbody>
 
             </table>
-        </div>
 
 
     </div>

@@ -6,6 +6,18 @@ require __DIR__.'/vendor/autoload.php';
 use \Classes\Entity\Protese;
 define('NAME', 'Protese');
 define('LINK', 'pesquisarProtese.php');
+
+//busca
+$busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
+
+//condições sql
+$condicoes = [
+    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%"': null
+    
+];
+
+
+$where = implode(' AND ', $condicoes);
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 
@@ -15,7 +27,7 @@ define('LINK', 'pesquisarProtese.php');
     if (isset($_GET['idConsulta'],$_GET['idProcedimento'],$_GET['prontuario']) && is_numeric($_GET['idConsulta'])&& 
     is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] > 0 && $_GET['prontuario'] > 0){
         
-        $proteses = $objProtese->getProteses('fkConsultaT ='.$_GET['idConsulta'],null,null,null,null,);
+        $proteses = $objProtese->getProteses('fkConsultaT ='.$_GET['idConsulta'],null,null,null,null);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
         if ($proteses == null ){
             /* echo "<pre>"; print_r('testando'); echo "<pre>";exit; */

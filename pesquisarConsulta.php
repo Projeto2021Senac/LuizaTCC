@@ -8,6 +8,18 @@ use \Classes\Entity\paciente;
 
 define('NAME','Consulta');
 define('LINK','pesquisarConsulta.php');
+
+//busca
+$busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
+
+//condições sql
+$condicoes = [
+    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%"': null
+    
+];
+
+
+$where = implode(' AND ', $condicoes);
 /* echo '<pre>';print_r($_SESSION);echo'<pre>';exit; */
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
