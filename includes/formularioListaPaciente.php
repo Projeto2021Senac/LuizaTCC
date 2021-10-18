@@ -59,11 +59,11 @@ $resultados = strlen($resultados) ? $resultados :
             <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
 
 
-                <form method="post" action="" style="color: white">
+                <form method="post" action="testeteste.php" style="color: white">
 
                     <div class="form-group">
 
-                        <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
+                        <input type="text" class="form-control p-1" name="busca" required="" id = "busca" value="<?= $busca ?>">
                     </div>
 
             </div>

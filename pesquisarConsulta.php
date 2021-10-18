@@ -8,6 +8,8 @@ use \Classes\Entity\paciente;
 
 define('NAME','Consulta');
 define('LINK','pesquisarConsulta.php?pagina=1');
+define('CAMPO','nomePaciente,idConsulta,dataConsulta,prontuario');
+define('TABELA','consulta');
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
@@ -27,7 +29,7 @@ $condicoes = [
 /* echo "<pre>"; print_r($condicoes); echo "<pre>";exit; */
 $where = implode(' AND ', $condicoes);
 
-$itens_por_pagina = 8;
+$itens_por_pagina = 2;
 
 $pagina_atual = intval($_GET['pagina']);
 

@@ -4,10 +4,10 @@
       <div class="col-4">
         <div class="bg-dark rounded p-2">
           <h5 style="color: white; text-align: center ">Consultas</h5>
-          <form method="post" action="">
+          <form method="post" action="testeteste.php">
             <div class="col-10 form-group p-2" style="margin:auto">
 
-              <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
+              <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
             </div>
             <input type="submit" name="pesquisarProtese" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
