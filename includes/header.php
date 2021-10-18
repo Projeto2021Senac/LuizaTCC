@@ -5,10 +5,12 @@
     <meta charset="utf-8">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+
     <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
     
     <script src="js/sweetalert2.min.js"></script>
@@ -89,7 +91,7 @@
                             </li>
                             <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
                             
-                            <li><a class="dropdown-item" href="./cadastroProcedimento.php">Procedimento</a></li>
+                            <li><a class="dropdown-item" href="./listaProcedimento.php">Procedimento</a></li>
                             
                             <li><a class="dropdown-item" href="./listaTerceiro.php">Terceirizado</a></li>
                             <li><a class="dropdown-item" href="./listaServicoTerceiro.php">ServiçoTerceirizado</a></li>

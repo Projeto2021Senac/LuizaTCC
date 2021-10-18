@@ -97,9 +97,9 @@ $resultados = strlen($resultados)? $resultados :
             </div>
         </div>
 
-        <div class="col-8 offset-2">
+        <div class="col-8 offset-2 mt-2">
 
-            <table class="table table-responsive text-white bg-dark bg-gradient">
+            <table class="table table-responsive  bg-light bg-gradient">
                 <thead class="table-dark">
                     <tr><th>Código</th>
                         <th>Nome</th>

@@ -16,9 +16,9 @@ if (isset($_POST['nomeProcedimento'])){
     $objProcedimento->cadastro();
    
     if ($objProcedimento->idProcedimento > 0){
-        header ('Location: listaProcedimento.php?status=success');
+        header ('Location: listaProcedimento.php?pagina=1&status=success');
     }else{
-        header ('Location: listaProcedimento.php?status=error'); }
+        header ('Location: listaProcedimento.php?pagina=1&status=error'); }
 }
 
 include __DIR__.'/includes/header.php';

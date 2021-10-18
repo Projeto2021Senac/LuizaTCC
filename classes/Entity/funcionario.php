@@ -3,7 +3,7 @@
 namespace Classes\Entity;
 
 use \Classes\Dao\db;
-use \PDO;
+use PDO;
 
 class Funcionario
 {

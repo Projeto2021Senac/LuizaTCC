@@ -8,6 +8,7 @@ use \Classes\Entity\Protese;
 use \Classes\Entity\Paciente;
 
 define('TITLE', 'Cadastrar Prótese');
+
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
  */
@@ -49,9 +50,9 @@ if (isset($_POST['cadastrarProtese'])) {
     //Caso a função cadastrar rode sem problemas, obrigatóriamente o valor do $objProtese->id será preenchido
     //Assim fazendo uma validação por meio dessa variável, e passando isso pro url da página.
     if ($objProtese->idProtese > 0) {
-        header('Location: pesquisarProtese.php?status=success&id='.$objProtese->idProtese);
+        header('Location: pesquisarProtese.php?pagina=1&status=success&id='.$objProtese->idProtese);
     } else {
-        header('Location: pesquisarProtese.php?status=error');
+        header('Location: pesquisarProtese.php?pagina=1&status=error');
     }
 }
 //Monta a página, utilizando o header.php, arquivo que contém a navbar e o início da div container; o arquivo que vai ser de fato

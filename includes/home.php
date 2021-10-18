@@ -17,7 +17,7 @@
 
                             <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="listaPaciente.php">
+                                    <a href="listaPaciente.php?pagina=1">
                                         <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/pessoa2.png" width="200px" height="200px">
 
                                     </a>
@@ -27,7 +27,7 @@
 
                             <div class="col text-center ms-5">
                                 <fieldset>
-                                    <a href="listaFuncionario.php">
+                                    <a href="listaFuncionario.php?pagina=1">
                                         <img name="Funcionario" class="img-fluid" style="border-radius:25%;" src="./includes/img/abc.png" width="200px" height="200px">
 
                                     </a>
@@ -38,7 +38,7 @@
                         <div class="row mt-5">
                             <div class="col text-center">
                                 <fieldset>
-                                    <a href="pesquisarConsulta.php">
+                                    <a href="pesquisarConsulta.php?pagina=1">
                                         <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/Consulta2.png" width="200px" height="200px">
 
                                     </a>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col text-center ms-2">
                                 <fieldset>
-                                    <a href="listaProcedimento.php">
+                                    <a href="listaProcedimento.php?pagina=1">
                                         <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/Servicos.png" width="200px" height="200px">
 
                                     </a>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col text-center ms-3">
                                 <fieldset>
-                                    <a href="listaRastreio.php">
+                                    <a href="listaRastreio.php?pagina=1">
                                         <img name="Consulta" class="img-fluid" style="border-radius:25%;" src="./includes/img/rastreio.png" width="200px" height="200px">
 
                                     </a>
