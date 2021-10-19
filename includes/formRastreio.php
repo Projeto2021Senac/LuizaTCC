@@ -127,15 +127,20 @@ if (isset($_GET['rProtese'])) {
                     
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select class="selectpicker"type="text" name="RFKServico"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select class="form-select" multiple="" type="text" name="RFKServico"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option hidden="" >[SELECIONE]</option>
-                            <?php
+                            
+                            
+                                <?php  
+                                                    
                             foreach ($servico as $serv) {
                                 $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
                                 echo "<option value=" . $serv->idServico . "" . $selected . ">" . $serv->nomeServico . "</option>";
                             }
+                                                    
                             ?>
                         </select>
+                                   
                     </div>
                     
                     

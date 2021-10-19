@@ -20,7 +20,8 @@
     </script>
     
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script> $ ( '.selectpicker' ). selectpicker ();</script>
+   
+   
     
   </body>
 </html>

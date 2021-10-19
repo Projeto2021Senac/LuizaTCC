@@ -43,7 +43,7 @@
                             
                            
                             <td>
-                            <a href = detalhaRastreio.php?id=' . $ras->idRastreio . '>
+                            <a href = detalhaRastreio.php?id=' . $ras->idRastreio . '& pagina=>
                             <button class = "btn btn-primary">Detalhes</button>
                             </a>
                             </td>
