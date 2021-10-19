@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 use Classes\Entity\Procedimento;
 define('NAME', 'Procedimento');
 define('LINK', 'listaProcedimento.php');
+
 if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }
@@ -13,19 +14,28 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'nome LIKE "%'. str_replace('', '%', $busca).'%"': null
+    strlen($busca) ? 'nomeProcedimento LIKE "%'. str_replace('', '%', $busca).'%"': null
     
 ];
 
 $where = implode(' AND ', $condicoes);
 
+if(strlen($where)){
+
+    $pagina_atual = 1;
+  }else{
+    $pagina_atual = intval($_GET['pagina']);
+  }
+
 $pagina_atual = intval($_GET['pagina']);
 
-$itens_por_pagina = 8;
+$itens_por_pagina = 6;
 
-$registros_totais =$objProcedimento = Procedimento::getProcedimentos();
+$inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
 
-$registros_filtrados =$objProcedimento = Procedimento::getProcedimentos(null,null,null,$pagina_atual.','.$itens_por_pagina);
+$registros_totais = $objProcedimento = Procedimento::getProcedimentos($where);
+
+$registros_filtrados =$objProcedimento = Procedimento::getProcedimentos($where,null,null,$inicio.','.$itens_por_pagina);
 
 $num_registros_totais = count($registros_totais);
 

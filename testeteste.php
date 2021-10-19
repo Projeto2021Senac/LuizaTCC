@@ -5,6 +5,7 @@ use Classes\Dao\db;
 /* use PDO; */
 
 $autoCompletar = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_STRING);
+$autoCompletar = "Guilherme";
 /* echo "<pre>"; print_r($autoCompletar); echo "<pre>";exit; */
 define('CAMPO', 'nomePaciente,prontuario');
 define('TABELA', 'paciente');
@@ -43,5 +44,5 @@ $data = ['Sem Resultados'];
 }
 echo json_encode($data);
 
-include __DIR__.'/includes/autocomplete.php';
+
 ?>

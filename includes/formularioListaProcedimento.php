@@ -1,6 +1,6 @@
 <div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
-<main>
-<section class="d-flex justify-content-center">
+  <main>
+    <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
         <div class="bg-dark rounded p-2">
           <h5 style="color: white; text-align: center ">Procedimentos</h5>
@@ -19,7 +19,7 @@
             <a href="listaProcedimento.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
           </div>
           <div class="col-6 p-2">
-            <a href="cadastroProcedimento.php"> <input type="submit" value="Cadastrar Consulta" class="btn btn-success w-100" /> </a>
+            <a href="cadastroProcedimento.php"> <input type="submit" value="Cadastrar Procedimento" class="btn btn-success w-100" /> </a>
           </div>
         </div>
       </div>
@@ -28,10 +28,10 @@
     <?php
     $resultados = '';
     foreach ($objProcedimento as $objProcedimento) {
-        $resultados .= '<tr>
-                            <td>' . $objProcedimento->idProcedimento. '</td>
-                            <td>' . $objProcedimento->nomeProcedimento.'</td>
-                            <td>' . $objProcedimento->statusProcedimento. '</td>
+      $resultados .= '<tr>
+                            <td>' . $objProcedimento->idProcedimento . '</td>
+                            <td>' . $objProcedimento->nomeProcedimento . '</td>
+                            <td>' . $objProcedimento->statusProcedimento . '</td>
                             <td>
                             
                           
@@ -42,31 +42,31 @@
                             </tr>';
     }
     $resultados = strlen($resultados) ? $resultados :
-    '<tr>'
-    . '<td colspan = "12" class = "text-center"> Nenhum Procedimento foi registrado por enquanto...</td>'
-    . '</tr>';
+      '<tr>'
+      . '<td colspan = "12" class = "text-center"> Nenhum Procedimento foi registrado por enquanto...</td>'
+      . '</tr>';
 
     ?>
     <section>
 
-        <table class="table bg-light mt-3">
-            <thead class="bg-dark text-light">
-                <tr>
-                    <th>Número do ID</th>
-                    <th>Nome do Procedimento</th>
-                    <th>Status do Procedimento</th>
-                    <th>Ações</th>
-                    <th></th>
-                </tr>
+      <table class="table bg-light mt-3">
+        <thead class="bg-dark text-light">
+          <tr>
+            <th>Número do ID</th>
+            <th>Nome do Procedimento</th>
+            <th>Status do Procedimento</th>
+            <th>Ações</th>
+            <th></th>
+          </tr>
 
-            </thead>
-            <tbody>
-                <?= $resultados ?>
+        </thead>
+        <tbody>
+          <?= $resultados ?>
 
-            </tbody>
+        </tbody>
 
-        </table>
-        <div class="d-flex justify-content-center">
+      </table>
+      <div class="d-flex justify-content-center">
         <nav class="" aria-label="...">
           <ul class="pagination">
             <li class="page-item">
@@ -92,5 +92,5 @@
 
 
     </section>
-</main>
+  </main>
 </div>

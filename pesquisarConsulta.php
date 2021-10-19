@@ -29,15 +29,28 @@ $condicoes = [
 /* echo "<pre>"; print_r($condicoes); echo "<pre>";exit; */
 $where = implode(' AND ', $condicoes);
 
-$itens_por_pagina = 2;
+if(strlen($where)){
 
-$pagina_atual = intval($_GET['pagina']);
+  $pagina_atual = 1;
+}else{
+  $pagina_atual = intval($_GET['pagina']);
+}
 
-$consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',$where,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'statusConsulta,dataConsulta  desc ');
+$itens_por_pagina = 6;
 
-$registros_totais = count($consultas);
+$inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
 
-$num_pagina = ceil($registros_totais/$itens_por_pagina);
+$registros_totais = $consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',$where,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'statusConsulta,dataConsulta  desc ');
+
+$registros_filtrados = $consultas = $objConsulta->getConsultasInnerJoin('paciente,clinica,dentista,funcionario',$where,'fkProntuario,prontuario,CFKClinica,idClinica,CFKDentista,idDentista,fkFuncionario,idFuncionario',null,'statusConsulta,dataConsulta  desc ',$inicio.','.$itens_por_pagina);
+
+$num_registros_totais = count($registros_totais);
+
+$num_pagina = ceil($num_registros_totais/$itens_por_pagina);
+
+
+
+;
 /* echo "<pre>"; print_r($num_pagina); echo "<pre>";exit; */
 /**
  * pesquisa específica e paginação termina aqui

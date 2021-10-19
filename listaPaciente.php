@@ -20,13 +20,25 @@ $condicoes = [
     
 ];
 
-
-
 $where = implode(' AND ', $condicoes);
+/* $where = "Guilherme Torquato"; */
+if(strlen($where)){
+    $pagina_atual = 1;
+  }else{
+    $pagina_atual = intval($_GET['pagina']);
+  }
 
-$pacientes = paciente::getPacientes($where);
+$itens_por_pagina = 6;
 
+$inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
 
+$pacientes = $registros_totais = paciente::getPacientes($where);
+
+$pacientes =  $registros_filtrados = paciente::getPacientes($where,null,null,$inicio.','.$itens_por_pagina);
+
+$num_registros_totais = count($registros_totais);
+
+$num_pagina = ceil($num_registros_totais/$itens_por_pagina);
 
 
 include __DIR__.'/includes/header.php';

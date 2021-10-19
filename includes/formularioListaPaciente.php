@@ -63,7 +63,7 @@ $resultados = strlen($resultados) ? $resultados :
 
                     <div class="form-group">
 
-                        <input type="text" class="form-control p-1" name="busca" required="" id = "busca" value="<?= $busca ?>">
+                        <input type="text" class="form-control p-1" name="busca" required="" id="busca" value="<?= $busca ?>">
                     </div>
 
             </div>
@@ -121,8 +121,30 @@ $resultados = strlen($resultados) ? $resultados :
                 </tbody>
 
             </table>
+            <div class="d-flex justify-content-center">
+                <nav class="" aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="listaPaciente.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+                        </li>
+                        <?php
+                        for ($i = 1; $i <= $num_pagina; $i++) {
+                            $estilo = "";
+                            if ($pagina_atual == $i) {
+                                $estilo = "active";
+                            }
+                        ?>
+                            <li class="page-item <?= $estilo ?>"><a class="page-link" href="listaPaciente.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link " href="listaPaciente.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
+        </div>
 
     </div>
-
-</div>
