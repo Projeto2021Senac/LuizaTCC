@@ -6,8 +6,7 @@ use \Classes\Entity\terceirizado;
 define('BTN', 'Salvar');
 define('TITLE','Cadastro Tercerizado');
 $objterceirizado = new terceirizado;
-$objTerceiro = $objterceirizado->
-$objServicoTerceiro
+$objTerceiro = $objterceirizado-> objServicoTerceiro;
 
 if (isset($_POST['Salvar'])){
 /* echo '<pre>';print_r($_POST);echo'<pre>';exit; */
