@@ -7,7 +7,7 @@
 <script>
     $(function(){
         $("#busca").autocomplete({
-            source:'testeteste.php'
+            source:'autoComplete.php'
         });
     });
 
