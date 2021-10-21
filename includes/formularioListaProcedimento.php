@@ -9,7 +9,7 @@
 
               <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarProcedimento" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="pesquisarProcedimento" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 

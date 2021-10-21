@@ -75,7 +75,7 @@ if (isset($_GET['id'])) {
   }
   $resultados = '';
   foreach ($consultas as $consulta) {
-    $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
+    $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-info"');
     $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
 
     $resultados .= '<tr class = "text-center" >

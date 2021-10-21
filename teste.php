@@ -6,7 +6,7 @@ use Classes\Entity\Procedimento;
 $linhasProcedimento = Procedimento::getProcedimentos();
 //echo '<pre>';print_r($linhasProcedimento);echo'<pre>';exit;
 if (isset($_POST['submit'])) {
-echo '<pre>';print_r(count($_POST['teste']));echo'<pre>';exit;
+echo '<pre>';print_r($_POST);echo'<pre>';exit;
     exit;
 }
 ?>
@@ -23,6 +23,8 @@ echo '<pre>';print_r(count($_POST['teste']));echo'<pre>';exit;
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
+
     <title>Document</title>
 </head>
 
@@ -40,6 +42,12 @@ echo '<pre>';print_r(count($_POST['teste']));echo'<pre>';exit;
                 <?php
                 }
                 ?>
+            </select>
+            <select name = "analise[]" multiple = "multiple" data-live-search="true">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
         </div>
         <input type="submit" name="submit"></input>

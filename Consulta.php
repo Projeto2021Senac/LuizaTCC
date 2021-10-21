@@ -47,6 +47,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 /* echo "<pre>"; print_r($erro); echo "<pre>";exit; */
 $objTratamento = new Tratamento;
 if (isset($_POST['Finalizar'])) {
+    /* echo '<pre>';print_r($_POST);echo'<pre>';exit; */
     if (isset($_POST['observacoes'], $_POST['procedimento']) && $_POST['procedimento'] != '-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-') {
         $erro = 0;
         $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);

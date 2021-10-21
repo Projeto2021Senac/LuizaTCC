@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-select-picker.min.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
 
@@ -32,7 +33,7 @@
         </script>
   </head>
   <body style="border:10px;border-color:red;background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #47b8d8;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./includes/img/DL_Logo_wStrap_Black-01.png" alt="" width="200" height="100">
