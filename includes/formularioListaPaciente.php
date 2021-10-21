@@ -9,18 +9,17 @@ if (isset($_GET['status'])) {
         case 'error':
             $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
             break;
-
     }
 }
 $resultados = '';
 foreach ($pacientes as $p) {
     $resultados .= '<tr> '
-            . '<td> ' . $p->prontuario . '</td>'
-            . '<td> ' . $p->nomePaciente . '</td>'
-            . '<td> ' . $p->sexo . '</td>'
-            . '<td> ' . $p->telefone . '</td>'
-            . '<td> ' . $p->email . '</td>'
-            . '<td> 
+        . '<td> ' . $p->prontuario . '</td>'
+        . '<td> ' . $p->nomePaciente . '</td>'
+        . '<td> ' . $p->sexo . '</td>'
+        . '<td> ' . $p->telefone . '</td>'
+        . '<td> ' . $p->email . '</td>'
+        . '<td> 
           <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 
               class="btn btn-primary" >Editar</a>
               
@@ -30,27 +29,27 @@ foreach ($pacientes as $p) {
          </tr>';
 }
 
-$resultados = strlen($resultados)? $resultados : 
-          '<tr>'
-        . '<td colspan = "6" class = "text-center"> Nenhum paciente encontrado</td>'
-        . '</tr>'; 
+$resultados = strlen($resultados) ? $resultados :
+    '<tr>'
+    . '<td colspan = "6" class = "text-center"> Nenhum paciente encontrado</td>'
+    . '</tr>';
 ?>
 
 
 <div class="container-fluid">
-    <?php if($msg != ""){
-        echo $msg; 
+    <?php if ($msg != "") {
+        echo $msg;
         echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
         URL='listaPaciente.php'\">";
     }
-        ?>
+    ?>
     <br>
     <div class="row ">
-        
+
 
         <div class="row">
 
-            <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
+            <div class="col-2 offset-5 bg-gradient" style=" background-color: black;opacity: 90%">
                 <h5 style="color: white; text-align: center ">Pacientes</h5>
             </div>
         </div>
@@ -60,11 +59,11 @@ $resultados = strlen($resultados)? $resultados :
             <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
 
 
-                <form method="post" action="" style="color: white" >
-                    
+                <form method="post" action="" style="color: white">
+
                     <div class="form-group">
 
-                        <input type="text" class="form-control p-1" name="busca" required=""  value="<?=$busca?>">
+                        <input type="text" class="form-control p-1" name="busca" required="" id="busca" value="<?= $busca ?>">
                     </div>
 
             </div>
@@ -74,8 +73,7 @@ $resultados = strlen($resultados)? $resultados :
 
             <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
 
-                <input type="submit"  name="pesquisarPaciente"
-                       class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
+                <input type="submit" name="pesquisarPaciente" class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
 
             </div>
 
@@ -90,41 +88,63 @@ $resultados = strlen($resultados)? $resultados :
 
     <div class="row">
 
-        <div class="row">
-            <div class=" col-2 offset-4">
-                <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
 
-            </div>
+        <div class=" col-2 offset-4">
+            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
 
-            <div class=" col-2 ">
-                <a href="cadastroPaciente.php"> <button  class="btn btn-success w-100"> Novo Paciente</button> </a>
-            </div>
         </div>
 
-        <div class="col-8 offset-2">
+        <div class=" col-2 ">
+            <a href="cadastroPaciente.php"> <button class="btn btn-success w-100"> Novo Paciente</button> </a>
 
-            <table class="table table-responsive text-white bg-dark bg-gradient">
+        </div>
+
+        <div class="col-12 mt-2">
+
+            <table class="table table-responsive bg-light bg-gradient">
                 <thead class="table-dark">
-                    <tr><th>Prontuário</th>
+                    <tr>
+                        <th>Prontuário</th>
                         <th>Nome</th>
                         <th>Sexo</th>
                         <th>Telefone</th>
                         <th>E-mail</th>
-                        <th>Ações</th></tr>
+                        <th>Ações</th>
+                    </tr>
                 </thead>
 
 
-                <tbody >
-                    <?=$resultados?>
-                    
-                  
+                <tbody>
+                    <?= $resultados ?>
+
+
                 </tbody>
 
             </table>
+            <div class="d-flex justify-content-center">
+                <nav class="" aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="listaPaciente.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+                        </li>
+                        <?php
+                        for ($i = 1; $i <= $num_pagina; $i++) {
+                            $estilo = "";
+                            if ($pagina_atual == $i) {
+                                $estilo = "active";
+                            }
+                        ?>
+                            <li class="page-item <?= $estilo ?>"><a class="page-link" href="listaPaciente.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link " href="listaPaciente.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
         </div>
 
-
     </div>
-
-</div>
-

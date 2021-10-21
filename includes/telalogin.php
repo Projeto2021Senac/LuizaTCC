@@ -26,7 +26,7 @@
 
 <body class="text-center" style="background-image: url(includes/img/Clínica-Odontológica.jpg);background-repeat: no-repeat; background-size: 100%">
 
-  <main class="form-signin">
+  <main class="form-signin align-middle">
     <form method = "post">
       <img class="mb-4" src="includes/img/usuario.png" alt="" width="100" height="100">
       <h1 class="h3 mb-3 fw-normal">Login</h1>

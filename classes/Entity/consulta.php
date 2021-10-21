@@ -94,7 +94,6 @@ class Consulta {
             'horaConsulta' => $this->horaConsulta,
             'statusConsulta' => $this->statusConsulta,
             'relatorio' => $this->relatorio,
-            'fkFuncionario' => $this->fkFuncionario,
             'CFKDentista' => $this->CFKDentista,
             'CFKClinica' => $this->CFKClinica
         ])[1];

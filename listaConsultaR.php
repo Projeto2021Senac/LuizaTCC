@@ -2,7 +2,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-
+use Classes\Entity\Rastreio;
 use Classes\Entity\tratamento;
 
 
@@ -21,6 +21,9 @@ $where = implode(' AND ', $condicoes);
 
 $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implementar consulta 
 
+$rastreio = Rastreio::getRastreios(null,null,null,null,'fkProtese');
+/* echo "<pre>"; print_r($rastreio); echo "<pre>";exit; */
+/* echo "<pre>"; print_r($innerTratamentos); echo "<pre>";exit; */
 
 
 //echo "<pre>"; print_r($innerTratamentos); echo "<pre>";exit;

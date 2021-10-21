@@ -62,8 +62,8 @@ class Rastreio {
     }
 
    
-    public static function getRastreios($where = null, $like = null, $order = null, $limit = null) {
-        return (new db('rastreio'))->selectSQL($where, $like, $order, $limit)
+    public static function getRastreios($where = null, $like = null, $order = null, $limit = null,$fields = null) {
+        return (new db('rastreio'))->selectSQL($where, $like, $order, $limit,$fields)
                         ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 

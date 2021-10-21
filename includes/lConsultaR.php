@@ -58,10 +58,10 @@
             $disabled1 = '';
         }
         $resultados = '';
-
+        
         foreach ($innerTratamentos as $dados) {
-            
-            $disabled = ($dados->idProtese==$dados->fkProtese ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-primary"');
+            foreach($rastreio as $r){
+            $disabled = ($dados->idProtese==$r->fkProtese ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-primary"');
             //$disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
 
             $resultados .= '<tr ">
@@ -80,6 +80,7 @@
                             <a ' . $disabled . 'href = cadRastreio.php?rProtese='.$dados->idProtese .'>Confirmar</a>
                             </td>
                             </tr>';
+            }
         }
         
         $resultados = strlen($resultados) ? $resultados :

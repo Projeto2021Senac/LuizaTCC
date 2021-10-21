@@ -90,7 +90,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group" >
                         <label>Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKTerceiro" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select onselect="return selecionaServico()" id="RFKTerceiro" class="form-control" name="RFKTerceiro" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option hidden="" >[SELECIONE]</option>
                             <?php
                             foreach ($terceiro as $terc) {
@@ -116,8 +116,14 @@ if (isset($_GET['rProtese'])) {
                                 $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
                                 echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
                             }
+                            
+                            
+                            $servAux  = filter_input(INPUT_POST, 'RFKTerceiro', FILTER_SANITIZE_STRING); 
+                        
+                       
                             ?>
                         </select>
+                        
                     </div>
 
                     <?php
@@ -127,12 +133,10 @@ if (isset($_GET['rProtese'])) {
                     
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select class="form-select" multiple="" type="text" name="RFKServico"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
-                            <option hidden="" >[SELECIONE]</option>
-                            
-                            
+                        <select class="selectpicker form-control" multiple="multiple" title="SELECIONE" type="text" name="RFKServico[]"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                            <!--<option>[SELECIONE]</option>-->
                                 <?php  
-                                                    
+                                                   
                             foreach ($servico as $serv) {
                                 $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
                                 echo "<option value=" . $serv->idServico . "" . $selected . ">" . $serv->nomeServico . "</option>";

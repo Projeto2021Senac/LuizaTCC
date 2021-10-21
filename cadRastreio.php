@@ -13,11 +13,12 @@ use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
 $innerTratamento= "";
+$servAux="";
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 
 $terceiro = terceiro::getTerceiros();
-$servico = servicoTerceiro::getServicoTerceiros();
+$servico = servicoTerceiro::getServicoInner($servAux);
 
 if (isset($_GET['rProtese'])) {
     $innerTratamento = tratamento::getTratamentoInner($_GET['rProtese']);

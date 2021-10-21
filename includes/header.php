@@ -3,13 +3,18 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/bootstrap-select-picker.min.css">
+
+    <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
+    
     <script src="js/sweetalert2.min.js"></script>
 
     <title>Abdull Proteses</title>
@@ -27,7 +32,7 @@
 
         </script>
   </head>
-  <body style="background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
+  <body style="border:10px;border-color:red;background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -88,7 +93,7 @@
                             </li>
                             <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
                             
-                            <li><a class="dropdown-item" href="./cadastroProcedimento.php">Procedimento</a></li>
+                            <li><a class="dropdown-item" href="./listaProcedimento.php">Procedimento</a></li>
                             
                             <li><a class="dropdown-item" href="./listaTerceiro.php">Terceirizado</a></li>
                             <li><a class="dropdown-item" href="./listaServicoTerceiro.php">ServiçoTerceirizado</a></li>

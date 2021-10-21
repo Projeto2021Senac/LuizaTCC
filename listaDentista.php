@@ -5,7 +5,9 @@ require 'vendor/autoload.php';
 use Classes\Entity\dentista;
 define('NAME', 'Dentista');
 define('LINK', 'listaDentista.php');
-
+if (!isset($_GET['pagina'])){
+    header('location:?pagina=1');
+}
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 

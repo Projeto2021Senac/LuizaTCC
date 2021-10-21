@@ -22,9 +22,9 @@ if (isset($_POST['Salvar'])){
     $objFuncionario->cadastrar();
    
     if ($objFuncionario->idFuncionario > 0){
-        header ('Location: listaFuncionario.php?status=success&id='.$objFuncionario->idFuncionario);
+        header ('Location: listaFuncionario.php?pagina=1&status=success&id='.$objFuncionario->idFuncionario);
     }else{
-        header ('Location: listaFuncionario.php?status=error');
+        header ('Location: listaFuncionario.php?pagina=1&status=error');
     }
 }
 

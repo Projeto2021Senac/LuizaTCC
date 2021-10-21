@@ -16,7 +16,7 @@ class Tratamento
         $tratamento = (new db('tratamento'))->insertSQL([
             'fkConsulta' => $this->fkConsulta,
             'fkProcedimento' => $this->fkProcedimento,
-            'observacao' => $this->observacao
+            'observacoes' => $this->observacao
 
         ]);
         return $tratamento;
