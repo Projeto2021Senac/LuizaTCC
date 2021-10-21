@@ -9,7 +9,7 @@
               <input hidden name = "tabela" value="procedimento"></input>
               <input type="text" class="form-control p-1" id="busca" name="busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarProcedimento" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="pesquisarProcedimento" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 
