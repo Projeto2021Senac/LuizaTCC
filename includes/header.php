@@ -32,6 +32,7 @@
         </script>
   </head>
   <body style="border:10px;border-color:red;background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
+  
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">

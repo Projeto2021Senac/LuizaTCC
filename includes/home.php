@@ -97,15 +97,7 @@
                             <tr>
                                 <th class="text-center">Today</th>
                             </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
+
 
 
                         </tbody>

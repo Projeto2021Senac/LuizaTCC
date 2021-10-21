@@ -5,7 +5,10 @@ use Classes\Dao\db;
 /* use PDO; */
 
 $autoCompletar = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_STRING);
-$autoCompletar = "Guilherme";
+if ($autoCompletar == null){
+    echo "<pre>"; print_r('teste'); echo "<pre>";exit;
+}
+
 /* echo "<pre>"; print_r($autoCompletar); echo "<pre>";exit; */
 define('CAMPO', 'nomePaciente,prontuario');
 define('TABELA', 'paciente');

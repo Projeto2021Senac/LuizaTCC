@@ -29,11 +29,12 @@ $where = implode(' AND ', $condicoes);
     if (isset($_GET['idConsulta'],$_GET['idProcedimento'],$_GET['prontuario']) && is_numeric($_GET['idConsulta'])&& 
     is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] > 0 && $_GET['prontuario'] > 0){
         
-        $proteses = $objProtese->getProteses('fkConsultaT ='.$_GET['idConsulta'],null,null,null,null);
+        $proteses = $objProtese->getProtesesPaciente('fkConsultaT ='.$_GET['idConsulta']);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
         if ($proteses == null ){
             /* echo "<pre>"; print_r('testando'); echo "<pre>";exit; */
             header('location:cadastrarProtese.php?idConsulta='.$_GET['idConsulta'].'&idProcedimento='.$_GET['idProcedimento'].'&prontuario='.$_GET['prontuario']);
+            
         }
     }else{
         $proteses = $objProtese->getProtesesPaciente($where);
