@@ -8,7 +8,7 @@
 <script>
     $(function(){
         $("#busca").autocomplete({
-            source:'autoComplete.php'
+            source:'autoComplete.php?teste=<?=IDENTIFICACAO;?>'
         });
     });
 

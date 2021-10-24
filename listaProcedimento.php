@@ -6,6 +6,7 @@ use Classes\Entity\Procedimento;
 
 define('NAME', 'Procedimento');
 define('LINK', 'listaProcedimento.php');
+define('IDENTIFICACAO', 2);
 
 if (!isset($_GET['pagina'])) {
   header('location:?pagina=1');

@@ -5,7 +5,7 @@
         <a href="<?= (TITLE == 'Cadastrar Nova Consulta' ? 'index.php' : 'pesquisarConsulta.php') ?>">
             <button class="btn btn-success mt-4">Retornar</button>
         </a>
-        
+
 
     </section>
     <br>
@@ -44,7 +44,7 @@
                 </div>
                 <form <?= $visibilidadiv ?> method="post" class="mt-4">
                     <div class="col-10 offset-1 form-group p-4">
-                        <select name = "procedimento[]" class="selectpicker" multiple="multiple" data-live-search="true">
+                        <select name="procedimento[]" class="selectpicker form-control" multiple="multiple" data-live-search="true">
                             <option hidden>-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-</option>
                             <?php
                             foreach ($objProcedimento as $procedimento) {
@@ -53,6 +53,8 @@
                             ?>
                         </select>
                     </div>
+                    <input type="checkbox" name = "finalizar?"class="" id="btn-check" autocomplete="off">
+                    <label class="btn btn-primary" for="btn-check">Finalizar Consulta ?</label>
                     <div class="row">
                         <label class="mt-3 text-info" for="relatorio"><strong>Observações pós Consulta:</strong></label>
                         <textarea name="observacoes" style="opacity:80%;resize:none" class="text-black" rows="5"></textarea>
@@ -65,7 +67,7 @@
                     </div>
                 </form>
                 <?php
-                if ($visibilidadiv != ''){
+                if ($visibilidadiv != '') {
                     echo "<table class=\"table bg-light text-center col-6 bg-gradient mt-3\">
                     <thead class=\"bg-dark text-light\">
                         <tr>

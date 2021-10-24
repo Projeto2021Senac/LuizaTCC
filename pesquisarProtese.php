@@ -62,7 +62,7 @@ $where = implode(' AND ', $condicoes);
                             <button class = "btn btn-primary">Editar</button>
                             </a>
                             <a href = ?id=' . $protese->idProtese . '>
-                            <button class = "btn btn-primary">Excluir</button>
+                            <button class = "btn btn-primary">Visualizar Prótese</button>
                             </a>
                             </td>
 
