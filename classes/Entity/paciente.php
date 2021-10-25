@@ -60,6 +60,15 @@ class Paciente {
 
       
     }
+    public static function getPacientes2($where = null, $like = null, $order = null, $limit= null,$fields = null) {
+        $pacientes  =  (new db('paciente'))->selectSQL($where, $like, $order, $limit,$fields);
+                while ($paciente = $pacientes->fetch(PDO::FETCH_ASSOC)){
+                    $data[] = $paciente['nomePaciente'];
+                };
+
+
+      return $data;
+    }
     
     
     /**

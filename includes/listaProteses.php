@@ -1,70 +1,51 @@
 <main>
-    <section>
-        <a href="index.php">
-            <button class="btn btn-success mt-4">Retornar</button>
-        </a>
-        <a href="cadastrarProtese.php">
-            <button class="btn btn-success mt-4">Cadastrar</button>
-        </a>
+    <section class="p-2">
+        <div class = "col-4 offset-4">
+            <div class="bg-dark rounded p-2">
+                <h5 style="color: white; text-align: center ">Proteses</h5>
+                <form method="post" action="">
+                    <div class="col-10 form-group p-2" style="margin:auto">
+
+                        <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
+                    </div>
+                    <input type="submit" name="pesquisarProtese" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+
+                </form>
+                
+            </div>
+            <div class = "col-6 offset-3 p-2">
+            <a href="pesquisarProtese.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+        </div>
+            
+        </div>
+        
     </section>
-    <?php
-    $resultados = '';
-    foreach ($proteses as $protese) {
-        $resultados .= '<tr>
-                            <td>' . $protese->idProtese . '</td>
-                            <td>' . $protese->tipo . '</td>
-                            <td>' . $protese->material . '</td>
-                            <td>' . $protese->extensao . '</td>
-                            <td>' . $protese->dente . '</td>
-                            <td>' . $protese->qtdDente . '</td>
-                            <td>' . ($protese->ouro == 'sim' ? 'Sim' : 'Não') . '</td>
-                            <td>' . $protese->qtdOuro . '</td>
-                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
-                            <td>
-                            <a href = editaProtese.php?id=' . $protese->idProtese . '>
-                            <button class = "btn btn-primary">Editar</button>
-                            </a>
-                            <a href = ?id=' . $protese->idProtese . '>
-                            <button class = "btn btn-primary">Excluir</button>
-                            </a>
-                            </td>
-                            </tr>';
-    }
-    $resultados = strlen($resultados) ? $resultados :
-    '<tr>'
-    . '<td colspan = "12" class = "text-center"> Nenhuma Prótese foi encontrada no histórico</td>'
-    . '</tr>';
 
+    <table class="table bg-light table-striped table-hover mt-1 table-responsive">
+        <thead class="bg-dark text-light">
+            <tr class = "text-center">
 
-    ?>
-    <section>
-
-        <table class="table bg-light mt-3">
-            <thead class = "bg-dark text-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Tipo</th>
-                    <th>Material</th>
-                    <th>Extensão</th>
-                    <th>Dente</th>
-                    <th>qtdDentes</th>
-                    <th>Ouro</th>
-                    <th>qtdOuro</th>
-                    <th>Data Registro</th>
-                    <th></th>
-
-
-                </tr>
-
-            </thead>
-            <tbody>
-                <?=$resultados?>
-
-            </tbody>
-
-        </table>
+                <th scope="col">ID</th>
+                <th scope="col">Paciente</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Extensão</th>
+                <th scope="col">Marca</th>
+                <th scope="col">qtdDentes</th>
+                <th scope="col">Ouro</th>
+                <th scope="col">qtdOuro</th>
+                <th scope="col">Data Registro</th>
+                <th scope="col">Ações</th>
 
 
 
-    </section>
+            </tr>
+
+        </thead>
+        <tbody>
+            <?= $resultados ?>
+
+        </tbody>
+
+    </table>
+
 </main>

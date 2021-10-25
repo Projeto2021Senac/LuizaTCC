@@ -13,7 +13,8 @@ if (!$ConsultaInnerJoin instanceof consulta) {
     header('location: pesquisarConsulta.php?status=error');
 }
 /* echo "<pre>"; print_r($ConsultaInnerJoin); echo "<pre>";exit; */
-$objProcedimento = Procedimento::getProcedimentos();
+$objProcedimento = Procedimento::getProcedimentos('idProcedimento not in (select fkProcedimento from tratamento where fkConsulta ='.$_GET['id'].')');
+/* echo "<pre>"; print_r($objProcedimento); echo "<pre>";exit; */
 if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
     $tratamentos = tratamento::getTratamentos('procedimento', 'fkConsulta =' . $_GET['id'], 'fkProcedimento,idProcedimento');
        /*  echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
@@ -22,7 +23,7 @@ if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
         
         if ($tratamento->nomeProcedimento == 'Protese'){
             $resultados .= '<tr>
-                        <td><a href="pesquisarProtese.php?idConsulta='.$_GET["id"].'&idProcedimento='.$tratamento->idProcedimento.'&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
+                        <td><a href="pesquisarProtese.php?pagina=1&idConsulta='.$_GET["id"].'&idProcedimento='.$tratamento->idProcedimento.'&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
                         </tr>';
         }else{
             $resultados .= '<tr>
@@ -47,6 +48,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 /* echo "<pre>"; print_r($erro); echo "<pre>";exit; */
 $objTratamento = new Tratamento;
 if (isset($_POST['Finalizar'])) {
+    echo '<pre>';print_r($_POST);echo'<pre>';exit;
     if (isset($_POST['observacoes'], $_POST['procedimento']) && $_POST['procedimento'] != '-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-') {
         $erro = 0;
         $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);

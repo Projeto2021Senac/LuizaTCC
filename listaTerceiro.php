@@ -3,7 +3,9 @@
 require 'vendor/autoload.php';
 
 use Classes\Entity\Terceiro;
-
+if (!isset($_GET['pagina'])){
+    header('location:?pagina=1');
+}
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 

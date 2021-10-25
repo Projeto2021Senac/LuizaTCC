@@ -1,62 +1,35 @@
 <div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
   <main>
-    <section>
-      <a href="index.php">
-        <button class="btn btn-success mt-4">Retornar</button>
-      </a>
-      <a href="cadastrarConsulta.php">
-        <button class="btn btn-success mt-4">Cadastrar</button>
-      </a>
+    <section class="d-flex justify-content-center mt-2">
+      <div class="col-4">
+        <div class="bg-dark rounded p-2">
+          <h5 style="color: white; text-align: center ">Consultas</h5>
+          <form method="post" action="">
+            <div class="col-10 form-group p-2" style="margin:auto">
+
+              <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
+            </div>
+            <input type="submit" name="pesquisarProtese" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+
+          </form>
+
+        </div>
+        <div class="row">
+          <div class="col-6 p-2">
+            <a href="pesquisarConsulta.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+          </div>
+          <div class="col-6 p-2">
+            <a href="CadastrarConsulta.php"> <input type="submit" value="Cadastrar Consulta" class="btn btn-success w-100" /> </a>
+          </div>
+        </div>
+      </div>
 
     </section>
-
-    <?php
-    if (isset($_GET['id'])) {
-      $id = $_GET['id'];
-    }
-    if (isset($_GET['rastreio']) == "check") {
-      $disabledRastreio = 'class = "btn btn-secondary"';
-      $disabled2 = 'ok';
-      $disabled1 = 'hidden=""';
-    } else {
-      $disabledRastreio = 'hidden=""';
-      $disabled2 = '';
-      $disabled1 = '';
-    }
-    $resultados = '';
-    foreach ($consultas as $consulta) {
-      $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
-      $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
-
-      $resultados .= '<tr ">
-                            <td>' . $consulta->idConsulta . '</td>
-                            <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
-                            <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
-                            <td>' . $consulta->statusConsulta . '</td>
-                            <td>' . $consulta->nomePaciente . '</td>
-                            <td>
-                            <a ' . $disabled1 . 'class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
-                            <a ' . $disabled . 'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
-                            <a ' . $disabledRastreio . 'href = cadRastreio.php?rConsulta=' . $consulta->idConsulta . '>Confirmar rastreio</a>
-                            </td>
-                            </tr>';
-    }
-    $resultados = strlen($resultados) ? $resultados :
-      '<tr>'
-      . '<td colspan = "12" class = "text-center"> Nenhuma Consulta foi encontrada no histórico</td>'
-      . '</tr>';
-
-    
-
-
-    ?>
-
-
     <section>
 
-      <table class="table bg-light bg-gradient mt-3">
+      <table class="table bg-light table-striped table-hover mt-1">
         <thead class="bg-dark text-light">
-          <tr>
+          <tr class="text-center">
             <th>ID</th>
             <th>data</th>
             <th>hora</th>
@@ -64,7 +37,6 @@
             <th>Paciente atendido</th>
             <th>Ações</th>
 
-            <th></th>
 
 
           </tr>
@@ -76,9 +48,31 @@
         </tbody>
 
       </table>
-
-
+      <div class="d-flex justify-content-center">
+        <nav class="" aria-label="...">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+            </li>
+            <?php
+            for ($i = 1; $i <= $num_pagina; $i++) {
+              $estilo = "";
+              if ($pagina_atual == $i) {
+                $estilo = "active";
+              }
+            ?>
+              <li class="page-item <?= $estilo ?>"><a class="page-link" href="pesquisarConsulta.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+            <?php
+            }
+            ?>
+            <li class="page-item">
+              <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
     </section>
+
   </main>
 </div>

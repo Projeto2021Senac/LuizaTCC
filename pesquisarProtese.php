@@ -6,6 +6,20 @@ require __DIR__.'/vendor/autoload.php';
 use \Classes\Entity\Protese;
 define('NAME', 'Protese');
 define('LINK', 'pesquisarProtese.php');
+if (!isset($_GET['pagina'])){
+    header('location:?pagina=1');
+}
+//busca
+$busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
+
+//condições sql
+$condicoes = [
+    strlen($busca) ? 'nomePaciente LIKE "%'. str_replace('', '%', $busca).'%"': null
+    
+];
+
+
+$where = implode(' AND ', $condicoes);
 /**
  * Instancia a classe Protese, para fazer uso do seu método de pesquisa "GetProteses" localizado em Protese.php
  * 
@@ -15,16 +29,52 @@ define('LINK', 'pesquisarProtese.php');
     if (isset($_GET['idConsulta'],$_GET['idProcedimento'],$_GET['prontuario']) && is_numeric($_GET['idConsulta'])&& 
     is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] > 0 && $_GET['prontuario'] > 0){
         
-        $proteses = $objProtese->getProteses('fkConsultaT ='.$_GET['idConsulta']);
+        $proteses = $objProtese->getProtesesPaciente('fkConsultaT ='.$_GET['idConsulta']);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
         if ($proteses == null ){
             /* echo "<pre>"; print_r('testando'); echo "<pre>";exit; */
             header('location:cadastrarProtese.php?idConsulta='.$_GET['idConsulta'].'&idProcedimento='.$_GET['idProcedimento'].'&prontuario='.$_GET['prontuario']);
+            
         }
     }else{
-        $proteses = $objProtese->getProteses();
+        $proteses = $objProtese->getProtesesPaciente($where);
+        /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
     }
     //Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
+    
+    
+    $resultados = '';
+    foreach ($proteses as $protese) {
+        $table = ($protese->tipo == "Fixa" ? 'class = "table-active text-center"' : '');
+        $resultados .= '<tr class = "text-center">
+
+                            <td >' . $protese->idProtese . '</td>
+                            <td>' . $protese->nomePaciente . '</td>
+                            <td>' . $protese->tipo . '</td>
+                            <td>' . $protese->extensao . '</td>
+                            <td>' . $protese->marcaDente . '</td>
+                            <td>' . $protese->qtdDente . '</td>
+                            <td>' . ($protese->ouro == 'sim' ? 'Sim' : 'Não') . '</td>
+                            <td>' . $protese->qtdOuro . '</td>
+                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
+                            <td>
+                            <a href = editaProtese.php?id=' . $protese->idProtese . '>
+                            <button class = "btn btn-primary">Editar</button>
+                            </a>
+                            <a href = ?id=' . $protese->idProtese . '>
+                            <button class = "btn btn-primary">Visualizar Prótese</button>
+                            </a>
+                            </td>
+
+        
+                            </tr>';
+    }
+    $resultados = strlen($resultados) ? $resultados :
+    '<tr>'
+    . '<td colspan = "12" class = "text-center"> Nenhuma Prótese foi encontrada no histórico</td>'
+    . '</tr>';
+
+
     
 //echo "<pre>"; print_r($proteses); echo "<pre>";exit;
 
