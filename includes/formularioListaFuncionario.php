@@ -18,7 +18,7 @@
                     <a href="listaFuncionario.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
                 </div>
                 <div class="col-6 p-2">
-                    <a href="listaFuncionario.php"> <input type="submit" value="Cadastrar Procedimento" class="btn btn-success w-100" /> </a>
+                    <a href="cadastrarFuncionario.php"> <input type="submit" value="Cadastrar Procedimento" class="btn btn-success w-100" /> </a>
                 </div>
             </div>
         </div>
