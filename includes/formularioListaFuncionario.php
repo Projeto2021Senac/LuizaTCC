@@ -49,7 +49,7 @@
         </tbody>
 
     </table>
-    <div class="d-flex justify-content-center a">
+    <div class="d-flex justify-content-center">
                 <nav class="" aria-label="...">
                     <ul class="pagination">
                         <li class="page-item">
