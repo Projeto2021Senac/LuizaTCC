@@ -27,6 +27,10 @@ switch ($GET) {
         define('CAMPO', 'nomeProcedimento,idProcedimento');
         define('TABELA', 'procedimento');
         break;
+
+    case 3:
+        define('CAMPO', 'nomeFuncionario,idFuncionario');
+        define('TABELA', 'funcionario');
 }
 
 $clause = explode(',', CAMPO);
