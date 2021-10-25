@@ -18,28 +18,29 @@
         
         <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
 
-            <div class="form-group">
-                <label> Terceiro</label>
-                <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="Terceirizado" <?= (TITLE == 'Cadastrar Terceirizado' ? '' : '') ?>>
-                    <option selected hidden="">[SELECIONE]</option>
-                    <?php
+        <div class="form-group">
+                    <label> Terceiro: </label>
+                    <select class="form-control" name="Terceiro" value="">
+                        <option  selected="selected">[---SELECIONE---]</option>
 
-                    foreach ($objterceirizado as $Terceirizado) {
-                        $selected = ($objTerceirizado->fkTerceiro ==  $terceiro->prontuario ? 'selected = selected' : '');
-                        echo "<option value = " . $Terceirizado->idTerceiro . " " . $selected . ">" .  $Terceirizado->nomeTerceirizado . "</option>";
-                    }
-                    ?>
-                </select>
-            </div>
-
-                <div class="form-group">
-                    <label> Serviço Terceiro</label>
-                    <select class="form-control" name="ServicoTerceiro">
-                        <option hidden="">[SELECIONE]</option>
                         <?php
-                        foreach ($objServicoTerceiro as  $terceiro) {
-                            $selected = ($objConsulta->fkServicoTerceiro== $ServicoTerceiro->idServicoTerceiro ? 'selected = selected' : '');
-                            echo "<option value =" .  $terceiro->idServicoTerceiro . " " . $selected . ">" . $ $terceiro->nomeServicoTerceiro . "</option>";
+                        foreach ($objTerceiro as  $terceiro) {
+                            
+                            echo "<option value =" .  $terceiro->idTerceiro .">" .$terceiro->nomeTerceiro . "</option>";
+                        }
+                        ?>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label> Serviço Terceiro: </label>
+                    <select class="form-control" name="ServicoTerceiro">
+                        <option>[---SELECIONE---]</option>
+                    
+                        <?php
+                        foreach ($objServicoTerceiro as  $ServicoTerceiro) {
+                            
+                            echo "<option value =" .  $terceiro->idServico .">" . $terceiro->nomeServico . "</option>";
                         }
                         ?>
 

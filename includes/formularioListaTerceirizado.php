@@ -33,7 +33,7 @@
             <thead class="bg-dark text-light">
                 <tr>
                     <th>Número do ID</th>
-                    <th>Nome Completo</th>
+                    <th>Nome do Serviço</th>
                     <th>Ações</th>
                     <th></th>
                 </tr>

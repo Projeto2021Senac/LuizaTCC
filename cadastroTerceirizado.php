@@ -3,10 +3,15 @@
 require __DIR__.'/vendor/autoload.php';
 
 use \Classes\Entity\terceirizado;
+use \Classes\Entity\terceiro;
+use \Classes\Entity\ServicoTerceiro;
+
+
 define('BTN', 'Salvar');
 define('TITLE','Cadastro Tercerizado');
 $objterceirizado = new terceirizado;
-$objTerceiro = $objterceirizado-> objServicoTerceiro;
+$objTerceiro = terceiro::getTerceiros();
+$objServicoTerceiro = new ServicoTerceiro;
 
 if (isset($_POST['Salvar'])){
 /* echo '<pre>';print_r($_POST);echo'<pre>';exit; */
