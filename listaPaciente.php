@@ -5,8 +5,7 @@ require 'vendor/autoload.php';
 use Classes\Entity\paciente;
 define('NAME','Paciente');
 define('LINK','listaPaciente.php');
-define('CAMPO','nomePaciente');
-define('TABELA','paciente');
+define('IDENTIFICACAO',1);
 if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }

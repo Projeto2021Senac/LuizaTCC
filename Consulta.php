@@ -19,7 +19,7 @@ if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
     $tratamentos = tratamento::getTratamentos('procedimento', 'fkConsulta =' . $_GET['id'], 'fkProcedimento,idProcedimento');
     /*  echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
     $resultados = '';
-    echo '<pre>';print_r($tratamentos);echo'<pre>';exit;
+    /* echo '<pre>';print_r($tratamentos);echo'<pre>';exit; */
     foreach ($tratamentos as $tratamento) {
 
         if ($tratamento->nomeProcedimento == 'Protese') {

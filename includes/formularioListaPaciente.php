@@ -53,17 +53,17 @@ $resultados = strlen($resultados) ? $resultados :
 
               <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="listaPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 
         </div>
         <div class="row">
           <div class="col-6 p-2">
-            <a href="pesquisarPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
           </div>
           <div class="col-6 p-2">
-            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Consulta" class="btn btn-success w-100" /> </a>
+            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Paciente" class="btn btn-success w-100" /> </a>
           </div>
         </div>
       </div>

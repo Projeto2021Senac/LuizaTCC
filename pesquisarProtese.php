@@ -6,6 +6,7 @@ require __DIR__.'/vendor/autoload.php';
 use \Classes\Entity\Protese;
 define('NAME', 'Protese');
 define('LINK', 'pesquisarProtese.php');
+define('IDENTIFICACAO',4);
 if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }
@@ -26,10 +27,11 @@ $where = implode(' AND ', $condicoes);
  */
 
     $objProtese = new Protese;
+
     if (isset($_GET['idConsulta'],$_GET['idProcedimento'],$_GET['prontuario']) && is_numeric($_GET['idConsulta'])&& 
     is_numeric($_GET['idProcedimento'])&& is_numeric($_GET['prontuario']) && $_GET['idConsulta'] > 0 && $_GET['idProcedimento'] > 0 && $_GET['prontuario'] > 0){
         
-        $proteses = $objProtese->getProtesesPaciente('fkConsultaT ='.$_GET['idConsulta']);
+        $registros_totais =  $proteses = $objProtese->getProtesesPaciente('fkConsultaT ='.$_GET['idConsulta']);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
         if ($proteses == null ){
             /* echo "<pre>"; print_r('testando'); echo "<pre>";exit; */
@@ -37,11 +39,28 @@ $where = implode(' AND ', $condicoes);
             
         }
     }else{
-        $proteses = $objProtese->getProtesesPaciente($where);
+        $registros_totais = $proteses = $objProtese->getProtesesPaciente($where);
         /* echo "<pre>"; print_r($proteses); echo "<pre>";exit; */
     }
     //Roda o método getProteses que está localizado em Protese.php para trazer todos os registros do banco no formato de um array de objetos.
-    
+    if(strlen($where)){
+
+        $pagina_atual = 1;
+      }else{
+        $pagina_atual = intval($_GET['pagina']);
+      }
+      
+      $itens_por_pagina = 6;
+      
+      $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
+      
+      
+      
+      $registros_filtrados = $objProtese->getProtesesPaciente($where,'statusConsulta,dataConsulta  desc ',$inicio.','.$itens_por_pagina);
+      /* echo "<pre>"; print_r($registros_filtrados); echo "<pre>";exit; */
+      $num_registros_totais = count($registros_totais);
+      
+      $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
     
     $resultados = '';
     foreach ($proteses as $protese) {
