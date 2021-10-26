@@ -68,9 +68,10 @@ $resultado_msg_cont = (new db())->executeSQL($query);
 $data = [];
 while ($row_msg_count = $resultado_msg_cont->fetch(PDO::FETCH_ASSOC)) {
     /* echo $row_msg_count['nomePaciente']; */
-
+    if(!in_array( $row_msg_count[$clause[0]] ,$data))
+    {
         $data[] = $row_msg_count[$clause[0]];
-
+    }
 }
 if ($data == null) {
     $data = ['Sem Resultados'];
