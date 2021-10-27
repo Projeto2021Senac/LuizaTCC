@@ -15,18 +15,19 @@
                 </div>
             </div>
         </div>
-        
-        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
 
-        <div class="form-group">
+        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
+            <form method="post" style="color: white">
+                <!-- <h3>Cadastro Terceirizado </h3>-->
+                <div class="form-group">
                     <label> Terceiro: </label>
                     <select class="form-control" name="Terceiro" value="">
-                        <option  selected="selected">[---SELECIONE---]</option>
+                        <option selected="selected">[---SELECIONE---]</option>
 
                         <?php
                         foreach ($objTerceiro as  $terceiro) {
-                            
-                            echo "<option value =" .  $terceiro->idTerceiro .">" .$terceiro->nomeTerceiro . "</option>";
+
+                            echo "<option value =" .  $terceiro->idTerceiro . ">" . $terceiro->nomeTerceiro . "</option>";
                         }
                         ?>
 
@@ -34,32 +35,30 @@
                 </div>
                 <div class="form-group">
                     <label> Serviço Terceiro: </label>
-                    <select class="form-control" name="ServicoTerceiro">
+                    <select class="form-control" name="ServicoTerceiro" value="">
                         <option>[---SELECIONE---]</option>
-                    
+
                         <?php
                         foreach ($objServicoTerceiro as  $ServicoTerceiro) {
-                            
-                            echo "<option value =" .  $terceiro->idServico .">" . $terceiro->nomeServico . "</option>";
+
+                            echo "<option value =" .  $ServicoTerceiro->idServico . ">" . $ServicoTerceiro->nomeServico . "</option>";
                         }
                         ?>
 
                     </select>
                 </div>
 
-        <div>
-            <div class="row">
-            <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
-                <br>
-                <input type="submit"  name="<?=BTN ?>"
-                       class="btn btn-success btInput p-1 offset-5" value="Salvar"
-                       <?php //if ($btEnviar == TRUE) echo "disabled"; ?>>
-                <br>
-                <br>
-            </div>
+                <div>
+                    <div class="row">
+                        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
+                            <br>
+                            <input type="submit" name="<?= BTN ?>" class="btn btn-success btInput p-1 offset-5" value="Salvar" <?php //if ($btEnviar == TRUE) echo "disabled"; 
+                                                                                                                                ?>>
+                            <br>
+                            <br>
+                        </div>
 
+                    </div>
 
-    </div>
-
-    </form>
-    </div>
+            </form>
+        </div>

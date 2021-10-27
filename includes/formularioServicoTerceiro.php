@@ -27,7 +27,7 @@
             <!-- <h3>Cadastro Serviço Terceiro</h3>-->
             <div class="form-group">
                 <label>Número do ID Serviço Terceiro:</label>
-                <input type="text" placeholder="000" class="form-control" name="idServico"  
+                <input type="text" placeholder="" class="form-control" name="idServico"  
                        value=" <?=$objServicoTerceiro->idServico ?>">
             </div>
 

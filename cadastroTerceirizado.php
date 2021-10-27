@@ -11,15 +11,16 @@ define('BTN', 'Salvar');
 define('TITLE','Cadastro Tercerizado');
 $objterceirizado = new terceirizado;
 $objTerceiro = terceiro::getTerceiros();
-$objServicoTerceiro = new ServicoTerceiro;
+$objServicoTerceiro = ServicoTerceiro:: getServicoTerceiros() ;
 
 if (isset($_POST['Salvar'])){
-/* echo '<pre>';print_r($_POST);echo'<pre>';exit; */
-    $objterceirizado->nometerceirizado = $_POST['nometerceirizado'];
+/*echo '<pre>';print_r($_POST);echo'<pre>';exit; */
+    $objterceirizado->fkTerceiro= $_POST['Terceiro'];
+    $objterceirizado->fkServicoTerceiro= $_POST['ServicoTerceiro'];
    
-/*     echo '<pre>';print_r($objterceirizado);echo '<pre>';exit; */
+  echo '<pre>';print_r($objterceirizado);echo '<pre>';exit; 
     
-    $objterceirizado->cadastrarTerceirizado();
+    $objterceirizado->cadastoTerceirizado();
    
     if ($objterceirizado->idterceirizado > 0){
         header ('Location: listaterceirizado.php?status=success&id='.$objterceirizado->idterceirizado);

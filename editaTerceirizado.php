@@ -12,7 +12,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     header('Location: index.php?status=error');
 }
 
-$objterceirizado = terceirizado::getTerceirizado($_GET['id']);
+$objterceirizado = terceirizado::getTerceirizados($_GET['id']);
 /* echo '<pre>';print_r($objterceirizado);echo '<pre>';exit; */
 
 
