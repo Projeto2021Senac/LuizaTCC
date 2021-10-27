@@ -48,7 +48,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 /* echo "<pre>"; print_r($erro); echo "<pre>";exit; */
 $objTratamento = new Tratamento;
 if (isset($_POST['Finalizar'])) {
-/*     echo '<pre>';
+    /*     echo '<pre>';
     print_r($_POST);
     echo '<pre>';
     exit; */
@@ -74,9 +74,8 @@ if (isset($_POST['Finalizar'])) {
                     $erro = 1;
                 }
             }
-            if($erro == 0){
+            if ($erro == 0) {
                 header('location: Consulta.php?id=' . $ConsultaInnerJoin->idConsulta);
-
             }
         } else {
             $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);
@@ -87,7 +86,9 @@ if (isset($_POST['Finalizar'])) {
             $teste = $objTratamento->cadastrarTratamento();
 
             if (gettype($teste[0]) == 'object') {
-                $objTratamento->atualizarStatusConsulta($_GET['id'], 'Finalizada');
+                if (isset($_POST['finalizarConsulta']) && $_POST['finalizarConsulta'] == 'on') {
+                    $objTratamento->atualizarStatusConsulta($_GET['id'], 'Finalizada');
+                }
                 header('location: Consulta.php?id=' . $ConsultaInnerJoin->idConsulta);
             } else {
                 echo '<pre>';
