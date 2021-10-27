@@ -62,8 +62,6 @@
                         }
                         if (valorAjax != 0) {
                             $('#servico_terceiro').html(options).show();
-                        }else{
-                            $('#servico_terceiro').html(options).show();
                         }
                     }
                 }
