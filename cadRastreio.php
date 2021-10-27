@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
+define('IDENTIFICACAO', 1);
 
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
