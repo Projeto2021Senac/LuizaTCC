@@ -18,7 +18,7 @@ if (isset($_POST['Salvar'])){
     $objterceirizado->fkTerceiro= $_POST['Terceiro'];
     $objterceirizado->fkServicoTerceiro= $_POST['ServicoTerceiro'];
    
-  echo '<pre>';print_r($objterceirizado);echo '<pre>';exit; 
+
     
     $objterceirizado->cadastoTerceirizado();
    
