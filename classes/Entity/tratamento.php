@@ -32,6 +32,16 @@ class Tratamento
                 ->fetchAll(PDO::FETCH_CLASS ,self::class);
     }
 
+    public static function getTratamento($tabela = null, $where = null, $innerjoin = null, $like = null, $order = null, $limit = null, $fields = '*') {
+
+        if ($tabela != null) {
+            $tabela = ',' . $tabela;
+        }
+
+        return $db = (new db('tratamento' . $tabela))->selectSQL($where, $like, $order, $limit, $fields, $innerjoin)
+                ->fetchObject(self::class);
+    }
+
     public static function getTratamentosInner($pesq) {
 
 

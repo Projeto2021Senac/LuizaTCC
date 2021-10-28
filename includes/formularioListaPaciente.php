@@ -23,7 +23,7 @@ foreach ($pacientes as $p) {
           <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 
               class="btn btn-info" >Editar</a>
               
-            <a href="index.php?prontuario=' . $p->prontuario . '"
+            <a href="prontuario.php?paciente=' . $p->prontuario . '"
                 class="btn btn-primary" >Abrir prontuário</a>
          </td>
          </tr>';
