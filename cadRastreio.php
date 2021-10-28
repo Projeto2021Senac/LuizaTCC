@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
 define('IDENTIFICACAO', 1);

@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__.'/vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\funcionario;
 define('BTN', 'Salvar');
 define('TITLE','Cadastro Funcionário');

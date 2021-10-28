@@ -69,7 +69,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="perfil" value="Administrador" <?= $objFuncionario->perfil == 'Administrador' ? 'checked' : '' ?>>
                             <label class="form-check-label">
-                                Adminstrador
+                                Administrador
                             </label>
                         </div>
                     </div>

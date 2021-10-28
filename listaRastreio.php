@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\rastreio;
 
 //busca
