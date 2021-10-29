@@ -67,7 +67,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Data de Retorno</label>
-                        <input type="date" class="form-control" name="dtRetorno" required="" value="<?= $rastreio->dtRetorno ?>">
+                        <input type="date" class="form-control" name="dtRetorno"  value="<?= $rastreio->dtRetorno ?>">
                     </div>
 
                     <div class="form-group">
@@ -77,96 +77,88 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Valor</label>
-                        <input type="text" class="form-control" name="vlrCobrado"  value="<?= $rastreio->vlrCobrado ?>">
+                        <input type="text" class="form-control"  name="vlrCobrado"  value="<?= $rastreio->vlrCobrado ?>">
                     </div>
 
 
                     <div class="form-group " hidden="">
                         <label>Prótese</label>
-                        <input type="text" class="form-control" name="fkProtese"  value="<?= $rastreio->fkProtese ?>">
+                        <input type="text" class="form-control"  name="fkProtese"  value="<?= $rastreio->fkProtese ?>">
                     </div>
 
 
 
                     <div class="form-group" >
                         <label>Terceirizado</label>
-                        <select onselect="return selecionaServico()" id="RFKTerceiro" class="form-control" name="RFKTerceiro" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
-                            <option hidden="" >[SELECIONE]</option>
+                        <select onchange="terceiro(this.value)" id="RFKTerceiro" name="RFKTerceiro" class="form-control"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                            <option hidden="" value="0">[SELECIONE]</option>
                             <?php
                             foreach ($terceiro as $terc) {
                                 $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
                                 echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
                             }
+
+                                    echo "<input  id='id' name='id'/>";
+                            
                             ?>
+
                         </select>
-                    </div>
-                    
-                    
-                    <?php  if (TITLE=="Editar Rastreio") {
-                                
-                            
-                            ?>
-                    <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                    <div class="form-group"  hidden="">
-                        <label>Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKTerceiro">
-                            <option hidden="" >[SELECIONE]</option>
-                            <?php
-                            foreach ($terceiro as $terc) {
-                                $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
-                                echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
-                            }
-                            
-                            
-                            $servAux  = filter_input(INPUT_POST, 'RFKTerceiro', FILTER_SANITIZE_STRING); 
-                        
-                       
-                            ?>
-                        </select>
-                        
+                        <button type="submit"  class="btn btn-success" for="#id" name="select">SIM</button> 
+                        <!--<input  type="text" id="id" name="id"/>-->
                     </div>
 
-                    <?php
+
+                    <?php if (TITLE == "Editar Rastreio") {
+                        ?>
+                        <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
+                        <div class="form-group"  hidden="">
+                            <label>Terceirizado</label>
+                            <select type="text" class="form-control" name="RFKTerceiro">
+                                <option hidden="" >[SELECIONE]</option>
+                                <?php
+                                foreach ($terceiro as $terc) {
+                                    $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
+                                    echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
+                                }
+                                ?>
+                            </select>
+
+                        </div>
+
+                        <?php
                     }
                     ?>
-                    
-                    
+
+
+
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select class="selectpicker form-control" multiple="multiple" title="SELECIONE" type="text" name="RFKServico[]"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
-                            <!--<option>[SELECIONE]</option>-->
-                                <?php  
-                                                   
-                            foreach ($servico as $serv) {
-                                $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                echo "<option value=" . $serv->idServico . "" . $selected . ">" . $serv->nomeServico . "</option>";
-                            }
-                                                    
-                            ?>
-                        </select>
-                                   
-                    </div>
-                    
-                    
-                    <?php  if (TITLE=="Editar Rastreio") {
-                                
+                        <select class="selectpicker form-control" multiple="multiple"  title="SELECIONE" id="RFKServico" name="RFKServico[]"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                            <option value="" hidden>[SELECIONE]</option>
                             
-                            ?>
-                    <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                    <div class="form-group" hidden="">
-                        <label>Serviço Terceirizado</label>
-                        <select type="text" class="selectpicker" name="RFKServico">
-                            <option hidden="" >[SELECIONE]</option>
-                            <?php
-                            foreach ($servico as $serv) {
-                                $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                echo "<option value=" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
-                            }
-                            ?>
                         </select>
+
                     </div>
-                    
-                    <?php
+
+
+
+                    <?php if (TITLE == "Editar Rastreio") {
+                        ?>
+                        <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
+                        <div class="form-group" hidden="">
+                            <label>Serviço Terceirizado</label>
+                            <select type="text" class="selectpicker" name="RFKServico">
+                                <option hidden="" >[SELECIONE]</option>
+                                <?php
+                                foreach ($servico as $serv) {
+                                    $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
+                                    echo "<option value=" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+                        <?php
                     }
                     ?>
 
@@ -194,7 +186,7 @@ if (isset($_GET['rProtese'])) {
                                 <br>
                                 <input type="submit"  name="<?= BTN ?>"
                                        class="btn btn-success btInput p-1 offset-5" value="Enviar"
-                                       <?php //if ($btEnviar == TRUE) echo "disabled";  ?>>
+                                       <?php //if ($btEnviar == TRUE) echo "disabled";   ?>>
                                 <br>
                                 <br>
                             </div>

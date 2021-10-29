@@ -13,12 +13,22 @@ use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
 $innerTratamento= "";
-$servAux="";
+
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 
 $terceiro = terceiro::getTerceiros();
-$servico = servicoTerceiro::getServicoInner($servAux);
+
+
+
+//$selectTerceiro= '<script>document.write(selectTerceiro)</script>';
+    //echo $selectTerceiro;
+
+//echo'<pre>';print_r($selectTerceiro);echo'</pre>';exit;
+
+
+   
+
 
 if (isset($_GET['rProtese'])) {
     $innerTratamento = tratamento::getTratamentoInner($_GET['rProtese']);
@@ -29,6 +39,20 @@ if (isset($_GET['rProtese'])) {
 
 
 $rastreio = new rastreio();
+
+$aux=0;
+/*if (isset($_POST['select'])) {
+    
+    
+    $aux= $_POST['RFKTerceiro'];
+    $rastreio->RFKTerceiro=$_POST['RFKTerceiro'];
+    $servico=servicoTerceiro::getServicoInner($aux);
+    //unset($_POST['select']);
+    
+    
+}
+ 
+ */
 $terceirizado = new terceirizado();
 
 if (isset($_POST['cadastrarRastreio'])) {
@@ -59,6 +83,8 @@ if (isset($_POST['cadastrarRastreio'])) {
         //URL='cadastroDentista.php'\">";
     
 }
+
+
 
 /*if (isset($_POST['pConsultaRast'])){
     header ('Location: listaConsultaR.php?rastreio=check');

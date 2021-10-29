@@ -69,3 +69,14 @@ class ServicoTerceiro{
                 ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
 }
+
+
+/*
+SELECT * FROM servicoterceiro 
+INNER JOIN terceirizado on fkServicoTerceiro=idServico
+INNER JOIN terceiro ON fkTerceiro=idTerceiro
+
+CREATE VIEW serv as SELECT * FROM servicoterceiro 
+INNER JOIN terceirizado on fkServicoTerceiro=idServico
+INNER JOIN terceiro ON fkTerceiro=idTerceiro
+*/
