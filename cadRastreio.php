@@ -6,6 +6,8 @@ define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
 define('IDENTIFICACAO', 1);
 
+
+/* echo "<pre>"; print_r($_SESSION); echo "<pre>";exit; */
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
 use Classes\Entity\servicoTerceiro;

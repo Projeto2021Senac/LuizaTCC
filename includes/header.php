@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Icone do site -->
+
+    <link rel="icon" href="includes/img/icone2.png">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -93,10 +97,9 @@
                     <li class="nav-item dropdown">
                         <div id="passar_mouse">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="./includes/img/3pontos.png" width="30" height="30" alt="sentings" />
-                                
+                                <img src="./includes/img/3pontos.png" title="Outros" width="30" height="30" alt="sentings" />
                             </a>
-                            
+
                             <ul class="dropdown-menu offset-3" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
                                 <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>
@@ -114,13 +117,14 @@
                     <div>
                 </ul>
 
-                <div class = "border border-dark text-center">
+                <div class="border border-dark text-center">
                     <li class="nav-item dropdown" style="list-style:none">
                         <a class="nav-link dropdown-toggle" style="text-decoration:none;color:black" href="#" id="perfil" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                            <img src="<?=($_SESSION['perfil'] == 'Administrador' ? './includes/img/usuario.png' : './includes/img/abc.png')?>" width="40" height="40" style="border-radius: 20px;" alt="sair" /><strong>Usuário: <?= $_SESSION['nome'] ?></strong>
-                            <br><label><?=$_SESSION['perfil']?></label>
+                            <img src="<?= ($_SESSION['perfil'] == 'Administrador' ? './includes/img/usuario.png' : './includes/img/abc.png') ?>" width="40" height="40" style="border-radius: 20px;" alt="sair" /><strong>Usuário: <?= $_SESSION['nome'] ?></strong>
+                            <br><label><?= $_SESSION['perfil'] ?></label>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="perfil">
+                        <ul class="dropdown-menu text-center" style = "width:100%" aria-labelledby="perfil">
+                            <li hidden><a class="dropdown-item" href="./listaDentista.php">DentistaDentistaDentistaDentistaDe</a></li>
                             <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
                             <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>
                             <li>

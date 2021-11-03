@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class = "container-fluid p-4">
+    <div class="container-fluid p-4">
 
 
         <div class="row">
@@ -69,85 +69,86 @@
             </div>
             <!--                 <div class="col-1"></div> -->
 
-            <div class="col-6 mt-2 ">
-                <div class="card-header bg-dark text-white text-center border border-light" style="opacity:100%">Today</div>
-                <div class="card-body bg-dark border border-light" style="opacity:80%">
+            <div class="col-6 mt-2 h-75">
+                <div class = "h-50">
+                    <div class="card-header bg-dark text-white text-center border border-light" style="opacity:100%">Today</div>
+                    <div class="card-body bg-dark border border-light" style="opacity:80%">
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="text-center">today
-                                </th>
-                            </tr>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="text-center">today
+                                    </th>
+                                </tr>
 
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
 
 
 
-                        </tbody>
-                    </table>
-                </div>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div class="card-header bg-dark text-white text-center border border-light" style="opacity:100%">Tomorow</div>
-                <div class="card-body bg-dark border border-light" style="opacity:80%">
-                    <table>
-                        <thead class="bg-dark">
-                            <tr>
-                                <th class="text-center">Aná
-                                </th>
-                            </tr>
+                    <div class="card-header bg-dark text-white text-center border border-light" style="opacity:100%">Tomorow</div>
+                    <div class="card-body bg-dark border border-light" style="opacity:80%">
+                        <table>
+                            <thead class="bg-dark">
+                                <tr>
+                                    <th class="text-center">Aná
+                                    </th>
+                                </tr>
 
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Today</th>
+                                </tr>
+                            </tbody>
+                        </table>
 
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
