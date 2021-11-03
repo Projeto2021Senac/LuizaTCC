@@ -16,6 +16,7 @@
     <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
     
     <script src="js/sweetalert2.min.js"></script>
+    <script src="js/JQuery2.min.js"></script>
 
     <title>Abdull Proteses</title>
     

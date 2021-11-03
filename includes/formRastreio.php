@@ -77,7 +77,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Valor</label>
-                        <input type="text" class="form-control" name="vlrCobrado"  value="<?= $rastreio->vlrCobrado ?>">
+                        <input type="text" class="form-control" id="vlrCobrado" name="vlrCobrado"  value="<?= $rastreio->vlrCobrado ?>">
                     </div>
 
 
@@ -90,7 +90,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group" >
                         <label>Terceirizado</label>
-                        <select onselect="return selecionaServico()" id="RFKTerceiro" class="form-control" name="RFKTerceiro" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select onchange="selecionaServico()" id="RFKTerceiro" class="form-control" name="RFKTerceiro" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option hidden="" >[SELECIONE]</option>
                             <?php
                             foreach ($terceiro as $terc) {
@@ -133,7 +133,7 @@ if (isset($_GET['rProtese'])) {
                     
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select class="selectpicker form-control" multiple="multiple" title="SELECIONE" type="text" name="RFKServico[]"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select class="selectpicker form-control" multiple="multiple" title="SELECIONE" type="text" id="RFKServico" name="RFKServico[]"  <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <!--<option>[SELECIONE]</option>-->
                                 <?php  
                                                    
