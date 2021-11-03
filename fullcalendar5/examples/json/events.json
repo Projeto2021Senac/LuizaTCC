@@ -1,7 +1,10 @@
 [
   {
     "title": "All Day Event",
-    "start": "2020-09-01"
+    "start": "2020-09-01",
+    "extendedProps":[{
+      "status": "done"
+    }]
   },
   {
     "title": "Long Event",
