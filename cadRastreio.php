@@ -1,15 +1,16 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
 //define('IDENTIFICACAO', 1);
 
 
+
+/* echo "<pre>"; print_r($_SESSION); echo "<pre>";exit; */
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
-
 use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 

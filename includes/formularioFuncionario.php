@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid">
     <main>
 
         <section>
@@ -69,7 +69,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="perfil" value="Administrador" <?= $objFuncionario->perfil == 'Administrador' ? 'checked' : '' ?>>
                             <label class="form-check-label">
-                                Adminstrador
+                                Administrador
                             </label>
                         </div>
                     </div>

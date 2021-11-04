@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\paciente;
 define('NAME','Paciente');
 define('LINK','listaPaciente.php');
@@ -27,7 +27,7 @@ if(strlen($where)){
     $pagina_atual = intval($_GET['pagina']);
   }
 
-$itens_por_pagina = 6;
+$itens_por_pagina = 4;
 
 $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
 

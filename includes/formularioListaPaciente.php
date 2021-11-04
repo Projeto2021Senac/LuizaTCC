@@ -46,6 +46,7 @@ $resultados = strlen($resultados) ? $resultados :
     <br>
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
+      <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
         <div class="bg-dark rounded p-2">
           <h5 style="color: white; text-align: center ">Pacientes</h5>
           <form method="post" action="">

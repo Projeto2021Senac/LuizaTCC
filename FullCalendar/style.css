@@ -1,0 +1,15 @@
+*{margin:0; padding:0; box-sizing: border-box;font-family: Arial,sans-serif;}
+body{
+    background-image: url(../includes/img/bg.jpg);
+}
+.calendar{
+    border: 20px inset blue;
+    border-radius: 20px;
+    width:80%;
+    margin: 30px auto;
+    height: 80vh;
+    background-color: aliceblue;
+}
+.text-center{
+    text-align: center;
+}
