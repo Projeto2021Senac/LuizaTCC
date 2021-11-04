@@ -40,6 +40,7 @@ $resultados = strlen($resultados) ? $resultados :
     }
     ?>
     <br>
+    
     <section class="d-flex justify-content-center mt-2">
         <div class="col-4">
             <div class="bg-dark rounded p-2">

@@ -1,4 +1,5 @@
 <div class="container-fluid p-3">
+<input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
     <main>
         <section class="p-2">
             <div class="col-4 offset-4">

@@ -1,5 +1,6 @@
 <div class = "container-fluid">
     <main>
+    <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
         <section class="d-flex justify-content-center mt-2">
             <div class="col-4">
                 <div class="bg-dark rounded p-2">

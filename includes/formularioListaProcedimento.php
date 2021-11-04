@@ -1,4 +1,5 @@
 <div class="container-fluid" style="background-repeat: no-repeat; background-size: 100%">
+<input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
   <main>
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">

@@ -89,7 +89,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKTerceiro" id="id_terceiro" onchange="FuncaoMaior(this.value)" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select type="text" class="form-control" name="RFKTerceiro" id="id_terceiro" onchange="getServicoTerceiro(this.value)" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option hidden="" value="0">[SELECIONE]</option>
                             <?php
                             foreach ($terceiro as $terc) {
@@ -108,7 +108,7 @@ if (isset($_GET['rProtese'])) {
                         <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
                         <div class="form-group" hidden="">
                             <label>Terceirizado</label>
-                            <select type="text" class="form-control" id="id_terceiro" onchange="FuncaoMaior(this.value)" name="RFKTerceiro">
+                            <select type="text" class="form-control" id="id_terceiro" onchange="getServicoTerceiro(this.value)" name="RFKTerceiro">
                                 <option hidden="" value="0">[SELECIONE]</option>
                                 <?php
                                 foreach ($terceiro as $terc) {
