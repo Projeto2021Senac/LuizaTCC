@@ -21,9 +21,9 @@ foreach ($pacientes as $p) {
         . '<td> ' . $p->email . '</td>'
         . '<td> 
           <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 
-              class="btn btn-primary" >Editar</a>
+              class="btn btn-info" >Editar</a>
               
-            <a href="index.php?prontuario=' . $p->prontuario . '"
+            <a href="prontuario.php?paciente=' . $p->prontuario . '"
                 class="btn btn-primary" >Abrir prontuário</a>
          </td>
          </tr>';
@@ -44,42 +44,31 @@ $resultados = strlen($resultados) ? $resultados :
     }
     ?>
     <br>
-    <div class="row ">
+    <section class="d-flex justify-content-center mt-2">
+      <div class="col-4">
+        <div class="bg-dark rounded p-2">
+          <h5 style="color: white; text-align: center ">Pacientes</h5>
+          <form method="post" action="">
+            <div class="col-10 form-group p-2" style="margin:auto">
 
-
-        <div class="row">
-
-            <div class="col-2 offset-5 bg-gradient" style=" background-color: black;opacity: 90%">
-                <h5 style="color: white; text-align: center ">Pacientes</h5>
+              <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
             </div>
+            <input type="submit" name="listaPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+
+          </form>
+
         </div>
-
-
         <div class="row">
-            <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
-
-
-                <form method="post" action="" style="color: white">
-
-                    <div class="form-group">
-
-                        <input type="text" class="form-control p-1" name="busca" required="" id="busca" value="<?= $busca ?>">
-                    </div>
-
-            </div>
+          <div class="col-6 p-2">
+            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+          </div>
+          <div class="col-6 p-2">
+            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Paciente" class="btn btn-success w-100" /> </a>
+          </div>
         </div>
+      </div>
 
-        <div class="row">
-
-            <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
-
-                <input type="submit" name="pesquisarPaciente" class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
-
-            </div>
-
-            </form>
-        </div>
-    </div>
+    </section>
     <br>
 </div>
 
@@ -88,20 +77,9 @@ $resultados = strlen($resultados) ? $resultados :
 
     <div class="row">
 
-
-        <div class=" col-2 offset-4">
-            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
-
-        </div>
-
-        <div class=" col-2 ">
-            <a href="cadastroPaciente.php"> <button class="btn btn-success w-100"> Novo Paciente</button> </a>
-
-        </div>
-
         <div class="col-12 mt-2">
 
-            <table class="table table-responsive bg-light bg-gradient">
+            <table class="table bg-light table-striped table-hover mt-1">
                 <thead class="table-dark">
                     <tr>
                         <th>Prontuário</th>

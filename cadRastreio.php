@@ -4,11 +4,12 @@ require 'vendor/autoload.php';
 
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
+//define('IDENTIFICACAO', 1);
 
 
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
-use Classes\Entity\servicoTerceiro;
+
 use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
@@ -40,19 +41,7 @@ if (isset($_GET['rProtese'])) {
 
 $rastreio = new rastreio();
 
-$aux=0;
-/*if (isset($_POST['select'])) {
-    
-    
-    $aux= $_POST['RFKTerceiro'];
-    $rastreio->RFKTerceiro=$_POST['RFKTerceiro'];
-    $servico=servicoTerceiro::getServicoInner($aux);
-    //unset($_POST['select']);
-    
-    
-}
- 
- */
+
 $terceirizado = new terceirizado();
 
 if (isset($_POST['cadastrarRastreio'])) {

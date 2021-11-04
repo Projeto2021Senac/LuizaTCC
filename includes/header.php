@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-select-picker.min.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="stylesheet" href="css/bootstrap-select-picker.min.css">
 
-    <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
+    <link rel="stylesheet" href="css/css-debug.css">
     
     <script src="js/sweetalert2.min.js"></script>
     
@@ -35,9 +36,9 @@
         </script>
   </head>
   <body style="border:10px;border-color:red;background-image: url(./includes/img/bg.jpg);background-repeat: no-repeat; background-size: cover">
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3a9fab;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #47b8d8;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="./includes/img/DL_Logo_wStrap_Black-01.png" alt="" width="200" height="100">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,7 +86,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="./includes/img/settings.png" width="30" height="30" alt="sentings" />
+                            <img src="./includes/img/3pontos.png" width="30" height="30" alt="sentings" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
@@ -101,11 +102,26 @@
                             <li><a class="dropdown-item" href="./listaServicoTerceiro.php">ServiçoTerceirizado</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
                 </ul>
 
+                <li class="nav-item dropdown" style="list-style:none">
+                <a class="nav-link dropdown-toggle" style = "text-decoration:none" href="#" id="perfil" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <label>Usuário: <?=$_SESSION['nome']?></label>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="perfil">
+                            <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
+                            <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="./listaRastreio.php">Rastreio</a></li>
+                            
+                            <li><a class="dropdown-item" href="./listaProcedimento.php">Procedimento</a></li>
+                            
+                            <li><a class="dropdown-item" href="./listaTerceiro.php">Terceirizado</a></li>
+                            <li><a class="dropdown-item" href="./listaServicoTerceiro.php">ServiçoTerceirizado</a></li>
+                        </ul>
+                    </li>
 
                 <a class="nav-link" href="sessionDestroy.php">
                     <div id="passar_mouse">

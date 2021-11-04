@@ -1,4 +1,4 @@
-<div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" style="background-repeat: no-repeat; background-size: 100%">
   <main>
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
@@ -6,10 +6,10 @@
           <h5 style="color: white; text-align: center ">Procedimentos</h5>
           <form method="post" action="">
             <div class="col-10 form-group p-2" style="margin:auto">
-
-              <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
+              <input hidden name = "tabela" value="procedimento"></input>
+              <input type="text" class="form-control p-1" id="busca" name="busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarProcedimento" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="pesquisarProcedimento" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 

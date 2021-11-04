@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div>
+    <div class = "container-fluid p-4">
 
 
         <div class="row">
@@ -97,15 +97,7 @@
                             <tr>
                                 <th class="text-center">Today</th>
                             </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Today</th>
-                            </tr>
+
 
 
                         </tbody>

@@ -6,9 +6,9 @@
                 <form method="post" action="">
                     <div class="col-10 form-group p-2" style="margin:auto">
 
-                        <input type="text" class="form-control p-1" name="busca" required="" value="<?= $busca ?>">
+                        <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
                     </div>
-                    <input type="submit" name="pesquisarProtese" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
+                    <input type="submit" name="pesquisarProtese" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
                 </form>
                 
@@ -21,7 +21,7 @@
         
     </section>
 
-    <table class="table table-striped table-hover table-dark table-responsive bg-light mt-1 table-bordered">
+    <table class="table bg-light table-striped table-hover mt-1 table-responsive">
         <thead class="bg-dark text-light">
             <tr class = "text-center">
 
