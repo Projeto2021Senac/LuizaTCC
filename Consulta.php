@@ -2,7 +2,7 @@
 //faz o require do autoload composer, para carregar automaticamente as principais classes do nosso projeto,  
 //assim só sendo necessário o uso de um "use \classe" para chamá-la (válido somente para arquivos da pasta classes).
 require __DIR__ . '/vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\Consulta;
 use \Classes\Entity\Procedimento;
 use \Classes\Entity\tratamento;
@@ -13,23 +13,24 @@ if (!$ConsultaInnerJoin instanceof consulta) {
     header('location: pesquisarConsulta.php?status=error');
 }
 /* echo "<pre>"; print_r($ConsultaInnerJoin); echo "<pre>";exit; */
-$objProcedimento = Procedimento::getProcedimentos();
+$objProcedimento = Procedimento::getProcedimentos('idProcedimento not in (select fkProcedimento from tratamento where fkConsulta =' . $_GET['id'] . ')');
+/* echo "<pre>"; print_r($objProcedimento); echo "<pre>";exit; */
 if ($ConsultaInnerJoin->statusConsulta == 'Finalizada') {
     $tratamentos = tratamento::getTratamentos('procedimento', 'fkConsulta =' . $_GET['id'], 'fkProcedimento,idProcedimento');
-       /*  echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
+    /*  echo "<pre>"; print_r($tratamentos); echo "<pre>";exit; */
     $resultados = '';
+    /* echo '<pre>';print_r($tratamentos);echo'<pre>';exit; */
     foreach ($tratamentos as $tratamento) {
-        
-        if ($tratamento->nomeProcedimento == 'Protese'){
+
+        if ($tratamento->nomeProcedimento == 'Protese') {
             $resultados .= '<tr>
-                        <td><a href="pesquisarProtese.php?idConsulta='.$_GET["id"].'&idProcedimento='.$tratamento->idProcedimento.'&prontuario='.$ConsultaInnerJoin->prontuario.'" style = "text-decoration:none;color:red">' .$tratamento->nomeProcedimento . '</a></td>
+                        <td><a href="pesquisarProtese.php?pagina=1&idConsulta=' . $_GET["id"] . '&idProcedimento=' . $tratamento->idProcedimento . '&prontuario=' . $ConsultaInnerJoin->prontuario . '" style = "text-decoration:none;color:red">' . $tratamento->nomeProcedimento . '</a></td>
                         </tr>';
-        }else{
+        } else {
             $resultados .= '<tr>
-                        <td>' .$tratamento->nomeProcedimento . '</td>
-                        </tr>';
+            <td><a href="tratamento.php?idConsulta=' . $_GET["id"] . '&idProcedimento=' . $tratamento->idProcedimento . '&prontuario=' . $ConsultaInnerJoin->prontuario . '" style = "text-decoration:none;color:red">' . $tratamento->nomeProcedimento . '</a></td>
+            </tr>';
         }
-        
     }
 }
 /* echo "<pre>"; print_r($_POST); echo "<pre>";exit; */
@@ -47,26 +48,54 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 /* echo "<pre>"; print_r($erro); echo "<pre>";exit; */
 $objTratamento = new Tratamento;
 if (isset($_POST['Finalizar'])) {
+    /*     echo '<pre>';
+    print_r($_POST);
+    echo '<pre>';
+    exit; */
     if (isset($_POST['observacoes'], $_POST['procedimento']) && $_POST['procedimento'] != '-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-') {
         $erro = 0;
-        $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);
-        $objTratamento->fkProcedimento = $_POST['procedimento'];
-        $objTratamento->fkConsulta = $ConsultaInnerJoin->idConsulta;
 
-        /* echo "<pre>"; print_r($objTratamento); echo "<pre>";exit; */
-        $teste = $objTratamento->cadastrarTratamento();
-        /* echo '<pre>';print_r($teste);echo'<pre>';exit; */
-        /*  echo '<pre>';print_r($teste);echo'<pre>';exit; */
-        /* echo '<pre>';print_r(gettype($teste[0]));echo'<pre>';exit; */
+        if (count($_POST['procedimento']) > 1) {
+            /* echo '<pre>';print_r('teste');echo'<pre>';exit; */
+            for ($i = 0; $i < count($_POST['procedimento']); $i++) {
+                $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);
+                $objTratamento->fkProcedimento = $_POST['procedimento'][$i];
+                $objTratamento->fkConsulta = $ConsultaInnerJoin->idConsulta;
 
-        if (gettype($teste[0]) == 'object') {
-            $objTratamento->atualizarStatusConsulta($_GET['id'], 'Finalizada');
-            header('location: Consulta.php?id=' . $ConsultaInnerJoin->idConsulta);
+
+                $teste = $objTratamento->cadastrarTratamento();
+                if (gettype($teste[0]) == 'object') {
+                    if (isset($_POST['finalizarConsulta']) && $_POST['finalizarConsulta'] == 'on') {
+                        $objTratamento->atualizarStatusConsulta($_GET['id'], 'Finalizada');
+                    } else {
+                        $erro = 0;
+                    }
+                } else {
+                    $erro = 1;
+                }
+            }
+            if ($erro == 0) {
+                header('location: Consulta.php?id=' . $ConsultaInnerJoin->idConsulta);
+            }
         } else {
-            echo '<pre>';
-            print_r('Houve um erro na inserção do tratamento. Provavelmente o procedimento já foi cadastrado nessa consulta anteriormente');
-            echo '<pre>';
-            exit;
+            $objTratamento->observacao = ($_POST['observacoes'] == '' ? 'Sem observações' : $_POST['observacoes']);
+            $objTratamento->fkProcedimento = $_POST['procedimento'][0];
+            $objTratamento->fkConsulta = $ConsultaInnerJoin->idConsulta;
+
+
+            $teste = $objTratamento->cadastrarTratamento();
+
+            if (gettype($teste[0]) == 'object') {
+                if (isset($_POST['finalizarConsulta']) && $_POST['finalizarConsulta'] == 'on') {
+                    $objTratamento->atualizarStatusConsulta($_GET['id'], 'Finalizada');
+                }
+                header('location: Consulta.php?id=' . $ConsultaInnerJoin->idConsulta);
+            } else {
+                echo '<pre>';
+                print_r('Houve um erro na inserção do tratamento. Provavelmente o procedimento já foi cadastrado nessa consulta anteriormente');
+                echo '<pre>';
+                exit;
+            }
         }
     } else {
         $erro = 1;

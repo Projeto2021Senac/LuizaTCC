@@ -10,6 +10,7 @@ define('NAME','Consulta');
 define('LINK','pesquisarConsulta.php?pagina=1');
 define('CAMPO','nomePaciente,idConsulta,dataConsulta,prontuario');
 define('TABELA','consulta');
+define('IDENTIFICACAO',1);
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 
@@ -75,12 +76,12 @@ if (isset($_GET['id'])) {
   }
   $resultados = '';
   foreach ($consultas as $consulta) {
-    $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-danger"');
+    $disabled = ($consulta->statusConsulta == 'Finalizada' ? 'class = "btn btn-secondary" disabled = disabled' : 'class = "btn btn-info"');
     $disabled = ($disabled2 == 'ok' ? 'hidden=""' : $disabled);
 
     $resultados .= '<tr class = "text-center" >
                           <td>' . $consulta->idConsulta . '</td>
-                          <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
+                          <td>' . date('Y/m/d', strtotime($consulta->dataConsulta)) . '</td>
                           <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
                           <td>' . $consulta->statusConsulta . '</td>
                           <td>' . $consulta->nomePaciente . '</td>

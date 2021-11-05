@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Editar Paciente');
 define('BTN', 'editarPaciente');
 

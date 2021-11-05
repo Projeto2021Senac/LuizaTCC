@@ -42,7 +42,7 @@
                 </div>
                 <form method="post" class="mt-4">
                     <div class="col-10 offset-1 form-group p-4">
-                        <select name = "procedimento" class="form-select">
+                        <select name = "procedimento[]" class="selectpicker" multiple="multiple" data-live-search="true">
                             <option hidden>-[SELECIONE O PROCEDIMENTO A SER REALIZADO]-</option>
                             <?php
                             foreach ($objProcedimento as $procedimento) {

@@ -1,4 +1,5 @@
-<div class="container-fluid" style=" height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid">
+  <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
   <main>
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
@@ -7,9 +8,9 @@
           <form method="post" action="">
             <div class="col-10 form-group p-2" style="margin:auto">
 
-              <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
+              <input type="text" class="form-control p-1" name="busca" id="busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarProtese" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="pesquisarProtese" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 
@@ -25,54 +26,54 @@
       </div>
 
     </section>
-    <section>
-
-      <table class="table bg-light table-striped table-hover mt-1">
-        <thead class="bg-dark text-light">
-          <tr class="text-center">
-            <th>ID</th>
-            <th>data</th>
-            <th>hora</th>
-            <th>status</th>
-            <th>Paciente atendido</th>
-            <th>Ações</th>
 
 
+    <table class="table bg-light table-striped table-hover mt-1">
+      <thead class="bg-dark text-light">
+        <tr class="text-center">
+          <th>ID</th>
+          <th>data</th>
+          <th>hora</th>
+          <th>status</th>
+          <th>Paciente atendido</th>
+          <th>Ações</th>
 
-          </tr>
 
-        </thead>
-        <tbody>
-          <?= $resultados ?>
 
-        </tbody>
+        </tr>
 
-      </table>
-      <div class="d-flex justify-content-center">
-        <nav class="" aria-label="...">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
-            </li>
-            <?php
-            for ($i = 1; $i <= $num_pagina; $i++) {
-              $estilo = "";
-              if ($pagina_atual == $i) {
-                $estilo = "active";
-              }
-            ?>
-              <li class="page-item <?= $estilo ?>"><a class="page-link" href="pesquisarConsulta.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
-            <?php
+      </thead>
+      <tbody>
+        <?= $resultados ?>
+
+      </tbody>
+
+    </table>
+    <div class="d-flex justify-content-center">
+      <nav class="" aria-label="...">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+          </li>
+          <?php
+          for ($i = 1; $i <= $num_pagina; $i++) {
+            $estilo = "";
+            if ($pagina_atual == $i) {
+              $estilo = "active";
             }
-            ?>
-            <li class="page-item">
-              <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          ?>
+            <li class="page-item <?= $estilo ?>"><a class="page-link" href="pesquisarConsulta.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+          <?php
+          }
+          ?>
+          <li class="page-item">
+            <a class="page-link" href="pesquisarConsulta.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-    </section>
+
 
   </main>
 </div>

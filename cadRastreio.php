@@ -1,24 +1,36 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
+//define('IDENTIFICACAO', 1);
 
 
+
+/* echo "<pre>"; print_r($_SESSION); echo "<pre>";exit; */
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
-use Classes\Entity\servicoTerceiro;
 use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
 $innerTratamento= "";
-$servAux="";
+
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 
 $terceiro = terceiro::getTerceiros();
-$servico = servicoTerceiro::getServicoInner($servAux);
+
+
+
+//$selectTerceiro= '<script>document.write(selectTerceiro)</script>';
+    //echo $selectTerceiro;
+
+//echo'<pre>';print_r($selectTerceiro);echo'</pre>';exit;
+
+
+   
+
 
 if (isset($_GET['rProtese'])) {
     $innerTratamento = tratamento::getTratamentoInner($_GET['rProtese']);
@@ -29,6 +41,8 @@ if (isset($_GET['rProtese'])) {
 
 
 $rastreio = new rastreio();
+
+
 $terceirizado = new terceirizado();
 
 if (isset($_POST['cadastrarRastreio'])) {
@@ -59,6 +73,8 @@ if (isset($_POST['cadastrarRastreio'])) {
         //URL='cadastroDentista.php'\">";
     
 }
+
+
 
 /*if (isset($_POST['pConsultaRast'])){
     header ('Location: listaConsultaR.php?rastreio=check');
