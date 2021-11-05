@@ -4,22 +4,33 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
-define('IDENTIFICACAO', 1);
+//define('IDENTIFICACAO', 1);
+
 
 
 /* echo "<pre>"; print_r($_SESSION); echo "<pre>";exit; */
 use Classes\Entity\rastreio;
 use Classes\Entity\terceiro;
-use Classes\Entity\servicoTerceiro;
 use Classes\Entity\terceirizado;
 use Classes\Entity\tratamento;
 
 $innerTratamento= "";
+
 //$consulta = consulta::getConsultas();
 //$procedimento = procedimento::getProcedimentos();
 
 $terceiro = terceiro::getTerceiros();
-$servico = servicoTerceiro::getServicoTerceiros();
+
+
+
+//$selectTerceiro= '<script>document.write(selectTerceiro)</script>';
+    //echo $selectTerceiro;
+
+//echo'<pre>';print_r($selectTerceiro);echo'</pre>';exit;
+
+
+   
+
 
 if (isset($_GET['rProtese'])) {
     $innerTratamento = tratamento::getTratamentoInner($_GET['rProtese']);
@@ -30,6 +41,8 @@ if (isset($_GET['rProtese'])) {
 
 
 $rastreio = new rastreio();
+
+
 $terceirizado = new terceirizado();
 
 if (isset($_POST['cadastrarRastreio'])) {
@@ -43,13 +56,15 @@ if (isset($_POST['cadastrarRastreio'])) {
         $rastreio->RFKTerceiro = $_POST['RFKTerceiro'];
         $rastreio->RFKServico = $_POST['RFKServico'];
         $rastreio->fkProtese = $_POST['fkProtese'];
-        $terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
-        $terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
-       //echo'<pre>';print_r($rastreio);echo'</pre>';exit;
+        //$terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
+        //$terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
+       echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
         //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
-        $terceirizado->cadastrarTerceirizado();
+        
+        //$terceirizado->cadastrarTerceirizado();
         $rastreio->cadastrarRastreio();
+        
         
         
         header ('Location: listaRastreio.php?status=success');
@@ -59,11 +74,14 @@ if (isset($_POST['cadastrarRastreio'])) {
     
 }
 
+
+
 /*if (isset($_POST['pConsultaRast'])){
     header ('Location: listaConsultaR.php?rastreio=check');
 }*/
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formRastreio.php';
+
 include __DIR__.'/includes/footer.php';
  

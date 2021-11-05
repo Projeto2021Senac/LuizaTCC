@@ -61,4 +61,22 @@ class ServicoTerceiro{
                 'statusServicoTerceiro' => $this->statusServicoTerceiro
             ]);
     }
+    
+    public static function getServicoInner($ter) {
+
+
+        return $db = (new db)->executeSQL('SELECT * FROM serv where statusServicoTerceiro="ativo" AND fkTerceiro='.$ter)
+                ->fetchAll(PDO::FETCH_CLASS,self::class);
+    }
 }
+
+
+/*
+SELECT * FROM servicoterceiro 
+INNER JOIN terceirizado on fkServicoTerceiro=idServico
+INNER JOIN terceiro ON fkTerceiro=idTerceiro
+
+CREATE VIEW serv as SELECT * FROM servicoterceiro 
+INNER JOIN terceirizado on fkServicoTerceiro=idServico
+INNER JOIN terceiro ON fkTerceiro=idTerceiro
+*/

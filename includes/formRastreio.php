@@ -66,7 +66,7 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Data de Retorno</label>
-                        <input type="date" class="form-control" name="dtRetorno" required="" value="<?= $rastreio->dtRetorno ?>">
+                        <input type="date" class="form-control" name="dtRetorno"  value="<?= $rastreio->dtRetorno ?>">
                     </div>
 
                     <div class="form-group">
@@ -101,12 +101,12 @@ if (isset($_GET['rProtese'])) {
                     </div>
 
 
+
+
                     <?php if (TITLE == "Editar Rastreio") {
-
-
-                    ?>
+                        ?>
                         <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                        <div class="form-group" hidden="">
+                        <div class="form-group"  hidden="">
                             <label>Terceirizado</label>
                             <select type="text" class="form-control" id="id_terceiro" onchange="getServicoTerceiro(this.value)" name="RFKTerceiro">
                                 <option hidden="" value="0">[SELECIONE]</option>
@@ -117,98 +117,121 @@ if (isset($_GET['rProtese'])) {
                                 }
                                 ?>
                             </select>
+
                         </div>
 
-                    <?php
+                        <?php
                     }
                     ?>
 
-
+                        <!--/////////////////////////////////-->
+                        
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select id="servico_terceiro" class = "form-control">
+                        <select id="servico_terceiro" class="form-control" name="RFKServico" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
                             <option value="" hidden>Escolher Servico</option>
-                        </select>
+
+                            <?php
+                            if (TITLE == "Editar Rastreio") {
+                                
+                                foreach ($servico as $serv) {
+                                    $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
+                                    echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
+                                  
+                                }
+                                    ?>
+                                    
+
+                                </select>
+                            </div>
+                           <?php
+                            }
+                            ?>
+
+
+                            <?php
+                            if (TITLE == "Editar Rastreio") {
+                                
+                                ?>
+                                <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
+                                <div class="form-group" hidden="">
+                                    <label>Serviço Terceirizado</label>
+                                    <select id="servico_terceiro" name="RFKServico">
+                                        <option value="" hidden>Escolher Servico</option>
+                                        <?php
+                                        foreach ($servico as $serv) {
+                                            $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
+                                            echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+
+                                <?php
+                            }
+                            ?>
+
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select type="text" class="form-control" name="status">
+                                    <option hidden="">[SELECIONE]</option>
+
+                                    <option value="aberto" <?= 'aberto' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Aberto</option>
+                                    <option value="finalizado" <?= 'finalizado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Finalizado</option>
+                                    <option value="cancelado" <?= 'cancelado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Cancelado</option>
+
+
+
+                                </select>
+                            </div>
+
+
+                            <br>
+
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="  bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
+                                        <br>
+                                        <input type="submit" name="<?= BTN ?>" class="btn btn-success btInput p-1 offset-5" value="Enviar" <?php //if ($btEnviar == TRUE) echo "disabled";  
+                            ?>>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
                     </div>
+                    <!--</div>-->
 
-
-                    <?php if (TITLE == "Editar Rastreio") {
-
-
-                    ?>
-                        <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                        <div class="form-group" hidden="">
-                            <label>Serviço Terceirizado</label>
-                            <select id="servico_terceiro">
-                                <option value="" hidden>Escolher Servico</option>
-                            </select>
-                        </div>
-
+                    <!--<div class="row">-->
                     <?php
+                    if (isset($_GET['rProtese'])) {
+                        ?>
+                        <div class="col-4">
+                            <div class="rounded-3" style=" background-color: black; opacity: 80%; text-align: left; line-height: 3 ; padding-left: 10px;  ">
+                                <label style="color: orange">
+                                    <?php
+                                    if ($innerTratamento != null) {
+                                        echo 'PRONTUÁRIO: <b>' . $innerTratamento->prontuario . ' </b> || PACIENTE: <b>' . $innerTratamento->nomePaciente .
+                                        '</b><br>CONSULTA: <b>' . $innerTratamento->idConsulta . '</b> || DATA: <b>' . date('d/m/Y', strtotime($innerTratamento->dataConsulta)) .
+                                        '</b><br>DENTISTA: <b>' . $innerTratamento->nomeDentista . '</b> || CLÍNICA: <b>' . $innerTratamento->nomeClinica . '<hr>' .
+                                        '</b>IDPRÓTESE: <b>' . $innerTratamento->idProtese . '</b> || TIPO: <b>' . $innerTratamento->tipo .
+                                        '</b><br>POSIÇÂO: <b>' . $innerTratamento->posicao . '</b> <br> DATA-REGISTRO: <b>' . date('d/m/Y', strtotime($innerTratamento->dataRegistro));
+                                    }
+                                    ?>
+
+                                </label>
+
+                            </div>
+                        </div>
+                        <?php
                     }
                     ?>
 
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select type="text" class="form-control" name="status">
-                            <option hidden="">[SELECIONE]</option>
-
-                            <option value="aberto" <?= 'aberto' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Aberto</option>
-                            <option value="finalizado" <?= 'finalizado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Finalizado</option>
-                            <option value="cancelado" <?= 'cancelado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Cancelado</option>
-
-
-
-                        </select>
-                    </div>
-
-
-                    <br>
-
-            </div>
-            <div>
-                <div class="row">
-                    <div class="  bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
-                        <br>
-                        <input type="submit" name="<?= BTN ?>" class="btn btn-success btInput p-1 offset-5" value="Enviar" <?php //if ($btEnviar == TRUE) echo "disabled";  
-                                                                                                                            ?>>
-                        <br>
-                        <br>
-                    </div>
-                    </form>
-                </div>
-            </div>
         </div>
-        <!--</div>-->
 
-        <!--<div class="row">-->
-        <?php
-        if (isset($_GET['rProtese'])) {
-        ?>
-            <div class="col-4">
-                <div class="rounded-3" style=" background-color: black; opacity: 80%; text-align: left; line-height: 3 ; padding-left: 10px;  ">
-                    <label style="color: orange">
-                        <?php
-                        if ($innerTratamento != null) {
-                            echo 'PRONTUÁRIO: <b>' . $innerTratamento->prontuario . ' </b> || PACIENTE: <b>' . $innerTratamento->nomePaciente .
-                                '</b><br>CONSULTA: <b>' . $innerTratamento->idConsulta . '</b> || DATA: <b>' . date('d/m/Y', strtotime($innerTratamento->dataConsulta)) .
-                                '</b><br>DENTISTA: <b>' . $innerTratamento->nomeDentista . '</b> || CLÍNICA: <b>' . $innerTratamento->nomeClinica . '<hr>' .
-                                '</b>IDPRÓTESE: <b>' . $innerTratamento->idProtese . '</b> || TIPO: <b>' . $innerTratamento->tipo .
-                                '</b><br>POSIÇÂO: <b>' . $innerTratamento->posicao . '</b> <br> DATA-REGISTRO: <b>' . date('d/m/Y', strtotime($innerTratamento->dataRegistro));
-                        }
-                        ?>
 
-                    </label>
-
-                </div>
-            </div>
-        <?php
-        }
-        ?>
 
     </div>
-
-
-
-</div>
 </div>

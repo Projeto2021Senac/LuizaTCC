@@ -3,6 +3,8 @@
 require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\rastreio;
+define('NAME', 'Rastreio');
+define('LINK', 'listaRastreio.php');
 
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
@@ -23,4 +25,5 @@ $rastreio = rastreio::getRastreiosInner($where);
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/lRastreio.php';
+include __DIR__.'/includes/mensagensCRUD.php';
 include __DIR__.'/includes/footer.php';
