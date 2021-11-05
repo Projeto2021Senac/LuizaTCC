@@ -5,6 +5,7 @@ let calendarEl = doc.querySelector('.calendar');
 
 let calendar = new FullCalendar.Calendar(calendarEl, {
     
+  timeZone:'America/Sao_Paulo',
     initialView: 'dayGridMonth',
     headerToolbar:{
         start: 'prev,next,today',
@@ -20,12 +21,21 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
         // change the border color just for fun
         info.el.style.borderColor = 'red';
       },
-      dateClick: function(info) {
-        alert('Clicked on: ' + info.dateStr);
-        alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-        alert('Current view: ' + info.view.type);
-        // change the day's background color just for fun
 
+      dayHeaderFormat:
+      { 
+        weekday: 'short', month: 'numeric', day: 'numeric', omitCommas: true
+      },
+      dateClick: function(info) {
+
+        
+
+      },
+      eventLimit: true, // for all non-TimeGrid views
+      views: {
+        timeGrid: {
+          eventLimit: 2 // adjust to 6 only for timeGridWeek/timeGridDay
+        }
       },
     buttonText:{
         today:    'Hoje',
@@ -39,6 +49,5 @@ events:{
 },
     locale:'pt-br'
   });
- 
   calendar.render();
 })(window,document);
