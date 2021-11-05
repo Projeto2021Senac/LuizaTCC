@@ -39,56 +39,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body ">
-                    <div class = "p-3 bg-dark"> 
+                    <div class="p-3 bg-dark">
                         <form method="post" style="color: white">
                             <div class="p-2">
                                 <div class="col-12" style=" background-color: black;opacity: 80%">
                                     <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
                                 </div>
-
-                                <div class="col-12" style=" background-color: black;opacity: 80%">
-
-
-                                    <div class="form-group">
-                                        <label>Paciente Atendido</label>
-                                        <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="paciente" <?= (TITLE == 'Cadastrar Nova Consulta' ? '' : '') ?>>
-                                            <option selected hidden="">[SELECIONE]</option>
-                                            <?php
-
-                                            foreach ($objPaciente as $paciente) {
-                                                $selected = ($objConsulta->fkProntuario == $paciente->prontuario ? 'selected = selected' : '');
-                                                echo "<option value = " . $paciente->prontuario . " " . $selected . ">" . $paciente->nomePaciente . "</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Data da Consulta</label>
-                                        <input class="form-control" name="data" type="date" value="<?= $objConsulta->dataConsulta ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Hora da Consulta</label>
-                                        <input class="form-control" name="hora" value="<?= $objConsulta->horaConsulta ?>" type="time">
-                                    </div>
-
-                                    <br>
-                                </div>
-
-                                <div class="col-4  bg-gradient" style=" background-color: black;opacity: 80%">
-
-                                    <div>
+                                <div class="row">
+                                    <div class="col-4" style=" background-color: black;opacity: 80%">
 
 
                                         <div class="form-group">
-                                            <label>Quem indicou</label>
-                                            <select class="form-control" name="dentista">
-                                                <option hidden="">[SELECIONE]</option>
+                                            <label>Paciente Atendido</label>
+                                            <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="paciente" <?= (TITLE == 'Cadastrar Nova Consulta' ? '' : '') ?>>
+                                                <option selected hidden="">[SELECIONE]</option>
                                                 <?php
-                                                foreach ($objDentista as $dentista) {
-                                                    $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
-                                                    echo "<option value =" . $dentista->idDentista . " " . $selected . ">" . $dentista->nomeDentista . "</option>";
+
+                                                foreach ($objPaciente as $paciente) {
+                                                    $selected = ($objConsulta->fkProntuario == $paciente->prontuario ? 'selected = selected' : '');
+                                                    echo "<option value = " . $paciente->prontuario . " " . $selected . ">" . $paciente->nomePaciente . "</option>";
                                                 }
                                                 ?>
                                             </select>
@@ -96,31 +65,63 @@
 
 
                                         <div class="form-group">
-                                            <label>Clínica</label>
-                                            <select class="form-control" name="clinica">
-                                                <option hidden="">[SELECIONE]</option>
-                                                <?php
-                                                foreach ($objClinica as $clinica) {
-                                                    $selected = ($objConsulta->CFKClinica == $clinica->idClinica ? 'selected = selected' : '');
-                                                    echo "<option value =" . $clinica->idClinica . " " . $selected . ">" . $clinica->nomeClinica . "</option>";
-                                                }
-                                                ?>
-
-                                            </select>
+                                            <label>Data da Consulta</label>
+                                            <input class="form-control" name="data" type="date" value="<?= $objConsulta->dataConsulta ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Status da Consulta</label>
-                                            <select class="form-control" name="status">
-                                                <option>Agendada</option>
-                                                <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Confirmada' ? print('selected = selected') : '') ?>>Confirmada</option>
-                                                <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Cancelada' ? print('selected = selected') : '') ?>>Cancelada</option>
-                                                <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Em andamento' ? print('selected = selected') : '') ?>>Em andamento</option>
-                                                <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Finalizada' ? print('selected = selected') : '') ?>>Finalizada</option>
-                                            </select>
+                                            <label>Hora da Consulta</label>
+                                            <input class="form-control" name="hora" value="<?= $objConsulta->horaConsulta ?>" type="time">
                                         </div>
-                                    </div>
-                                    <br>
 
+                                        <br>
+                                    </div>
+
+                                    <div class="col-4 " style=" background-color: black;opacity: 80%">
+
+                                        <div>
+
+
+                                            <div class="form-group">
+                                                <label>Quem indicou</label>
+                                                <select class="form-control" name="dentista">
+                                                    <option hidden="">[SELECIONE]</option>
+                                                    <?php
+                                                    foreach ($objDentista as $dentista) {
+                                                        $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
+                                                        echo "<option value =" . $dentista->idDentista . " " . $selected . ">" . $dentista->nomeDentista . "</option>";
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Clínica</label>
+                                                <select class="form-control" name="clinica">
+                                                    <option hidden="">[SELECIONE]</option>
+                                                    <?php
+                                                    foreach ($objClinica as $clinica) {
+                                                        $selected = ($objConsulta->CFKClinica == $clinica->idClinica ? 'selected = selected' : '');
+                                                        echo "<option value =" . $clinica->idClinica . " " . $selected . ">" . $clinica->nomeClinica . "</option>";
+                                                    }
+                                                    ?>
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Status da Consulta</label>
+                                                <select class="form-control" name="status">
+                                                    <option>Agendada</option>
+                                                    <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Confirmada' ? print('selected = selected') : '') ?>>Confirmada</option>
+                                                    <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Cancelada' ? print('selected = selected') : '') ?>>Cancelada</option>
+                                                    <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Em andamento' ? print('selected = selected') : '') ?>>Em andamento</option>
+                                                    <option <?= (TITLE == 'Cadastrar Nova Consulta' ? print('hidden = hidden') : '') ?> <?= ($objConsulta->statusConsulta == 'Finalizada' ? print('selected = selected') : '') ?>>Finalizada</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
+
+                                    </div>
                                 </div>
                                 <div class="col-md-8 form-group offset-2" style=" background-color: black;opacity: 80%">
                                     <label>Observações pré-Consulta</label>
@@ -138,8 +139,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
