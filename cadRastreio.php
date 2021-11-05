@@ -60,7 +60,8 @@ if (isset($_POST['cadastrarRastreio'])) {
         //$terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
        echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         unset($_POST['cadastrarRastreio']);
-        //echo'<pre>';print_r($terceirizado);echo'</pre>';exit;
+        
+        echo'<pre>';print_r($rastreio);echo'</pre>';exit;
         
         //$terceirizado->cadastrarTerceirizado();
         $rastreio->cadastrarRastreio();

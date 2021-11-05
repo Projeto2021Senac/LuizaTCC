@@ -7,7 +7,7 @@ function getServicoTerceiro(valor) {
         url: 'TerceiroServico.php?id_terceiro=' + valorAjax,
         success: function(dados) {
             if (dados != null) {
-                var options = "<option value='' >Escolher Servico</option>";
+                var options = "<option value='' hidden>Escolher Servico</option>";
                 for (var i = 0; i < dados.length; i++) {
                     options += '<option value="' + dados[i].id + '">' + dados[i].nomeServico + '</option>';
                 }
