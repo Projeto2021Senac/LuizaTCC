@@ -18,14 +18,6 @@ function getServicoTerceiro(valor) {
         }
     })
 }
-function habilitar() {
-    if (document.getElementById('denteOuro').checked) {
-        document.getElementById('qtdOuro').removeAttribute("disabled");
-    } else {
-        document.getElementById('qtdOuro').value = "";
-        document.getElementById('qtdOuro').setAttribute("disabled", "disabled");
-    }
-}
 $(function(){
     let = identificacao = document.querySelector("#identificacao").value;
     console.log(identificacao);

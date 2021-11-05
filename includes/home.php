@@ -103,6 +103,54 @@
                         <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
                         <small>Em caso de erro gritar é contra indicado.</small>
                     </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
                     
 
                 </div>
