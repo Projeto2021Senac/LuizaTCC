@@ -1,4 +1,4 @@
-<<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
     <main>
         <a href="index.php">
             <button class="btn btn-success mt-4">Menu</button>

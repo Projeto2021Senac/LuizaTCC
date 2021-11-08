@@ -26,7 +26,7 @@ $objTerceirizado= Terceirizado::getTerceirizadoInnerJoin('terceiro,servicotercei
 $resultados = '';
 foreach ($objTerceirizado as $Terceirizado) {
     /* echo '<pre>';print_r($Terceirizado);echo '<pre>';exit; */
-    $resultados .= '<tr>\
+    $resultados .= '<tr>
     <td>' . $Terceirizado->nomeTerceiro . '</td>
     <td>' . $Terceirizado->nomeServico . '</td>
     <td>
