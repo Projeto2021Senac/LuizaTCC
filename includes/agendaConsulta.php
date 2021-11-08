@@ -66,7 +66,7 @@
 
                                         <div class="form-group">
                                             <label>Data da Consulta</label>
-                                            <input class="form-control" name="data" type="date" value="<?= $objConsulta->dataConsulta ?>">
+                                            <input class="form-control" name="data" id = "data" type="date" value="<?= $objConsulta->dataConsulta ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Hora da Consulta</label>

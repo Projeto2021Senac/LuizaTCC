@@ -27,8 +27,9 @@ let calendar = new FullCalendar.Calendar(calendarEl, {
         weekday: 'short', month: 'numeric', day: 'numeric', omitCommas: true
       },
       dateClick: function(info) {
-
         
+        document.getElementById('data').value = info.dateStr;
+        click('botaoModal')
 
       },
       eventLimit: true, // for all non-TimeGrid views
