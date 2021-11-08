@@ -12,16 +12,11 @@
 
     </main>
     <div class="col-10 offset-1">
-        <form method="post" style="color: white">
-            <div class="row">
-                <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 80%">
-                    <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
-                </div>
-
-                <div class="col-4 bg-gradient offset-2" style=" background-color: black;opacity: 80%">
-
-
-                    <div class="form-group">
+        <div class="p-3 bg-dark">
+            <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
+            <form method="post" style="color: white">
+                <div class="d-flex">
+                    <div class="form-group col-6 p-1">
                         <label>Paciente Atendido</label>
                         <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="paciente" <?= (TITLE == 'Cadastrar Nova Consulta' ? '' : '') ?>>
                             <option selected hidden="">[SELECIONE]</option>
@@ -33,40 +28,26 @@
                             }
                             ?>
                         </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Data da Consulta</label>
-                        <input class="form-control" name="data" type="date" value="<?= $objConsulta->dataConsulta ?>">
-                    </div>
-                    <div class="form-group">
-                        <label>Hora da Consulta</label>
-                        <input class="form-control" name="hora" value="<?= $objConsulta->horaConsulta ?>" type="time">
-                    </div>
-
-                    <br>
-                </div>
-
-                <div class="col-4  bg-gradient" style=" background-color: black;opacity: 80%">
-
-                    <div>
-
-
                         <div class="form-group">
-                            <label>Quem indicou</label>
-                            <select class="form-control" name="dentista">
-                                <option hidden="">[SELECIONE]</option>
-                                <?php
-                                foreach ($objDentista as $dentista) {
-                                    $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
-                                    echo "<option value =" . $dentista->idDentista . " " . $selected . ">" . $dentista->nomeDentista . "</option>";
-                                }
-                                ?>
-                            </select>
+                            <label>Data da Consulta</label>
+                            <input class="form-control" type="text" id="datepicker" name = "data" value="<?= $objConsulta->dataConsulta ?>">
                         </div>
-
-
+                        <div class="form-group">
+                            <label>Hora da Consulta</label>
+                            <input class="form-control" name="hora" value="<?= $objConsulta->horaConsulta ?>" type="time">
+                        </div>
+                    </div>
+                    <div class="form-group col-6 p-1">
+                        <label>Quem indicou</label>
+                        <select class="form-control" name="dentista">
+                            <option hidden="">[SELECIONE]</option>
+                            <?php
+                            foreach ($objDentista as $dentista) {
+                                $selected = ($objConsulta->CFKDentista == $dentista->idDentista ? 'selected = selected' : '');
+                                echo "<option value =" . $dentista->idDentista . " " . $selected . ">" . $dentista->nomeDentista . "</option>";
+                            }
+                            ?>
+                        </select>
                         <div class="form-group">
                             <label>Clínica</label>
                             <select class="form-control" name="clinica">
@@ -91,21 +72,18 @@
                             </select>
                         </div>
                     </div>
-                    <br>
+
 
                 </div>
-                <div class="col-md-8 form-group offset-2" style=" background-color: black;opacity: 80%">
-                    <label>Observações pré-Consulta</label>
-                    <textarea name="relatorio" class="form-control" rows="3"><?= (TITLE != 'Cadastrar Nova Consulta'  ? $objConsulta->relatorio : '') ?></textarea>
+                <label>Observações pré-Consulta</label>
+                <textarea name="relatorio" class="form-control" rows="3"><?= (TITLE != 'Cadastrar Nova Consulta'  ? $objConsulta->relatorio : '') ?></textarea>
+                <div class="d-flex justify-content-center p-2">
+
+                    <input type="submit" name="<? TITLE ?>" class="  btn btn-lg btn-success btInput" style="width:20%" value="<?= (TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
+                                                                                                                                                                                                    ?>>
+
                 </div>
-                <div class="col-8 offset-2 bg-gradient " style=" background-color: black;opacity: 100%">
-                    <input type="submit" name="<? TITLE ?>" class=" offset-5 btn btn-lg btn-success btInput" style="width:20%" value="<?= (TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled"; 
-                                                                                                                                                                                                            ?>>
-                </div>
-            </div>
-
-
-
-        </form>
+            </form>
+        </div>
     </div>
 </div>

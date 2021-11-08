@@ -70,7 +70,7 @@
                     <div style="flex: 0 0 33.333333%">
                         <fieldset>
                             <a href="agendamento.php">
-                                <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/Servicos.png" width="200px" height="200px">
+                                <img name="Paciente" class="img-fluid" style="border-radius:25%;" src="./includes/img/agenda2.png" width="200px" height="200px">
 
                             </a>
                         </fieldset>

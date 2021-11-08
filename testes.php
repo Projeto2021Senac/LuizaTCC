@@ -52,6 +52,8 @@ if (isset($_POST['submit'])) {
     </form>
     <div id="mensagem"> <?= date('H:i')  ;?></div>
 
+    <p>Escolha: <input type="text" id="datepicker" /></p> 
+
     <script src="js/JQuery2.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -84,6 +86,9 @@ if (isset($_POST['submit'])) {
                 });
             })
         }
+        $(function() {
+    $( "#datepicker" ).datepicker({ minDate: 0});
+});
     </script>
 </body>
 

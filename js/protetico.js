@@ -18,10 +18,10 @@ function getServicoTerceiro(valor) {
         }
     })
 }
-$(function(){
+/* $(function(){
     let = identificacao = document.querySelector("#identificacao").value;
     console.log(identificacao);
     $("#busca").autocomplete({
         source:"autoComplete.php?teste=" + identificacao 
     });
-});
+}); */

@@ -23,9 +23,8 @@ $objFuncionario = funcionario::getFuncionarios();
 /* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
 
 $objConsulta = new consulta;
-if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
-
-    $objConsulta->dataConsulta = $_POST['data'];
+if (isset($_POST['paciente'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
+    $objConsulta->dataConsulta = date('d/m/Y',strtotime($_POST['data']));
     $objConsulta->horaConsulta = $_POST['hora'];
     $objConsulta->statusConsulta = ($_POST['status'] != '' ? $_POST['status'] : 'Agendada');
     $objConsulta->relatorio = ($_POST['relatorio'] != null ? $_POST['relatorio'] : 'Sem observações');
