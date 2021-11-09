@@ -7,7 +7,7 @@ function getServicoTerceiro(valor) {
         url: 'TerceiroServico.php?id_terceiro=' + valorAjax,
         success: function(dados) {
             if (dados != null) {
-                var options = "<option value='' >Escolher Servico</option>";
+                var options = "<option value='' hidden>Escolher Servico</option>";
                 for (var i = 0; i < dados.length; i++) {
                     options += '<option value="' + dados[i].id + '">' + dados[i].nomeServico + '</option>';
                 }
@@ -44,4 +44,58 @@ function getHorarios(valor) {
     $("#busca").autocomplete({
         source:"autoComplete.php?teste=" + identificacao 
     });
-}); */
+});
+
+
+
+function ConsultasAbertas(paciente) {
+    var valorAjax = paciente;
+    $('#apresentaProntuario').html('<p>Aguardando...</p>');
+    $.ajax({
+        type: 'POST',
+        dataType: "json",
+        url: 'prontuarioAbrirProntuario.php?prontuario=' + valorAjax,
+        success: function(dados) {
+            if (dados != null) {
+                var tabela = '<table class="table bg-light mt-2">'
+                '<thead class="bg-dark text-light">'
+                    '<tr>'
+                        '<th>ID</th>'
+                        '<th>Envio</th>'
+                        '<th>Retorno</th>'
+                        '<th>Prótese</th>'
+                        '<th>Tipo</th>'
+                        '<th>Posição</th>'
+                        '<th>Paciente</th>'
+                        '<th>Prontuário</th>'
+                        '<th>Consulta</th>'
+                        '<th>Terceirizado</th>'
+                        '<th>Serviço</th>'
+                        '<th>Status</th>'
+
+                        '<th></th>'
+                        
+                    '</tr>'
+
+                '</thead>'
+                '<tbody>'
+                resultados
+
+                '</tbody>'
+
+            '</table>'
+            
+                '<p>'+resultados+'</p>';
+                
+                for (var i = 0; i < dados.length; i++) {
+                    resultados += '<tr>\n\
+                                    <td class "table-success">' + dados[i].prontuario + '</td>\n\
+                                    </tr>';
+                }
+                if (valorAjax != 0) {
+                    $('#apresentaProntuario').html(resultados).show();
+                }
+            }
+        }
+    })
+}*/
