@@ -26,9 +26,11 @@
                             <a class="nav-link" href="#" id="navbarDropdownConsulta" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                <h5 style="color: white; text-align: center">Consultas</h5>
                             </a>
-
-                            <ul class="dropdown-menu col-2 text-center" aria-labelledby="navbarDropdownConsulta">
-                                <li><a class="dropdown-item" href="" onclick="ConsultasAbertas(this.value<?=$paciente?>)">Abertas</a></li>
+                            <input hidden="" value="<?=$paciente?>" id="aux">
+                            
+                            <ul class="dropdown-menu col-2 text-center " aria-labelledby="navbarDropdownConsulta">
+                                
+                                <li><a class="dropdown-item" href="" onclick="ConsultasAbertas()">Abertas</a></li>
                                 <li><a class="dropdown-item" href="./.php">Finalizadas</a></li>
                             </ul>
                         </div>
@@ -49,17 +51,19 @@
                 </div>
 
 
-                <div class="col-10" >
+                <div class="col-10">
 
-                    <div class="row-cols-auto">
-                        <div class=" bg-gradient" style=" background-color: whitesmoke;opacity: 100%">
-                            <h3 style="color: black; text-align: center">Dados do paciente/consultas/tratamentos!</h3>
+                    
+                        <div class="row-cols-auto bg-gradient"  style=" background-color: whitesmoke;opacity: 100%">
+                            <!--<h3 style="color: black; text-align: center">Dados do paciente/consultas/tratamentos!</h3>-->
 
                             <div id="apresentaProntuario">
-                               
+                                <table >
+                                    
+                                </table>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
