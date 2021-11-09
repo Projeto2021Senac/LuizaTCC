@@ -18,6 +18,26 @@ function getServicoTerceiro(valor) {
         }
     })
 }
+function getHorarios(valor) {
+    var valorAjax = valor;
+    $('#horarios').html('<option value = 0>Aguardando...</option');
+    $.ajax({
+        type: 'POST',
+        dataType: "json",
+        url: 'horarios.php?data=' + valorAjax,
+        success: function(dados) {
+            if (dados != null) {
+                var options = "<option value='' >Escolher Servico</option>";
+                for (var i = 0; i < dados.length; i++) {
+                    options += '<option>' + dados[i].horario + '</option>';
+                }
+                if (valorAjax != 0) {
+                    $('#servico_terceiro').html(options).show();
+                }
+            }
+        }
+    })
+}
 /* $(function(){
     let = identificacao = document.querySelector("#identificacao").value;
     console.log(identificacao);

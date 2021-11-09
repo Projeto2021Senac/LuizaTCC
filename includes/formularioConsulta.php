@@ -11,14 +11,14 @@
 
 
     </main>
-    <div class="col-10 offset-1">
+    <div class="col-8 offset-2">
         <div class="p-3 bg-dark">
             <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
             <form method="post" style="color: white">
                 <div class="d-flex">
                     <div class="form-group col-6 p-1">
                         <label>Paciente Atendido</label>
-                        <select readonly="readonly" tabindex="-1" aria-disabled="true" class="form-control" name="paciente" <?= (TITLE == 'Cadastrar Nova Consulta' ? '' : '') ?>>
+                        <select name="paciente" class="selectpicker form-control" data-live-search="true" data-size=5>
                             <option selected hidden="">[SELECIONE]</option>
                             <?php
 
@@ -30,16 +30,18 @@
                         </select>
                         <div class="form-group">
                             <label>Data da Consulta</label>
-                            <input class="form-control" type="text" id="datepicker" name = "data" value="<?= $objConsulta->dataConsulta ?>">
+                            <input class="form-control" placeholder="YYYY- MM - DD" onkeypress="mascara(this, '#-#####-####')" onchange = "getHorarios(this.value)" type="text" id="datepicker" name = "data" value="<?= $objConsulta->dataConsulta ?>">
                         </div>
                         <div class="form-group">
                             <label>Hora da Consulta</label>
-                            <input class="form-control" name="hora" value="<?= $objConsulta->horaConsulta ?>" type="time">
+                            <select class="form-control" name="horarios" id="horarios">
+                                <option hidden = "hidden">---[SELECIONE UMA DATA]---</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group col-6 p-1">
                         <label>Quem indicou</label>
-                        <select class="form-control" name="dentista">
+                        <select name="dentista" class="selectpicker form-control" data-live-search="true" data-size=5>
                             <option hidden="">[SELECIONE]</option>
                             <?php
                             foreach ($objDentista as $dentista) {
@@ -50,7 +52,7 @@
                         </select>
                         <div class="form-group">
                             <label>Clínica</label>
-                            <select class="form-control" name="clinica">
+                            <select name="clinica" class="selectpicker form-control" data-live-search="true" data-size=5>
                                 <option hidden="">[SELECIONE]</option>
                                 <?php
                                 foreach ($objClinica as $clinica) {
