@@ -1,30 +1,48 @@
+<div class="container-fluid">
+    <main>
+        <section class="d-flex justify-content-center mt-2">
+            <div class="col-4">
+                <div class="bg-dark rounded p-2">
+                    <h5 style="color: white; text-align: center ">Rastreios</h5>
+                    <form method="post" action="">
+                        <div class="col-10 form-group p-2" style="margin:auto">
 
+                            <input type="text" class="form-control p-1" name="busca" id="busca" required="" value="<?= $busca ?>">
+                        </div>
+                        <input type="submit" name="pesquisarRastreio" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
-<main>
-    <section>
-        <a href="index.php">
-            <button class="btn btn-success mt-4">Retornar</button>
-        </a>
+                    </form>
 
-    </section>
-    <?php
-    $msg = '';
-    if (isset($_GET['status'])) {
-        switch ($_GET['status']) {
-            case 'success':
-                $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
-                break;
-            case 'error':
-                $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
-                break;
+                </div>
+                <div class="row">
+                    <div class="col-6 p-2">
+                        <a href="listaRastreio.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+                    </div>
+                    <div class="col-6 p-2">
+                        <a href="listaConsultaR.php"> <input type="submit" value="Cadastrar rastreio" class="btn btn-success w-100" /> </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <?php
+        $msg = '';
+        if (isset($_GET['status'])) {
+            switch ($_GET['status']) {
+                case 'success':
+                    $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
+                    break;
+                case 'error':
+                    $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
+                    break;
+            }
         }
-    }
-    
- 
 
-    $resultados = '';
-    foreach ($rastreio as $ras) {
-        $resultados .= '<tr>
+
+
+        $resultados = '';
+        foreach ($rastreio as $ras) {
+            $resultados .= '<tr>
                             <td class "table-success>' . $ras->idRastreio . '</td>
                             <td>' . date('d/m/y', strtotime($ras->dtEntrega)) . '</td>
                             <td>' . date('d/m/y', strtotime($ras->dtRetorno)) . '</td>
@@ -43,128 +61,63 @@
                             
                            
                             <td>
-                            <a href = detalhaRastreio.php?id=' . $ras->idRastreio . '>
+                            <a href = detalhaRastreio.php?id=' . $ras->idRastreio . '& pagina=>
                             <button class = "btn btn-primary">Detalhes</button>
                             </a>
                             </td>
                             </tr>';
-    }
-    
-    $resultados = strlen($resultados)? $resultados : 
-          '<tr>'
-        . '<td colspan = "12" class = "text-center"> Nenhum Registro encontrado</td>'
-        . '</tr>'; 
-    
-    ?>
-    
-    
-    
-    <div class="container-fluid">
-    <?php if($msg != ""){
-        echo $msg; 
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaRastreio.php'\">";
-    }
+        }
+
+        $resultados = strlen($resultados) ? $resultados :
+            '<tr>'
+            . '<td colspan = "12" class = "text-center"> Nenhum Registro encontrado</td>'
+            . '</tr>';
+
         ?>
-    <br>
-    <div class="row ">
-        
 
-        <div class="row">
+        <section>
 
-            <div class="col-2 offset-5 bg-gradient"  style=" background-color: black;opacity: 90%">
-                <h5 style="color: white; text-align: center ">Rastreio</h5>
-            </div>
-        </div>
+            <table class="table bg-light mt-2">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Envio</th>
+                        <th>Retorno</th>
+                        <th>Prótese</th>
+                        <th>Tipo</th>
+                        <th>Posição</th>
+                        <!--<th>obs</th> colocar no formulario de apresentação -->
+                        <!--<th>valor</th>-->
+                        <th>Paciente</th>
+                        <th>Prontuário</th>
+                        <th>Consulta</th>
+                        <!--<th>Procedimento</th>-->
+                        <th>Terceirizado</th>
+                        <th>Serviço</th>
+                        <th>Status</th>
+
+                        <th></th>
+                        <th></th>
 
 
-        <div class="row">
-            <div class="col-2 offset-5 bg-gradient" style=" background-color: black; opacity: 80%;">
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <?= $resultados ?>
 
 
-                <form method="post" action="" style="color: white" >
-                    
-                    <div class="form-group">
 
-                        <input type="text" class="form-control p-1" name="busca" required=""  value="<?=$busca?>">
-                    </div>
+                </tbody>
 
-            </div>
-        </div>
 
-        <div class="row">
 
-            <div class="col-2 offset-5 bg-gradient " style=" background-color: black;opacity: 100%">
 
-                <input type="submit"  name="pesquisarRastreio"
-                       class="btn btn-success btInput p-1 d-flex " style="text-align: center; margin: 0 auto" value="Pesquisar">
 
-            </div>
+            </table>
 
-            </form>
-        </div>
-    </div>
-    <br>
+
+
+        </section>
+    </main>
 </div>
-
-
-<div class="container-fluid">
-
-    <div class="row">
-
-        <div class="row">
-            <div class=" col-2 offset-4">
-                <a href="listaRastreio.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
-
-            </div>
-
-            <div class=" col-2 ">
-                <a href="listaConsultaR.php?rastreio=check"> <button  class="btn btn-success w-100"> Novo Rastreio</button> </a>
-            </div>
-        </div>
-        
-    <section>
-
-        <table class="table bg-light mt-3">
-            <thead class = "bg-dark text-light">
-                <tr>
-                    <th>ID</th>
-                    <th>Envio</th>
-                    <th>Retorno</th>
-                    <th>Prótese</th>
-                    <th>Tipo</th>
-                    <th>Posição</th>
-                    <!--<th>obs</th> colocar no formulario de apresentação -->
-                    <!--<th>valor</th>-->
-                    <th>Paciente</th>
-                    <th>Prontuário</th>
-                    <th>Consulta</th>
-                    <!--<th>Procedimento</th>-->
-                    <th>Terceirizado</th>
-                    <th>Serviço</th>
-                    <th>Status</th>
-                    
-                    <th></th>
-                    <th></th>
-
-
-                </tr>
-
-            </thead>
-            <tbody>
-<?= $resultados ?>
-                 
-              
-
-            </tbody>
-            
- 
-
-   
-
-        </table>
-
-
-
-    </section>
-</main>

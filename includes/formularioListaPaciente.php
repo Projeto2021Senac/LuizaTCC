@@ -23,7 +23,7 @@ foreach ($pacientes as $p) {
           <a href="editaPaciente.php?prontuario=' . $p->prontuario . '" 
               class="btn btn-info" >Editar</a>
               
-            <a href="index.php?prontuario=' . $p->prontuario . '"
+            <a href="prontuario.php?paciente=' . $p->prontuario . '"
                 class="btn btn-primary" >Abrir prontuário</a>
          </td>
          </tr>';
@@ -46,6 +46,7 @@ $resultados = strlen($resultados) ? $resultados :
     <br>
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
+      <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
         <div class="bg-dark rounded p-2">
           <h5 style="color: white; text-align: center ">Pacientes</h5>
           <form method="post" action="">
@@ -53,17 +54,17 @@ $resultados = strlen($resultados) ? $resultados :
 
               <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
             </div>
-            <input type="submit" name="pesquisarPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+            <input type="submit" name="listaPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
           </form>
 
         </div>
         <div class="row">
           <div class="col-6 p-2">
-            <a href="pesquisarPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
           </div>
           <div class="col-6 p-2">
-            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Consulta" class="btn btn-success w-100" /> </a>
+            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Paciente" class="btn btn-success w-100" /> </a>
           </div>
         </div>
       </div>

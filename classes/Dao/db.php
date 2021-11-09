@@ -79,7 +79,7 @@ class db {
      */
     public function executeSQL($query, $params = [])
     {
-        
+        /*   */
         try {
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $statement = $this->connection->prepare($query);

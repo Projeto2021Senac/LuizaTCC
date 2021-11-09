@@ -5,6 +5,7 @@ use Classes\Dao\db;
 /* use PDO; */
 
 $autoCompletar = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_STRING);
+
 /* if ($autoCompletar == null) {
     echo "<pre>";
     print_r('teste');
@@ -16,7 +17,7 @@ if (isset($_GET['teste'])) {
 } else {
     $GET = 1;
 }
-
+$query = "";
 switch ($GET) {
     case 1:
         define('CAMPO', 'nomePaciente,prontuario');
@@ -31,6 +32,12 @@ switch ($GET) {
     case 3:
         define('CAMPO', 'nomeFuncionario,idFuncionario');
         define('TABELA', 'funcionario');
+        break;
+    case 4:
+        define('CAMPO', 'nomePaciente,prontuario,idProtese,idConsulta');
+        $autoCompletar = (strlen($autoCompletar) ? "WHERE nomepaciente   LIKE '%" . $autoCompletar . "%' OR  prontuario LIKE '%" . $autoCompletar . "%'  " : '');
+        $query = 'select distinct * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta '.$autoCompletar;
+        break;
 }
 
 $clause = explode(',', CAMPO);
@@ -49,17 +56,20 @@ if ($clause_count > 1) {
             /* echo "<pre>"; print_r($clause[$x]); echo "<pre>";exit; */
         }
     }
-} else {
 }
-$tabela = TABELA;
-$query = "SELECT " . $campos . " from " . $tabela . " where " . $campo . " order by ".$clause[0]." asc limit 5";
-/* echo "<pre>"; print_r($query); echo "<pre>";exit; */
-$resultado_msg_cont = (new db())->executeSQL($query);
-/* echo "<pre>"; print_r($resultado_msg_cont); echo "<pre>";exit; */
 
+if ($query == '') {
+    $tabela = TABELA;
+    $query = "SELECT distinct " . $campos . " from " . $tabela . " where " . $campo . " order by " . $clause[0] . " asc limit 5";
+}
+
+$resultado_msg_cont = (new db())->executeSQL($query);
+
+$data = [];
 while ($row_msg_count = $resultado_msg_cont->fetch(PDO::FETCH_ASSOC)) {
-    /* echo $row_msg_count['nomePaciente']; */
-    $data[] = $row_msg_count[$clause[0]];
+
+        $data[] = $row_msg_count[$clause[0]];
+
 }
 if ($data == null) {
     $data = ['Sem Resultados'];

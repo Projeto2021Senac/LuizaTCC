@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-
+include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Rastreio');
 define('BTN', 'eRastreio');
 define('BTN2', 'okRastreio');

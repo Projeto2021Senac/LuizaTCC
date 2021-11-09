@@ -53,8 +53,10 @@
                             ?>
                         </select>
                     </div>
-                    <input type="checkbox" name = "finalizar?"class="" id="btn-check" autocomplete="off">
-                    <label class="btn btn-primary" for="btn-check">Finalizar Consulta ?</label>
+                    <div class="d-flex justify-content-center">
+                        <input type="checkbox" name = "finalizarConsulta" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btn-check-2-outlined">Finalizar Consulta ?</label><br>
+                    </div>
                     <div class="row">
                         <label class="mt-3 text-info" for="relatorio"><strong>Observações pós Consulta:</strong></label>
                         <textarea name="observacoes" style="opacity:80%;resize:none" class="text-black" rows="5"></textarea>

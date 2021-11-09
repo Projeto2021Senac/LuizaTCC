@@ -1,4 +1,4 @@
-<div class="container-fluid" style="background-image: url(./includes/img/bg.jpg); height:793px;background-repeat: no-repeat; background-size: 100%">
+<div class="container-fluid">
     <main>
 
         <section>
@@ -6,7 +6,11 @@
                 <button class="btn btn-success offset">Retornar ❯</button>
             </a>
 
-         <section>
+            <section>
+                <a href="index.php">
+                    <button class="btn btn-success mt-4">Menu</button>
+                </a>
+
     </main>
 
     <div class="row">
@@ -65,7 +69,7 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="perfil" value="Administrador" <?= $objFuncionario->perfil == 'Administrador' ? 'checked' : '' ?>>
                             <label class="form-check-label">
-                                Adminstrador
+                                Administrador
                             </label>
                         </div>
                     </div>
@@ -79,19 +83,17 @@
                     <input type="password" class="form-control" name="senha" style="padding-center: 45px;" value="<?= $objFuncionario->senha ?>" placeholder="oooooo" required="">
 
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <label>Status do Funcionário: </label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" value="Ativo" checked="">
-                        <label class="form-check-label">
-                            Ativo
-                        </label>
+                        <input type="radio" class="btn-check" name="status" id="success-outlined" autocomplete="off"<?=$objFuncionario->statusFuncionario == 'Inativo' ? '' : 'checked' ?>>
+                        <label class="btn btn-outline-success" for="success-outlined">Ativo</label>
+
+
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" value="Inativo" <?= $objFuncionario->statusFuncionario == 'Inativo' ? 'checked' : '' ?>>
-                        <label class="form-check-label">
-                            Inativo
-                        </label>
+                        <input type="radio" class="btn-check" name="status" id="danger-outlined" autocomplete="off" <?=$objFuncionario->statusFuncionario == 'Inativo' ? 'checked' : '' ?>>
+                        <label class="btn btn-outline-danger" for="danger-outlined">Inativo</label>
                     </div>
                 </div>
                 <div class="form-group">
