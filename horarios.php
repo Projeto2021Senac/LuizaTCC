@@ -33,5 +33,7 @@ if ($horariosUtilizados->rowCount() > 0) {
     }
 }
 
-$horariosDisponiveis = array_diff_assoc($horarios,$array);
-echo "<pre>"; print_r($horariosDisponiveis); echo "<pre>";exit;
+$horariosDisponiveis = array_diff($horarios,$array);
+echo "<pre>"; print_r($horariosDisponiveis); 
+print_r($array);
+echo "<pre>";exit;
