@@ -18,6 +18,11 @@ $horarios = [
     '14:11',
 ];
 
+foreach ($horarios as $h) {
+    $horariosPossiveis[] = $h;
+}
+
+
 if (isset($_GET['data'])) {
     $data = $_GET['data'];
 }
@@ -32,8 +37,19 @@ if ($horariosUtilizados->rowCount() > 0) {
         $array[] = date(' H:i', strtotime($row_horarios['horaConsulta']));
     }
 }
+/* echo "<pre>"; print_r($array); echo "<pre>";exit; */
+$horariosDisponíveis = array();
+$contador = 0;
+foreach ($horariosPossiveis as $hu) {
+    foreach ($array as $hp) {
+        echo  $hp."";
+        echo  gettype($hp)."<br>";
+        echo $hu."";
+        echo gettype($hu)."<br>";
+        $hp === $hu ? print_r('1 <br>') : print_r('2 <br>');
+    }
 
-$horariosDisponiveis = array_diff($horarios,$array);
-echo "<pre>"; print_r($horariosDisponiveis); 
-print_r($array);
-echo "<pre>";exit;
+
+
+    $contador++;
+}

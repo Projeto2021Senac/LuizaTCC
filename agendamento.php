@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-include __DIR__.'./includes/sessionStart.php';
+include __DIR__ . './includes/sessionStart.php';
 define('TITLE', 'Cadastrar Nova Consulta');
 define('NAME', 'Consulta');
 
@@ -12,6 +12,7 @@ use \Classes\Entity\funcionario;
 
 $alerta = '';
 $objConsulta = new consulta;
+unset($_POST);
 
 $objClinica = clinica::getClinicas();
 /* echo '<pre>';print_r($objClinica);echo'<pre>';exit; */
@@ -21,8 +22,9 @@ $objPaciente = paciente::getPacientes();
 /* echo '<pre>';print_r($objPaciente);echo'<pre>';exit; */
 $objFuncionario = funcionario::getFuncionarios();
 /* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
-
-if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
+if (isset($_POST[TITLE])) {
+  echo "<pre>"; print_r($_POST); echo "<pre>";exit;
+  if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
 
     $objConsulta->dataConsulta = $_POST['data'];
     $objConsulta->horaConsulta = $_POST['hora'];
@@ -36,11 +38,11 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
 
     //echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
     $objConsulta->cadastrarConsulta();
-    $_POST = null;
+
     if ($objConsulta->idConsulta > 0) {
-        $alerta = "<script>
+      $alerta = "<script>
         Swal.fire({
-          title: '".NAME ." n° " .$objConsulta->idConsulta. " cadastrada com sucesso!!',
+          title: '" . NAME . " n° " . $objConsulta->idConsulta . " cadastrada com sucesso!!',
           text: \"Caso haja alguma alteração a ser feita, utilize a lista de consultas fora da agenda\",
           icon: 'success',
           confirmButtonColor: '#3085d6',
@@ -53,8 +55,9 @@ if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista']
         function redirecionamento(){
           window.location.href = \"agendamento.php\"
         }
-        </script>"; 
+        </script>";
     }
+  }
 }
 
-include __DIR__.'/includes/agendaConsulta.php';
+include __DIR__ . '/includes/agendaConsulta.php';
