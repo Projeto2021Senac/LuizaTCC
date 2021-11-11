@@ -31,12 +31,11 @@ function getHorarios(valor) {
     dataType: "json",
     url: "horarios.php?data=" + valorAjax,
     success: function (dados) {
-        var options ='';
+      var options = "";
       if (dados != null) {
         for (var i = 0; i < dados.length; i++) {
           options += "<option>" + dados[i].horario + "</option>";
           console.log(i);
-          
         }
         options += "<option value='' hidden >Sem horários disponíveis</option>";
         $("#horarios").html(options).show();
@@ -44,15 +43,15 @@ function getHorarios(valor) {
     },
   });
 }
- $(function(){
+function autoComplete() {
+  $(function () {
     let = identificacao = document.querySelector("#identificacao").value;
     console.log(identificacao);
     $("#busca").autocomplete({
-        source:"autocomplete2.php?teste=" + identificacao 
+      source: "autocomplete2.php?teste=" + identificacao,
     });
-});
-
-
+  });
+}
 
 /* function ConsultasAbertas(paciente) {
     var valorAjax = paciente;

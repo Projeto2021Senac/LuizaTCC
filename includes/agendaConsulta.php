@@ -16,7 +16,7 @@
             <div class="modal-body bg-dark">
                 <div class="p-3 bg-dark">
                     <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
-                    <form method="post" style="color: white">
+                    <form method="post" name = "formularioConsulta" style="color: white">
                         <div class="d-flex">
                             <div class="form-group col-6 p-1">
                                 <label>Paciente Atendido</label>
@@ -104,6 +104,9 @@
     </div>
 </div>
 
+
+
 <div id="aviso" class="text-center"></div>
 <div id="calendar" class="calendar"></div>
 <?= $alerta ?>
+<?= $agora ?>

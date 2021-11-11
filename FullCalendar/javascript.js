@@ -1,47 +1,55 @@
-$(function() {
-  $("body").delegate("#datepicker", "focusin", function(){
-      $(this).datepicker();
+$(function () {
+  $("body").delegate("#datepicker", "focusin", function () {
+    $(this).datepicker();
   });
 });
-
+$("#myModal").on("hide.bs.modal", function () {
+  console.log("teste modal");
+  $("#formularioConsulta").trigger("reset");
+});
 function getHorarios(valor) {
   var valorAjax = valor;
- 
+  /* teste = false; */
   $("#horarios").html("<option value = 0>Aguardando...</option");
+
+  var boolean = false;
+
   $.ajax({
     type: "POST",
     dataType: "json",
+    async: false,
     url: "horarios.php?data=" + valorAjax,
     success: function (dados) {
       var options = "";
-      status = true;
+      boolean = true;
+
       if (dados != null) {
         for (var i = 0; i < dados.length; i++) {
           options += "<option>" + dados[i].horario + "</option>";
         }
+
         options += "<option value='' hidden >Sem horários disponíveis</option>";
         $("#horarios").html(options).show();
-        
       }
+      /* return teste2; */
     },
-  });
-  return status;
-}
 
+    error: function () {},
+  });
+
+  return boolean;
+}
+var data = new Date();
 (function (win, doc) {
   "use strict";
 
   let calendarEl = doc.querySelector(".calendar");
-  console.log(agora);
   let calendar = new FullCalendar.Calendar(calendarEl, {
-    now: agora,
+    now: typeof agora !== data ? agora : "",
     timeZone: "local",
     nowIndicator: "true",
     selectable: "true",
-    select: function (info) {
-      console.log(info.start);
-      console.log(info.end);
-    },
+    select: function (info) {},
     eventDidMount: function (info) {
       if (info.event.extendedProps.status === "done") {
         // Change background color of row
@@ -66,10 +74,8 @@ function getHorarios(valor) {
       end: "dayGridMonth,timeGridWeek,timeGridDay,listWeek,listMonth",
     },
     eventClick: function (info) {
-      alert("ID: " + info.event.id);
-      alert("Event: " + info.event.title);
-      alert("Coordinates: " + info.jsEvent.pageX + "," + info.jsEvent.pageY);
-      alert("View: " + info.view.type);
+
+      window.location.href = "Consulta.php?id="+info.event.id
 
       // change the border color just for fun
       info.el.style.borderColor = "red";
@@ -83,10 +89,12 @@ function getHorarios(valor) {
     },
     dateClick: function (info) {
       if (info.view.type == "dayGridMonth" && info.dateStr != null) {
+        var a;
+
+        a = getHorarios(info.dateStr);
         document.getElementById("datepicker").value = info.dateStr;
-         var teste = getHorarios(info.dateStr);
-        console.log(teste);
-        if (getHorarios(info.dateStr)) {
+
+        if (a) {
           click("botaoModal");
         }
       }

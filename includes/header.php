@@ -82,6 +82,17 @@
                     </li>
 
                     <li class="nav-item">
+
+                        <a class="nav-link active" aria-current="page" href="agendamento.php">
+                            <div id="passar_mouse">
+                                <img src="./includes/img/miniAgenda.png" width="30" height="30" alt="home" />
+                                <div id="mostrar">Agenda</div>
+                            </div>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="pesquisarConsulta.php">
                             <div id="passar_mouse">
                                 <img src="./includes/img/consulta.png" width="30" height="30" alt="consulta" />

@@ -27,7 +27,7 @@
                                 echo "<option value = " . $paciente->prontuario . " " . $selected . ">" . $paciente->nomePaciente . "</option>";
                             }
                             ?>
-                        </select>''
+                        </select>
                         <div class="form-group">
                             <label>Data da Consulta</label>
                             <input class="form-control" placeholder="YYYY- MM - DD" onkeypress="mascara(this, '####-##-##')" onchange = "getHorarios(this.value)" type="text" id="datepicker" name = "data" value="<?= $objConsulta->dataConsulta ?>">
