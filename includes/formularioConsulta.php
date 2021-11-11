@@ -27,7 +27,7 @@
                                 echo "<option value = " . $paciente->prontuario . " " . $selected . ">" . $paciente->nomePaciente . "</option>";
                             }
                             ?>
-                        </select>
+                        </select>''
                         <div class="form-group">
                             <label>Data da Consulta</label>
                             <input class="form-control" placeholder="YYYY- MM - DD" onkeypress="mascara(this, '####-##-##')" onchange = "getHorarios(this.value)" type="text" id="datepicker" name = "data" value="<?= $objConsulta->dataConsulta ?>">
@@ -81,7 +81,7 @@
                 <textarea name="relatorio" class="form-control" rows="3"><?= (TITLE != 'Cadastrar Nova Consulta'  ? $objConsulta->relatorio : '') ?></textarea>
                 <div class="d-flex justify-content-center p-2">
 
-                    <input type="submit" name="<? TITLE ?>" class="  btn btn-lg btn-success btInput" style="width:20%" value="<?= (TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
+                    <input type="submit" name="<?= TITLE ?>" class="  btn btn-lg btn-success btInput" style="width:20%" value="<?= (TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
                                                                                                                                                                                                     ?>>
 
                 </div>

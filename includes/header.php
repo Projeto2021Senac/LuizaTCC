@@ -17,12 +17,14 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
     <link rel="stylesheet" href="css/bootstrap-select-picker.min.css">
+    <link rel='stylesheet' type='text/css' href='FullCalendar/main.min.css' />
+    <link rel='stylesheet' type='text/css' href='FullCalendar/style.css' />
 
-     <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
+    <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
 
     <script src="js/sweetalert2.min.js"></script>
-    
-    
+
+
 
     <title>Abdull Proteses</title>
 
@@ -36,6 +38,15 @@
 
             }
         }
+    </script>
+    <script type='text/javascript'>
+        function click(id) {
+            var btn = document.getElementById(id);
+            btn.click();
+            $("#exampleModalLabel").html('Cadastro Consulta Teste')
+            $('.selectpicker').selectpicker();
+        }
+        var agora = <?php echo json_encode($datetime_string); ?>;
     </script>
 </head>
 
@@ -125,7 +136,7 @@
                             <img src="<?= ($_SESSION['perfil'] == 'Administrador' ? './includes/img/usuario.png' : './includes/img/abc.png') ?>" width="40" height="40" style="border-radius: 20px;" alt="sair" /><strong>Usuário: <?= $_SESSION['nome'] ?></strong>
                             <br><label><?= $_SESSION['perfil'] ?></label>
                         </a>
-                        <ul class="dropdown-menu text-center" style = "width:100%" aria-labelledby="perfil">
+                        <ul class="dropdown-menu text-center" style="width:100%" aria-labelledby="perfil">
                             <li hidden><a class="dropdown-item" href="./listaDentista.php">DentistaDentistaDentistaDentistaDe</a></li>
                             <li><a class="dropdown-item" href="./listaDentista.php">Dentista</a></li>
                             <li><a class="dropdown-item" href="./listaClinica.php">Clinica</a></li>

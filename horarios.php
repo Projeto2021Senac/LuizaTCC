@@ -15,7 +15,7 @@ $horarios = [
     '12:00',
     '12:30',
     '13:00',
-    '14:11',
+    '14:00'
 ];
 
 foreach ($horarios as $h) {
@@ -26,6 +26,7 @@ foreach ($horarios as $h) {
 if (isset($_GET['data'])) {
     $data = $_GET['data'];
 }
+$horariosDisponiveis = array();
 $array = [];
 $query = 'select horaConsulta from consulta where dataConsulta = "' . $data . '"';
 /* echo "<pre>"; print_r($query); echo "<pre>";exit; */
@@ -34,22 +35,20 @@ if ($horariosUtilizados->rowCount() > 0) {
 
     while ($row_horarios = $horariosUtilizados->fetch(PDO::FETCH_ASSOC)) {
 
-        $array[] = date(' H:i', strtotime($row_horarios['horaConsulta']));
+        $array[] = date('H:i', strtotime($row_horarios['horaConsulta']));
     }
+
 }
-/* echo "<pre>"; print_r($array); echo "<pre>";exit; */
-$horariosDisponíveis = array();
 $contador = 0;
-foreach ($horariosPossiveis as $hu) {
-    foreach ($array as $hp) {
-        echo  $hp."";
-        echo  gettype($hp)."<br>";
-        echo $hu."";
-        echo gettype($hu)."<br>";
-        $hp === $hu ? print_r('1 <br>') : print_r('2 <br>');
+foreach ($horarios as $hu) {
+    if (!in_array($horarios[$contador], $array)) {
+        $horariosDisponiveis[] = array('horario' => $horarios[$contador]);
     }
-
-
-
     $contador++;
+}
+if (count($horariosDisponiveis) > 0) {
+    echo json_encode($horariosDisponiveis);
+} else {
+    $horariosDisponiveis[] = array('horario' => 'Sem horários disponíveis');
+    echo json_encode($horariosDisponiveis);
 }

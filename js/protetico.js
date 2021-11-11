@@ -1,54 +1,60 @@
 function getServicoTerceiro(valor) {
-    var valorAjax = valor;
-    $('#servico_terceiro').html('<option value = 0>Aguardando...</option');
-    $.ajax({
-        type: 'POST',
-        dataType: "json",
-        url: 'TerceiroServico.php?id_terceiro=' + valorAjax,
-        success: function(dados) {
-            if (dados != null) {
-                var options = "<option value='' hidden>Escolher Servico</option>";
-                for (var i = 0; i < dados.length; i++) {
-                    options += '<option value="' + dados[i].id + '">' + dados[i].nomeServico + '</option>';
-                }
-                if (valorAjax != 0) {
-                    $('#servico_terceiro').html(options).show();
-                }
-            }
+  var valorAjax = valor;
+  $("#servico_terceiro").html("<option value = 0>Aguardando...</option");
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: "TerceiroServico.php?id_terceiro=" + valorAjax,
+    success: function (dados) {
+      if (dados != null) {
+        var options = "<option value='' hidden>Escolher Servico</option>";
+        for (var i = 0; i < dados.length; i++) {
+          options +=
+            '<option value="' +
+            dados[i].id +
+            '">' +
+            dados[i].nomeServico +
+            "</option>";
         }
-    })
+        if (valorAjax != 0) {
+          $("#servico_terceiro").html(options).show();
+        }
+      }
+    },
+  });
 }
 function getHorarios(valor) {
-    var valorAjax = valor;
-    $('#horarios').html('<option value = 0>Aguardando...</option');
-    $.ajax({
-        type: 'POST',
-        dataType: "json",
-        url: 'horarios.php?data=' + valorAjax,
-        success: function(dados) {
-            if (dados != null) {
-                var options = "<option value='' >Escolher Servico</option>";
-                for (var i = 0; i < dados.length; i++) {
-                    options += '<option>' + dados[i].horario + '</option>';
-                }
-                if (valorAjax != 0) {
-                    $('#servico_terceiro').html(options).show();
-                }
-            }
+  var valorAjax = valor;
+  $("#horarios").html("<option value = 0>Aguardando...</option");
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: "horarios.php?data=" + valorAjax,
+    success: function (dados) {
+        var options ='';
+      if (dados != null) {
+        for (var i = 0; i < dados.length; i++) {
+          options += "<option>" + dados[i].horario + "</option>";
+          console.log(i);
+          
         }
-    })
+        options += "<option value='' hidden >Sem horários disponíveis</option>";
+        $("#horarios").html(options).show();
+      }
+    },
+  });
 }
-/* $(function(){
+ $(function(){
     let = identificacao = document.querySelector("#identificacao").value;
     console.log(identificacao);
     $("#busca").autocomplete({
-        source:"autoComplete.php?teste=" + identificacao 
+        source:"autocomplete2.php?teste=" + identificacao 
     });
 });
 
 
 
-function ConsultasAbertas(paciente) {
+/* function ConsultasAbertas(paciente) {
     var valorAjax = paciente;
     $('#apresentaProntuario').html('<p>Aguardando...</p>');
     $.ajax({
@@ -98,4 +104,4 @@ function ConsultasAbertas(paciente) {
             }
         }
     })
-}*/
+} */

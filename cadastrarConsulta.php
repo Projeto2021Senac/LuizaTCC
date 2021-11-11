@@ -23,16 +23,16 @@ $objFuncionario = funcionario::getFuncionarios();
 /* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
 
 $objConsulta = new consulta;
-if (isset($_POST['paciente'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
-    $objConsulta->dataConsulta = date('d/m/Y',strtotime($_POST['data']));
-    $objConsulta->horaConsulta = $_POST['hora'];
+if (isset($_POST['paciente'], $_POST['horarios'], $_POST['dentista'], $_POST['clinica'])) {
+    $objConsulta->dataConsulta = date('Y-m-d',strtotime($_POST['data']));
+    $objConsulta->horaConsulta = $_POST['horarios'];
     $objConsulta->statusConsulta = ($_POST['status'] != '' ? $_POST['status'] : 'Agendada');
     $objConsulta->relatorio = ($_POST['relatorio'] != null ? $_POST['relatorio'] : 'Sem observações');
     $objConsulta->fkProntuario = $_POST['paciente'];
     $objConsulta->fkFuncionario = $_SESSION['idFuncionario'];
     $objConsulta->CFKClinica = $_POST['clinica'];
     $objConsulta->CFKDentista = $_POST['dentista'];
-    /*     echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
+        /* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
 
     //echo '<pre>';print_r($objConsulta);echo'<pre>';exit;
     $objConsulta->cadastrarConsulta();

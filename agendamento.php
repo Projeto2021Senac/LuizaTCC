@@ -4,6 +4,9 @@ include __DIR__ . './includes/sessionStart.php';
 define('TITLE', 'Cadastrar Nova Consulta');
 define('NAME', 'Consulta');
 
+date_default_timezone_set('America/Sao_Paulo');
+$datetime = new DateTime('now');
+$datetime_string = $datetime->format('c');
 use \Classes\Entity\consulta;
 use \Classes\Entity\clinica;
 use \Classes\Entity\dentista;
@@ -22,9 +25,8 @@ $objPaciente = paciente::getPacientes();
 /* echo '<pre>';print_r($objPaciente);echo'<pre>';exit; */
 $objFuncionario = funcionario::getFuncionarios();
 /* echo "<pre>"; print_r($objFuncionario); echo "<pre>";exit; */
-if (isset($_POST[TITLE])) {
-  echo "<pre>"; print_r($_POST); echo "<pre>";exit;
-  if (isset($_POST['paciente'], $_POST['data'], $_POST['hora'], $_POST['dentista'], $_POST['clinica'])) {
+if (isset($_POST['botao'])) {
+  if (isset($_POST['paciente'], $_POST['horarios'], $_POST['dentista'], $_POST['clinica'])) {
 
     $objConsulta->dataConsulta = $_POST['data'];
     $objConsulta->horaConsulta = $_POST['hora'];
@@ -60,4 +62,6 @@ if (isset($_POST[TITLE])) {
   }
 }
 
+include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/agendaConsulta.php';
+include __DIR__ . '/includes/footer.php';

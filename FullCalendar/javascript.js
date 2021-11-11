@@ -1,3 +1,33 @@
+$(function() {
+  $("body").delegate("#datepicker", "focusin", function(){
+      $(this).datepicker();
+  });
+});
+
+function getHorarios(valor) {
+  var valorAjax = valor;
+ 
+  $("#horarios").html("<option value = 0>Aguardando...</option");
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: "horarios.php?data=" + valorAjax,
+    success: function (dados) {
+      var options = "";
+      status = true;
+      if (dados != null) {
+        for (var i = 0; i < dados.length; i++) {
+          options += "<option>" + dados[i].horario + "</option>";
+        }
+        options += "<option value='' hidden >Sem horários disponíveis</option>";
+        $("#horarios").html(options).show();
+        
+      }
+    },
+  });
+  return status;
+}
+
 (function (win, doc) {
   "use strict";
 
@@ -13,19 +43,18 @@
       console.log(info.end);
     },
     eventDidMount: function (info) {
-      if (info.event.extendedProps.status === 'done') {
-
+      if (info.event.extendedProps.status === "done") {
         // Change background color of row
-        info.el.style.backgroundColor = 'red';
-  
+        info.el.style.backgroundColor = "red";
+
         // Change color of dot marker
-        var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-        
+        var dotEl = info.el.getElementsByClassName("fc-event-dot")[0];
+
         if (dotEl) {
           console.log(dotEl);
-          dotEl.style.backgroundColor = 'white';
-        }else{
-          console.log('tem nao');
+          dotEl.style.backgroundColor = "white";
+        } else {
+          console.log("tem nao");
         }
       }
     },
@@ -54,14 +83,18 @@
     },
     dateClick: function (info) {
       if (info.view.type == "dayGridMonth" && info.dateStr != null) {
-        document.getElementById("data").value = info.dateStr;
-        click("botaoModal");
+        document.getElementById("datepicker").value = info.dateStr;
+         var teste = getHorarios(info.dateStr);
+        console.log(teste);
+        if (getHorarios(info.dateStr)) {
+          click("botaoModal");
+        }
       }
     },
-    eventLimit: "true", // for all non-TimeGrid views
+    dayMaxEventRows: true, // for all non-TimeGrid views
     views: {
       timeGrid: {
-        eventLimit: 2, // adjust to 6 only for timeGridWeek/timeGridDay
+        dayMaxEventRows: 4,
       },
     },
     buttonText: {
@@ -70,7 +103,7 @@
       week: "Semana",
       day: "Dia",
       listWeek: "Lista Semanal",
-      listMonth: "Lista Mensal"
+      listMonth: "Lista Mensal",
     },
     events: {
       url: "preencherAgenda.php",
