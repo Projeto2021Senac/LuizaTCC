@@ -32,7 +32,7 @@
       <h1 class="h3 mb-3 fw-normal">Login</h1>
 
       <div class="form-floating">
-        <input name = "login" type="text" class="form-control" id="floatingInput" placeholder="name123" required>
+          <input name = "login" type="text" class="form-control" id="floatingInput" placeholder="name123" required>
         <label for="floatingInput"><span> <img src="includes/img/user.png" width="30" height="30" alt="user" /></span></label>
       </div>
 

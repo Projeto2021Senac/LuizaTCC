@@ -10,7 +10,8 @@ use Classes\Dao\db;
 $prontuario = $_REQUEST['prontuario'];
 $_SESSION['prontuario'] = $prontuario;
 sleep(1);
-$query = "SELECT * from paciente where prontuario=" . $prontuario;
+$query = "SELECT * from consulta inner join paciente "
+        . "on fkProntuario=prontuario where prontuario=". $prontuario;
 if ($prontuario != null) {
     $prontuario1 = (new db())->executeSQL($query);
 
@@ -18,11 +19,12 @@ if ($prontuario != null) {
     if ($prontuario1->rowCount() > 0) {
         while ($row_prontuario1 = $prontuario1->fetch(PDO::FETCH_ASSOC)) {
             $array[] = array(
-           'prontuario' => $row_prontuario1['prontuario'],
-           'nomePaciente' => $row_prontuario1['nomePaciente'],
-           'sexo' => $row_prontuario1['sexo'],
-           'telefone' => $row_prontuario1['telefone'],
-           'email' => $row_prontuario1['email']
+           'id' => $row_prontuario1['idConsulta'],
+           'data' => $row_prontuario1['dataConsulta'],
+          // 'nomePaciente' => $row_prontuario1['nomePaciente'],
+           //'sexo' => $row_prontuario1['sexo'],
+           //'telefone' => $row_prontuario1['telefone'],
+           //'email' => $row_prontuario1['email']
            
             );
         }
