@@ -16,7 +16,7 @@
             <div class="modal-body bg-dark">
                 <div class="p-3 bg-dark">
                     <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
-                    <form method="post" name = "formularioConsulta" style="color: white">
+                    <form method="post" name = "formularioConsulta" id = "formularioConsulta" style="color: white">
                         <div class="d-flex">
                             <div class="form-group col-6 p-1">
                                 <label>Paciente Atendido</label>
@@ -88,6 +88,9 @@
                             </div>
                             <div>
                                 <button type="button" class="btn btn-danger btn-lg" style="left:10px" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                            <div>
+                                <input type="reset"  id = "reset" class="btn btn-danger btn-lg" style="left:10px">reset</input>
                             </div>
                         </div>
                     </form>

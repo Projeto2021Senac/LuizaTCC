@@ -23,6 +23,12 @@ function getServicoTerceiro(valor) {
     },
   });
 }
+
+$("#reset").click(function(){
+  console.log('teste');
+  $("#formularioConsulta").reset();
+});
+
 function getHorarios(valor) {
   var valorAjax = valor;
   $("#horarios").html("<option value = 0>Aguardando...</option");
@@ -35,7 +41,6 @@ function getHorarios(valor) {
       if (dados != null) {
         for (var i = 0; i < dados.length; i++) {
           options += "<option>" + dados[i].horario + "</option>";
-          console.log(i);
         }
         options += "<option value='' hidden >Sem horários disponíveis</option>";
         $("#horarios").html(options).show();
