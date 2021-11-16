@@ -7,7 +7,7 @@ include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\Protese;
 
 define('TITLE', 'Editar Protese');
-
+define('IDENTIFICACAO', '0');
 
 //Validação do GET
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {

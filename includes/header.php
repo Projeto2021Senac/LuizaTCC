@@ -20,7 +20,7 @@
     <link rel='stylesheet' type='text/css' href='FullCalendar/main.min.css' />
     <link rel='stylesheet' type='text/css' href='FullCalendar/style.css' />
 
-    <!-- <link rel="stylesheet" href="css/css-debug.css"> -->
+<!--     <link rel="stylesheet" href="css/css-debug.css"> -->
 
     <script src="js/sweetalert2.min.js"></script>
 
@@ -46,7 +46,7 @@
             $("#exampleModalLabel").html('Cadastro Consulta Teste')
             $('.selectpicker').selectpicker();
         }
-        var agora = <?php echo json_encode($datetime_string); ?>;
+        
     </script>
 </head>
 
@@ -179,3 +179,4 @@
         </div>
 
     </nav>
+    <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>

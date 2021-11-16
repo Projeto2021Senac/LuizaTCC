@@ -1,5 +1,8 @@
 <button><a href="index.php">Voltar</a></button>
 
+<!-- Identificacao da Página -->
+<input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
+
 <!-- Button trigger modal -->
 <button type="button" hidden id="botaoModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
     Launch demo modal

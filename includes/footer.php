@@ -14,6 +14,12 @@
         });
     });
 </script>
+<script>
+    if("<?= IDENTIFICACAO ?>" ===  'Agendamento'){
+        Calendario();
+    }
+
+</script>
 
 </body>
 

@@ -1,3 +1,4 @@
+<input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
 <div class="container-fluid p-4">
 
 
@@ -90,3 +91,4 @@
         </div>
     </main>
 </div>
+<?=$alerta;?>

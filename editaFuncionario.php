@@ -6,6 +6,7 @@ use \Classes\Entity\Funcionario;
 
 define('TITLE', 'Editar Funcionário');
 define('BTN', 'editarFuncionario');
+define('IDENTIFICACAO', '0');
 
 
 if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {

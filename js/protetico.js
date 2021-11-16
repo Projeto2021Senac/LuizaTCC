@@ -48,15 +48,14 @@ function getHorarios(valor) {
     },
   });
 }
-function autoComplete() {
+
   $(function () {
     let = identificacao = document.querySelector("#identificacao").value;
-    console.log(identificacao);
     $("#busca").autocomplete({
       source: "autocomplete2.php?teste=" + identificacao,
     });
   });
-}
+
 
 /* function ConsultasAbertas(paciente) {
     var valorAjax = paciente;

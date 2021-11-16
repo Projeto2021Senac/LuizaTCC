@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Paciente');
 define('BTN', 'cadastrarPaciente');
-
+define('IDENTIFICACAO', '0');
 use Classes\Entity\paciente;
 
 $paciente = new paciente();

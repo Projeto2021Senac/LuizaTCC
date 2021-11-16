@@ -6,6 +6,7 @@ use \Classes\Entity\ServicoTerceiro;
 
 define('TITLE','Cadastro Serviço Terceiro');
 define('BTN','Salvar');
+define('IDENTIFICACAO', '0');
 $objServicoTerceiro = new ServicoTerceiro;
 if (isset($_POST['Salvar'])){
 

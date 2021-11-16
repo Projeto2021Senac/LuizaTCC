@@ -8,6 +8,7 @@ use \Classes\Entity\Protese;
 use \Classes\Entity\Paciente;
 
 define('TITLE', 'Cadastrar Prótese');
+define('IDENTIFICACAO', '0');
 
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
