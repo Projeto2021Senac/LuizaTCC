@@ -87,7 +87,7 @@ if (isset($_GET['id'])) {
                           <td>' . $consulta->nomePaciente . '</td>
                           <td>
                           <a ' . $disabled1 . 'class = "btn btn-primary" href = Consulta.php?id=' . $consulta->idConsulta . '>Abrir Consulta</a>
-                          <a ' . $disabled . 'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Corrigir</a>
+                          <a ' . $disabled . 'href = editaConsulta.php?id=' . $consulta->idConsulta . '>Editar</a>
                           <a ' . $disabledRastreio . 'href = cadRastreio.php?rConsulta=' . $consulta->idConsulta . '>Confirmar rastreio</a>
                           </td>
                           </tr>';

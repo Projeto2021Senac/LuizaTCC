@@ -89,99 +89,63 @@ if (isset($_GET['rProtese'])) {
 
                     <div class="form-group">
                         <label>Terceirizado</label>
-                        <select type="text" class="form-control" name="RFKTerceiro" id="id_terceiro" onchange="getServicoTerceiro(this.value)" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select type="text" class="form-control" name="RFKTerceiro" id="id_terceiro" onchange="getServicoTerceiro(this.value)"> 
                             <option hidden="" value="0">[SELECIONE]</option>
+                            
                             <?php
+                            if (TITLE == "Editar Rastreio") {//executado quando na pág editar
                             foreach ($terceiro as $terc) {
+                                $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
+                                echo "<option value =" . $terc->idTerceiro . " hidden " . $selected . ">" . $terc->nomeTerceiro . "</option>";
+                            }
+                            }else{
+                                foreach ($terceiro as $terc) {
                                 $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
                                 echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
                             }
+                                }
                             ?>
                         </select>
                     </div>
 
-
-
-
-                    <?php if (TITLE == "Editar Rastreio") {
-                        ?>
-                        <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                        <div class="form-group"  hidden="">
-                            <label>Terceirizado</label>
-                            <select type="text" class="form-control" id="id_terceiro" onchange="getServicoTerceiro(this.value)" name="RFKTerceiro">
-                                <option hidden="" value="0">[SELECIONE]</option>
-                                <?php
-                                foreach ($terceiro as $terc) {
-                                    $selected = ($rastreio->RFKTerceiro == $terc->idTerceiro ? 'selected = selected' : '');
-                                    echo "<option value =" . $terc->idTerceiro . " " . $selected . ">" . $terc->nomeTerceiro . "</option>";
-                                }
-                                ?>
-                            </select>
-
-                        </div>
-
-                        <?php
-                    }
-                    ?>
-
-                        <!--/////////////////////////////////-->
+                    
                         
                     <div class="form-group">
                         <label>Serviço Terceirizado</label>
-                        <select id="servico_terceiro" class="form-control" name="RFKServico" <?= TITLE === "Editar Rastreio" ? 'disabled' : '' ?>>
+                        <select id="servico_terceiro" class="form-control" name="RFKServico" >
                             <option value="" hidden>Escolher Servico</option>
 
                             <?php
                             if (TITLE == "Editar Rastreio") {
-                                
                                 foreach ($servico as $serv) {
                                     $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                    echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
-                                  
-                                }
-                                    ?>
-                                    
-
+                                    echo "<option value =" . $serv->idServico . " hidden " . $selected . ">" . $serv->nomeServico . "</option>";
+                            }
+                                } 
+                                ?>
                                 </select>
                             </div>
-                           <?php
-                            }
-                            ?>
+                           
 
-
-                            <?php
-                            if (TITLE == "Editar Rastreio") {
-                                
-                                ?>
-                                <!--Dublê usado para passar o post, pois o disabled não passa o dado.-->
-                                <div class="form-group" hidden="">
-                                    <label>Serviço Terceirizado</label>
-                                    <select id="servico_terceiro" name="RFKServico">
-                                        <option value="" hidden>Escolher Servico</option>
-                                        <?php
-                                        foreach ($servico as $serv) {
-                                            $selected = ($rastreio->RFKServico == $serv->idServico ? 'selected = selected' : '');
-                                            echo "<option value =" . $serv->idServico . " " . $selected . ">" . $serv->nomeServico . "</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-
-                                <?php
-                            }
-                            ?>
 
                             <div class="form-group">
                                 <label>Status</label>
-                                <select type="text" class="form-control" name="status">
+                                <select class="form-control" name="status">
                                     <option hidden="">[SELECIONE]</option>
-
+                                    
+                                    <?php
+                                    if (TITLE == "Editar Rastreio") {//executado quando na pág editar
+                                ?>
                                     <option value="aberto" <?= 'aberto' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Aberto</option>
                                     <option value="finalizado" <?= 'finalizado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Finalizado</option>
                                     <option value="cancelado" <?= 'cancelado' == $rastreio->statusRastreio ? 'selected = selected' : '' ?>>Cancelado</option>
-
-
-
+                                        <?php
+                            } else {
+                                echo "<option hidden value='aberto' selected=''>Aberto</option>";
+                            }
+                                
+                            ?>
+                                   
                                 </select>
                             </div>
 

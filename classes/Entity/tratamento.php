@@ -53,7 +53,7 @@ class Tratamento
                 . 'inner JOIN dentista on CFKDentista=idDentista '
                 . 'inner JOIN clinica on CFKClinica=idClinica '
                 . 'inner JOIN paciente on fkProntuario=prontuario '
-                . 'where idProtese not in (select fkProtese from rastreio)'. $pesq)
+                . 'where idProtese not in (select fkProtese from rastreio) '. $pesq)
                 ->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 

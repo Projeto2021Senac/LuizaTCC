@@ -16,19 +16,14 @@ $condicoes = [
 ];//echo "<pre>"; print_r($condicoes); echo "<pre>";exit;
 
 $where = implode(' AND ', $condicoes);
-
-//echo "<pre>"; print_r($busca); echo "<pre>";exit;
+ 
+//echo "<pre>"; print_r($condicoes); echo "<pre>";exit;
 
 $innerTratamentos = tratamento::getTratamentosInner($where); //  tentando implementar consulta 
 
-$rastreio = Rastreio::getRastreios(null,null,null,null,'fkProtese');
+//$rastreio = Rastreio::getRastreios(null,null,null,null,'fkProtese');
 /* echo "<pre>"; print_r($rastreio); echo "<pre>";exit; */
-/* echo "<pre>"; print_r($innerTratamentos); echo "<pre>";exit; */
-
-
 //echo "<pre>"; print_r($innerTratamentos); echo "<pre>";exit;
-
-
 
 
 //$innerTratamentos = tratamento::getTratamentosInner();
