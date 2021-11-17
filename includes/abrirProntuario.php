@@ -56,7 +56,7 @@
                             <div class="row-cols-auto bg-gradient"  style=" background-color: whitesmoke;opacity: 100%">
 
 
-                                <div >
+                                <div>
                                     <table class="table table-hover bg-white" id="apresenta_Consultas">
                                         <thead>
 

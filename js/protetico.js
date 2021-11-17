@@ -68,7 +68,7 @@ function Dados_Cadastrais() {
                                 </div>\n\
                               </div>';
                 
-          
+                
                 $('#apresenta_DadosCadastrais').html(labels).show();
                 
                 /*if (valorAjax !== 0) {
@@ -79,6 +79,7 @@ function Dados_Cadastrais() {
             
         }
     })
+    
 }
 
 function Consultas() {
@@ -106,6 +107,7 @@ function Consultas() {
                     
                 }
                 $('#apresenta_Consultas').html(tabela).show();
+                
                 /*if (valorAjax !== 0) {
                     $('#apresentaProntuario').html(tabela).show();
                 }*/
