@@ -40,21 +40,11 @@ if (isset($_GET['rProtese'])) {
 
     <!--<div class="row">-->
 
-    <div class="row" style="margin-top: -50px">
-        <div class="col-4 offset-4">
-            <div class="row">
-                <div class=" bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
-                    <h3 style="color: white; text-align: center"><?= TITLE ?></h3>
-                </div>
-            </div>
-
-            <div class=" row bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
-
-
-
-                <form method="post" action="" style="color: white">
-
-                    <div class="form-group">
+    <div class="col-4 mt-4 offset-4 p-3 bg-dark " style="border-radius:25px 30px 25px 30px">
+         <div class="border border-white rounded p-2">
+             <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
+             <form class="p-2" method="post" style="color: white">
+             <div class="form-group">
                         <label>Código</label>
                         <input type="text" class="form-control" name="idRastreio" readonly placeholder="Número" value=" <?= $rastreio->idRastreio ?>">
                     </div>
@@ -148,52 +138,17 @@ if (isset($_GET['rProtese'])) {
                                    
                                 </select>
                             </div>
+                 <div class="d-flex justify-content-center p-2">
 
+                     <input type="submit" name="<?= BTN ?>" class="  btn btn-lg btn-success btInput" value="<?= (TITLE == "Cadastrar Paciente" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
+                                                                                                                                                                                    ?>>
 
-                            <br>
+                 </div>
+         </div>
 
-                            </div>
-                            <div>
-                                <div class="row">
-                                    <div class="  bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
-                                        <br>
-                                        <input type="submit" name="<?= BTN ?>" class="btn btn-success btInput p-1 offset-5" value="Enviar" <?php //if ($btEnviar == TRUE) echo "disabled";  
-                            ?>>
-                                        <br>
-                                        <br>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                    </div>
-                    <!--</div>-->
+         </form>
 
-                    <!--<div class="row">-->
-                    <?php
-                    if (isset($_GET['rProtese'])) {
-                        ?>
-                        <div class="col-4">
-                            <div class="rounded-3" style=" background-color: black; opacity: 80%; text-align: left; line-height: 3 ; padding-left: 10px;  ">
-                                <label style="color: orange">
-                                    <?php
-                                    if ($innerTratamento != null) {
-                                        echo 'PRONTUÁRIO: <b>' . $innerTratamento->prontuario . ' </b> || PACIENTE: <b>' . $innerTratamento->nomePaciente .
-                                        '</b><br>CONSULTA: <b>' . $innerTratamento->idConsulta . '</b> || DATA: <b>' . date('d/m/Y', strtotime($innerTratamento->dataConsulta)) .
-                                        '</b><br>DENTISTA: <b>' . $innerTratamento->nomeDentista . '</b> || CLÍNICA: <b>' . $innerTratamento->nomeClinica . '<hr>' .
-                                        '</b>IDPRÓTESE: <b>' . $innerTratamento->idProtese . '</b> || TIPO: <b>' . $innerTratamento->tipo .
-                                        '</b><br>POSIÇÂO: <b>' . $innerTratamento->posicao . '</b> <br> DATA-REGISTRO: <b>' . date('d/m/Y', strtotime($innerTratamento->dataRegistro));
-                                    }
-                                    ?>
-
-                                </label>
-
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-
-        </div>
+     </div>
 
 
 

@@ -115,4 +115,3 @@
 <div id="aviso" class="text-center"></div>
 <div id="calendar" class="calendar"></div>
 <?= $alerta ?>
-<?= $agora ?>

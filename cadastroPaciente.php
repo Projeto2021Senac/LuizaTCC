@@ -18,11 +18,10 @@ if (isset($_POST['cadastrarPaciente'])) {
         $paciente->sexo = $_POST['sexo'];
         $paciente->tel = $_POST['tel'];
         $paciente->email = $_POST['email'];
-        unset($_POST['cadastrarPaciente']);
         
         $paciente->cadastrarPaciente();
         
-        header ('Location: listaPaciente.php?status=success');
+        header ('Location: listaPaciente.php?status=success&id='.$paciente->prontuario);
 
         //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
         //URL='cadastroPaciente.php'\">";

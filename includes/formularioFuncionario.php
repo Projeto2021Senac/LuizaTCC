@@ -3,7 +3,7 @@
         <div class="p-3 bg-dark">
             <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
             <form class="d-flex justify-content-center" method="post" style="color: white">
-                <div class="col-8">
+                <div class="col-11">
                     <div class="form-group">
                         <label>Nome: </label>
                         <input type="text" class="form-control" name="nomeFuncionario" placeholder="Nome Completo" required="" value="<?= $objFuncionario->nomeFuncionario ?>">
@@ -72,15 +72,16 @@
                         <label>Data de Contrato:</label>
                         <input type="date" class="form-control" name="dtContrato" value="<?= $objFuncionario->dtContrato ?>">
                     </div>
+                    <div class="d-flex justify-content-center p-2">
+
+                        <input type="submit" name="<?= TITLE ?>" class="  btn btn-lg btn-success btInput"  value="<?= (TITLE == "Cadastrar Funcionário" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
+                                                                                                                                                                                                        ?>>
+
+                    </div>
                 </div>
 
             </form>
-            <div class="d-flex justify-content-center p-2">
 
-                <input type="submit" name="<?= TITLE ?>" class="  btn btn-lg btn-success btInput" style="width:20%" value="<?= (TITLE == "Cadastrar Nova Consulta" ? 'Cadastrar' : 'Editar') ?>" <?php //if ($btEnviar == TRUE) echo "disabled";
-                                                                                                                                                                                                    ?>>
-
-            </div>
         </div>
     </div>
 </div>
