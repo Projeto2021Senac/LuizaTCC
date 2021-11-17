@@ -3,16 +3,16 @@
     <div class="row">
         <div class="row-cols-auto">
             <div class=" bg-gradient rounded-3" style=" background-color: black;opacity:100%">
-                <h3 style="color: white; text-align: center">PRONTUÁRIO</h3>
+               <!-- <h3 style="color: white; text-align: center">PRONTUÁRIO</h3>-->
 
                 <div class="row">
 
-                    <div class="col-2">
-                        <div class="row">
-                            <div class=" bg-gradient rounded-3" style=" background-color: black;opacity:100%">
-                                <h3 style="color: white; text-align: center">Evolução</h3>
+                    <div class="col-2 container-fluid mt-3">
+                        
+                            <div class=" bg-gradient rounded-5 ms-4 p-2 container-fluid" style=" background-color: black; opacity:100%">
+                                <h4 style="color: white; text-align: center">PRONTUÁRIO</h4>
                             </div>
-                        </div>
+                        
 
                         <input  hidden="" value="<?= $paciente ?>" id="aux"> <!--input usado para pegar o prontuario.-->
                         <div id="passar_mouse">
@@ -27,24 +27,18 @@
                                 <h5 style="color: white; text-align: center">Consultas</h5>
                             </a>
 
-                            <!--
-                            <ul class="dropdown-menu col-2 text-center " aria-labelledby="navbarDropdownConsulta">
-                                
-                                <li><button class="dropdown-item"  onclick="Consultas_Abertas()">Abertas</button></li>
-                                <li><button class="dropdown-item" >Finalizadas</button></li>
-                            </ul>-->
                         </div>
 
 
                         <div id="passar_mouse">
-                            <a class="nav-link" href="#" id="navbarDropdownTrat" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link" role="button" onclick="Tratamentos()">
                                 <h5 style="color: white; text-align: center">Tratamentos</h5>
                             </a>
 
-                            <ul class="dropdown-menu col-2 text-center" aria-labelledby="navbarDropdownTrat">
+                            <!--<ul class="dropdown-menu col-2 text-center" aria-labelledby="navbarDropdownTrat">
                                 <li><button class="dropdown-item" >Abertos</button></li>
                                 <li><button class="dropdown-item" >Finalizados</button></li>
-                            </ul>
+                            </ul>-->
                         </div>
 
 
@@ -52,11 +46,12 @@
 
 
                     <div class="col-10">
-                        <div class="container-fluid mb-3">
+                        <div class="container-fluid mb-3 mt-3">
                             <div class="row-cols-auto bg-gradient"  style=" background-color: whitesmoke;opacity: 100%">
 
-
-                                <div>
+                                <div class="container-fluid mb-2" id="apresenta_DadosCadastrais" style="margin-left: 10px">  </div>
+                                
+                                <div class="container-fluid">
                                     <table class="table table-hover bg-white" id="apresenta_Consultas">
                                         <thead>
 
@@ -67,13 +62,19 @@
                                     </table>
                                     
                                 </div>
+                                
+                                <div class="container-fluid">
+                                    <table class="table table-hover bg-white" id="apresenta_Tratamentos">
+                                        <thead>
 
+                                        </thead>
+                                        <tbody>
 
-                                <div  id="apresenta_DadosCadastrais" style="margin: 10px">
-
-
-
+                                        </tbody>
+                                    </table>
+                                    
                                 </div>
+
 
                                 
                             </div>
