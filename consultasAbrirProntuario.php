@@ -26,11 +26,13 @@ if ($prontuario != null) {
             $array[] = array(
            'id' => $row_prontuario1['idConsulta'],
            'data' => $row_prontuario1['dataConsulta'],
-          // 'nomePaciente' => $row_prontuario1['nomePaciente'],
-           //'sexo' => $row_prontuario1['sexo'],
-           //'telefone' => $row_prontuario1['telefone'],
-           //'email' => $row_prontuario1['email']
-           
+           'hora' => $row_prontuario1['horaConsulta'],
+           'relatorio' => $row_prontuario1['relatorio'],
+           'status' => $row_prontuario1['statusConsulta'],
+           'clinica' => $row_prontuario1['nomeClinica'],
+           'dentista' => $row_prontuario1['nomeDentista'],
+           'procedimento' => $row_prontuario1['nomeProcedimento'],
+         
             );
         }
         echo json_encode($array);

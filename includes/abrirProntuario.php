@@ -1,4 +1,5 @@
 
+
 <div class="container-fluid mt-2">
     <div class="row">
         <div class="row-cols-auto">
@@ -88,8 +89,12 @@
 
 </div>
 
-
-
+<script src="js/JQuery2.min.js"></script>
+<script>
+    $( document ).ready(function() {
+    loadDados();
+});
+</script>
 
 
 

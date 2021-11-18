@@ -37,7 +37,9 @@ function habilitar() {
 
 
 //apresenta dados cadastrais ao carregar a página.
-$(window).on("load", function(){
+//$(window).on("load", 
+function loadDados(){
+     
    var valorAjax = document.getElementById('aux').value;
     
     $('#apresenta_DadosCadastrais').html('<p>Aguardando...</p>');
@@ -77,7 +79,7 @@ $(window).on("load", function(){
             
         }
     })
-});
+};
 
 function Dados_Cadastrais() {
     document.getElementById("apresenta_Consultas").innerHTML ="";
@@ -143,12 +145,24 @@ function Consultas() {
                 
                 var tabela = '<thead><tr><th>Consulta</th>\n\
                                     <th>Data</th>\n\
+                                    <th>Hora</th>\n\
+                                    <th>relatório</th>\n\
+                                    <th>Status</th>\n\
+                                    <th>Clínica</th>\n\
+                                    <th>Dentista</th>\n\
+                                    <th>Procedimento</th>\n\
                                     </tr>\n\
                               </thead>';
                 for (var i = 0; i < dados.length; i++) {
                     tabela+= '<tbody><tr>\n\
-                                <td class "table-success">' + dados[i].id + '</td>\n\
+                                <td class "table-success" ><input class="btn btInput p- d-flex " value="' + dados[i].id + '"></td>\n\
                                 <td class "table-success">' + dados[i].data + '</td>\n\
+                                <td class "table-success">' + dados[i].hora + '</td>\n\
+                                <td class "table-success">' + dados[i].relatorio + '</td>\n\
+                                <td class "table-success">' + dados[i].status + '</td>\n\
+                                <td class "table-success">' + dados[i].clinica + '</td>\n\
+                                <td class "table-success">' + dados[i].dentista + '</td>\n\
+                                <td class "table-success">' + dados[i].procedimento + '</td>\n\
                                 </tr></tbody>';
                     //$('#apresentaProntuario').append('<tbody><tr><td class "table-success">' + dados[i].prontuario + '</td></tr></tbody>');
                     
