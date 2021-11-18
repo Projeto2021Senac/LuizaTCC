@@ -4,7 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\ServicoTerceiro;
 
-define('TITLE','Cadastro Serviço Terceiro');
+define('TITLE','Cadastrar Serviço Terceiro');
 define('BTN','Salvar');
 define('IDENTIFICACAO', '0');
 $objServicoTerceiro = new ServicoTerceiro;
