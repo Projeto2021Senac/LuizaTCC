@@ -6,6 +6,7 @@ function Calendario() {
   });
   $("#myModal").on("hide.bs.modal", function () {
     console.log("teste modal");
+    /* $("#formularioConsulta").trigger("reset"); */
     $("#formularioConsulta").trigger("reset");
   });
   function getHorarios(valor) {

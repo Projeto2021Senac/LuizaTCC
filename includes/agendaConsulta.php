@@ -23,7 +23,7 @@
                         <div class="d-flex">
                             <div class="form-group col-6 p-1">
                                 <label>Paciente Atendido</label>
-                                <select name="paciente" class="selectpicker form-control" data-live-search="true" data-size=5>
+                                <select name="paciente" class="selectpicker form-control" id = "paciente" data-live-search="true" data-size=5>
                                     <option selected hidden="">[SELECIONE]</option>
                                     <?php
 
