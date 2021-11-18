@@ -1,45 +1,5 @@
-<?php
-
-$msg = '';
-if (isset($_GET['status'])) {
-    switch ($_GET['status']) {
-        case 'success':
-            $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
-            break;
-        case 'error':
-            $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
-            break;
-    }
-}
-$resultados = '';
-foreach ($clinica as $c) {
-    $resultados .= '<tr> '
-        . '<td> ' . $c->idClinica . '</td>'
-        . '<td> ' . $c->nomeClinica . '</td>'
-        . '<td> ' . $c->statusClinica . '</td>'
-        . '<td> 
-          <a href="editaClinica.php?idClinica=' . $c->idClinica . '" 
-              class="btn btn-info" >Editar</a>
-           
-         </td>
-         </tr>';
-}
-
-$resultados = strlen($resultados) ? $resultados :
-    '<tr>'
-    . '<td colspan = "6" class = "text-center"> Nenhuma clínica encontrada</td>'
-    . '</tr>';
-?>
-
 
 <div class="container-fluid">
-    <?php if ($msg != "") {
-        echo $msg;
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaClinica.php'\">";
-    }
-    ?>
-
     <section class="d-flex justify-content-center mt-2">
       <div class="col-4">
         <div class="bg-dark rounded p-2">
@@ -59,7 +19,7 @@ $resultados = strlen($resultados) ? $resultados :
             <a href="listaClinica.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
           </div>
           <div class="col-6 p-2">
-            <a href="listaClinica.php"> <input type="submit" value="Cadastrar Consulta" class="btn btn-success w-100" /> </a>
+            <a href="listaClinica.php"> <input type="submit" value="Cadastrar Clinica" class="btn btn-success w-100" /> </a>
           </div>
         </div>
       </div>

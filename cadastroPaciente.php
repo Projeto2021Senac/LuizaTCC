@@ -20,8 +20,8 @@ if (isset($_POST['cadastrarPaciente'])) {
         $paciente->email = $_POST['email'];
         
         $paciente->cadastrarPaciente();
-        
-        header ('Location: listaPaciente.php?status=success&id='.$paciente->prontuario);
+        /* echo "<pre>"; print_r($paciente); echo "<pre>";exit; */
+        header ('Location: listaPaciente.php?pagina=1&status=success&id='.$paciente->prontuario[1]);
 
         //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
         //URL='cadastroPaciente.php'\">";

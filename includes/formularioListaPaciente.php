@@ -1,16 +1,4 @@
 <?php
-
-$msg = '';
-if (isset($_GET['status'])) {
-    switch ($_GET['status']) {
-        case 'success':
-            $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
-            break;
-        case 'error':
-            $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
-            break;
-    }
-}
 $resultados = '';
 foreach ($pacientes as $p) {
     $resultados .= '<tr> '
@@ -37,37 +25,31 @@ $resultados = strlen($resultados) ? $resultados :
 
 
 <div class="container-fluid">
-    <?php if ($msg != "") {
-        echo $msg;
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaPaciente.php'\">";
-    }
-    ?>
-    <br>
+
     <section class="d-flex justify-content-center mt-2">
-      <div class="col-4">
-      <input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
-        <div class="bg-dark rounded p-2">
-          <h5 style="color: white; text-align: center ">Pacientes</h5>
-          <form method="post" action="">
-            <div class="col-10 form-group p-2" style="margin:auto">
+        <div class="col-4">
+            <input hidden id="identificacao" value="<?= IDENTIFICACAO ?>"></input>
+            <div class="bg-dark rounded p-2">
+                <h5 style="color: white; text-align: center ">Pacientes</h5>
+                <form method="post" action="">
+                    <div class="col-10 form-group p-2" style="margin:auto">
 
-              <input type="text" class="form-control p-1" name="busca" id = "busca" required="" value="<?= $busca ?>">
+                        <input type="text" class="form-control p-1" name="busca" id="busca" required="" value="<?= $busca ?>">
+                    </div>
+                    <input type="submit" name="listaPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
+
+                </form>
+
             </div>
-            <input type="submit" name="listaPaciente" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
-
-          </form>
-
+            <div class="row">
+                <div class="col-6 p-2">
+                    <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
+                </div>
+                <div class="col-6 p-2">
+                    <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Paciente" class="btn btn-success w-100" /> </a>
+                </div>
+            </div>
         </div>
-        <div class="row">
-          <div class="col-6 p-2">
-            <a href="listaPaciente.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
-          </div>
-          <div class="col-6 p-2">
-            <a href="cadastroPaciente.php"> <input type="submit" value="Cadastrar Paciente" class="btn btn-success w-100" /> </a>
-          </div>
-        </div>
-      </div>
 
     </section>
     <br>
