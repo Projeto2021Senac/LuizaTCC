@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
 
     $resultados .= '<tr class = "text-center" >
                           <td>' . $consulta->idConsulta . '</td>
-                          <td>' . date('Y/m/d', strtotime($consulta->dataConsulta)) . '</td>
+                          <td>' . date('d/m/Y', strtotime($consulta->dataConsulta)) . '</td>
                           <td>' . date(' H:i', strtotime($consulta->horaConsulta)) . '</td>
                           <td>' . $consulta->statusConsulta . '</td>
                           <td>' . $consulta->nomePaciente . '</td>

@@ -6,6 +6,10 @@ use Classes\Entity\rastreio;
 define('NAME', 'Rastreio');
 define('LINK', 'listaRastreio.php');
 
+if (!isset($_GET['pagina'])){
+    header('location:?pagina=1');
+}
+
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
@@ -17,6 +21,28 @@ $condicoes = [
 
 
 $where = implode(' AND ', $condicoes);
+
+$objRastreio = new rastreio;
+
+if(strlen($where)){
+
+    $pagina_atual = 1;
+  }else{
+    $pagina_atual = intval($_GET['pagina']);
+  }
+  
+  $itens_por_pagina = 6;
+  
+  $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
+  
+  $registros_totais = $objRastreio->getRastreios();
+  
+  $registros_filtrados = $objRastreio->getRastreios(null,$where,'dtEntrega asc',$inicio.','.$itens_por_pagina);
+  
+  $num_registros_totais = count($registros_totais);
+  
+  $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
+
 
 $rastreio = rastreio::getRastreiosInner($where);
 //echo "<pre>"; print_r($rastreio); echo "<pre>";exit;

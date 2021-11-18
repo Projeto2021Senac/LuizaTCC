@@ -14,12 +14,12 @@
         });
     });
 </script>
-<script>
-    if("<?= IDENTIFICACAO ?>" ===  'Agendamento'){
-        Calendario();
-    }
+<?php
+if(isset($calendario)){
+    echo $calendario;
+}
+?>
 
-</script>
 
 
 </body>

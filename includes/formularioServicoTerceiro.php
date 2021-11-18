@@ -2,7 +2,7 @@
     <main>
 
         <section>
-            <a href="index.php">
+            <a href="listaServicoTerceiro.php?pagina=1">
                 <button class="btn btn-success mt-4">Menu</button>
             </a>
 

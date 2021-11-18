@@ -33,7 +33,7 @@ if(strlen($where)){
   
   $registros_totais = $objClinica->getClinicas();
   
-  $registros_filtrados = $objFuncionario->getClinicas(null,$where,'nomeFuncionario asc',$inicio.','.$itens_por_pagina);
+  $registros_filtrados = $objClinica->getClinicas(null,$where,'nomeClinica asc',$inicio.','.$itens_por_pagina);
   
   $num_registros_totais = count($registros_totais);
   
@@ -42,7 +42,7 @@ if(strlen($where)){
 $objClinica= clinica::getClinicas($where);
 
 
-$clinica = $objClinica->getClinicas($where);
+$clinica = $objClinica;
 
 $resultados = '';
 foreach ($clinica as $c) {

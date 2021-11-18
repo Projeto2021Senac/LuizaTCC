@@ -92,6 +92,11 @@ if (isset($_POST['botao'])) {
   }
 }
 
+$calendario =
+  "<script>
+    Calendario();
+</script>";
+
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/agendaConsulta.php';
 include __DIR__ . '/includes/footer.php';

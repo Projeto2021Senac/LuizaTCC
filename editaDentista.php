@@ -24,7 +24,7 @@ if (isset($_POST['editarDentista'])) {
 
     if (!empty($_POST['nomeDentista'])) {
 
-        $dentista->idDentista = $_POST['idDentista'];
+        $dentista->idDentista = $_GET['idDentista'];
         $dentista->nomeDentista = trim($_POST['nomeDentista']);
         $dentista->statusDentista = $_POST['status'];
         

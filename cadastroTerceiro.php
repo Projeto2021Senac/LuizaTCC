@@ -4,7 +4,7 @@ require __DIR__.'/vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\Terceiro;
 
-define('TITLE','Cadastro Terceiro');
+define('TITLE','Cadastrar Terceiro');
 define('BTN','Salvar');
 define('IDENTIFICACAO', '0');
 $objTerceiro = new Terceiro;
@@ -18,7 +18,7 @@ if (isset($_POST['Salvar'])){
     $objTerceiro->cadastro();
    
     if ($objTerceiro->idTerceiro > 0){
-        header ('Location: listaTerceiro.php?pagina=1&status=success&id='.$objTerceiro->idTerceiro);
+        header ('Location: listaTerceiro.php?pagina=1&status=success&id='.$objTerceiro->idTerceiro[1]);
     }else{
         header ('Location: listaTerceiro.php?pagina=1&status=error');
     }
