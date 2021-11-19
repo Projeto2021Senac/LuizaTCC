@@ -5,6 +5,7 @@ include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\dentista;
 define('NAME', 'Dentista');
 define('LINK', 'listaDentista.php');
+define('IDENTIFICACAO', 6);
 if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }
@@ -19,6 +20,7 @@ $condicoes = [
 
 
 $where = implode(' AND ', $condicoes);
+
 $objDentista = new dentista;
 
 if(strlen($where)){
@@ -32,17 +34,13 @@ if(strlen($where)){
   
   $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
   
-  $registros_totais = $objDentista->getDentistas();
+  $dentista = $registros_totais = $objDentista->getDentistas($where);
   
-  $registros_filtrados = $objDentista->getDentistas(null,$where,'nomeDentista asc',$inicio.','.$itens_por_pagina);
+  $dentista = $registros_filtrados = $objDentista->getDentistas($where,null,'nomeDentista asc',$inicio.','.$itens_por_pagina);
   
   $num_registros_totais = count($registros_totais);
   
   $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
-
-
-$dentista = dentista::getDentistas($where);
-
 
 
 

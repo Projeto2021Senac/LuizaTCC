@@ -3,7 +3,7 @@
     <section class="d-flex justify-content-center mt-2">
         <div class="col-4">
             <div class="bg-dark rounded p-2">
-                <h5 style="color: white; text-align: center ">Serviços Prestados por Terceiros</h5>
+                <h5 style="color: white; text-align: center ">Serviços</h5>
                 <form method="post" action="">
                     <div class="col-10 form-group p-2" style="margin:auto">
                         <input hidden name="tabela" value="servicoTerceiro"></input>
@@ -31,7 +31,7 @@
 
             <div class="col-8 offset-2 mt-2">
 
-                <table class="table table-responsive  bg-light bg-gradient">
+                <table class="table bg-light table-striped table-hover mt-1 table-responsive">
                     <thead class="table-dark">
                         <tr>
                             <th>Número do ID</th>

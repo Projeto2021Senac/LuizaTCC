@@ -1,4 +1,8 @@
 
+div#to_do_list::-webkit-scrollbar { 
+	display: none;
+}
+
 /* cor base pesquisada no site paletton 00CCCC */
 
 /*header{

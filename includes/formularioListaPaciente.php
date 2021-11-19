@@ -62,7 +62,7 @@ $resultados = strlen($resultados) ? $resultados :
 
         <div class="col-12 mt-2">
 
-            <table class="table bg-light table-striped table-hover mt-1">
+            <table class="table bg-light table-striped table-hover mt-1 table-responsive">
                 <thead class="table-dark">
                     <tr>
                         <th>Prontuário</th>

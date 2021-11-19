@@ -48,12 +48,13 @@ function getHorarios(valor) {
     },
   });
 }
-/*$(function(){
+
+$(function(){
     let = identificacao = document.querySelector("#identificacao").value;
     $("#busca").autocomplete({
       source: "autocomplete2.php?teste=" + identificacao,
     });
-});*/
+});
 
 
 

@@ -56,9 +56,9 @@ $resultados = strlen($resultados) ? $resultados :
 
   <div class="row">
 
-    <div class="col-8 offset-2 mt-2">
+    <div class="col-10 offset-1 mt-2">
 
-      <table class="table table-responsive  bg-light bg-gradient">
+      <table class="table bg-light table-striped table-hover mt-1 table-responsive">
         <thead class="table-dark">
           <tr>
             <th>Código</th>

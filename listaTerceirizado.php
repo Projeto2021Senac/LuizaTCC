@@ -18,13 +18,32 @@ $condicoes = [
 
 $where = implode(' AND ', $condicoes);
 
+$objTerceirizado = new Terceirizado;
 
+if(strlen($where)){
+
+    $pagina_atual = 1;
+  }else{
+    $pagina_atual = intval($_GET['pagina']);
+  }
+  
+  $itens_por_pagina = 6;
+  
+  $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
+  
+  $Terceirizado = $registros_totais = $objTerceirizado->getTerceirizadoInnerJoin('terceiro,servicoterceiro',$where,'fkterceiro,idTerceiro,fkServicoTerceiro,idServico');
+  
+  $Terceirizado = $registros_filtrados = $objTerceirizado->getTerceirizadoInnerJoin('terceiro,servicoterceiro',$where,'fkterceiro,idTerceiro,fkServicoTerceiro,idServico',null,'nomeTerceiro asc',$inicio.','.$itens_por_pagina);
+  
+  $num_registros_totais = count($registros_totais);
+  
+  $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
 
 $objTerceirizado= Terceirizado::getTerceirizadoInnerJoin('terceiro,servicoterceiro',null,'fkterceiro,idTerceiro,fkServicoTerceiro,idServico');
 /* echo '<pre>';print_r($objTerceirizado);echo '<pre>';exit; */
 
 $resultados = '';
-foreach ($objTerceirizado as $Terceirizado) {
+foreach ($Terceirizado as $Terceirizado) {
     /* echo '<pre>';print_r($Terceirizado);echo '<pre>';exit; */
     $resultados .= '<tr>
     <td>' . $Terceirizado->nomeTerceiro . '</td>

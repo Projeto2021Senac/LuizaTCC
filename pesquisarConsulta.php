@@ -10,7 +10,7 @@ define('NAME','Consulta');
 define('LINK','pesquisarConsulta.php?pagina=1');
 define('CAMPO','nomePaciente,idConsulta,dataConsulta,prontuario');
 define('TABELA','consulta');
-define('IDENTIFICACAO',1);
+define('IDENTIFICACAO',7);
 $objConsulta = new Consulta;
 $objPaciente = new paciente;
 

@@ -18,9 +18,9 @@ if (isset($_POST['Salvar'])){
     $objServicoTerceiro->cadastro();
    
     if ($objServicoTerceiro->idServico> 0){
-        header ('Location: index.php?pagina=1&status=success');
+        header ('Location: listaTerceirizado.php?pagina=1&status=success');
     }else{
-        header ('Location: index.php?pagina=1&status=error');}
+        header ('Location: listaTerceirizado.php?pagina=1&status=error');}
 }
 
 include __DIR__.'/includes/header.php';

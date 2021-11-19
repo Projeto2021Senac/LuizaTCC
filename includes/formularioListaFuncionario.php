@@ -28,7 +28,7 @@
         </section>
 
 
-        <table class="table bg-light mt-3">
+        <table class="table bg-light table-striped table-hover mt-1 table-responsive">
             <thead class="bg-dark text-light">
                 <tr>
                     <th>Número do ID</th>

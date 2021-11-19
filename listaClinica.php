@@ -3,6 +3,11 @@
 require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use Classes\Entity\clinica;
+
+define('NAME','Clinica');
+define('LINK','listaClinica.php?pagina=1');
+define('IDENTIFICACAO',5);
+
 if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }
@@ -31,18 +36,15 @@ if(strlen($where)){
   
   $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
   
-  $registros_totais = $objClinica->getClinicas();
+  $clinica = $registros_totais = $objClinica->getClinicas();
   
-  $registros_filtrados = $objClinica->getClinicas(null,$where,'nomeClinica asc',$inicio.','.$itens_por_pagina);
+  $clinica = $registros_filtrados = $objClinica->getClinicas($where,null,'nomeClinica asc',$inicio.','.$itens_por_pagina);
   
   $num_registros_totais = count($registros_totais);
   
   $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
 
-$objClinica= clinica::getClinicas($where);
 
-
-$clinica = $objClinica;
 
 $resultados = '';
 foreach ($clinica as $c) {
@@ -67,4 +69,5 @@ $resultados = strlen($resultados) ? $resultados :
 
 include __DIR__.'/includes/header.php';
 include __DIR__.'/includes/formularioListaClinica.php';
+include __DIR__.'/includes/mensagensCRUD.php';
 include __DIR__.'/includes/footer.php';

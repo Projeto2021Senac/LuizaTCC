@@ -13,7 +13,7 @@ $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
 //condições sql
 $condicoes = [
-    strlen($busca) ? 'nome LIKE "%'. str_replace('', '%', $busca).'%"': null
+    strlen($busca) ? 'nomeTerceiro LIKE "%'. str_replace('', '%', $busca).'%"': null
     
 ];
 
@@ -35,7 +35,7 @@ $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
 
 $registros_totais = $objTerceiro->getTerceiros();
 
-$registros_filtrados = $objTerceiro->getTerceiros(null, $where, 'nomeTerceiro asc', $inicio . ',' . $itens_por_pagina);
+$registros_filtrados = $objTerceiro->getTerceiros( $where,null,'nomeTerceiro asc', $inicio . ',' . $itens_por_pagina);
 
 $num_registros_totais = count($registros_totais);
 

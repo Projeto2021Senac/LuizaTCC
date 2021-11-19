@@ -91,18 +91,25 @@
 
             <!--                 <div class="col-1"></div> -->
 
-            <div class="col-6 mt-2 p-4 bg-drak overflow-auto">
-                
-                <div id="to_do_list" class="list-group overflow-auto bg-dark border border-dark rounded p-2" style="max-height:550px;">
-                <h4 class = "text-center text-white bg-dark">To-do-List</h4>    
-                <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
-                            <small>Today</small>
-                        </div>
-                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
-                        <small>Em caso de erro gritar é contra indicado.</small>
-                    </a>
+            <div class="col-6 mt-2 p-2 bg-dark">
+                <h4 class="text-center text-white bg-dark">To-do-List</h4>
+                <div class="d-flex justify-content-center bg-dark text-white">
+                    <div class = "p-1">
+                        <label for="Filtro1">Filtro1</label>
+                        <input name="Filtro1" onchange="alerta()" type="radio" value="Teste"></input>
+                    </div>
+                    <div class = "p-1">
+                        <label for="Filtro1">Filtro2</label>
+                        <input name="Filtro1" onchange="alerta()" type="radio" value="Teste"></input>
+                    </div>
+                    <div class = "p-1">
+                        <label for="Filtro1">Filtro3</label>
+                        <input name="Filtro1" onchange="alerta()" type="radio" value="Teste"></input>
+                    </div>
+                </div>
+                <div id="to_do_list" class="list-group overflow-auto rounded p-2" style="max-height:500px;">
+
+
                     <a href="#" class="list-group-item list-group-item-action " aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
@@ -151,7 +158,14 @@
                         <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
                         <small>Em caso de erro gritar é contra indicado.</small>
                     </a>
-                    
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sem Tarefas para hoje por enquanto</h5>
+                            <small>Today</small>
+                        </div>
+                        <p class="mb-1">Caso ainda não tenha feito, alimente o banco </p>
+                        <small>Em caso de erro gritar é contra indicado.</small>
+                    </a>
 
                 </div>
                 <!-- <div class="card-header bg-dark text-white text-center border border-light" style="opacity:100%">Today</div>
@@ -234,3 +248,8 @@
         </div>
     </div>
 </div>
+<script>
+    function alerta() {
+        alert('oi');
+    }
+</script>

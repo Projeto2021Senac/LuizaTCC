@@ -34,18 +34,18 @@ if(strlen($where)){
   
   $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
   
-  $registros_totais = $objFuncionario->getFuncionarios();
+  $funcionario = $registros_totais = $objFuncionario->getFuncionarios();
   
-  $registros_filtrados = $objFuncionario->getFuncionarios(null,$where,'nomeFuncionario asc',$inicio.','.$itens_por_pagina);
+  $funcionario = $registros_filtrados = $objFuncionario->getFuncionarios($where,null,'nomeFuncionario asc',$inicio.','.$itens_por_pagina);
   
   $num_registros_totais = count($registros_totais);
   
   $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
 
-$objFuncionario= Funcionario::getFuncionarios();
+
 
 $resultados = '';
-foreach ($objFuncionario as $objFuncionario) {
+foreach ($funcionario as $objFuncionario) {
     $resultados .= '<tr>
                         <td>' . $objFuncionario->idFuncionario . '</td>
                         <td>' . $objFuncionario->nomeFuncionario . '</td>
