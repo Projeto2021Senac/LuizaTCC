@@ -11,7 +11,15 @@ if (!isset($_GET['pagina'])){
     header('location:?pagina=1');
 }
 //busca
+
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
+
+isset($_SESSION['pesquisa']) ? $pesquisa = $_SESSION['pesquisa'] : $pesquisa = $busca;
+if ($pesquisa != null) {
+  header('location: pesquisarProtese.php?pagina=1&search=' . $pesquisa);
+}
+isset($_GET['search']) ? $search = $_GET['search'] : $search = '';
+
 
 //condições sql
 $condicoes = [
@@ -75,7 +83,7 @@ $where = implode(' AND ', $condicoes);
                             <td>' . $protese->qtdDente . '</td>
                             <td>' . ($protese->ouro == 'sim' ? 'Sim' : 'Não') . '</td>
                             <td>' . $protese->qtdOuro . '</td>
-                            <td>' . date('d/m/Y à\s H:i:s', strtotime($protese->dataRegistro)) . '</td>
+                            <td>' . date('d/m/Y à\s H:i', strtotime($protese->dataRegistro)) . '</td>
                             <td>
                             <a href = editaProtese.php?id=' . $protese->idProtese . '>
                             <button class = "btn btn-primary">Editar</button>

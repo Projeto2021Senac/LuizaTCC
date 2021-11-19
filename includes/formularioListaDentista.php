@@ -1,23 +1,12 @@
 <?php
 
-$msg = '';
-if (isset($_GET['status'])) {
-    switch ($_GET['status']) {
-        case 'success':
-            $msg = '<div class ="alert alert-success"> Ação executada com sucesso!</div>';
-            break;
-        case 'error':
-            $msg = '<div class ="alert alert-danger"> Ação não executada!</div>';
-            break;
-    }
-}
 $resultados = '';
 foreach ($dentista as $d) {
-    $resultados .= '<tr> '
-        . '<td> ' . $d->idDentista . '</td>'
-        . '<td> ' . $d->nomeDentista . '</td>'
-        . '<td> ' . $d->statusDentista . '</td>'
-        . '<td> 
+  $resultados .= '<tr> '
+    . '<td> ' . $d->idDentista . '</td>'
+    . '<td> ' . $d->nomeDentista . '</td>'
+    . '<td> ' . $d->statusDentista . '</td>'
+    . '<td> 
           <a href="editaDentista.php?idDentista=' . $d->idDentista . '" 
               class="btn btn-info" >Editar</a>
            
@@ -26,82 +15,94 @@ foreach ($dentista as $d) {
 }
 
 $resultados = strlen($resultados) ? $resultados :
-    '<tr>'
-    . '<td colspan = "6" class = "text-center"> Nenhum dentista encontrado</td>'
-    . '</tr>';
+  '<tr>'
+  . '<td colspan = "6" class = "text-center"> Nenhum dentista encontrado</td>'
+  . '</tr>';
 ?>
 
 
 <div class="container-fluid">
-    <?php if ($msg != "") {
-        echo $msg;
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"5;
-        URL='listaDentista.php'\">";
-    }
-    ?>
-    <br>
-    
-    <section class="d-flex justify-content-center mt-2">
-        <div class="col-4">
-            <div class="bg-dark rounded p-2">
-                <h5 style="color: white; text-align: center ">Dentistas</h5>
-                <form method="post" action="">
-                    <div class="col-10 form-group p-2" style="margin:auto">
 
-                        <input type="text" class="form-control p-1" name="busca" id="busca" required="" value="<?= $busca ?>">
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="submit" name="listaDentista" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
-                        </div>
-                        <div class="col-6">
-                            <a href="cadastroDentista.php">
-                                <input type="button" name="listaDentista" class="btn btn-success btInput p- d-flex " style="margin:auto" value="Cadastrar">
-                            </a>
-                        </div>
-                    </div>
-                </form>
+  <section class="d-flex justify-content-center mt-2">
+    <div class="col-4">
+      <div class="bg-dark rounded p-2">
+        <h5 style="color: white; text-align: center ">Dentistas</h5>
+        <form method="post" action="">
+          <div class="col-10 form-group p-2" style="margin:auto">
 
-            </div>
+            <input type="text" class="form-control p-1" name="busca" id="busca" required="" value="<?= $busca ?>">
+          </div>
+          <input type="submit" name="listaDentista?pagina=1" class="btn btn-secondary btInput p- d-flex " style="margin:auto" value="Pesquisar">
 
+        </form>
 
-
+      </div>
+      <div class="row">
+        <div class="col-6 p-2">
+          <a href="pesquisarConsulta.php"> <input type="submit" value="Limpar Pesquisa" class="btn btn-danger w-100" /> </a>
         </div>
-</div>
+        <div class="col-6 p-2">
+          <a href="cadastroDentista.php"> <input type="submit" value="Cadastrar Dentista" class="btn btn-success w-100" /> </a>
+        </div>
+      </div>
+    </div>
 
-</section>
-<br>
+  </section>
+  <br>
 </div>
 
 
 <div class="container-fluid">
 
-    <div class="row">
+  <div class="row">
 
-        <div class="col-8 offset-2 mt-2">
+    <div class="col-10 offset-1 mt-2">
 
-            <table class="table table-responsive  bg-light bg-gradient">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
+      <table class="table bg-light table-striped table-hover mt-1 table-responsive">
+        <thead class="table-dark">
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
 
-                </thead>
-
-
-                <tbody>
-                    <?= $resultados ?>
+        </thead>
 
 
-                </tbody>
-
-            </table>
-        </div>
+        <tbody>
+          <?= $resultados ?>
 
 
+        </tbody>
+
+      </table>
+      <div class="d-flex justify-content-center">
+        <nav class="" aria-label="...">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="listaDentista.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+            </li>
+            <?php
+            for ($i = 1; $i <= $num_pagina; $i++) {
+              $estilo = "";
+              if ($pagina_atual == $i) {
+                $estilo = "active";
+              }
+            ?>
+              <li class="page-item <?= $estilo ?>"><a class="page-link" href="listaDentista.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+            <?php
+            }
+            ?>
+            <li class="page-item">
+              <a class="page-link" href="listaDentista.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
+
+
+  </div>
 
 </div>

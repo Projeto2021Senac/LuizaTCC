@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Rastreio');
 define('BTN', 'cadastrarRastreio');
+define('IDENTIFICACAO', '0');
 //define('IDENTIFICACAO', 1);
 
 
@@ -58,10 +59,10 @@ if (isset($_POST['cadastrarRastreio'])) {
         $rastreio->fkProtese = $_POST['fkProtese'];
         //$terceirizado->fkTerceiro = $rastreio->RFKTerceiro;
         //$terceirizado->fkServicoTerceiro = $rastreio->RFKServico;
-       echo'<pre>';print_r($rastreio);echo'</pre>';exit;
+       /* echo'<pre>';print_r($rastreio);echo'</pre>';exit; */
         unset($_POST['cadastrarRastreio']);
         
-        echo'<pre>';print_r($rastreio);echo'</pre>';exit;
+        /* echo'<pre>';print_r($rastreio);echo'</pre>';exit; */
         
         //$terceirizado->cadastrarTerceirizado();
         $rastreio->cadastrarRastreio();
@@ -74,7 +75,10 @@ if (isset($_POST['cadastrarRastreio'])) {
         //URL='cadastroDentista.php'\">";
     
 }
+if (isset($_GET['rProtese'])) {
 
+    $rastreio->fkProtese = $_GET['rProtese'];
+}
 
 
 /*if (isset($_POST['pConsultaRast'])){

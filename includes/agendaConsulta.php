@@ -1,5 +1,8 @@
 <button><a href="index.php">Voltar</a></button>
 
+<!-- Identificacao da Página -->
+<input hidden id = "identificacao" value = "<?=IDENTIFICACAO?>"></input>
+
 <!-- Button trigger modal -->
 <button type="button" hidden id="botaoModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
     Launch demo modal
@@ -20,7 +23,7 @@
                         <div class="d-flex">
                             <div class="form-group col-6 p-1">
                                 <label>Paciente Atendido</label>
-                                <select name="paciente" class="selectpicker form-control" data-live-search="true" data-size=5>
+                                <select name="paciente" class="selectpicker form-control" id = "paciente" data-live-search="true" data-size=5>
                                     <option selected hidden="">[SELECIONE]</option>
                                     <?php
 
@@ -112,4 +115,3 @@
 <div id="aviso" class="text-center"></div>
 <div id="calendar" class="calendar"></div>
 <?= $alerta ?>
-<?= $agora ?>

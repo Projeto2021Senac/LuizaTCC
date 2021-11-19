@@ -4,8 +4,9 @@ require __DIR__.'/vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\ServicoTerceiro;
 
-define('TITLE','Cadastro Serviço Terceiro');
+define('TITLE','Cadastrar Serviço Terceiro');
 define('BTN','Salvar');
+define('IDENTIFICACAO', '0');
 $objServicoTerceiro = new ServicoTerceiro;
 if (isset($_POST['Salvar'])){
 
@@ -17,9 +18,9 @@ if (isset($_POST['Salvar'])){
     $objServicoTerceiro->cadastro();
    
     if ($objServicoTerceiro->idServico> 0){
-        header ('Location: index.php?pagina=1&status=success');
+        header ('Location: listaTerceirizado.php?pagina=1&status=success');
     }else{
-        header ('Location: index.php?pagina=1&status=error');}
+        header ('Location: listaTerceirizado.php?pagina=1&status=error');}
 }
 
 include __DIR__.'/includes/header.php';

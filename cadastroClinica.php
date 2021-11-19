@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Cadastrar Clinica');
 define('BTN', 'cadastrarClinica');
-
+define('IDENTIFICACAO', '0');
 use Classes\Entity\clinica;
 
 $clinica = new clinica();
@@ -21,7 +21,7 @@ if (isset($_POST['cadastrarClinica'])) {
         /* echo "<pre>"; print_r($clinica); echo "<pre>";exit; */
         $clinica->cadastrarClinica();
         
-        //header ('Location: listaClinica.php?status=success');
+        header ('Location: listaClinica.php?pagina=1&status=success&id='.$clinica->idClinica[1]);
 
         //echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"3;
         //URL='cadastroClinica.php'\">";

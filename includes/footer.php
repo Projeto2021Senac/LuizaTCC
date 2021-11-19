@@ -14,6 +14,13 @@
         });
     });
 </script>
+<?php
+if(isset($calendario)){
+    echo $calendario;
+}
+?>
+
+
 
 </body>
 

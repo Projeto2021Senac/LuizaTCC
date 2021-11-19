@@ -6,59 +6,48 @@
 
     </main>
 
-    <div class="row">
-        <div>
-            <div class="row">
+    <div class="col-4 mt-4 offset-4 p-3 bg-dark " style="border-radius:25px 30px 25px 30px">
+        <div class="border border-white rounded p-2">
+            <h3 style="text-align: center; color: white"><?= TITLE ?></h3>
+            <form class="d-flex justify-content-center" method="post" style="color: white">
+                <div class="col-8">
+                    <div class="form-group">
+                        <label> Terceiro: </label>
+                        <select class="form-control" name="Terceiro" value="">
+                            <option selected="selected">[---SELECIONE---]</option>
 
-                <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 90%">
-                    <h3 style="color: white; text-align: center"><?= TITLE ?></h3>
-                </div>
-            </div>
-        </div>
+                            <?php
+                            foreach ($objTerceiro as  $terceiro) {
 
-        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 80%">
-            <form method="post" style="color: white">
-                <!-- <h3>Cadastro Terceirizado </h3>-->
-                <div class="form-group">
-                    <label> Terceiro: </label>
-                    <select class="form-control" name="Terceiro" value="">
-                        <option selected="selected">[---SELECIONE---]</option>
+                                echo "<option value =" .  $terceiro->idTerceiro . ">" . $terceiro->nomeTerceiro . "</option>";
+                            }
+                            ?>
 
-                        <?php
-                        foreach ($objTerceiro as  $terceiro) {
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Serviço Terceiro: </label>
+                        <select class="form-control" name="ServicoTerceiro" value="">
+                            <option>[---SELECIONE---]</option>
 
-                            echo "<option value =" .  $terceiro->idTerceiro . ">" . $terceiro->nomeTerceiro . "</option>";
-                        }
-                        ?>
+                            <?php
+                            foreach ($objServicoTerceiro as  $ServicoTerceiro) {
 
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label> Serviço Terceiro: </label>
-                    <select class="form-control" name="ServicoTerceiro" value="">
-                        <option>[---SELECIONE---]</option>
+                                echo "<option value =" .  $ServicoTerceiro->idServico . ">" . $ServicoTerceiro->nomeServico . "</option>";
+                            }
+                            ?>
 
-                        <?php
-                        foreach ($objServicoTerceiro as  $ServicoTerceiro) {
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-center p-2">
 
-                            echo "<option value =" .  $ServicoTerceiro->idServico . ">" . $ServicoTerceiro->nomeServico . "</option>";
-                        }
-                        ?>
-
-                    </select>
-                </div>
-
-                <div>
-                    <div class="row">
-                        <div class="col-4 offset-4 bg-gradient rounded-3" style=" background-color: black;opacity: 100%">
-                            <br>
-                            <input type="submit" name="<?= BTN ?>" class="btn btn-success btInput p-1 offset-5" value="Salvar" <?php //if ($btEnviar == TRUE) echo "disabled"; 
-                                                                                                                                ?>>
-                            <br>
-                            <br>
-                        </div>
+                        <input type="submit" name="<?= BTN ?>" class="  btn btn-lg btn-success btInput" value="<?= (TITLE == "Cadastrar Dentista" ? 'Cadastrar' : 'Editar') ?>">
 
                     </div>
+                </div>
 
             </form>
+
         </div>
+    </div>
+</div>

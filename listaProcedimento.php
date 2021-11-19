@@ -13,12 +13,14 @@ if (!isset($_GET['pagina'])) {
 }
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
-if ($busca != null) {
-  echo "<pre>";
-  print_r($busca);
-  echo "<pre>";
-  exit;
+
+isset($_SESSION['pesquisa']) ? $pesquisa = $_SESSION['pesquisa'] : $pesquisa = $busca;
+if ($pesquisa != null) {
+  header('location: listaProcedimento.php?pagina=1&search=' . $pesquisa);
 }
+isset($_GET['search']) ? $search = $_GET['search'] : $search = '';
+
+
 //condições sql
 $condicoes = [
   strlen($busca) ? 'nomeProcedimento LIKE "%' . str_replace('', '%', $busca) . '%"' : null

@@ -3,12 +3,8 @@ require __DIR__ . '/vendor/autoload.php';
 include __DIR__ . './includes/sessionStart.php';
 define('TITLE', 'Cadastrar Nova Consulta');
 define('NAME', 'Consulta');
+define('IDENTIFICACAO', 'Agendamento');
 
-date_default_timezone_set('America/Sao_Paulo');
-$datetime = new DateTime('now');
-$datetime_string = $datetime->format('c');
-$agora = "<script>var agora = '$datetime_string'</script>
-";
 
 use \Classes\Entity\consulta;
 use \Classes\Entity\clinica;
@@ -95,6 +91,11 @@ if (isset($_POST['botao'])) {
     }
   }
 }
+
+$calendario =
+  "<script>
+    Calendario();
+</script>";
 
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/agendaConsulta.php';

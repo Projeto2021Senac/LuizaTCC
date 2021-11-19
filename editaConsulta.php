@@ -10,6 +10,7 @@ use \Classes\Entity\paciente;
 use \Classes\Entity\funcionario;
 
 define('TITLE','Editar Consulta');
+define('IDENTIFICACAO', '0');
 $objConsulta = consulta::getConsulta($_GET['id']);
 /* echo "<pre>"; print_r($objConsulta); echo "<pre>";exit; */
 $objClinica = clinica::getClinicas();

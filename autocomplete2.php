@@ -36,7 +36,20 @@ switch ($GET) {
     case 4:
         define('CAMPO', 'nomePaciente,prontuario,idProtese,idConsulta');
         $autoCompletar = (strlen($autoCompletar) ? "WHERE nomepaciente   LIKE '%" . $autoCompletar . "%' OR  prontuario LIKE '%" . $autoCompletar . "%'  " : '');
-        $query = 'select distinct * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta '.$autoCompletar;
+        $query = 'select distinct * from paciente inner join consulta on prontuario = fkProntuario inner join protese on fkConsultaT = idConsulta ' . $autoCompletar;
+        break;
+    case 5:
+        define('CAMPO', 'nomeClinica,idClinica');
+        define('TABELA', 'clinica');
+        break;
+    case 6:
+        define('CAMPO', 'nomeDentista,idDentista');
+        define('TABELA', 'dentista');
+        break;
+    case 7:
+        define('CAMPO', 'nomePaciente,prontuario');
+        $autoCompletar = (strlen($autoCompletar) ? "WHERE nomePaciente   LIKE '%" . $autoCompletar . "%' OR  prontuario LIKE '%" . $autoCompletar . "%'  " : '');
+        $query = 'select distinct * from paciente inner join consulta on prontuario = fkProntuario ' . $autoCompletar;
         break;
 }
 
@@ -45,7 +58,7 @@ $clause = explode(',', CAMPO);
 $campos = CAMPO;
 $campo = '';
 $clause_count = count($clause);
-if ($clause_count > 1) {
+if ($clause_count > 0) {
     for ($x = 0; $x < $clause_count; $x++) {
         /* echo "<pre>"; print_r($c); echo "<pre>";exit; */
         if ($x != $clause_count - 1) {
@@ -67,9 +80,9 @@ $resultado_msg_cont = (new db())->executeSQL($query);
 
 $data = [];
 while ($row_msg_count = $resultado_msg_cont->fetch(PDO::FETCH_ASSOC)) {
-
+    if (!in_Array($row_msg_count[$clause[0]], $data)) {
         $data[] = $row_msg_count[$clause[0]];
-
+    }
 }
 if ($data == null) {
     $data = ['Sem Resultados'];

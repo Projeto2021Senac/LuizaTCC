@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Editar Dentista');
 define('BTN', 'editarDentista');
+define('IDENTIFICACAO', '0');
 
 use \Classes\Entity\dentista;
 
@@ -23,7 +24,7 @@ if (isset($_POST['editarDentista'])) {
 
     if (!empty($_POST['nomeDentista'])) {
 
-        $dentista->idDentista = $_POST['idDentista'];
+        $dentista->idDentista = $_GET['idDentista'];
         $dentista->nomeDentista = trim($_POST['nomeDentista']);
         $dentista->statusDentista = $_POST['status'];
         

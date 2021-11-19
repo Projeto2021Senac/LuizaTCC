@@ -115,7 +115,29 @@
 
 
             </table>
-
+            <div class="d-flex justify-content-center">
+                <nav class="" aria-label="...">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="listaRastreio.php?pagina=<?= ($pagina_atual > 1 ? $pagina_atual - 1 : $pagina_atual) ?>" tabindex="-1">Anterior</a>
+                        </li>
+                        <?php
+                        for ($i = 1; $i <= $num_pagina; $i++) {
+                            $estilo = "";
+                            if ($pagina_atual == $i) {
+                                $estilo = "active";
+                            }
+                        ?>
+                            <li class="page-item <?= $estilo ?>"><a class="page-link" href="listaRastreio.php?pagina=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link" href="listaRastreio.php?pagina=<?= ($pagina_atual < $num_pagina ? $pagina_atual + 1 : $pagina_atual) ?>">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
 
 
         </section>

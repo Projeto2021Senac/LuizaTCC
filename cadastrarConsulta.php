@@ -13,6 +13,7 @@ use \Classes\Entity\funcionario;
 
 
 define('TITLE', 'Cadastrar Nova Consulta');
+define('IDENTIFICACAO', '0');
 $objClinica = clinica::getClinicas();
 /* echo '<pre>';print_r($objClinica);echo'<pre>';exit; */
 $objDentista = dentista::getDentistas();

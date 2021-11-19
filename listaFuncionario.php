@@ -12,6 +12,13 @@ if (!isset($_GET['pagina'])){
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
+isset($_SESSION['pesquisa']) ? $pesquisa = $_SESSION['pesquisa'] : $pesquisa = $busca;
+if ($pesquisa != null) {
+  header('location: listaFuncionario.php?pagina=1&search=' . $pesquisa);
+}
+isset($_GET['search']) ? $search = $_GET['search'] : $search = '';
+
+
 //condições sql
 $condicoes = [
     strlen($busca) ? 'nome LIKE "%'. str_replace('', '%', $busca).'%"': null
@@ -34,18 +41,18 @@ if(strlen($where)){
   
   $inicio = ($itens_por_pagina * $pagina_atual) - $itens_por_pagina;
   
-  $registros_totais = $objFuncionario->getFuncionarios();
+  $funcionario = $registros_totais = $objFuncionario->getFuncionarios();
   
-  $registros_filtrados = $objFuncionario->getFuncionarios(null,$where,'nomeFuncionario asc',$inicio.','.$itens_por_pagina);
+  $funcionario = $registros_filtrados = $objFuncionario->getFuncionarios($where,null,'nomeFuncionario asc',$inicio.','.$itens_por_pagina);
   
   $num_registros_totais = count($registros_totais);
   
   $num_pagina = ceil($num_registros_totais/$itens_por_pagina);
 
-$objFuncionario= Funcionario::getFuncionarios();
+
 
 $resultados = '';
-foreach ($objFuncionario as $objFuncionario) {
+foreach ($funcionario as $objFuncionario) {
     $resultados .= '<tr>
                         <td>' . $objFuncionario->idFuncionario . '</td>
                         <td>' . $objFuncionario->nomeFuncionario . '</td>

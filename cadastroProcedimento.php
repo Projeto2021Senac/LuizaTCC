@@ -4,8 +4,8 @@ require __DIR__.'/vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 use \Classes\Entity\procedimento;
 
-define('TITLE','Cadastro Procedimento');
-
+define('TITLE','Cadastrar Procedimento');
+define('IDENTIFICACAO', '0');
 $objProcedimento = new Procedimento;
 if (isset($_POST['nomeProcedimento'])){
 

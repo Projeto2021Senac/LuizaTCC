@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 include __DIR__.'./includes/sessionStart.php';
 define('TITLE', 'Editar Clinica');
 define('BTN', 'editarClinica');
+define('IDENTIFICACAO', '0');
 
 use \Classes\Entity\clinica;
 

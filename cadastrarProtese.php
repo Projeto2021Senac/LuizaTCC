@@ -8,6 +8,8 @@ use \Classes\Entity\Protese;
 use \Classes\Entity\Paciente;
 
 define('TITLE', 'Cadastrar Prótese');
+define('BTN', 'cadastrarProtese');
+define('IDENTIFICACAO', '0');
 
 /**
  * Validação do POST, ainda incompleta pois não possui todos os campos necessários
@@ -23,7 +25,7 @@ $objProtese = new Protese;
 /* if (isset($_POST['cadastrarProtese'])){
     echo "<pre>"; print_r($_POST); echo "<pre>";exit;
 } */
-if (isset($_POST['cadastrarProtese'])) {
+if (isset($_POST[BTN])) {
     /**
      * Aqui a classe Protese é instanciada e tem todos as sua variáveis preenchidas pelos valores recebidos do POST, exceto a dataRegistro
      * e a variável ID que são preenchidas automaticamente posteriormente.
