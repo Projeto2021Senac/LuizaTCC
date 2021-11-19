@@ -13,6 +13,13 @@ if (!isset($_GET['pagina'])){
 //busca
 $busca = filter_input(INPUT_POST, 'busca', FILTER_SANITIZE_STRING);
 
+isset($_SESSION['pesquisa']) ? $pesquisa = $_SESSION['pesquisa'] : $pesquisa = $busca;
+if ($pesquisa != null) {
+  header('location: listaRastreio.php?pagina=1&search=' . $pesquisa);
+}
+isset($_GET['search']) ? $search = $_GET['search'] : $search = '';
+
+
 //condições sql
 $condicoes = [
     strlen($busca) ? 'where nomePaciente LIKE "%'. str_replace('', '%', $busca).'%" OR prontuario='.'"'.trim($busca).'"': null
